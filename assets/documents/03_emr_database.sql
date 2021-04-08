@@ -3,7 +3,6 @@ CREATE TABLE `employee_job_title` (
   `job_title` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`job_title_id`)
 );
-
 CREATE TABLE `contact_information` (
   `phone_number` INT(10) NOT NULL,
   `street_number` VARCHAR(50) NOT NULL,
@@ -17,7 +16,6 @@ CREATE TABLE `contact_information` (
   `fax` INT(10) NULL,
   PRIMARY KEY (`contact_id`)
 );
-
 CREATE TABLE `institution` (
   `institution_id` INT NOT NULL AUTO_INCREMENT ,
   `contact_id` INT NOT NULL,
@@ -25,7 +23,6 @@ CREATE TABLE `institution` (
   PRIMARY KEY (`institution_id`),
 FOREIGN KEY (`contact_id`) REFERENCES contact_information(`contact_id`)
 );
-
 CREATE TABLE `person` (
   `person_id` INT NOT NULL AUTO_INCREMENT ,
   `first_name` VARCHAR(255) NOT NULL,
@@ -37,7 +34,6 @@ CREATE TABLE `person` (
   PRIMARY KEY (`person_id`),
 FOREIGN KEY (`contact_id`) REFERENCES contact_information(`contact_id`)
 );
-
 CREATE TABLE `employee` (
   `employee_id` INT NOT NULL AUTO_INCREMENT ,
   `login_id` VARCHAR(30) NOT NULL,
@@ -50,38 +46,80 @@ FOREIGN KEY (`person_id`) REFERENCES person(`person_id`),
 FOREIGN KEY (`institution_id`) REFERENCES institution(`institution_id`),
 FOREIGN KEY (`job_title_id`) REFERENCES employee_job_title(`job_title_id`)
 );
-
 CREATE TABLE `admin` (
   `employee_id` INT NOT NULL,
   `admin_id` INT NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`admin_id`),
 FOREIGN KEY (`employee_id`) REFERENCES employee(`employee_id`)
 );
-
 CREATE TABLE `patient` (
   `language` VARCHAR(50) NOT NULL,
   `health_card_number` CHAR(12) NOT NULL,
   `emergency_contact_name` VARCHAR(255) NOT NULL,
-  `medications` TEXT NOT NULL,
   `allergies` TEXT NOT NULL,
   `blood_type` VARCHAR(50) NULL,
   `person_id` INT NOT NULL,
+  `patient_note_id` INT NULL,
+  `immunization_id` INT NOT NULL,
+  `lab_result_id` INT NOT NULL,
+  `diagnostic_image_id` INT NOT NULL,
+  `medication_id` INT NOT NULL,
   `emergency_contact_number` INT(10) NOT NULL,
   PRIMARY KEY (`health_card_number`),
 FOREIGN KEY (`person_id`) REFERENCES person(`person_id`)
 );
-
 CREATE TABLE `patient_note` (
   `employee_id` INT NOT NULL,
-  `note` LONGTEXT NULL,
-  `note_id` INT NOT NULL AUTO_INCREMENT ,
+  `patient_note` LONGTEXT NULL,
+  `patient_note_id` INT NOT NULL AUTO_INCREMENT ,
   `date_stamp`  DATE NOT NULL,
   `health_card_number` CHAR(12) NOT NULL,
-  PRIMARY KEY (`note_id`),
+  PRIMARY KEY (`patient_note_id`),
 FOREIGN KEY (`employee_id`) REFERENCES employee(`employee_id`),
 FOREIGN KEY (`health_card_number`) REFERENCES patient(`health_card_number`)
 );
-
+CREATE TABLE `medication` (
+  `employee_id` INT NOT NULL,
+  `medication` LONGTEXT NULL,
+  `medication_id` INT NOT NULL AUTO_INCREMENT ,
+  `date_stamp`  DATE NOT NULL,
+  `health_card_number` CHAR(12) NOT NULL,
+  `prescription` VARCHAR(255) NOT NULL,
+  `last_filled` DATE NULL,
+  PRIMARY KEY (`medication_id`),
+FOREIGN KEY (`employee_id`) REFERENCES employee(`employee_id`),
+FOREIGN KEY (`health_card_number`) REFERENCES patient(`health_card_number`)
+);
+CREATE TABLE `immunization` (
+  `employee_id` INT NOT NULL,
+  `type` LONGTEXT NULL,
+  `immunization_id` INT NOT NULL AUTO_INCREMENT ,
+  `date_stamp`  DATE NOT NULL,
+  `health_card_number` CHAR(12) NOT NULL,
+  PRIMARY KEY (`immunization_id`),
+FOREIGN KEY (`employee_id`) REFERENCES employee(`employee_id`),
+FOREIGN KEY (`health_card_number`) REFERENCES patient(`health_card_number`)
+);
+CREATE TABLE `lab_result` (
+  `employee_id` INT NOT NULL,
+  `lab_result` LONGTEXT NULL,
+  `lab_result_id` INT NOT NULL AUTO_INCREMENT ,
+  `date_stamp`  DATE NOT NULL,
+  `health_card_number` CHAR(12) NOT NULL,
+  PRIMARY KEY (`lab_result_id`),
+FOREIGN KEY (`employee_id`) REFERENCES employee(`employee_id`),
+FOREIGN KEY (`health_card_number`) REFERENCES patient(`health_card_number`)
+);
+CREATE TABLE `diagnostic_image` (
+  `employee_id` INT NOT NULL,
+  `diagnostic_image` LONGTEXT NULL,
+  `diagnostic_image_id` INT NOT NULL AUTO_INCREMENT ,
+  `date_stamp`  DATE NOT NULL,
+  `health_card_number` CHAR(12) NOT NULL,
+  PRIMARY KEY (`diagnostic_image_id`),
+FOREIGN KEY (`employee_id`) REFERENCES employee(`employee_id`),
+FOREIGN KEY (`health_card_number`) REFERENCES patient(`health_card_number`)
+);
 CREATE TABLE `additional_patient_info` (
   `health_card_number` CHAR(12) NOT NULL,
   `race` VARCHAR(50) NULL,
@@ -96,7 +134,6 @@ CREATE TABLE `additional_patient_info` (
   PRIMARY KEY (`health_card_number`),
 	FOREIGN KEY (`health_card_number`) REFERENCES patient(`health_card_number`)
 );
-
 CREATE TABLE `employee_qualification` (
   `qualification_id` INT NOT NULL AUTO_INCREMENT ,
   `qualification` VARCHAR(255) NOT NULL,
