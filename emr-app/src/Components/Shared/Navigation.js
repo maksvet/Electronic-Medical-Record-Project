@@ -1,5 +1,10 @@
 import React from "react";
-import { Navbar , Form , Nav, Button, NavDropdown, FormControl } from "react-bootstrap"
+import {
+  Navbar,
+  Nav,
+  NavDropdown,
+} from "react-bootstrap";
+import { BoxArrowRight } from "react-bootstrap-icons";
 
 const Navigation = () => {
   return (
@@ -11,8 +16,12 @@ const Navigation = () => {
           <Nav className="mr-auto">
             <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+            {/* dropdown will reflect name of logged in user */}
+            <NavDropdown title="John Doe" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">
+                <BoxArrowRight />
+                {""} Sign Out
+              </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Another action
               </NavDropdown.Item>
@@ -23,10 +32,6 @@ const Navigation = () => {
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-success">Search</Button>
-          </Form>
         </Navbar.Collapse>
       </Navbar>
     </div>
