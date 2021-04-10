@@ -1,12 +1,13 @@
-import React from "react";
+import React from 'react';
 import {
   Container,
-  Navbar,
   Form,
   Button,
-  Nav,
-  NavDropdown,
-} from "react-bootstrap";
+} from 'react-bootstrap';
+
+// const submitForm = () => {
+  
+// }
 
 const Navigation = () => {
   return (
@@ -28,7 +29,7 @@ const Navigation = () => {
         <Form.Group controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Admin" />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" href="/AdminLandingPage" /*onSubmit={submitForm}*/>
           Submit
         </Button>
       </Form>

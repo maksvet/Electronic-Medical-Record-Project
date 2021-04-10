@@ -1,8 +1,8 @@
-import React from "react";
-import { Nav, NavDropdown, Tabs, Tab, Container } from "react-bootstrap";
-import { BoxArrowRight } from "react-bootstrap-icons";
-import CreatePatientForm from "./CreatePatientForm";
-import CreateCareProviderForm from "./CreateCareProviderForm";
+import React from 'react';
+import { Nav, NavDropdown, Tabs, Tab } from 'react-bootstrap';
+import { BoxArrowRight } from 'react-bootstrap-icons';
+import CreatePatient from './CreatePatient';
+import CreateCareProvider from './CreateCareProvider';
 
 const Admin_landing_page = () => {
   return (
@@ -32,14 +32,14 @@ const Admin_landing_page = () => {
           title="Create Patient"
           className="container p-3 text-center"
         >
-          <CreatePatientForm />
+          <CreatePatient />
         </Tab>
         <Tab
           eventKey="createCareProvider"
           title="Create Care Provider"
           className="container p-3 text-center"
         >
-          <CreateCareProviderForm />
+          <CreateCareProvider />
         </Tab>
         <Tab eventKey="maintainPatient" title="Maintain Patient"></Tab>
         <Tab
