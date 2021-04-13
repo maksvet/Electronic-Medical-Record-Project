@@ -29,8 +29,20 @@ const Navigation = () => {
         <Form.Group controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Admin" />
         </Form.Group>
-        <Button variant="primary" type="submit" href="/AdminLandingPage" /*onSubmit={submitForm}*/>
-          Submit
+        <Button
+          variant="primary"
+          type="submit"
+          href="/AdminLandingPage" /*onSubmit={submitForm}*/
+        >
+          Admin
+        </Button>
+        {" "}
+        <Button
+          variant="primary"
+          type="submit"
+          href="/CareProviderLandingPage" /*onSubmit={submitForm}*/
+        >
+          Care Provider
         </Button>
       </Form>
     </Container>

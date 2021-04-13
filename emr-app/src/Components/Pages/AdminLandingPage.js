@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, NavDropdown, Tabs, Tab } from 'react-bootstrap';
+import { Nav, NavDropdown, Tabs, Tab, Form, FormControl, Button } from 'react-bootstrap';
 import { BoxArrowRight } from 'react-bootstrap-icons';
 import CreatePatient from './CreatePatient';
 import CreateCareProvider from './CreateCareProvider';
@@ -41,11 +41,18 @@ const Admin_landing_page = () => {
         >
           <CreateCareProvider />
         </Tab>
-        <Tab eventKey="maintainPatient" title="Maintain Patient"></Tab>
-        <Tab
-          eventKey="maintainCareProvider"
-          title="Maintain Care Provider"
-        ></Tab>
+        <Tab eventKey="maintainPatient" title="Maintain Patient">
+          <Form className="p-5 mx-5" inline>
+            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+            <Button variant="outline-success">Search</Button>
+          </Form>
+        </Tab>
+        <Tab eventKey="maintainCareProvider" title="Maintain Care Provider">
+          <Form className="p-5 mx-5" inline>
+            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+            <Button variant="outline-success">Search</Button>
+          </Form>
+        </Tab>
       </Tabs>
     </div>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, NavDropdown, Tabs, Tab } from 'react-bootstrap';
+import { Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 import { BoxArrowRight } from 'react-bootstrap-icons';
 import CreatePatient from './CreatePatient';
 import CreateCareProvider from './CreateCareProvider';
@@ -7,7 +7,11 @@ import CreateCareProvider from './CreateCareProvider';
 const CareProviderLandingPage = () => {
   return (
     <div>
-      <Nav>
+      <Nav className="p-2 mx-2">
+        <Form inline>
+          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+          <Button variant="outline-success">Search</Button>
+        </Form>
         <div className="ml-auto">
           <NavDropdown title="John Doe" id="basic-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">
@@ -25,28 +29,6 @@ const CareProviderLandingPage = () => {
           </NavDropdown>
         </div>
       </Nav>
-      <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-        <Tab eventKey="home" title="Home"></Tab>
-        <Tab
-          eventKey="createPatient"
-          title="Create Patient"
-          className="container p-3 text-center"
-        >
-          <CreatePatient />
-        </Tab>
-        <Tab
-          eventKey="createCareProvider"
-          title="Create Care Provider"
-          className="container p-3 text-center"
-        >
-          <CreateCareProvider />
-        </Tab>
-        <Tab eventKey="maintainPatient" title="Maintain Patient"></Tab>
-        <Tab
-          eventKey="maintainCareProvider"
-          title="Maintain Care Provider"
-        ></Tab>
-      </Tabs>
     </div>
   );
 };

@@ -1,10 +1,66 @@
 import React from 'react';
-import { InputGroup, FormControl } from "react-bootstrap";
+import { InputGroup, FormControl, Form, Button, Col } from "react-bootstrap";
 
 const ContactInformation = () => {
     return (
       <div>
-        <InputGroup className="mb-3">
+        <Form>
+          <Form.Row>
+            <Form.Group as={Col} controlId="formGridStreetNumber">
+              <Form.Control type="number" placeholder="Street Number" />
+            </Form.Group>
+
+            <Form.Group as={Col} controlId="formGridP">
+              <Form.Control type="password" placeholder="Password" />
+            </Form.Group>
+          </Form.Row>
+
+          <Form.Group controlId="formGridAddress1">
+            <Form.Control placeholder="1234 Main St" />
+          </Form.Group>
+
+          <Form.Group controlId="formGridAddress2">
+            <Form.Control placeholder="Apartment, studio, or floor" />
+          </Form.Group>
+
+          <Form.Row>
+            <Form.Group as={Col} controlId="formGridCity">
+              <Form.Control placeholder="City" />
+            </Form.Group>
+
+            <Form.Group as={Col} controlId="formGridProvince">
+              <Form.Control as="select" defaultValue="Choose Province">
+                <option>Choose Province</option>
+                <option>Alberta</option>
+                <option>British Columbia</option>
+                <option>Manitoba</option>
+                <option>New Brunswick</option>
+                <option>Newfoundland and Labrador</option>
+                <option>Northwest Territories</option>
+                <option>Nova Scotia</option>
+                <option>Nunavut</option>
+                <option>Ontario</option>
+                <option>Prince Edward Island</option>
+                <option>Quebec</option>
+                <option>Saskatchewan</option>
+                <option>Yukon</option>
+              </Form.Control>
+            </Form.Group>
+
+            <Form.Group as={Col} controlId="formGridZip">
+              <Form.Control placeholder="Zip" />
+            </Form.Group>
+          </Form.Row>
+
+          <Form.Group id="formGridCheckbox">
+            <Form.Check type="checkbox" label="Check me out" />
+          </Form.Group>
+
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form> 
+        {/* <InputGroup className="mb-3">
           <FormControl
             placeholder="Enter Street Number"
             aria-label="streetNumber"
@@ -20,30 +76,30 @@ const ContactInformation = () => {
           />
         </InputGroup>
 
-          <InputGroup className="mb-3">
-            <FormControl
-              placeholder="Enter City/Town"
-              aria-label="cityTown"
-              aria-describedby="basic-addon1"
-            />
-          </InputGroup>
+        <InputGroup className="mb-3">
+          <FormControl
+            placeholder="Enter City/Town"
+            aria-label="cityTown"
+            aria-describedby="basic-addon1"
+          />
+        </InputGroup>
 
-          <InputGroup className="mb-3">
-            <FormControl
-              placeholder="Enter Province/State"
-              aria-label="provinceState"
-              aria-describedby="basic-addon1"
-            />
-          </InputGroup>
+        <InputGroup className="mb-3">
+          <FormControl
+            placeholder="Enter Province/State"
+            aria-label="provinceState"
+            aria-describedby="basic-addon1"
+          />
+        </InputGroup>
 
-          <InputGroup className="mb-3">
-            <FormControl
-              placeholder="Enter
+        <InputGroup className="mb-3">
+          <FormControl
+            placeholder="Enter
               Country"
-              aria-label="country"
-              aria-describedby="basic-addon1"
-            />
-          </InputGroup>
+            aria-label="country"
+            aria-describedby="basic-addon1"
+          />
+        </InputGroup>
 
         <InputGroup className="mb-3">
           <FormControl
@@ -60,14 +116,14 @@ const ContactInformation = () => {
             aria-describedby="basic-addon1"
           />
         </InputGroup>
-        
+
         <InputGroup className="mb-3">
           <FormControl
             placeholder="Enter Fax"
             aria-label="fax"
             aria-describedby="basic-addon1"
           />
-        </InputGroup>
+        </InputGroup> */}
       </div>
     );
 }
