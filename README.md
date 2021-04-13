@@ -2,7 +2,7 @@
 
 ## Backend environment configuration and how to start application ## 
 
-1.  Run `npm install express esm uuid argon2 bcrypt jsonwebtoken express-jwt dotenv cors react-bootstrap bootstrap --save` to install dependencies
+1.  Run `npm install express esm uuid argon2 bcrypt jsonwebtoken express-jwt dotenv cors react-bootstrap bootstrap reactstrap react-router-dom --save` to install dependencies
 
 2.  Run `npm nodemon --save-dev` to install development dependency
 
