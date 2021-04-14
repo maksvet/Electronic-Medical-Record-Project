@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Col, FormControl, Form, Row} from "react-bootstrap";
-import { Input, Label } from 'reactstrap';
+import { Col, FormControl, Form, Row, Button } from "react-bootstrap";
+import { Input } from 'reactstrap';
 // import DropdownMenu from 'react-bootstrap/esm/DropdownMenu';
 
 const Person = () => {
@@ -12,6 +12,9 @@ const Person = () => {
   
 
   const handleSubmit = async (event) => {
+     console.log(
+       JSON.stringify({ firstName, middleName, lastName, dob, gender })
+     );
     event.preventDefault();
     // const response = await fetch("http://localhost:4000/", {
     //   method: "POST",
@@ -22,9 +25,7 @@ const Person = () => {
     //   body: ,
     // });
 
-    console.log(
-      JSON.stringify({ firstName, middleName, lastName, dob, gender })
-    );
+   
     // const payload = await response.json();
     // if (response.status >= 400) {
     //   alert(`Oops! Error ${response.status}:  ${payload.message}`);
@@ -40,7 +41,7 @@ const Person = () => {
 
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form  onSubmit={handleSubmit}>
       <Row className="py-2">
         <Col sm={4}>
           <Input
@@ -112,6 +113,10 @@ const Person = () => {
           </FormControl>
         </Col>
       </Row>
+
+      <Button variant="primary" type="submit">
+        Submit
+      </Button>
     </Form>
   );
 }

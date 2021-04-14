@@ -1,8 +1,8 @@
 import React from 'react';
 import { Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 import { BoxArrowRight } from 'react-bootstrap-icons';
-import CreatePatient from './CreatePatient';
-import CreateCareProvider from './CreateCareProvider';
+// import CreatePatient from './CreatePatient';
+// import CreateCareProvider from './CreateCareProvider';
 
 const CareProviderLandingPage = () => {
   return (
