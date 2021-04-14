@@ -5,6 +5,8 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 // import Landing from "./Components/Pages/Login";
 import Login from '../src/Components/Pages/Login';
 import AdminLandingPage from '../src/Components/Pages/AdminLandingPage';
+import AdminLandingPage2 from '../src/Components/Pages/AdminLandingPage2';
+import AdminHome from '../src/Components/Pages/AdminHome';
 import CareProviderLandingPage from '../src/Components/Pages/CareProviderLandingPage';
 import PrivateRoute from '../src/Components/Shared/PrivateRoute';
 
@@ -15,8 +17,10 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Login} />
-        <Route exact path="/CareProviderLandingPage" component={CareProviderLandingPage} />
-        <Route exact path="/AdminLandingPage" component={AdminLandingPage} />
+        <Route path="/CareProviderLandingPage" component={CareProviderLandingPage} />
+        <Route path="/AdminHome" component={AdminHome} />
+        <Route path="/AdminLandingPage" component={AdminLandingPage} />
+        <Route path="/AdminLandingPage2" component={AdminLandingPage2} />
         <PrivateRoute path="/..........">
           <AdminLandingPage />
         </PrivateRoute>

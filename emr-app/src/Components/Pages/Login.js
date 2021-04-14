@@ -21,7 +21,6 @@ const Navigation = () => {
             Only registered users can access this system.
           </Form.Text>
         </Form.Group>
-
         <Form.Group controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" placeholder="Password" />
@@ -32,18 +31,11 @@ const Navigation = () => {
         <Button
           variant="primary"
           type="submit"
-          href="/AdminLandingPage" /*onSubmit={submitForm}*/
+          href="/AdminHome" /*onSubmit={submitForm}*/
         >
           Admin
-        </Button>
-        {" "}
-        <Button
-          variant="primary"
-          type="submit"
-          href="/CareProviderLandingPage" /*onSubmit={submitForm}*/
-        >
-          Care Provider
-        </Button>
+        </Button>{" "}
+
       </Form>
     </Container>
   );
