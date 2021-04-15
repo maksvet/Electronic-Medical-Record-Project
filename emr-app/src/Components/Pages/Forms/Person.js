@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Col, FormControl, Form, Row, Button } from "react-bootstrap";
-import { Input } from 'reactstrap';
+import { AlignStart } from "react-bootstrap-icons";
+import { Input } from "reactstrap";
 // import DropdownMenu from 'react-bootstrap/esm/DropdownMenu';
 
 const Person = () => {
@@ -9,12 +10,11 @@ const Person = () => {
   const [lastName, setLastName] = useState("");
   const [dob, setDob] = useState("");
   const [gender, setGender] = useState("");
-  
 
   const handleSubmit = async (event) => {
-     console.log(
-       JSON.stringify({ firstName, middleName, lastName, dob, gender })
-     );
+    console.log(
+      JSON.stringify({ firstName, middleName, lastName, dob, gender })
+    );
     event.preventDefault();
     // const response = await fetch("http://localhost:4000/", {
     //   method: "POST",
@@ -25,7 +25,6 @@ const Person = () => {
     //   body: ,
     // });
 
-   
     // const payload = await response.json();
     // if (response.status >= 400) {
     //   alert(`Oops! Error ${response.status}:  ${payload.message}`);
@@ -39,9 +38,8 @@ const Person = () => {
     setGender("");
   };
 
-
   return (
-    <Form  onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <Row className="py-2">
         <Col sm={4}>
           <Input
@@ -81,7 +79,8 @@ const Person = () => {
       </Row>
 
       <Row className="py-2">
-        <Col sm={6}>
+        <label>Date of Birth</label>
+        <Col sm={2}>
           <Input
             type="date"
             name="dob"
@@ -93,7 +92,7 @@ const Person = () => {
           />
         </Col>
 
-        <Col sm={6}>
+        <Col sm={2}>
           <FormControl
             as="select"
             className="mr-sm-2"
@@ -119,6 +118,6 @@ const Person = () => {
       </Button>
     </Form>
   );
-}
+};
 
-export default Person
+export default Person;

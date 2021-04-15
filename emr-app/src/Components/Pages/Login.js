@@ -35,7 +35,14 @@ const Navigation = () => {
         >
           Admin
         </Button>{" "}
-
+        <Button
+          variant="primary"
+          type="submit"
+          href="/CareProviderLandingPage" /*onSubmit={submitForm}*/
+        >
+          Care Provider
+        </Button>
+        
       </Form>
     </Container>
   );

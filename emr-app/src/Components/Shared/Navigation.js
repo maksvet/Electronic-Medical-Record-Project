@@ -10,6 +10,9 @@ const Navigation = () => {
   return (
     <div>
       <Nav>
+        <h1 style={{ fontSize: "20px", padding: "1rem" }}>
+          Group-D Clinic Group
+        </h1>
         <div className="ml-auto">
           <NavDropdown title="John Doe" id="basic-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">
