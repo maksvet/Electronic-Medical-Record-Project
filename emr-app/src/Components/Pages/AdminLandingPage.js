@@ -1,6 +1,5 @@
 import React from 'react';
-import { Nav, NavDropdown, Tabs, Tab, Form, FormControl, Button } from 'react-bootstrap';
-import { BoxArrowRight } from 'react-bootstrap-icons';
+import { Tabs, Tab, Form, FormControl, Button } from 'react-bootstrap';
 import CreatePatient from './CreatePatient';
 import CreatePersonalDetails from '../Pages/Forms/Person';
 import CreateContactInfo from '../Pages/Forms/ContactInformation';
@@ -17,6 +16,7 @@ const Admin_landing_page = () => {
           title="Personal Details"
           className="container p-3 text-center"
         >
+          <h1>Personal Details</h1>
           <CreatePersonalDetails />
         </Tab>
         <Tab
@@ -24,6 +24,7 @@ const Admin_landing_page = () => {
           title="Contact Info"
           className="container p-3 text-center"
         >
+          <h1>Contact Info</h1>
           <CreateContactInfo />
         </Tab>
         <Tab

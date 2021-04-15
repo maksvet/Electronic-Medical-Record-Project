@@ -5,7 +5,7 @@ const CreateCareProviderForm = () => {
     return (
       <div>
 
-        <InputGroup className="mb-3">
+        <InputGroup className="mb-3" >
           <FormControl
             placeholder="Enter login ID"
             aria-label="loginId"
@@ -46,7 +46,7 @@ const CreateCareProviderForm = () => {
         </InputGroup>
 
         <Form.Group id="formGridCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
+          <Form.Check type="checkbox" label="Assign Admin Role" />
         </Form.Group>
 
         <Button variant="primary" type="submit">
