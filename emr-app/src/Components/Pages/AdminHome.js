@@ -21,7 +21,7 @@ const AdminHome = () => {
             className="ahbtn"
             variant="primary"
             type="submit"
-            href="/AdminLandingPage" /*onSubmit={submitForm}*/
+            href="/AdminCreatePatientPage" /*onSubmit={submitForm}*/
           >
             Create Patient
             <br />
@@ -31,7 +31,7 @@ const AdminHome = () => {
             className="ahbtn"
             variant="primary"
             type="submit"
-            href="/AdminLandingPage2" /*onSubmit={submitForm}*/
+            href="/AdminCreateCareProviderPage" /*onSubmit={submitForm}*/
           >
             Create Care Provider <br /> CRUD
           </Button>
@@ -39,7 +39,7 @@ const AdminHome = () => {
             className="ahbtn"
             variant="primary"
             type="submit"
-            href="/CareProviderLandingPage" /*onSubmit={submitForm}*/
+            href="/UpdatePatientPage" /*onSubmit={submitForm}*/
           >
             Update Patient
             <br />
@@ -49,7 +49,7 @@ const AdminHome = () => {
             className="ahbtn"
             variant="primary"
             type="submit"
-            href="/AdminLandingPage3" /*onSubmit={submitForm}*/
+            href="/AdminUpdateCareProviderPage" /*onSubmit={submitForm}*/
           >
             Update Care Provider <br /> CRUD
           </Button>

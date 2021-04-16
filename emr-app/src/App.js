@@ -4,11 +4,13 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 // import Footer from "../src/Components/Shared/Footer";
 // import Landing from "./Components/Pages/Login";
 import Login from '../src/Components/Pages/Login';
-import AdminLandingPage from '../src/Components/Pages/AdminLandingPage';
-import AdminLandingPage2 from '../src/Components/Pages/AdminLandingPage2';
+import AdminCreatePatientPage from './Components/Pages/AdminCreatePatientPage';
+import AdminCreateCareProviderPage from '../src/Components/Pages/AdminCreateCareProviderPage';
 import AdminHome from '../src/Components/Pages/AdminHome';
-import CareProviderLandingPage from '../src/Components/Pages/CareProviderLandingPage';
+import UpdatePatientPage from '../src/Components/Pages/UpdatePatientPage';
 import PrivateRoute from '../src/Components/Shared/PrivateRoute';
+import AdminUpdateCareProviderPage from './Components/Pages/AdminUpdateCareProviderPage';
+import CareProviderHome from './Components/Pages/CareProviderHome';
 
 // import { Card } from "react-bootstrap";
 
@@ -17,15 +19,17 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Login} />
-        <Route path="/CareProviderLandingPage" component={CareProviderLandingPage} />
+        <Route path="/UpdatePatientPage" component={UpdatePatientPage} />
         <Route path="/AdminHome" component={AdminHome} />
-        <Route path="/AdminLandingPage" component={AdminLandingPage} />
-        <Route path="/AdminLandingPage2" component={AdminLandingPage2} />
+        <Route path="/AdminCreatePatientPage" component={AdminCreatePatientPage} />
+        <Route path="/AdminCreateCareProviderPage" component={AdminCreateCareProviderPage} />
+        <Route path="/AdminUpdateCareProviderPage" component={AdminUpdateCareProviderPage} />
+        <Route path="/CareProviderHome" component={CareProviderHome} />
         <PrivateRoute path="/..........">
-          <AdminLandingPage />
+          <AdminCreatePatientPage />
         </PrivateRoute>
         <PrivateRoute path="/..........">
-          <CareProviderLandingPage />
+          <UpdatePatientPage />
         </PrivateRoute>
       </Switch>
     </BrowserRouter>

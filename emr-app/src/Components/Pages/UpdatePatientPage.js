@@ -1,9 +1,23 @@
-import React, { useState } from "react";
-import { Form, Button, Col } from "react-bootstrap";
-// import ContactInformation from './Forms/ContactInformation';
-// import Person from './Forms/Person';
+import React, { useState } from 'react';
+import { Row, Form, FormControl, Button } from 'react-bootstrap';
+import { Col, Input, Container } from 'reactstrap';
+import Navigation from "../Shared/Navigation";
 
-const CreatePatientForm = () => {
+const UpdatePatientPage = () => {
+  const [phoneNumber, setPhoneNumber] = useState("253-263-4879");
+  const [streetNumber, setStreetNumber] = useState("");
+  const [streetName, setStreetName] = useState("");
+  const [city, setCity] = useState("");
+  const [province, setProvince] = useState("");
+  const [country, setCountry] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [email, setEmail] = useState("");
+  const [fax, setFax] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [middleName, setMiddleName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [dob, setDob] = useState("");
+  const [gender, setGender] = useState("");
   const [language, setLanguage] = useState("");
   const [healthCardNumber, setHealthCardNumber] = useState("");
   const [emergencyContactName, setEmergencyContactName] = useState("");
@@ -22,8 +36,11 @@ const CreatePatientForm = () => {
   const [immunizationType, setImmunizationType] = useState("");
   const [immunizationDate, setImmunizationDate] = useState("");
   const [employeeID, setEmployeeID] = useState("");
+  const [ patientNote, setPatientNote] = useState("");
+
 
   const handleSubmit = async (event) => {
+    alert("something");
     event.preventDefault();
     // const response = await fetch("http://localhost:4000/", {
     //   method: "POST",
@@ -34,10 +51,22 @@ const CreatePatientForm = () => {
     //   body: ,
     // });
 
-    console.log("handleSubmit");
-
     console.log(
       JSON.stringify({
+        phoneNumber,
+        streetNumber,
+        streetName,
+        city,
+        province,
+        country,
+        postalCode,
+        email,
+        fax,
+        firstName,
+        middleName,
+        lastName,
+        dob,
+        gender,
         language,
         healthCardNumber,
         emergencyContactName,
@@ -55,7 +84,8 @@ const CreatePatientForm = () => {
         familyPhysician,
         immunizationType,
         immunizationDate,
-        employeeID
+        employeeID,
+        patientNote
       })
     );
     // const payload = await response.json();
@@ -64,6 +94,20 @@ const CreatePatientForm = () => {
     // } else {
     //   alert(`Congratulations! Submission submitted with id: ${payload.id}`);
     // }
+    setPhoneNumber("");
+    setStreetNumber("");
+    setStreetName("");
+    setCity("");
+    setProvince("");
+    setCountry("");
+    setPostalCode("");
+    setEmail("");
+    setFax("");
+    setFirstName("");
+    setMiddleName("");
+    setLastName("");
+    setDob("");
+    setGender("");
     setLanguage("");
     setHealthCardNumber("");
     setEmergencyContactName("");
@@ -82,18 +126,221 @@ const CreatePatientForm = () => {
     setImmunizationType("");
     setImmunizationDate("");
     setEmployeeID("");
+    setPatientNote("");
   };
 
   return (
-    <div>
-      <h1>Basic Info</h1>
+    <Container>
+      <Navigation />
+      <h1>Update Patient Form</h1>
+      <h2>Contact Info</h2>
       <Form onSubmit={handleSubmit}>
+        <Form.Row>
+          <Form.Group as={Col}>
+            <Form.Control
+              type="tel"
+              placeholder="Phone Number"
+              required
+              id="phoneNumber"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+            />
+          </Form.Group>
+
+          <Form.Group as={Col}>
+            <Form.Control
+              type="text"
+              placeholder="Street Number"
+              required
+              id="streetNumber"
+              value={streetNumber}
+              onChange={(e) => setStreetNumber(e.target.value)}
+            />
+          </Form.Group>
+
+          <Form.Group as={Col}>
+            <Form.Control
+              type="text"
+              placeholder="Street Name"
+              required
+              id="streetName"
+              value={streetName}
+              onChange={(e) => setStreetName(e.target.value)}
+            />
+          </Form.Group>
+        </Form.Row>
+
+        <Form.Row>
+          <Form.Group as={Col}>
+            <Form.Control
+              type="text"
+              placeholder="City"
+              required
+              id="city"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+            />
+          </Form.Group>
+
+          <Form.Group as={Col}>
+            <Form.Control
+              as="select"
+              defaultValue="Choose Province"
+              required
+              id="province"
+              value={province}
+              onChange={(e) => setProvince(e.target.value)}
+            >
+              <option>Choose Province</option>
+              <option>Alberta</option>
+              <option>British Columbia</option>
+              <option>Manitoba</option>
+              <option>New Brunswick</option>
+              <option>Newfoundland and Labrador</option>
+              <option>Northwest Territories</option>
+              <option>Nova Scotia</option>
+              <option>Nunavut</option>
+              <option>Ontario</option>
+              <option>Prince Edward Island</option>
+              <option>Quebec</option>
+              <option>Saskatchewan</option>
+              <option>Yukon</option>
+            </Form.Control>
+          </Form.Group>
+
+          <Form.Group as={Col}>
+            <Form.Control
+              as="select"
+              defaultValue="Choose Country"
+              required
+              id="country"
+              value={country}
+              onChange={(e) => setCountry(e.target.value)}
+            >
+              <option>Choose Country</option>
+              <option>Canada</option>
+              <option>USA</option>
+            </Form.Control>
+          </Form.Group>
+        </Form.Row>
+
+        <Form.Row>
+          <Form.Group as={Col}>
+            <Form.Control
+              type="text"
+              placeholder="Enter Postal Code"
+              required
+              id="postal code"
+              value={postalCode}
+              onChange={(e) => setPostalCode(e.target.value)}
+            />
+          </Form.Group>
+
+          <Form.Group as={Col}>
+            <Form.Control
+              type="email"
+              placeholder="Enter email"
+              required
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </Form.Group>
+
+          <Form.Group as={Col}>
+            <Form.Control
+              type="tel"
+              placeholder="Enter Fax"
+              required
+              id="fax"
+              value={fax}
+              onChange={(e) => setFax(e.target.value)}
+            />
+          </Form.Group>
+        </Form.Row>
+
+        <h2>Personal Details</h2>
+        <Row className="py-2">
+          <Col sm={4}>
+            <Input
+              type="text"
+              name="firstName"
+              id="firstName"
+              placeholder="Enter First Name"
+              required
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+          </Col>
+
+          <Col sm={4}>
+            <Input
+              type="text"
+              name="middleName"
+              id="middleName"
+              placeholder="Enter Middle Name"
+              required
+              value={middleName}
+              onChange={(e) => setMiddleName(e.target.value)}
+            />
+          </Col>
+
+          <Col sm={4}>
+            <Input
+              type="text"
+              name="lastName"
+              id="lastName"
+              placeholder="Enter Last Name"
+              required
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+            />
+          </Col>
+        </Row>
+
+        <Row className="py-2">
+          <label>Date of Birth</label>
+          <Col sm={2}>
+            <Input
+              type="date"
+              name="dob"
+              id="dob"
+              placeholder="Enter Date Of Birth"
+              required
+              value={dob}
+              onChange={(e) => setDob(e.target.value)}
+            />
+          </Col>
+
+          <Col sm={2}>
+            <FormControl
+              as="select"
+              className="mr-sm-2"
+              type="text"
+              name="gender"
+              id="gender"
+              placeholder=""
+              required
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+              custom
+            >
+              <option value="0">Select Gender</option>
+              <option value="1">Male</option>
+              <option value="2">Female</option>
+              <option value="3">Non-Binary</option>
+            </FormControl>
+          </Col>
+        </Row>
+
+        <h2>Patients Details</h2>
         <Form.Row>
           <Form.Group as={Col} sm={4}>
             <Form.Control
               type="text"
               placeholder="Enter Health Card Number"
               required
+              readOnly
               id="healthCardNumber"
               value={healthCardNumber}
               onChange={(e) => setHealthCardNumber(e.target.value)}
@@ -271,7 +518,7 @@ const CreatePatientForm = () => {
           </Form.Group>
         </Form.Row>
 
-        <h1>Medical History</h1>
+        <h2>Medical History</h2>
         <Form.Group as={Col}>
           <Form.Control
             type="text"
@@ -317,7 +564,7 @@ const CreatePatientForm = () => {
         </Form.Group>
 
         <Form.Row>
-          <Form.Group as={Col} sm={6    }>
+          <Form.Group as={Col} sm={6}>
             <Form.Control
               type="text"
               placeholder="Enter Immunization Type"
@@ -351,16 +598,36 @@ const CreatePatientForm = () => {
           </Form.Group>
         </Form.Row>
 
-        <Form.Group id="formGridCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
+        <h2>Patient Notes</h2>
+        <Form.Group as={Col}>
+          <Form.Control
+            type="textarea"
+            placeholder="Patient Note"
+            required
+            readOnly
+            id="patientNote"
+            value={patientNote}
+            onChange={(e) => setPatientNote(e.target.value)}
+          />
+    <h4>Enter New Patient Note</h4>
         </Form.Group>
-      </Form>
+        <Form.Group as={Col}>
+          <Form.Control
+            type="textarea"
+            placeholder="Patient Note"
+            required
+            id="patientNote"
+            value={patientNote}
+            onChange={(e) => setPatientNote(e.target.value)}
+          />
+        </Form.Group>
 
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </div>
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
+    </Container>
   );
 };
 
-export default CreatePatientForm;
+export default UpdatePatientPage;
