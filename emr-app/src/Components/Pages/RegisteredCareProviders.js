@@ -13,7 +13,7 @@ const RegisteredCareProviders = (props) => {
     async function fetchData() {
       console.log("something");
       const res = await fetch(
-        `https://run.mocky.io/v3/9f08c699-0bfe-4da0-aef3-a9395865d444`,
+        `https://run.mocky.io/v3/f71d3adc-073f-4e66-916d-710503f3baeb`,
         {
           method: "GET",
         }
@@ -72,14 +72,25 @@ const RegisteredCareProviders = (props) => {
   return (
     <div>
       {careProviders.map((careProvider) => (
-        <div key={careProvider.id}>
-          <p>{careProvider.name}</p>
-          <img
-            src={careProvider.image}
-            alt={careProvider.name}
-            width="300"
-            height="300"
-          />
+        <div key={careProvider.employeeId}>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>{careProvider.firstName}</td>
+                <td>{careProvider.lastName}</td>
+                <td>@mdo</td>
+              </tr>
+            </tbody>
+          </table>
           <button
             onClick={(e) => {
               handleDelete(e, careProvider.id);

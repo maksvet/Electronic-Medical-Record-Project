@@ -3,10 +3,10 @@ import { useHistory } from "react-router-dom";
 
 const UpdatePatientPage = (props) => {
   console.log(props);
-  let id = props.match.params.employeeID;
-  const [careProviders, setCareProviders] = useState([]);
+  let id = props.match.params.health_card_number;
+  const [patients, setPatients] = useState([]);
   const [form, setForm] = useState({ display: "none" });
-  const [careProvider, setCareProvider] = useState("");
+  const [patient, setPatient] = useState("");
   const history = useHistory();
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const UpdatePatientPage = (props) => {
           method: "GET",
         }
       );
-      res.json().then((res) => setCareProviders([...res]));
+      res.json().then((res) => setPatients([...res]));
     }
     fetchData();
   }, [id]);
@@ -28,26 +28,26 @@ const UpdatePatientPage = (props) => {
     console.log("Donald was here");
     console.log(id);
 
-    fetch(`/api/careProviders/${id}`, {
+    fetch(`/api/patients/${id}`, {
       method: "delete",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
     }).then((response) => response.json());
-    history.push("/careProviders");
+    history.push("/patients");
   };
 
-  const handleEdit = (event, careProvider) => {
+  const handleEdit = (event, patient) => {
     event.preventDefault();
     console.log("D is here again");
-    console.log(careProvider);
+    console.log(patient);
     setForm({ display: "block" });
-    setCareProvider(careProvider);
+    setPatient(patient);
   };
 
   const handleChange = (event) => {
-    setCareProvider((prevState) => ({
+    setPatient((prevState) => ({
       ...prevState,
       [event.target.name]: event.target.value,
     }));
@@ -56,7 +56,7 @@ const UpdatePatientPage = (props) => {
   const handleSubmit = (event, id) => {
     event.preventDefault();
     console.log(id);
-    fetch(`/api/careProviders/${id}`, {
+    fetch(`/api/patients/${id}`, {
       method: "put",
       headers: {
         Accept: "application/json",
@@ -64,32 +64,32 @@ const UpdatePatientPage = (props) => {
       },
 
       //make sure to serialize your JSON body
-      body: JSON.stringify(careProvider),
+      body: JSON.stringify(patient),
     }).then((response) => response.json());
-    history.push("/careProviders");
+    history.push("/patients");
   };
 
   return (
     <div>
-      {careProviders.map((careProvider) => (
-        <div key={careProvider.id}>
-          <p>{careProvider.name}</p>
+      {patients.map((patient) => (
+        <div key={patient.id}>
+          <p>{patient.name}</p>
           <img
-            src={careProvider.image}
-            alt={careProvider.name}
+            src={patient.image}
+            alt={patient.name}
             width="300"
             height="300"
           />
           <button
             onClick={(e) => {
-              handleDelete(e, careProvider.id);
+              handleDelete(e, patient.id);
             }}
           >
             Delete Me!
           </button>
           <button
             onClick={(e) => {
-              handleEdit(e, careProvider);
+              handleEdit(e, patient);
             }}
           >
             Edit Me!
@@ -98,14 +98,14 @@ const UpdatePatientPage = (props) => {
       ))}
 
       {/* This is the form that pops up when you press the Edit Me! button */}
-      <form onSubmit={(e) => handleSubmit(e, careProvider.id)} style={form}>
+      <form onSubmit={(e) => handleSubmit(e, patient.id)} style={form}>
         <div>
           <label>
             Name:
             <input
               type="text"
               name="name"
-              value={careProvider.name}
+              value={patient.name}
               onChange={handleChange}
             />
           </label>
@@ -116,7 +116,7 @@ const UpdatePatientPage = (props) => {
             <input
               type="text"
               name="image"
-              value={careProvider.image}
+              value={patient.image}
               onChange={handleChange}
             />
           </label>
