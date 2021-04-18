@@ -11,6 +11,8 @@ import UpdatePatientPage from '../src/Components/Pages/UpdatePatientPage';
 import PrivateRoute from '../src/Components/Shared/PrivateRoute';
 import AdminUpdateCareProviderPage from './Components/Pages/AdminUpdateCareProviderPage';
 import CareProviderHome from './Components/Pages/CareProviderHome';
+import RegisteredCareProviders from './Components/Pages/RegisteredCareProviders';
+import RegisteredPatients from './Components/Pages/RegisteredPatients';
 
 // import { Card } from "react-bootstrap";
 
@@ -25,6 +27,8 @@ function App() {
         <Route path="/AdminCreateCareProviderPage" component={AdminCreateCareProviderPage} />
         <Route path="/AdminUpdateCareProviderPage" component={AdminUpdateCareProviderPage} />
         <Route path="/CareProviderHome" component={CareProviderHome} />
+        <Route path="/RegisteredCareProviders" component={RegisteredCareProviders} />
+        <Route path="/RegisteredPatients" component={RegisteredPatients} />
         <PrivateRoute path="/..........">
           <AdminCreatePatientPage />
         </PrivateRoute>

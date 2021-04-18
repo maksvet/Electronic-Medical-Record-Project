@@ -215,7 +215,6 @@ const handleSubmit = async (event) => {
           <Form.Group as={Col}>
             <Form.Control
               as="select"
-              defaultValue="Choose Province"
               required
               id="province"
               value={province}
@@ -241,7 +240,6 @@ const handleSubmit = async (event) => {
           <Form.Group as={Col}>
             <Form.Control
               as="select"
-              defaultValue="Choose Country"
               required
               id="country"
               value={country}
@@ -346,10 +344,8 @@ const handleSubmit = async (event) => {
             <FormControl
               as="select"
               className="mr-sm-2"
-              type="text"
               name="gender"
               id="gender"
-              placeholder=""
               required
               value={gender}
               onChange={(e) => setGender(e.target.value)}
@@ -379,7 +375,6 @@ const handleSubmit = async (event) => {
           <Form.Group as={Col} sm={3}>
             <Form.Control
               as="select"
-              placeholder="Enter Marital Status"
               required
               id="maritalStatus"
               value={maritalStatus}
@@ -400,7 +395,6 @@ const handleSubmit = async (event) => {
           <Form.Group as={Col} sm={2}>
             <Form.Control
               as="select"
-              placeholder="Enter Language"
               required
               id="language"
               value={language}
@@ -417,7 +411,6 @@ const handleSubmit = async (event) => {
           <Form.Group as={Col} sm={2}>
             <Form.Control
               as="select"
-              placeholder="Enter Nationality"
               required
               id="nationality"
               value={nationality}
@@ -439,7 +432,6 @@ const handleSubmit = async (event) => {
           <Form.Group as={Col} sm={2}>
             <Form.Control
               as="select"
-              placeholder="Enter Religion"
               required
               id="religion"
               value={religion}
@@ -458,7 +450,6 @@ const handleSubmit = async (event) => {
           <Form.Group as={Col} sm={2}>
             <Form.Control
               as="select"
-              defaultValue="Enter Race"
               required
               id="race"
               value={race}
@@ -520,7 +511,6 @@ const handleSubmit = async (event) => {
           <Form.Group as={Col} sm={3}>
             <Form.Control
               as="select"
-              placeholder="Enter Income Level"
               required
               id="incomeLevel"
               value={incomeLevel}
@@ -564,7 +554,6 @@ const handleSubmit = async (event) => {
           <Form.Group as={Col} sm={2}>
             <Form.Control
               as="select"
-              placeholder="Enter Blood Type"
               required
               id="bloodType"
               value={bloodType}

@@ -307,7 +307,6 @@ const UpdatePatientPage = () => {
           <Form.Group as={Col}>
             <Form.Control
               as="select"
-              defaultValue="Choose Province"
               required
               id="province"
               value={province}
@@ -333,7 +332,6 @@ const UpdatePatientPage = () => {
           <Form.Group as={Col}>
             <Form.Control
               as="select"
-              defaultValue="Choose Country"
               required
               id="country"
               value={country}
@@ -443,7 +441,6 @@ const UpdatePatientPage = () => {
             <FormControl
               as="select"
               className="mr-sm-2"
-              type="text"
               name="gender"
               id="gender"
               placeholder=""
@@ -482,7 +479,6 @@ const UpdatePatientPage = () => {
           <Form.Group as={Col} sm={3}>
             <Form.Control
               as="select"
-              placeholder="Enter Marital Status"
               required
               id="maritalStatus"
               value={maritalStatus}
@@ -503,7 +499,6 @@ const UpdatePatientPage = () => {
           <Form.Group as={Col} sm={2}>
             <Form.Control
               as="select"
-              placeholder="Enter Language"
               required
               id="language"
               value={language}
@@ -520,7 +515,6 @@ const UpdatePatientPage = () => {
           <Form.Group as={Col} sm={2}>
             <Form.Control
               as="select"
-              placeholder="Enter Nationality"
               required
               id="nationality"
               value={nationality}
@@ -542,7 +536,6 @@ const UpdatePatientPage = () => {
           <Form.Group as={Col} sm={2}>
             <Form.Control
               as="select"
-              placeholder="Enter Religion"
               required
               id="religion"
               value={religion}
@@ -561,7 +554,6 @@ const UpdatePatientPage = () => {
           <Form.Group as={Col} sm={2}>
             <Form.Control
               as="select"
-              defaultValue="Enter Race"
               required
               id="race"
               value={race}
@@ -623,7 +615,6 @@ const UpdatePatientPage = () => {
           <Form.Group as={Col} sm={3}>
             <Form.Control
               as="select"
-              placeholder="Enter Income Level"
               required
               id="incomeLevel"
               value={incomeLevel}
@@ -672,7 +663,6 @@ const UpdatePatientPage = () => {
           <Form.Group as={Col} sm={2}>
             <Form.Control
               as="select"
-              placeholder="Enter Blood Type"
               required
               id="bloodType"
               value={bloodType}

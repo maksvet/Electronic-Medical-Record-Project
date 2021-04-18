@@ -205,7 +205,6 @@ const AdminUpdateCareProviderPage = () => {
               type="text"
               name="gender"
               id="gender"
-              placeholder=""
               required
               value={gender}
               onChange={(e) => setGender(e.target.value)}
@@ -346,7 +345,6 @@ const AdminUpdateCareProviderPage = () => {
           <Form.Group as={Col}>
             <Form.Control
               as="select"
-              defaultValue="Choose Province"
               required
               id="province"
               value={province}
@@ -372,7 +370,6 @@ const AdminUpdateCareProviderPage = () => {
           <Form.Group as={Col}>
             <Form.Control
               as="select"
-              defaultValue="Choose Country"
               required
               id="country"
               value={country}
