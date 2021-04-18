@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Row, Form, FormControl, Button } from 'react-bootstrap';
-import { Col, Input, Container } from 'reactstrap';
+import React, { useState } from "react";
+import { Row, Form, FormControl, Button } from "react-bootstrap";
+import { Col, Input, Container } from "reactstrap";
 import Navigation from "../Shared/Navigation";
 
 const UpdatePatientPage = () => {
@@ -36,64 +36,48 @@ const UpdatePatientPage = () => {
   const [immunizationType, setImmunizationType] = useState("");
   const [immunizationDate, setImmunizationDate] = useState("");
   const [employeeID, setEmployeeID] = useState("");
-  const [ patientNote, setPatientNote] = useState("");
+  const [patientNote, setPatientNote] = useState("");
 
-
-  const handleSubmit = async (event) => {
-    alert("something");
+  const handleSubmit1 = async (event) => {
+    alert("Successful Submit!");
     event.preventDefault();
+    console.log(
+      phoneNumber,
+      streetNumber,
+      streetName,
+      city,
+      province,
+      country,
+      postalCode,
+      email,
+      fax
+    );
     // const response = await fetch("http://localhost:4000/", {
     //   method: "POST",
     //   headers: {
     //     Accept: "application/json",
     //     "Content-Type": "application/json",
     //   },
-    //   body: ,
+    //   body: JSON.stringify({
+    //     phoneNumber,
+    //     streetNumber,
+    //     streetName,
+    //     city,
+    //     province,
+    //     country,
+    //     postalCode,
+    //     email,
+    //     fax,
+    //   }),
     // });
 
-    console.log(
-      JSON.stringify({
-        phoneNumber,
-        streetNumber,
-        streetName,
-        city,
-        province,
-        country,
-        postalCode,
-        email,
-        fax,
-        firstName,
-        middleName,
-        lastName,
-        dob,
-        gender,
-        language,
-        healthCardNumber,
-        emergencyContactName,
-        emergencyContactNumber,
-        allergies,
-        bloodType,
-        race,
-        maritalStatus,
-        familySize,
-        occupation,
-        incomeLevel,
-        nationality,
-        religion,
-        insuranceDetails,
-        familyPhysician,
-        immunizationType,
-        immunizationDate,
-        employeeID,
-        patientNote
-      })
-    );
     // const payload = await response.json();
     // if (response.status >= 400) {
     //   alert(`Oops! Error ${response.status}:  ${payload.message}`);
     // } else {
     //   alert(`Congratulations! Submission submitted with id: ${payload.id}`);
     // }
+
     setPhoneNumber("");
     setStreetNumber("");
     setStreetName("");
@@ -103,24 +87,134 @@ const UpdatePatientPage = () => {
     setPostalCode("");
     setEmail("");
     setFax("");
+  };
+
+  const handleSubmit2 = async (event) => {
+    alert("Successful Submit!");
+    event.preventDefault();
+    console.log(firstName, middleName, lastName, dob, gender);
+    // const response = await fetch("http://localhost:4000/", {
+    //   method: "POST",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     firstName,
+    //     middleName,
+    //     lastName,
+    //     dob,
+    //     gender,
+    //   }),
+    // });
+
+    // const payload = await response.json();
+    // if (response.status >= 400) {
+    //   alert(`Oops! Error ${response.status}:  ${payload.message}`);
+    // } else {
+    //   alert(`Congratulations! Submission submitted with id: ${payload.id}`);
+    // }
+
     setFirstName("");
     setMiddleName("");
     setLastName("");
     setDob("");
     setGender("");
-    setLanguage("");
+  };
+
+  const handleSubmit3 = async (event) => {
+    alert("Successful Submit!");
+    event.preventDefault();
+    console.log(
+      healthCardNumber,
+      maritalStatus,
+      language,
+      nationality,
+      religion,
+      race,
+      emergencyContactNumber,
+      emergencyContactName,
+      occupation,
+      incomeLevel,
+      familySize
+    );
+    // const response = await fetch("http://localhost:4000/", {
+    //   method: "POST",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     healthCardNumber,
+    //     maritalStatus,
+    //     language,
+    //     nationality,
+    //     religion,
+    //     race,
+    //     emergencyContactNumber,
+    //     emergencyContactName,
+    //     occupation,
+    //     incomeLevel,
+    //     familySize,
+    //   }),
+    // });
+
+    // const payload = await response.json();
+    // if (response.status >= 400) {
+    //   alert(`Oops! Error ${response.status}:  ${payload.message}`);
+    // } else {
+    //   alert(`Congratulations! Submission submitted with id: ${payload.id}`);
+    // }
     setHealthCardNumber("");
-    setEmergencyContactName("");
-    setEmergencyContactNumber("");
-    setAllergies("");
-    setBloodType("");
-    setRace("");
     setMaritalStatus("");
-    setFamilySize("");
-    setOccupation("");
-    setIncomeLevel("");
+    setLanguage("");
     setNationality("");
     setReligion("");
+    setRace("");
+    setEmergencyContactNumber("");
+    setEmergencyContactName("");
+    setOccupation("");
+    setIncomeLevel("");
+    setFamilySize("");
+  };
+
+  const handleSubmit4 = async (event) => {
+    alert("Successful Submit!");
+    event.preventDefault();
+    console.log(
+      allergies,
+      bloodType,
+      insuranceDetails,
+      familyPhysician,
+      immunizationType,
+      immunizationDate,
+      employeeID
+    );
+    // const response = await fetch("http://localhost:4000/", {
+    //   method: "POST",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     allergies,
+    //     bloodType,
+    //     insuranceDetails,
+    //     familyPhysician,
+    //     immunizationType,
+    //     immunizationDate,
+    //     employeeID,
+    //   }),
+    // });
+
+    // const payload = await response.json();
+    // if (response.status >= 400) {
+    //   alert(`Oops! Error ${response.status}:  ${payload.message}`);
+    // } else {
+    //   alert(`Congratulations! Submission submitted with id: ${payload.id}`);
+    // }
+    setAllergies("");
+    setBloodType("");
     setInsuranceDetails("");
     setFamilyPhysician("");
     setImmunizationType("");
@@ -129,12 +223,40 @@ const UpdatePatientPage = () => {
     setPatientNote("");
   };
 
+  const handleSubmit5 = async (event) => {
+    alert("Successful Submit!");
+    console.log(patientNote);
+    event.preventDefault();
+    // const response = await fetch("http://localhost:4000/", {
+    //   method: "POST",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     patientNote,
+    //   }),
+    // });
+
+    // console.log(
+
+    // );
+
+    // const payload = await response.json();
+    // if (response.status >= 400) {
+    //   alert(`Oops! Error ${response.status}:  ${payload.message}`);
+    // } else {
+    //   alert(`Congratulations! Submission submitted with id: ${payload.id}`);
+    // }
+    setPatientNote("");
+  };
+
   return (
-    <Container>
+    <Container className="p-3">
       <Navigation />
       <h1>Update Patient Form</h1>
       <h2>Contact Info</h2>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit1} className="pb-3">
         <Form.Row>
           <Form.Group as={Col}>
             <Form.Control
@@ -258,8 +380,13 @@ const UpdatePatientPage = () => {
             />
           </Form.Group>
         </Form.Row>
+        <Button variant="primary" type="submit">
+          Update
+        </Button>
+      </Form>
 
-        <h2>Personal Details</h2>
+      <h2>Personal Details</h2>
+      <Form onSubmit={handleSubmit2} className="pb-3">
         <Row className="py-2">
           <Col sm={4}>
             <Input
@@ -332,8 +459,13 @@ const UpdatePatientPage = () => {
             </FormControl>
           </Col>
         </Row>
+        <Button variant="primary" type="submit">
+          Update
+        </Button>
+      </Form>
 
-        <h2>Patients Details</h2>
+      <h2>Patients Details</h2>
+      <Form onSubmit={handleSubmit3} className="pb-3">
         <Form.Row>
           <Form.Group as={Col} sm={4}>
             <Form.Control
@@ -509,6 +641,7 @@ const UpdatePatientPage = () => {
           <Form.Group as={Col} sm={2}>
             <Form.Control
               type="number"
+              min="1"
               placeholder="Enter Family Size"
               required
               id="familySize"
@@ -517,51 +650,66 @@ const UpdatePatientPage = () => {
             />
           </Form.Group>
         </Form.Row>
+        <Button variant="primary" type="submit">
+          Update
+        </Button>
+      </Form>
 
-        <h2>Medical History</h2>
-        <Form.Group as={Col}>
-          <Form.Control
-            type="text"
-            placeholder="Enter Allergies"
-            required
-            id="allergies"
-            value={allergies}
-            onChange={(e) => setAllergies(e.target.value)}
-          />
-        </Form.Group>
+      <h2>Medical History</h2>
+      <Form onSubmit={handleSubmit4} className="pb-3">
+        <Row>
+          <Form.Group as={Col}>
+            <Form.Control
+              type="text"
+              placeholder="Enter Allergies"
+              required
+              id="allergies"
+              value={allergies}
+              onChange={(e) => setAllergies(e.target.value)}
+            />
+          </Form.Group>
 
-        <Form.Group as={Col}>
-          <Form.Control
-            type="text"
-            placeholder="Enter Blood Type"
-            required
-            id="bloodType"
-            value={bloodType}
-            onChange={(e) => setBloodType(e.target.value)}
-          />
-        </Form.Group>
+          <Form.Group as={Col} sm={2}>
+            <Form.Control
+              as="select"
+              placeholder="Enter Blood Type"
+              required
+              id="bloodType"
+              value={bloodType}
+              onChange={(e) => setBloodType(e.target.value)}
+            >
+              <option>Blood Type</option>
+              <option>A</option>
+              <option>B</option>
+              <option>AB</option>
+              <option>O</option>
+              <option>Unknown</option>
+            </Form.Control>
+          </Form.Group>
+        </Row>
+        <Row>
+          <Form.Group as={Col}>
+            <Form.Control
+              type="text"
+              placeholder="Enter Insurance Details"
+              required
+              id="insuranceDetails"
+              value={insuranceDetails}
+              onChange={(e) => setInsuranceDetails(e.target.value)}
+            />
+          </Form.Group>
 
-        <Form.Group as={Col}>
-          <Form.Control
-            type="text"
-            placeholder="Enter Insurance Details"
-            required
-            id="insuranceDetails"
-            value={insuranceDetails}
-            onChange={(e) => setInsuranceDetails(e.target.value)}
-          />
-        </Form.Group>
-
-        <Form.Group as={Col}>
-          <Form.Control
-            type="text"
-            placeholder="Enter Family Physician"
-            required
-            id="familyPhysician"
-            value={familyPhysician}
-            onChange={(e) => setFamilyPhysician(e.target.value)}
-          />
-        </Form.Group>
+          <Form.Group as={Col} sm={4}>
+            <Form.Control
+              type="text"
+              placeholder="Enter Family Physician"
+              required
+              id="familyPhysician"
+              value={familyPhysician}
+              onChange={(e) => setFamilyPhysician(e.target.value)}
+            />
+          </Form.Group>
+        </Row>
 
         <Form.Row>
           <Form.Group as={Col} sm={6}>
@@ -597,8 +745,13 @@ const UpdatePatientPage = () => {
             />
           </Form.Group>
         </Form.Row>
+        <Button variant="primary" type="submit">
+          Update
+        </Button>
+      </Form>
 
-        <h2>Patient Notes</h2>
+      <h2>Patient Notes</h2>
+      <Form onSubmit={handleSubmit5} className="pb-3">
         <Form.Group as={Col}>
           <Form.Control
             type="textarea"
@@ -609,7 +762,7 @@ const UpdatePatientPage = () => {
             value={patientNote}
             onChange={(e) => setPatientNote(e.target.value)}
           />
-    <h4>Enter New Patient Note</h4>
+          <h4>Enter New Patient Note</h4>
         </Form.Group>
         <Form.Group as={Col}>
           <Form.Control
@@ -620,11 +773,10 @@ const UpdatePatientPage = () => {
             value={patientNote}
             onChange={(e) => setPatientNote(e.target.value)}
           />
+          <Button variant="primary" type="submit" className="m-3">
+            Update
+          </Button>
         </Form.Group>
-
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
       </Form>
     </Container>
   );

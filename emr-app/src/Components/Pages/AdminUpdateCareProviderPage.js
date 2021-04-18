@@ -26,41 +26,103 @@ const AdminUpdateCareProviderPage = () => {
   const [qualification, setQualification] = useState("");
   const [institutionName, setInstitutionName] = useState("");
 
-  const handleSubmit = async (event) => {
-    alert("something");
+  const handleSubmit1 = async (event) => {
+    alert("Successful Submit!");
     event.preventDefault();
+    console.log(firstName, middleName, lastName, dob, gender);
     // const response = await fetch("http://localhost:4000/", {
     //   method: "POST",
     //   headers: {
     //     Accept: "application/json",
     //     "Content-Type": "application/json",
     //   },
-    //   body: ,
+    //   body: JSON.stringify({
+    //     firstName,
+    //     middleName,
+    //     lastName,
+    //     dob,
+    //     gender,
+    //   }),
     // });
 
+    // const payload = await response.json();
+    // if (response.status >= 400) {
+    //   alert(`Oops! Error ${response.status}:  ${payload.message}`);
+    // } else {
+    //   alert(`Congratulations! Submission submitted with id: ${payload.id}`);
+    // }
+    setFirstName("");
+    setMiddleName("");
+    setLastName("");
+    setDob("");
+    setGender("");
+  };
+
+  const handleSubmit2 = async (event) => {
+    alert("Successful Submit!");
+    event.preventDefault();
+    console.log(loginID, password, jobTitle, qualification, institutionName);
+    // const response = await fetch("http://localhost:4000/", {
+    //   method: "POST",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     loginID,
+    //     password,
+    //     jobTitle,
+    //     qualification,
+    //     institutionName,
+    //   }),
+    // });
+
+    // const payload = await response.json();
+    // if (response.status >= 400) {
+    //   alert(`Oops! Error ${response.status}:  ${payload.message}`);
+    // } else {
+    //   alert(`Congratulations! Submission submitted with id: ${payload.id}`);
+    // }
+    setLoginID("");
+    setPassword("");
+    setJobTitle("");
+    setQualification("");
+    setInstitutionName("");
+  };
+
+  const handleSubmit3 = async (event) => {
+    alert("Successful Submit!");
+    event.preventDefault();
     console.log(
-      JSON.stringify({
-        phoneNumber,
-        streetNumber,
-        streetName,
-        city,
-        province,
-        country,
-        postalCode,
-        email,
-        fax,
-        firstName,
-        middleName,
-        lastName,
-        dob,
-        gender,
-        loginID,
-        password,
-        jobTitle,
-        qualification,
-        institutionName,
-      })
+      phoneNumber,
+      streetNumber,
+      streetName,
+      city,
+      province,
+      country,
+      postalCode,
+      email,
+      fax
     );
+    // const response = await fetch("http://localhost:4000/", {
+    //   method: "POST",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     phoneNumber,
+    //     streetNumber,
+    //     streetName,
+    //     city,
+    //     province,
+    //     country,
+    //     postalCode,
+    //     email,
+    //     fax,
+    //   }),
+    // });
+
     // const payload = await response.json();
     // if (response.status >= 400) {
     //   alert(`Oops! Error ${response.status}:  ${payload.message}`);
@@ -76,24 +138,14 @@ const AdminUpdateCareProviderPage = () => {
     setPostalCode("");
     setEmail("");
     setFax("");
-    setFirstName("");
-    setMiddleName("");
-    setLastName("");
-    setDob("");
-    setGender("");
-    setLoginID("");
-    setPassword("");
-    setJobTitle("");
-    setQualification("");
-    setInstitutionName("");
   };
 
   return (
-    <Container>
+    <Container className="pb-5">
       <Navigation />
       <h2>Update Care Provider Form</h2>
       <h3>Personal Details</h3>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit1} className="pb-3">
         <Row className="py-2">
           <Col sm={4}>
             <Input
@@ -166,8 +218,13 @@ const AdminUpdateCareProviderPage = () => {
             </FormControl>
           </Col>
         </Row>
+        <Button variant="primary" type="submit">
+          Update
+        </Button>
+      </Form>
 
-        <h3>Credentials</h3>
+      <h3>Credentials</h3>
+      <Form onSubmit={handleSubmit2} className="pb-3">
         <Row className="py-2">
           <Col sm={4}>
             <Input
@@ -232,8 +289,13 @@ const AdminUpdateCareProviderPage = () => {
         <Form.Group id="formGridCheckbox">
           <Form.Check type="checkbox" label="Assign Admin Role" />
         </Form.Group>
+        <Button variant="primary" type="submit">
+          Update
+        </Button>
+      </Form>
 
-        <h3>Contact Information</h3>
+      <h3>Contact Information</h3>
+      <Form onSubmit={handleSubmit3} className="pb-3">
         <Form.Row>
           <Form.Group as={Col}>
             <Form.Control
@@ -359,7 +421,7 @@ const AdminUpdateCareProviderPage = () => {
         </Form.Row>
 
         <Button variant="primary" type="submit">
-          Submit
+          Update
         </Button>
       </Form>
     </Container>

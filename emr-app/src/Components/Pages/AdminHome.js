@@ -13,8 +13,8 @@ import Navigation from '../Shared/Navigation';
 const AdminHome = () => {
   return (
     <React.Fragment>
-      <Navigation />
       <Container className="py-5 text-center">
+      <Navigation />
         <h1 className="py-5 text-center">Welcome Admin</h1>
         <Form>
           <Button

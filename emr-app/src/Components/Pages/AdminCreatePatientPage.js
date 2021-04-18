@@ -39,19 +39,9 @@ const [employeeID, setEmployeeID] = useState("");
 
 
 const handleSubmit = async (event) => {
-  alert("something");
   event.preventDefault();
-  // const response = await fetch("http://localhost:4000/", {
-  //   method: "POST",
-  //   headers: {
-  //     Accept: "application/json",
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: ,
-  // });
-
+  alert("Successful!");
   console.log(
-    JSON.stringify({
       phoneNumber,
       streetNumber,
       streetName,
@@ -83,14 +73,57 @@ const handleSubmit = async (event) => {
       familyPhysician,
       immunizationType,
       immunizationDate,
-      employeeID    })
+      employeeID
   );
-  // const payload = await response.json();
+  // const response = await fetch("http://localhost:4000/", {
+  //   method: "POST",
+  //   headers: {
+  //     Accept: "application/json",
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify({
+  //     phoneNumber,
+  //     streetNumber,
+  //     streetName,
+  //     city,
+  //     province,
+  //     country,
+  //     postalCode,
+  //     email,
+  //     fax,
+  //     firstName,
+  //     middleName,
+  //     lastName,
+  //     dob,
+  //     gender,
+  //     language,
+  //     healthCardNumber,
+  //     emergencyContactName,
+  //     emergencyContactNumber,
+  //     allergies,
+  //     bloodType,
+  //     race,
+  //     maritalStatus,
+  //     familySize,
+  //     occupation,
+  //     incomeLevel,
+  //     nationality,
+  //     religion,
+  //     insuranceDetails,
+  //     familyPhysician,
+  //     immunizationType,
+  //     immunizationDate,
+  //     employeeID,
+  //   }),
+  // });
+
+  // // const payload = await response.json();
   // if (response.status >= 400) {
   //   alert(`Oops! Error ${response.status}:  ${payload.message}`);
   // } else {
   //   alert(`Congratulations! Submission submitted with id: ${payload.id}`);
   // }
+
   setPhoneNumber("");
   setStreetNumber("");
   setStreetName("");
@@ -126,8 +159,9 @@ const handleSubmit = async (event) => {
 };
 
   return (
-    <Container>
+    <Container className="p-3">
       <Navigation />
+
       <h1>Create Patient</h1>
       <h2>Contact Info</h2>
       <Form onSubmit={handleSubmit}>
@@ -504,6 +538,7 @@ const handleSubmit = async (event) => {
           <Form.Group as={Col} sm={2}>
             <Form.Control
               type="number"
+              min="1"
               placeholder="Enter Family Size"
               required
               id="familySize"
@@ -514,49 +549,59 @@ const handleSubmit = async (event) => {
         </Form.Row>
 
         <h2>Medical History</h2>
-        <Form.Group as={Col}>
-          <Form.Control
-            type="text"
-            placeholder="Enter Allergies"
-            required
-            id="allergies"
-            value={allergies}
-            onChange={(e) => setAllergies(e.target.value)}
-          />
-        </Form.Group>
+        <Row>
+          <Form.Group as={Col}>
+            <Form.Control
+              type="text"
+              placeholder="Enter Allergies"
+              required
+              id="allergies"
+              value={allergies}
+              onChange={(e) => setAllergies(e.target.value)}
+            />
+          </Form.Group>
 
-        <Form.Group as={Col}>
-          <Form.Control
-            type="text"
-            placeholder="Enter Blood Type"
-            required
-            id="bloodType"
-            value={bloodType}
-            onChange={(e) => setBloodType(e.target.value)}
-          />
-        </Form.Group>
+          <Form.Group as={Col} sm={2}>
+            <Form.Control
+              as="select"
+              placeholder="Enter Blood Type"
+              required
+              id="bloodType"
+              value={bloodType}
+              onChange={(e) => setBloodType(e.target.value)}
+            >
+              <option>Blood Type</option>
+              <option>A</option>
+              <option>B</option>
+              <option>AB</option>
+              <option>O</option>
+              <option>Unknown</option>
+            </Form.Control>
+          </Form.Group>
+        </Row>
+        <Row>
+          <Form.Group as={Col}>
+            <Form.Control
+              type="text"
+              placeholder="Enter Insurance Details"
+              required
+              id="insuranceDetails"
+              value={insuranceDetails}
+              onChange={(e) => setInsuranceDetails(e.target.value)}
+            />
+          </Form.Group>
 
-        <Form.Group as={Col}>
-          <Form.Control
-            type="text"
-            placeholder="Enter Insurance Details"
-            required
-            id="insuranceDetails"
-            value={insuranceDetails}
-            onChange={(e) => setInsuranceDetails(e.target.value)}
-          />
-        </Form.Group>
-
-        <Form.Group as={Col}>
-          <Form.Control
-            type="text"
-            placeholder="Enter Family Physician"
-            required
-            id="familyPhysician"
-            value={familyPhysician}
-            onChange={(e) => setFamilyPhysician(e.target.value)}
-          />
-        </Form.Group>
+          <Form.Group as={Col} sm={4}>
+            <Form.Control
+              type="text"
+              placeholder="Enter Family Physician"
+              required
+              id="familyPhysician"
+              value={familyPhysician}
+              onChange={(e) => setFamilyPhysician(e.target.value)}
+            />
+          </Form.Group>
+        </Row>
 
         <Form.Row>
           <Form.Group as={Col} sm={6}>

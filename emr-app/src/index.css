@@ -22,15 +22,12 @@ font-weight: 900;
   text-transform: uppercase;
 }
 
-nav {
-  border: solid gray 2px;
-}
- h1 {
+h1 {
    text-align: left;
  }
 
 .ahbtn {
-  height: 15rem;
+  height: 10rem;
   width: 15rem;
   display: inline-block;
   padding: 15px 25px;
