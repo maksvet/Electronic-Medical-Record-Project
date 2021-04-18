@@ -1,77 +1,62 @@
 import React, { useState, useEffect } from "react";
-// import { findDOMNode } from "react-dom";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
-const RegisteredCareProviders = () => {
-  const [cats, setCats] = useState([]);
-  const [cat, setCat] = useState([{ name: "", image: "" }]);
-  const [editID, setEditID] = useState({ display: "block" });
-  //const history = useHistory();
+const RegisteredCareProviders = (props) => {
+  console.log(props);
+  let id = props.match.params.employeeID;
+  const [careProviders, setCareProviders] = useState([]);
+  const [form, setForm] = useState({ display: "none" });
+  const [careProvider, setCareProvider] = useState("");
+  const history = useHistory();
 
   useEffect(() => {
-    //   fetch("http://localhost:3001/api/cats")
-    //     .then((res) => res.json())
-    //     .then((res) => this.setCats(res));
-    // });
-
     async function fetchData() {
-      const res = await fetch("http://localhost:3001/api/cats");
-      res.json().then((res) => setCats(res));
-      //.catch((err) => setErrors(err));
+      console.log("something");
+      const res = await fetch(
+        `https://run.mocky.io/v3/9f08c699-0bfe-4da0-aef3-a9395865d444`,
+        {
+          method: "GET",
+        }
+      );
+      res.json().then((res) => setCareProviders([...res]));
     }
     fetchData();
-  }, []);
+  }, [id]);
 
   const handleDelete = (event, id) => {
     event.preventDefault();
-    const index = cats.findIndex((props) => props.id === id);
-    cats.splice(index, 1);
-    setCats([...cats]);
-    fetch(`/api/cats/${id}`, {
+    console.log("Donald was here");
+    console.log(id);
+
+    fetch(`/api/careProviders/${id}`, {
       method: "delete",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
     }).then((response) => response.json());
-    // history.push("/cats");
-    // window.location.href = "/cats";
+    history.push("/careProviders");
   };
 
-  const handleEdit = (event, cat) => {
+  const handleEdit = (event, careProvider) => {
     event.preventDefault();
-    setEditID(cat.id);
+    console.log("D is here again");
+    console.log(careProvider);
+    setForm({ display: "block" });
+    setCareProvider(careProvider);
   };
 
-  const handleChange = (event, cat) => {
-    // setCat((prevState) => ({
-    // ...prevState,
-    // [event.target.name]: event.target.value,
-    // }));
-
-    const payload = {
-      id: cat.id,
-      name: cat.name,
-      image: cat.image,
-    };
-
-    const index = cats.findIndex((props) => props.id === cat.id);
-    console.log(index);
-
-    cats[index] = {
-      payload,
-      ...cats[index],
+  const handleChange = (event) => {
+    setCareProvider((prevState) => ({
+      ...prevState,
       [event.target.name]: event.target.value,
-    };
-
-    setCat(cats[index]);
-    setCats([...cats]);
+    }));
   };
 
   const handleSubmit = (event, id) => {
     event.preventDefault();
-    setEditID("");
-    fetch(`/api/cats/${id}`, {
+    console.log(id);
+    fetch(`/api/careProviders/${id}`, {
       method: "put",
       headers: {
         Accept: "application/json",
@@ -79,72 +64,65 @@ const RegisteredCareProviders = () => {
       },
 
       //make sure to serialize your JSON body
-      body: JSON.stringify(cat),
+      body: JSON.stringify(careProvider),
     }).then((response) => response.json());
-    // history.push("/cats");
-    // window.location.href = "/cats";
+    history.push("/careProviders");
   };
 
   return (
     <div>
-      {cats.map((cat) => (
-        // (cat[cat.id] = { name: cat.name, image: cat.image }),
-        <div key={cat.id}>
-          <p>{cat.name}</p>
-          <img src={cat.image} alt={cat.name} width="300" height="300" />
-          <br />
+      {careProviders.map((careProvider) => (
+        <div key={careProvider.id}>
+          <p>{careProvider.name}</p>
+          <img
+            src={careProvider.image}
+            alt={careProvider.name}
+            width="300"
+            height="300"
+          />
           <button
             onClick={(e) => {
-              handleDelete(e, cat.id);
+              handleDelete(e, careProvider.id);
             }}
           >
             Delete Me!
           </button>
           <button
             onClick={(e) => {
-              handleEdit(e, cat);
+              handleEdit(e, careProvider);
             }}
           >
             Edit Me!
           </button>
-
-          <form
-            onSubmit={(e) => handleSubmit(e, cat.id)}
-            style={
-              editID === cat.id ? { display: "block" } : { display: "none" }
-            }
-            id={cat.id}
-          >
-            <div>
-              <label>
-                Name:
-                <input
-                  type="text"
-                  name="name"
-                  // defaultValue={cat[cat.id].name}
-                  defaultValue={cat.name}
-                  // value=
-                  onChange={(e) => handleChange(e, cat)}
-                />
-              </label>
-            </div>
-            <div>
-              <label>
-                Photo:
-                <input
-                  type="text"
-                  name="image"
-                  // defaultValue={cat[cat.id].image}
-                  defaultValue={cat.image}
-                  // value=
-                  onChange={(e) => handleChange(e, cat)}
-                />
-              </label>
-            </div>
-            <input type="submit" value="Submit" />
-          </form>
         </div>
       ))}
+
+      {/* This is the form that pops up when you press the Edit Me! button */}
+      <form onSubmit={(e) => handleSubmit(e, careProvider.id)} style={form}>
+        <div>
+          <label>
+            Name:
+            <input
+              type="text"
+              name="name"
+              value={careProvider.name}
+              onChange={handleChange}
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            Photo:
+            <input
+              type="text"
+              name="image"
+              value={careProvider.image}
+              onChange={handleChange}
+            />
+          </label>
+        </div>
+        <input type="submit" value="Submit" />
+      </form>
     </div>
   );
 };
