@@ -18,7 +18,7 @@ const Navigation = () => {
           <Form.Label>User ID</Form.Label>
           <Form.Control type="email" placeholder="Enter User ID" />
           <Form.Text className="text-muted">
-            Only registered users can access this system.
+            Only registered care providers can access this system.
           </Form.Text>
         </Form.Group>
         <Form.Group controlId="formBasicPassword">
@@ -38,7 +38,7 @@ const Navigation = () => {
         <Button
           variant="primary"
           type="submit"
-          href="/CareProviderLandingPage" /*onSubmit={submitForm}*/
+          href="/CareProviderHome" /*onSubmit={submitForm}*/
         >
           Care Provider
         </Button>
