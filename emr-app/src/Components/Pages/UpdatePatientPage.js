@@ -13,7 +13,7 @@ const UpdatePatientPage = (props) => {
     async function fetchData() {
       console.log("something");
       const res = await fetch(
-        `https://run.mocky.io/v3/9f08c699-0bfe-4da0-aef3-a9395865d444`,
+        `https://run.mocky.io/v3/9169b99f-3d1b-43a8-8776-4e9587211b60`,
         {
           method: "GET",
         }

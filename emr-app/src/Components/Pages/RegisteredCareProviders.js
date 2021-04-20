@@ -13,37 +13,37 @@ const RegisteredCareProviders = (props) => {
     async function fetchData() {
       console.log("something");
       const res = await fetch(
-        `https://run.mocky.io/v3/f71d3adc-073f-4e66-916d-710503f3baeb`,
+        `https://run.mocky.io/v3/342ddaf9-7e18-44c4-9a68-f7e47778221a`,
         {
           method: "GET",
         }
       );
-      res.json().then((res) => setCareProviders([...res]));
+      res.json().then((res) => setCareProviders(res));
     }
     fetchData();
   }, [id]);
 
   const handleDelete = (event, id) => {
     event.preventDefault();
-    console.log("Donald was here");
-    console.log(id);
-
-    fetch(`/api/careProviders/${id}`, {
-      method: "delete",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    }).then((response) => response.json());
-    history.push("/careProviders");
+    const index = careProviders.findIndex((careProvider=> careProvider.employeeID === id));
+    console.log(index);
+    careProviders.splice(index, 1);
+    setCareProviders([...careProviders]);
+    
+    // fetch(`/api/careProviders/${careProvider.employeeID}`, {
+    //   method: "delete",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json",
+    //   },
+    // }).then((response) => response.json());
+    // history.push("/careProviders");
   };
 
-  const handleEdit = (event, careProvider) => {
+  const handleEdit = (event, id) => {
     event.preventDefault();
-    console.log("D is here again");
-    console.log(careProvider);
-    setForm({ display: "block" });
-    setCareProvider(careProvider);
+    // window.location.href = `/AdminUpdateCareProvider/${id}`;
+    window.location.href = "/AdminUpdateCareProviderPage";
   };
 
   const handleChange = (event) => {
@@ -72,7 +72,7 @@ const RegisteredCareProviders = (props) => {
   return (
     <div>
       {careProviders.map((careProvider) => (
-        <div key={careProvider.employeeId}>
+        <div key={careProvider.employeeID}>
           <table class="table">
             <thead>
               <tr>
@@ -84,23 +84,22 @@ const RegisteredCareProviders = (props) => {
             </thead>
             <tbody>
               <tr>
-                <th scope="row">1</th>
+                <th scope="row">{careProvider.employeeID}</th>
                 <td>{careProvider.firstName}</td>
                 <td>{careProvider.lastName}</td>
-                <td>@mdo</td>
               </tr>
             </tbody>
           </table>
           <button
-            onClick={(e) => {
-              handleDelete(e, careProvider.id);
+            onClick={(event) => {
+              handleDelete(event, careProvider.employeeID);
             }}
           >
             Delete Me!
           </button>
           <button
-            onClick={(e) => {
-              handleEdit(e, careProvider);
+            onClick={(event) => {
+              handleEdit(event, careProvider.employeeID);
             }}
           >
             Edit Me!

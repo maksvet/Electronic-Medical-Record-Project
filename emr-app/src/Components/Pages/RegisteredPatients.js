@@ -13,7 +13,7 @@ const RegisteredPatients = (props) => {
     async function fetchData() {
       console.log("something");
       const res = await fetch(
-        `https://run.mocky.io/v3/f71d3adc-073f-4e66-916d-710503f3baeb`,
+        `https://run.mocky.io/v3/9169b99f-3d1b-43a8-8776-4e9587211b60`,
         {
           method: "GET",
         }
@@ -40,6 +40,8 @@ const RegisteredPatients = (props) => {
 
   const handleEdit = (event, patient) => {
     event.preventDefault();
+    // window.location.href = `/AdminUpdatePatientPage/${patient.healthCardNumber}`;
+    window.location.href = `/AdminUpdatePatientPage`;
     console.log("D is here again");
     console.log(patient);
     setForm({ display: "block" });
