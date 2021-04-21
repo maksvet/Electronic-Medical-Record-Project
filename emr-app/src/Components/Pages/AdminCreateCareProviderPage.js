@@ -6,49 +6,49 @@ import Navigation from "../Shared/Navigation";
 import { Container } from "react-bootstrap";
 
 const AdminCreateCareProviderPage = () => {
-  const [firstName, setFirstName] = useState("");
-  const [middleName, setMiddleName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [first_name, setFirstName] = useState("");
+  const [middle_name, setMiddleName] = useState("");
+  const [last_name, setLastName] = useState("");
   const [dob, setDob] = useState("");
   const [gender, setGender] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [streetNumber, setStreetNumber] = useState("");
-  const [streetName, setStreetName] = useState("");
+  const [phone_number, setPhoneNumber] = useState("");
+  const [street_number, setStreetNumber] = useState("");
+  const [street_name, setStreetName] = useState("");
   const [city, setCity] = useState("");
   const [province, setProvince] = useState("");
   const [country, setCountry] = useState("");
-  const [postalCode, setPostalCode] = useState("");
+  const [postal_code, setPostalCode] = useState("");
   const [email, setEmail] = useState("");
   const [fax, setFax] = useState("");
-  const [loginID, setLoginID] = useState("");
+  const [login_id, setLoginID] = useState("");
   const [password, setPassword] = useState("");
-  const [jobTitle, setJobTitle] = useState("");
+  const [job_title, setJobTitle] = useState("");
   const [qualification, setQualification] = useState("");
-  const [institutionName, setInstitutionName] = useState("");
+  const [institution_name, setInstitutionName] = useState("");
 
   const handleSubmit = async (event) => {
     alert("Successful!");
     event.preventDefault();
     console.log(
-      phoneNumber,
-      streetNumber,
-      streetName,
+      phone_number,
+      street_number,
+      street_name,
       city,
       province,
       country,
-      postalCode,
+      postal_code,
       email,
       fax,
-      firstName,
-      middleName,
-      lastName,
+      first_name,
+      middle_name,
+      last_name,
       dob,
       gender,
-      loginID,
+      login_id,
       password,
-      jobTitle,
+      job_title,
       qualification,
-      institutionName
+      institution_name
     );
     // const response = await fetch("http://localhost:4000/", {
     //   method: "POST",
@@ -57,25 +57,25 @@ const AdminCreateCareProviderPage = () => {
     //     "Content-Type": "application/json",
     //   },
     //   body: JSON.stringify({
-    //     phoneNumber,
-    //     streetNumber,
-    //     streetName,
+    //     phone_number,
+    //     street_number,
+    //     street_name,
     //     city,
     //     province,
     //     country,
-    //     postalCode,
+    //     postal_code,
     //     email,
     //     fax,
-    //     firstName,
-    //     middleName,
-    //     lastName,
+    //     first_name,
+    //     middle_name,
+    //     last_name,
     //     dob,
     //     gender,
-    //     loginID,
+    //     login_id,
     //     password,
-    //     jobTitle,
+    //     job_title,
     //     qualification,
-    //     institutionName,
+    //     institution_name,
     //   }),
     // });
 
@@ -116,11 +116,11 @@ const AdminCreateCareProviderPage = () => {
           <Col sm={4}>
             <Input
               type="text"
-              name="firstName"
-              id="firstName"
+              name="first_name"
+              id="first_name"
               placeholder="Enter First Name"
               required
-              value={firstName}
+              value={first_name}
               onChange={(e) => setFirstName(e.target.value)}
             />
           </Col>
@@ -128,11 +128,11 @@ const AdminCreateCareProviderPage = () => {
           <Col sm={4}>
             <Input
               type="text"
-              name="middleName"
-              id="middleName"
+              name="middle_name"
+              id="middle_name"
               placeholder="Enter Middle Name"
               required
-              value={middleName}
+              value={middle_name}
               onChange={(e) => setMiddleName(e.target.value)}
             />
           </Col>
@@ -140,11 +140,11 @@ const AdminCreateCareProviderPage = () => {
           <Col sm={4}>
             <Input
               type="text"
-              name="lastName"
-              id="lastName"
+              name="last_name"
+              id="last_name"
               placeholder="Enter Last Name"
               required
-              value={lastName}
+              value={last_name}
               onChange={(e) => setLastName(e.target.value)}
             />
           </Col>
@@ -168,10 +168,8 @@ const AdminCreateCareProviderPage = () => {
             <FormControl
               as="select"
               className="mr-sm-2"
-              type="text"
               name="gender"
               id="gender"
-              placeholder=""
               required
               value={gender}
               onChange={(e) => setGender(e.target.value)}
@@ -190,11 +188,11 @@ const AdminCreateCareProviderPage = () => {
           <Col sm={4}>
             <Input
               type="text"
-              name="loginID"
-              id="loginID"
+              name="login_id"
+              id="login_id"
               placeholder="Enter login ID"
               required
-              value={loginID}
+              value={login_id}
               onChange={(e) => setLoginID(e.target.value)}
             />
           </Col>
@@ -214,11 +212,11 @@ const AdminCreateCareProviderPage = () => {
           <Col sm={4}>
             <Input
               type="text"
-              name="jobTitle"
-              id="jobTitle"
+              name="job_title"
+              id="job_title"
               placeholder="Enter Job Title"
               required
-              value={jobTitle}
+              value={job_title}
               onChange={(e) => setJobTitle(e.target.value)}
             />
           </Col>
@@ -238,11 +236,11 @@ const AdminCreateCareProviderPage = () => {
           <Col sm={4}>
             <Input
               type="text"
-              name="institutionName"
-              id="institutionName"
+              name="institution_name"
+              id="institution_name"
               placeholder="Enter Institution Name"
               required
-              value={institutionName}
+              value={institution_name}
               onChange={(e) => setInstitutionName(e.target.value)}
             />
           </Col>
@@ -258,8 +256,8 @@ const AdminCreateCareProviderPage = () => {
               type="tel"
               placeholder="Phone Number"
               required
-              id="phoneNumber"
-              value={phoneNumber}
+              id="phone_number"
+              value={phone_number}
               onChange={(e) => setPhoneNumber(e.target.value)}
             />
           </Form.Group>
@@ -269,8 +267,8 @@ const AdminCreateCareProviderPage = () => {
               type="text"
               placeholder="Street Number"
               required
-              id="streetNumber"
-              value={streetNumber}
+              id="street_number"
+              value={street_number}
               onChange={(e) => setStreetNumber(e.target.value)}
             />
           </Form.Group>
@@ -280,8 +278,8 @@ const AdminCreateCareProviderPage = () => {
               type="text"
               placeholder="Street Name"
               required
-              id="streetName"
-              value={streetName}
+              id="street_name"
+              value={street_name}
               onChange={(e) => setStreetName(e.target.value)}
             />
           </Form.Group>
@@ -302,7 +300,6 @@ const AdminCreateCareProviderPage = () => {
           <Form.Group as={Col}>
             <Form.Control
               as="select"
-              defaultValue="Choose Province"
               required
               id="province"
               value={province}
@@ -328,7 +325,6 @@ const AdminCreateCareProviderPage = () => {
           <Form.Group as={Col}>
             <Form.Control
               as="select"
-              defaultValue="Choose Country"
               required
               id="country"
               value={country}
@@ -348,7 +344,7 @@ const AdminCreateCareProviderPage = () => {
               placeholder="Enter Postal Code"
               required
               id="postal code"
-              value={postalCode}
+              value={postal_code}
               onChange={(e) => setPostalCode(e.target.value)}
             />
           </Form.Group>

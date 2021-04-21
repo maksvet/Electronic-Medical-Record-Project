@@ -1,57 +1,85 @@
-import React, { useState } from "react";
-import { Row, Form, FormControl, Button } from "react-bootstrap";
-import { Col, Input, Container } from "reactstrap";
+import React, { useState, useEffect } from "react";
+import { Form, FormControl, Button } from "react-bootstrap";
+import { Row, Col, Input } from "reactstrap";
 import Navigation from "../Shared/Navigation";
+import { Container } from "react-bootstrap";
 
-const UpdatePatientPage = () => {
-  const [phoneNumber, setPhoneNumber] = useState("253-263-4879");
-  const [streetNumber, setStreetNumber] = useState("");
-  const [streetName, setStreetName] = useState("");
-  const [city, setCity] = useState("");
-  const [province, setProvince] = useState("");
-  const [country, setCountry] = useState("");
-  const [postalCode, setPostalCode] = useState("");
-  const [email, setEmail] = useState("");
-  const [fax, setFax] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [middleName, setMiddleName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [dob, setDob] = useState("");
-  const [gender, setGender] = useState("");
-  const [language, setLanguage] = useState("");
-  const [healthCardNumber, setHealthCardNumber] = useState("");
-  const [emergencyContactName, setEmergencyContactName] = useState("");
-  const [emergencyContactNumber, setEmergencyContactNumber] = useState("");
-  const [allergies, setAllergies] = useState("");
-  const [bloodType, setBloodType] = useState("");
-  const [race, setRace] = useState("");
-  const [maritalStatus, setMaritalStatus] = useState("");
-  const [familySize, setFamilySize] = useState("");
-  const [occupation, setOccupation] = useState("");
-  const [incomeLevel, setIncomeLevel] = useState("");
-  const [nationality, setNationality] = useState("");
-  const [religion, setReligion] = useState("");
-  const [insuranceDetails, setInsuranceDetails] = useState("");
-  const [familyPhysician, setFamilyPhysician] = useState("");
-  const [immunizationType, setImmunizationType] = useState("");
-  const [immunizationDate, setImmunizationDate] = useState("");
-  const [employeeID, setEmployeeID] = useState("");
-  const [patientNote, setPatientNote] = useState("");
+const UpdatePatientPage = (props) => {
+  const [patient, setPatient] = useState("");
+
+  console.log(props);
+  let id = props.match.params.health_card_number;
+
+  useEffect(() => {
+    async function fetchData() {
+      console.log("something");
+      const res = await fetch(
+        `https://run.mocky.io/v3/9169b99f-3d1b-43a8-8776-4e9587211b60`,
+        {
+          method: "GET",
+        }
+      );
+      res.json().then((res) => setPatient(...res));
+    }
+    fetchData();
+  }, [id]);
+
+  const [personalInfo, setPersonalInfo] = useState({
+    first_name: patient.first_name,
+    middle_name: patient.middle_name,
+    last_name: patient.last_name,
+    dob: patient.dob,
+    gender: patient.gender,
+  });
+
+  const [contactInfo, setContactInfo] = useState({
+    phone_number: patient.phone_number,
+    street_number: patient.street_number,
+    street_name: patient.street_name,
+    city: patient.city,
+    province: patient.province,
+    country: patient.country,
+    postal_code: patient.postal_code,
+    email: patient.email,
+    fax: patient.fax,
+  });
+
+  const [patientDetailsInfo, setPatientDetailsInfo] = useState({
+    language: patient.language,
+    emergency_contact_name: patient.emergency_contact_name,
+    emergency_contact_number: patient.emergency_contact_number,
+    allergies: patient.allergies,
+    blood_type: patient.blood_type,
+    race: patient.race,
+    marital_status: patient.marital_status,
+    family_size: patient.family_size,
+    occupation: patient.occupation,
+    income_level: patient.income_level,
+    nationality: patient.nationality,
+    religion: patient.religion,
+  });
+
+  const [patientMedicalInfo, setPatientMedicalInfo] = useState({
+    health_card_number: patient.health_card_number,
+    insurance_details: patient.insurance_details,
+    family_physician: patient.family_physician,
+    immunization_type: patient.immunization_type,
+    immunization_date: patient.immunization_date,
+    employee_id: patient.employee_id,
+  });
+
+  const handleChange1 = (event) => {
+    setContactInfo((prevState) => ({
+      ...prevState,
+      [event.target.name]: event.target.value,
+    }));
+  };
 
   const handleSubmit1 = async (event) => {
     alert("Successful Submit!");
     event.preventDefault();
-    console.log(
-      phoneNumber,
-      streetNumber,
-      streetName,
-      city,
-      province,
-      country,
-      postalCode,
-      email,
-      fax
-    );
+
+    console.log(contactInfo);
     // const response = await fetch("http://localhost:4000/", {
     //   method: "POST",
     //   headers: {
@@ -59,13 +87,13 @@ const UpdatePatientPage = () => {
     //     "Content-Type": "application/json",
     //   },
     //   body: JSON.stringify({
-    //     phoneNumber,
-    //     streetNumber,
-    //     streetName,
+    //     phone_number,
+    //     street_number,
+    //     street_name,
     //     city,
     //     province,
     //     country,
-    //     postalCode,
+    //     postal_code,
     //     email,
     //     fax,
     //   }),
@@ -77,22 +105,20 @@ const UpdatePatientPage = () => {
     // } else {
     //   alert(`Congratulations! Submission submitted with id: ${payload.id}`);
     // }
+  };
 
-    setPhoneNumber("");
-    setStreetNumber("");
-    setStreetName("");
-    setCity("");
-    setProvince("");
-    setCountry("");
-    setPostalCode("");
-    setEmail("");
-    setFax("");
+  const handleChange2 = (event) => {
+    setPersonalInfo((prevState) => ({
+      ...prevState,
+      [event.target.name]: event.target.value,
+    }));
   };
 
   const handleSubmit2 = async (event) => {
     alert("Successful Submit!");
     event.preventDefault();
-    console.log(firstName, middleName, lastName, dob, gender);
+
+    console.log(personalInfo);
     // const response = await fetch("http://localhost:4000/", {
     //   method: "POST",
     //   headers: {
@@ -100,9 +126,9 @@ const UpdatePatientPage = () => {
     //     "Content-Type": "application/json",
     //   },
     //   body: JSON.stringify({
-    //     firstName,
-    //     middleName,
-    //     lastName,
+    //     first_name,
+    //     middle_name,
+    //     last_name,
     //     dob,
     //     gender,
     //   }),
@@ -114,30 +140,20 @@ const UpdatePatientPage = () => {
     // } else {
     //   alert(`Congratulations! Submission submitted with id: ${payload.id}`);
     // }
+  };
 
-    setFirstName("");
-    setMiddleName("");
-    setLastName("");
-    setDob("");
-    setGender("");
+  const handleChange3 = (event) => {
+    setPatientDetailsInfo((prevState) => ({
+      ...prevState,
+      [event.target.name]: event.target.value,
+    }));
   };
 
   const handleSubmit3 = async (event) => {
     alert("Successful Submit!");
     event.preventDefault();
-    console.log(
-      healthCardNumber,
-      maritalStatus,
-      language,
-      nationality,
-      religion,
-      race,
-      emergencyContactNumber,
-      emergencyContactName,
-      occupation,
-      incomeLevel,
-      familySize
-    );
+
+    console.log(patientDetailsInfo);
     // const response = await fetch("http://localhost:4000/", {
     //   method: "POST",
     //   headers: {
@@ -145,17 +161,19 @@ const UpdatePatientPage = () => {
     //     "Content-Type": "application/json",
     //   },
     //   body: JSON.stringify({
-    //     healthCardNumber,
-    //     maritalStatus,
     //     language,
+    //     health_card_number,
+    //     emergency_contact_name,
+    //     emergency_contact_number,
+    //     allergies,
+    //     blood_type,
+    //     race,
+    //     marital_status,
+    //     family_size,
+    //     occupation,
+    //     income_level,
     //     nationality,
     //     religion,
-    //     race,
-    //     emergencyContactNumber,
-    //     emergencyContactName,
-    //     occupation,
-    //     incomeLevel,
-    //     familySize,
     //   }),
     // });
 
@@ -165,31 +183,20 @@ const UpdatePatientPage = () => {
     // } else {
     //   alert(`Congratulations! Submission submitted with id: ${payload.id}`);
     // }
-    setHealthCardNumber("");
-    setMaritalStatus("");
-    setLanguage("");
-    setNationality("");
-    setReligion("");
-    setRace("");
-    setEmergencyContactNumber("");
-    setEmergencyContactName("");
-    setOccupation("");
-    setIncomeLevel("");
-    setFamilySize("");
+  };
+
+  const handleChange4 = (event) => {
+    setPatientMedicalInfo((prevState) => ({
+      ...prevState,
+      [event.target.name]: event.target.value,
+    }));
   };
 
   const handleSubmit4 = async (event) => {
     alert("Successful Submit!");
     event.preventDefault();
-    console.log(
-      allergies,
-      bloodType,
-      insuranceDetails,
-      familyPhysician,
-      immunizationType,
-      immunizationDate,
-      employeeID
-    );
+
+    console.log(patientMedicalInfo);
     // const response = await fetch("http://localhost:4000/", {
     //   method: "POST",
     //   headers: {
@@ -197,13 +204,11 @@ const UpdatePatientPage = () => {
     //     "Content-Type": "application/json",
     //   },
     //   body: JSON.stringify({
-    //     allergies,
-    //     bloodType,
-    //     insuranceDetails,
-    //     familyPhysician,
-    //     immunizationType,
-    //     immunizationDate,
-    //     employeeID,
+    //     insurance_details,
+    //     family_physician,
+    //     immunization_type,
+    //     immunization_date,
+    //     employee_id,
     //   }),
     // });
 
@@ -213,81 +218,49 @@ const UpdatePatientPage = () => {
     // } else {
     //   alert(`Congratulations! Submission submitted with id: ${payload.id}`);
     // }
-    setAllergies("");
-    setBloodType("");
-    setInsuranceDetails("");
-    setFamilyPhysician("");
-    setImmunizationType("");
-    setImmunizationDate("");
-    setEmployeeID("");
-    setPatientNote("");
-  };
-
-  const handleSubmit5 = async (event) => {
-    alert("Successful Submit!");
-    console.log(patientNote);
-    event.preventDefault();
-    // const response = await fetch("http://localhost:4000/", {
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     patientNote,
-    //   }),
-    // });
-
-    // console.log(
-
-    // );
-
-    // const payload = await response.json();
-    // if (response.status >= 400) {
-    //   alert(`Oops! Error ${response.status}:  ${payload.message}`);
-    // } else {
-    //   alert(`Congratulations! Submission submitted with id: ${payload.id}`);
-    // }
-    setPatientNote("");
   };
 
   return (
     <Container className="p-3">
       <Navigation />
-      <h1>Update Patient Form</h1>
+
+      <h1>Create Patient</h1>
       <h2>Contact Info</h2>
-      <Form onSubmit={handleSubmit1} className="pb-3">
+      <Form onSubmit={handleSubmit1}>
         <Form.Row>
           <Form.Group as={Col}>
             <Form.Control
               type="tel"
+              name="phone_number"
               placeholder="Phone Number"
               required
-              id="phoneNumber"
-              value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
+              id="phone_number"
+              defaultValue={patient.phone_number}
+              onChange={handleChange1}
             />
           </Form.Group>
 
           <Form.Group as={Col}>
             <Form.Control
               type="text"
+              name="street_number"
               placeholder="Street Number"
               required
-              id="streetNumber"
-              value={streetNumber}
-              onChange={(e) => setStreetNumber(e.target.value)}
+              id="street_number"
+              defaultValue={patient.street_number}
+              onChange={handleChange1}
             />
           </Form.Group>
 
           <Form.Group as={Col}>
             <Form.Control
               type="text"
+              name="street_name"
               placeholder="Street Name"
               required
-              id="streetName"
-              value={streetName}
-              onChange={(e) => setStreetName(e.target.value)}
+              id="street_name"
+              defaultValue={patient.street_name}
+              onChange={handleChange1}
             />
           </Form.Group>
         </Form.Row>
@@ -296,22 +269,23 @@ const UpdatePatientPage = () => {
           <Form.Group as={Col}>
             <Form.Control
               type="text"
+              name="city"
               placeholder="City"
               required
               id="city"
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
+              defaultValue={patient.city}
+              onChange={handleChange1}
             />
           </Form.Group>
 
           <Form.Group as={Col}>
             <Form.Control
               as="select"
-              defaultValue="Choose Province"
+              name="province"
               required
               id="province"
-              value={province}
-              onChange={(e) => setProvince(e.target.value)}
+              defaultValue={patient.province}
+              onChange={handleChange1}
             >
               <option>Choose Province</option>
               <option>Alberta</option>
@@ -333,11 +307,11 @@ const UpdatePatientPage = () => {
           <Form.Group as={Col}>
             <Form.Control
               as="select"
-              defaultValue="Choose Country"
+              name="country"
               required
               id="country"
-              value={country}
-              onChange={(e) => setCountry(e.target.value)}
+              defaultValue={patient.country}
+              onChange={handleChange1}
             >
               <option>Choose Country</option>
               <option>Canada</option>
@@ -350,77 +324,80 @@ const UpdatePatientPage = () => {
           <Form.Group as={Col}>
             <Form.Control
               type="text"
+              name="postal_code"
               placeholder="Enter Postal Code"
               required
               id="postal code"
-              value={postalCode}
-              onChange={(e) => setPostalCode(e.target.value)}
+              defaultValue={patient.postal_code}
+              onChange={handleChange1}
             />
           </Form.Group>
 
           <Form.Group as={Col}>
             <Form.Control
               type="email"
+              name="email"
               placeholder="Enter email"
               required
               id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              defaultValue={patient.email}
+              onChange={handleChange1}
             />
           </Form.Group>
 
           <Form.Group as={Col}>
             <Form.Control
               type="tel"
+              name="fax"
               placeholder="Enter Fax"
               required
               id="fax"
-              value={fax}
-              onChange={(e) => setFax(e.target.value)}
+              defaultValue={patient.fax}
+              onChange={handleChange1}
             />
           </Form.Group>
         </Form.Row>
         <Button variant="primary" type="submit">
-          Update
+          Submit
         </Button>
       </Form>
 
       <h2>Personal Details</h2>
-      <Form onSubmit={handleSubmit2} className="pb-3">
+      <Form onSubmit={handleSubmit2}>
         <Row className="py-2">
           <Col sm={4}>
             <Input
               type="text"
-              name="firstName"
-              id="firstName"
+              name="first_name"
+              id="first_name"
               placeholder="Enter First Name"
               required
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
+              defaultValue={patient.first_name}
+              onChange={handleChange2}
             />
           </Col>
 
           <Col sm={4}>
             <Input
               type="text"
-              name="middleName"
-              id="middleName"
+              name="middle_name"
+              id="middle_name"
               placeholder="Enter Middle Name"
               required
-              value={middleName}
-              onChange={(e) => setMiddleName(e.target.value)}
+              defaultValue={patient.middle_name}
+              onChange={handleChange2}
             />
           </Col>
 
           <Col sm={4}>
             <Input
               type="text"
-              name="lastName"
-              id="lastName"
+              name="last_name"
+              id="last_name"
               placeholder="Enter Last Name"
               required
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
+              defaultValue={patient.last_name}
+              onChange={handleChange2}
             />
           </Col>
         </Row>
@@ -434,8 +411,8 @@ const UpdatePatientPage = () => {
               id="dob"
               placeholder="Enter Date Of Birth"
               required
-              value={dob}
-              onChange={(e) => setDob(e.target.value)}
+              defaultValue={patient.dob}
+              onChange={handleChange2}
             />
           </Col>
 
@@ -443,13 +420,11 @@ const UpdatePatientPage = () => {
             <FormControl
               as="select"
               className="mr-sm-2"
-              type="text"
               name="gender"
               id="gender"
-              placeholder=""
               required
-              value={gender}
-              onChange={(e) => setGender(e.target.value)}
+              defaultValue={patient.gender}
+              onChange={handleChange2}
               custom
             >
               <option value="0">Select Gender</option>
@@ -460,33 +435,33 @@ const UpdatePatientPage = () => {
           </Col>
         </Row>
         <Button variant="primary" type="submit">
-          Update
+          Submit
         </Button>
       </Form>
 
-      <h2>Patients Details</h2>
-      <Form onSubmit={handleSubmit3} className="pb-3">
+      <h2>Patient Details</h2>
+      <Form onSubmit={handleSubmit3}>
         <Form.Row>
           <Form.Group as={Col} sm={4}>
             <Form.Control
               type="text"
+              name="health_card_number"
               placeholder="Enter Health Card Number"
               required
-              readOnly
-              id="healthCardNumber"
-              value={healthCardNumber}
-              onChange={(e) => setHealthCardNumber(e.target.value)}
+              id="health_card_number"
+              defaultValue={patient.health_card_number}
+              onChange={handleChange3}
             />
           </Form.Group>
 
           <Form.Group as={Col} sm={3}>
             <Form.Control
               as="select"
-              placeholder="Enter Marital Status"
+              name="marital_status"
               required
-              id="maritalStatus"
-              value={maritalStatus}
-              onChange={(e) => setMaritalStatus(e.target.value)}
+              id="marital_status"
+              defaultValue={patient.marital_status}
+              onChange={handleChange3}
             >
               <option>Choose Marital status</option>
               <option>Common Law</option>
@@ -503,11 +478,11 @@ const UpdatePatientPage = () => {
           <Form.Group as={Col} sm={2}>
             <Form.Control
               as="select"
-              placeholder="Enter Language"
+              name="language"
               required
               id="language"
-              value={language}
-              onChange={(e) => setLanguage(e.target.value)}
+              defaultValue={patient.language}
+              onChange={handleChange3}
             >
               <option>Choose Language</option>
               <option>English</option>
@@ -520,11 +495,11 @@ const UpdatePatientPage = () => {
           <Form.Group as={Col} sm={2}>
             <Form.Control
               as="select"
-              placeholder="Enter Nationality"
+              name="nationality"
               required
               id="nationality"
-              value={nationality}
-              onChange={(e) => setNationality(e.target.value)}
+              defaultValue={patient.nationality}
+              onChange={handleChange3}
             >
               <option>Choose nationality</option>
               <option>Canadian</option>
@@ -542,11 +517,11 @@ const UpdatePatientPage = () => {
           <Form.Group as={Col} sm={2}>
             <Form.Control
               as="select"
-              placeholder="Enter Religion"
+              name="religion"
               required
               id="religion"
-              value={religion}
-              onChange={(e) => setReligion(e.target.value)}
+              defaultValue={patient.religion}
+              onChange={handleChange3}
             >
               <option>Choose Religion</option>
               <option>Roman Catholicism</option>
@@ -561,11 +536,11 @@ const UpdatePatientPage = () => {
           <Form.Group as={Col} sm={2}>
             <Form.Control
               as="select"
-              defaultValue="Enter Race"
+              name="race"
               required
               id="race"
-              value={race}
-              onChange={(e) => setRace(e.target.value)}
+              defaultValue={patient.race}
+              onChange={handleChange3}
             >
               <option>Choose Race</option>
               <option>Aboriginal</option>
@@ -588,22 +563,24 @@ const UpdatePatientPage = () => {
           <Form.Group as={Col} sm={3}>
             <Form.Control
               type="text"
+              name="emergency_contact_number"
               placeholder="Enter Emergency Contact Number"
               required
-              id="emergencyContactNumber"
-              value={emergencyContactNumber}
-              onChange={(e) => setEmergencyContactNumber(e.target.value)}
+              id="emergency_contact_number"
+              defaultValue={patient.emergency_contact_number}
+              onChange={handleChange3}
             />
           </Form.Group>
 
           <Form.Group as={Col} sm={8}>
             <Form.Control
               type="text"
+              name="emergency_contact_name"
               placeholder="Enter Emergency Contact Name"
               required
-              id="emergencyContactName"
-              value={emergencyContactName}
-              onChange={(e) => setEmergencyContactName(e.target.value)}
+              id="emergency_contact_name"
+              defaultValue={patient.emergency_contact_name}
+              onChange={handleChange3}
             />
           </Form.Group>
         </Form.Row>
@@ -612,22 +589,23 @@ const UpdatePatientPage = () => {
           <Form.Group as={Col}>
             <Form.Control
               type="text"
+              name="occupation"
               placeholder="Enter Occupation"
               required
               id="occupation"
-              value={occupation}
-              onChange={(e) => setOccupation(e.target.value)}
+              defaultValue={patient.occupation}
+              onChange={handleChange3}
             />
           </Form.Group>
 
           <Form.Group as={Col} sm={3}>
             <Form.Control
               as="select"
-              placeholder="Enter Income Level"
+              name="income_level"
               required
-              id="incomeLevel"
-              value={incomeLevel}
-              onChange={(e) => setIncomeLevel(e.target.value)}
+              id="income_level"
+              defaultValue={patient.income_level}
+              onChange={handleChange3}
             >
               <option>Choose Income Level</option>
               <option> below 20000</option>
@@ -641,42 +619,44 @@ const UpdatePatientPage = () => {
           <Form.Group as={Col} sm={2}>
             <Form.Control
               type="number"
+              name="family_size"
               min="1"
               placeholder="Enter Family Size"
               required
-              id="familySize"
-              value={familySize}
-              onChange={(e) => setFamilySize(e.target.value)}
+              id="family_size"
+              defaultValue={patient.family_size}
+              onChange={handleChange3}
             />
           </Form.Group>
         </Form.Row>
         <Button variant="primary" type="submit">
-          Update
+          Submit
         </Button>
       </Form>
 
       <h2>Medical History</h2>
-      <Form onSubmit={handleSubmit4} className="pb-3">
+      <Form onSubmit={handleSubmit4}>
         <Row>
           <Form.Group as={Col}>
             <Form.Control
               type="text"
+              name="allergies"
               placeholder="Enter Allergies"
               required
               id="allergies"
-              value={allergies}
-              onChange={(e) => setAllergies(e.target.value)}
+              defaultValue={patient.allergies}
+              onChange={handleChange4}
             />
           </Form.Group>
 
           <Form.Group as={Col} sm={2}>
             <Form.Control
               as="select"
-              placeholder="Enter Blood Type"
+              name="blood_type"
               required
-              id="bloodType"
-              value={bloodType}
-              onChange={(e) => setBloodType(e.target.value)}
+              id="blood_type"
+              defaultValue={patient.blood_type}
+              onChange={handleChange4}
             >
               <option>Blood Type</option>
               <option>A</option>
@@ -691,22 +671,24 @@ const UpdatePatientPage = () => {
           <Form.Group as={Col}>
             <Form.Control
               type="text"
+              name="insurance_details"
               placeholder="Enter Insurance Details"
               required
-              id="insuranceDetails"
-              value={insuranceDetails}
-              onChange={(e) => setInsuranceDetails(e.target.value)}
+              id="insurance_details"
+              defaultValue={patient.insurance_details}
+              onChange={handleChange4}
             />
           </Form.Group>
 
           <Form.Group as={Col} sm={4}>
             <Form.Control
               type="text"
+              name="family_physician"
               placeholder="Enter Family Physician"
               required
-              id="familyPhysician"
-              value={familyPhysician}
-              onChange={(e) => setFamilyPhysician(e.target.value)}
+              id="family_physician"
+              defaultValue={patient.family_physician}
+              onChange={handleChange4}
             />
           </Form.Group>
         </Row>
@@ -715,68 +697,43 @@ const UpdatePatientPage = () => {
           <Form.Group as={Col} sm={6}>
             <Form.Control
               type="text"
+              name="immunization_type"
               placeholder="Enter Immunization Type"
               required
-              id="immunizationType"
-              value={immunizationType}
-              onChange={(e) => setImmunizationType(e.target.value)}
+              id="immunization_type"
+              defaultValue={patient.immunization_type}
+              onChange={handleChange4}
             />
           </Form.Group>
 
           <Form.Group as={Col} sm={2}>
             <Form.Control
               type="date"
+              name="immunization_date"
               placeholder="Enter Immunization Date"
               required
-              id="immunizationDate"
-              value={immunizationDate}
-              onChange={(e) => setImmunizationDate(e.target.value)}
+              id="immunization_date"
+              defaultValue={patient.immunization_date}
+              onChange={handleChange4}
             />
           </Form.Group>
 
           <Form.Group as={Col} sm={2}>
             <Form.Control
               type="number"
+              name="employee_id"
               placeholder="Enter Employee ID"
               required
-              id="employeeID"
-              value={employeeID}
-              onChange={(e) => setEmployeeID(e.target.value)}
+              id="employee_id"
+              defaultValue={patient.employee_id}
+              onChange={handleChange4}
             />
           </Form.Group>
         </Form.Row>
-        <Button variant="primary" type="submit">
-          Update
-        </Button>
-      </Form>
 
-      <h2>Patient Notes</h2>
-      <Form onSubmit={handleSubmit5} className="pb-3">
-        <Form.Group as={Col}>
-          <Form.Control
-            type="textarea"
-            placeholder="Patient Note"
-            required
-            readOnly
-            id="patientNote"
-            value={patientNote}
-            onChange={(e) => setPatientNote(e.target.value)}
-          />
-          <h4>Enter New Patient Note</h4>
-        </Form.Group>
-        <Form.Group as={Col}>
-          <Form.Control
-            type="textarea"
-            placeholder="Patient Note"
-            required
-            id="patientNote"
-            value={patientNote}
-            onChange={(e) => setPatientNote(e.target.value)}
-          />
-          <Button variant="primary" type="submit" className="m-3">
-            Update
-          </Button>
-        </Form.Group>
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
       </Form>
     </Container>
   );

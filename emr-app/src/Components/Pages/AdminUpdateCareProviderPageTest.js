@@ -1,81 +1,48 @@
 import React, { useState, useEffect } from "react";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { Form, FormControl, Button } from "react-bootstrap";
 import { Row, Col, Input } from "reactstrap";
 import Navigation from "../Shared/Navigation";
 import { Container } from "react-bootstrap";
 
 const AdminUpdateCareProviderPage = (props) => {
-  const [careProvider, setCareProvider] = useState(""); 
-  
-  //Fetching data from API
-  let id = props.match.params.employee_id;
-  // const [careProviders, setCareProviders] = useState([]);
-  // const history = useHistory();
+  const [careProvider, setCareProvider] = useState("");
 
-  // useEffect(
-  //   () => {
-  //     async function fetchData() {
-  //       console.log("something");
-  //       const res = await fetch(
-  //         `https://run.mocky.io/v3/36919d01-9c59-4d91-a4bb-b565e5a24af4`,
-  //         {
-  //           method: "GET",
-  //         }
-  //       );
-  //       res.json().then((res) => setCareProvider(...res));
-  //     }
-  //     fetchData();
-  //     // console.log(careProvider);
-  //   },
-  //   // [id]
-  // );
+  const [personalInfo, setPersonalInfo] = useState({
+    firstName: careProvider.firstName,
+    middleName: careProvider.middleName,
+    lastName: careProvider.lastName,
+    dob: careProvider.dob,
+    gender: careProvider.gender,
+  });
 
-    useEffect(() => {
-      async function fetchData() {
-        console.log("something");
-        const res = await fetch(
-          `https://run.mocky.io/v3/36919d01-9c59-4d91-a4bb-b565e5a24af4`
-        );
-        res.json().then((res) => setCareProvider(...res));
-      }
-      fetchData();
-    }, [id]);
+  // setPersonalInfo({
+  //   firstName: careProvider.firstName,
+  //   middleName: careProvider.middleName,
+  //   lastName: careProvider.lastName,
+  //   dob: careProvider.dob,
+  //   gender: careProvider.gender,
+  // });
 
-    const [personalInfo, setPersonalInfo] = useState({
-      first_name: careProvider.first_name,
-      middle_name: careProvider.middle_name,
-      last_name: careProvider.last_name,
-      dob: careProvider.dob,
-      gender: careProvider.gender,
-    });
-
-    const [contactInfo, setContactInfo] = useState({
-      phone_number: careProvider.phone_number,
-      street_number: careProvider.street_number,
-      street_name: careProvider.street_name,
-      city: careProvider.city,
-      province: careProvider.province,
-      country: careProvider.country,
-      postal_code: careProvider.postal_code,
-      email: careProvider.email,
-      fax: careProvider.fax,
-    });
-
-    const [credentialsInfo, setCredentialsInfo] = useState({
-      login_id: careProvider.login_id,
-      password: careProvider.password,
-      job_title: careProvider.job_title,
-      qualification: careProvider.qualification,
-      institution_name: careProvider.institution_name,
-    });
-
-  const handleChange1 = (event) => {
-    setPersonalInfo((prevState) => ({
-      ...prevState,
-      [event.target.name]: event.target.value,
-    }));
-  };
+  // const [firstName, setFirstName] = useState(careProvider.firstName);
+  // const [middleName, setMiddleName] = useState("");
+  // const [lastName, setLastName] = useState("");
+  // const [dob, setDob] = useState("");
+  // const [gender, setGender] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [streetNumber, setStreetNumber] = useState("");
+  const [streetName, setStreetName] = useState("");
+  const [city, setCity] = useState("");
+  const [province, setProvince] = useState("");
+  const [country, setCountry] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [email, setEmail] = useState("");
+  const [fax, setFax] = useState("");
+  const [loginID, setLoginID] = useState("");
+  const [password, setPassword] = useState("");
+  const [jobTitle, setJobTitle] = useState("");
+  const [qualification, setQualification] = useState("");
+  const [institutionName, setInstitutionName] = useState("");
 
   const handleSubmit1 = async (event) => {
     alert("Successful Submit!");
@@ -89,9 +56,9 @@ const AdminUpdateCareProviderPage = (props) => {
     //     "Content-Type": "application/json",
     //   },
     //   body: JSON.stringify({
-    //     first_name, ,
-    //     middle_name,
-    //     last_name,
+    //     firstName,
+    //     middleName,
+    //     lastName,
     //     dob,
     //     gender,
     //   }),
@@ -103,19 +70,18 @@ const AdminUpdateCareProviderPage = (props) => {
     // } else {
     //   alert(`Congratulations! Submission submitted with id: ${payload.id}`);
     // }
+
+    // setFirstName("");
+    // setMiddleName("");
+    // setLastName("");
+    // setDob("");
+    // setGender("");
   };
 
-  const handleChange2 = (event) => {
-    setCredentialsInfo((prevState) => ({
-      ...prevState,
-      [event.target.name]: event.target.value,
-    }));
-  };
-
-    const handleSubmit2 = async (event) => {
+  const handleSubmit2 = async (event) => {
     alert("Successful Submit!");
     event.preventDefault();
-    console.log(credentialsInfo);
+    console.log(loginID, password, jobTitle, qualification, institutionName);
     // const response = await fetch("http://localhost:4000/", {
     //   method: "POST",
     //   headers: {
@@ -123,11 +89,11 @@ const AdminUpdateCareProviderPage = (props) => {
     //     "Content-Type": "application/json",
     //   },
     //   body: JSON.stringify({
-    //     login_id,
+    //     loginID,
     //     password,
-    //     job_title,
+    //     jobTitle,
     //     qualification,
-    //     institution_name,
+    //     institutionName,
     //   }),
     // });
 
@@ -137,20 +103,27 @@ const AdminUpdateCareProviderPage = (props) => {
     // } else {
     //   alert(`Congratulations! Submission submitted with id: ${payload.id}`);
     // }
-  };
-
-  const handleChange3 = (event) => {
-    setContactInfo((prevState) => ({
-      ...prevState,
-      [event.target.name]: event.target.value,
-    }));
+    setLoginID("");
+    setPassword("");
+    setJobTitle("");
+    setQualification("");
+    setInstitutionName("");
   };
 
   const handleSubmit3 = async (event) => {
     alert("Successful Submit!");
     event.preventDefault();
-    // console.log(contactInfo);
-    console.log(contactInfo);
+    console.log(
+      phoneNumber,
+      streetNumber,
+      streetName,
+      city,
+      province,
+      country,
+      postalCode,
+      email,
+      fax
+    );
     // const response = await fetch("http://localhost:4000/", {
     //   method: "POST",
     //   headers: {
@@ -158,13 +131,13 @@ const AdminUpdateCareProviderPage = (props) => {
     //     "Content-Type": "application/json",
     //   },
     //   body: JSON.stringify({
-    //     phone_number,
-    //     street_number,
-    //     street_name,
+    //     phoneNumber,
+    //     streetNumber,
+    //     streetName,
     //     city,
     //     province,
     //     country,
-    //     postal_code,
+    //     postalCode,
     //     email,
     //     fax,
     //   }),
@@ -176,7 +149,41 @@ const AdminUpdateCareProviderPage = (props) => {
     // } else {
     //   alert(`Congratulations! Submission submitted with id: ${payload.id}`);
     // }
+    setPhoneNumber("");
+    setStreetNumber("");
+    setStreetName("");
+    setCity("");
+    setProvince("");
+    setCountry("");
+    setPostalCode("");
+    setEmail("");
+    setFax("");
   };
+
+  //Fetching data from API
+  console.log(props);
+  let id = props.match.params.employeeID;
+  // const [careProviders, setCareProviders] = useState([]);
+  const [form ] = useState({ display: "none" });
+  const history = useHistory();
+
+  useEffect(
+    (event) => {
+      async function fetchData() {
+        console.log("something");
+        const res = await fetch(
+          `https://run.mocky.io/v3/9169b99f-3d1b-43a8-8776-4e9587211b60`,
+          {
+            method: "GET",
+          }
+        );
+        res.json().then((res) => setCareProvider(...res));
+      }
+      fetchData();
+      console.log(careProvider);
+    },
+    [id]
+  );
 
   // const handleDelete = (event, id) => {
   //   event.preventDefault();
@@ -204,6 +211,39 @@ const AdminUpdateCareProviderPage = (props) => {
   //   setCareProvider(careProvider);
   // };
 
+  const handleChange1 = (event) => {
+    setPersonalInfo((prevState) => ({
+      ...prevState,
+      [event.target.name]: event.target.value,
+    }));
+  };
+
+  const handleChange = (event) => {
+    // setPersonalInfo((prevState) => ({
+    //   ...prevState,
+    //   [event.target.name]: event.target.value,
+    // }));
+  };
+
+  const handleSubmit = (event, id) => {
+    event.preventDefault();
+    console.log(id);
+    fetch(
+      `https://run.mocky.io/v3/e48bfa4e-d86c-48e5-a342-eaa15872929a/${id}`,
+      {
+        method: "put",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+
+        //make sure to serialize your JSON body
+        body: JSON.stringify(careProvider),
+      }
+    ).then((response) => response.json());
+    history.push("/careProviders");
+  };
+
   return (
     <div>
       <div>
@@ -216,11 +256,11 @@ const AdminUpdateCareProviderPage = (props) => {
               <Col sm={4}>
                 <Input
                   type="text"
-                  name="first_name"
-                  id="first_name"
+                  name="firstName"
+                  id="firstName"
                   placeholder="Enter First Name"
                   required
-                  defaultValue={careProvider.first_name}
+                  defaultValue={careProvider.firstName}
                   onChange={handleChange1}
                 />
               </Col>
@@ -228,11 +268,11 @@ const AdminUpdateCareProviderPage = (props) => {
               <Col sm={4}>
                 <Input
                   type="text"
-                  name="middle_name"
-                  id="middle_name"
+                  name="middleName"
+                  id="middleName"
                   placeholder="Enter Middle Name"
                   required
-                  defaultValue={careProvider.middle_name}
+                  defaultValue={careProvider.middleName}
                   onChange={handleChange1}
                 />
               </Col>
@@ -240,11 +280,11 @@ const AdminUpdateCareProviderPage = (props) => {
               <Col sm={4}>
                 <Input
                   type="text"
-                  name="last_name"
-                  id="last_name"
+                  name="lastName"
+                  id="lastName"
                   placeholder="Enter Last Name"
                   required
-                  defaultValue={careProvider.last_name}
+                  defaultValue={careProvider.lastName}
                   onChange={handleChange1}
                 />
               </Col>
@@ -294,12 +334,12 @@ const AdminUpdateCareProviderPage = (props) => {
               <Col sm={4}>
                 <Input
                   type="text"
-                  name="login_id"
-                  id="login_id"
+                  name="loginID"
+                  id="loginID"
                   placeholder="Enter login ID"
                   required
-                  defaultValue={careProvider.login_id}
-                  onChange={handleChange2}
+                  defaultValue={careProvider.loginID}
+                  onChange={handleChange}
                 />
               </Col>
               <Col sm={4}>
@@ -310,7 +350,7 @@ const AdminUpdateCareProviderPage = (props) => {
                   placeholder="Enter new password"
                   required
                   defaultValue={careProvider.password}
-                  onChange={handleChange2}
+                  onChange={handleChange}
                 />
               </Col>
             </Row>
@@ -318,12 +358,12 @@ const AdminUpdateCareProviderPage = (props) => {
               <Col sm={4}>
                 <Input
                   type="text"
-                  name="job_title"
-                  id="job_title"
+                  name="jobTitle"
+                  id="jobTitle"
                   placeholder="Enter Job Title"
                   required
-                  defaultValue={careProvider.job_title}
-                  onChange={handleChange2}
+                  defaultValue={careProvider.jobTitle}
+                  onChange={handleChange}
                 />
               </Col>
 
@@ -335,19 +375,19 @@ const AdminUpdateCareProviderPage = (props) => {
                   placeholder="Enter Qualification"
                   required
                   defaultValue={careProvider.qualification}
-                  onChange={handleChange2}
+                  onChange={handleChange}
                 />
               </Col>
 
               <Col sm={4}>
                 <Input
                   type="text"
-                  name="institution_name"
-                  id="institution_name"
+                  name="institutionName"
+                  id="institutionName"
                   placeholder="Enter Institution Name"
                   required
-                  defaultValue={careProvider.institution_name}
-                  onChange={handleChange2}
+                  defaultValue={careProvider.institutionName}
+                  onChange={handleChange}
                 />
               </Col>
             </Row>
@@ -365,36 +405,33 @@ const AdminUpdateCareProviderPage = (props) => {
               <Form.Group as={Col}>
                 <Form.Control
                   type="tel"
-                  name="phone_number"
                   placeholder="Phone Number"
                   required
-                  id="phone_number"
-                  defaultValue={careProvider.phone_number}
-                  onChange={handleChange3}
+                  id="phoneNumber"
+                  defaultValue={careProvider.phoneNumber}
+                  onChange={handleChange}
                 />
               </Form.Group>
 
               <Form.Group as={Col}>
                 <Form.Control
                   type="text"
-                  name="street_number"
                   placeholder="Street Number"
                   required
-                  id="street_number"
-                  defaultValue={careProvider.street_number}
-                  onChange={handleChange3}
+                  id="streetNumber"
+                  defaultValue={careProvider.streetNumber}
+                  onChange={handleChange}
                 />
               </Form.Group>
 
               <Form.Group as={Col}>
                 <Form.Control
                   type="text"
-                  name="street_name"
                   placeholder="Street Name"
                   required
-                  id="street_name"
-                  defaultValue={careProvider.street_name}
-                  onChange={handleChange3}
+                  id="streetName"
+                  defaultValue={careProvider.streetName}
+                  onChange={handleChange}
                 />
               </Form.Group>
             </Form.Row>
@@ -403,23 +440,21 @@ const AdminUpdateCareProviderPage = (props) => {
               <Form.Group as={Col}>
                 <Form.Control
                   type="text"
-                  name="city"
                   placeholder="City"
                   required
                   id="city"
                   defaultValue={careProvider.city}
-                  onChange={handleChange3}
+                  onChange={handleChange}
                 />
               </Form.Group>
 
               <Form.Group as={Col}>
                 <Form.Control
                   as="select"
-                  name="province"
                   required
                   id="province"
                   defaultValue={careProvider.province}
-                  onChange={handleChange3}
+                  onChange={handleChange}
                 >
                   <option>Choose Province</option>
                   <option>Alberta</option>
@@ -441,11 +476,10 @@ const AdminUpdateCareProviderPage = (props) => {
               <Form.Group as={Col}>
                 <Form.Control
                   as="select"
-                  name="country"
                   required
                   id="country"
                   defaultValue={careProvider.country}
-                  onChange={handleChange3}
+                  onChange={handleChange}
                 >
                   <option>Choose Country</option>
                   <option>Canada</option>
@@ -458,36 +492,33 @@ const AdminUpdateCareProviderPage = (props) => {
               <Form.Group as={Col}>
                 <Form.Control
                   type="text"
-                  name="postal_code"
                   placeholder="Enter Postal Code"
                   required
                   id="postal code"
-                  defaultValue={careProvider.postal_code}
-                  onChange={handleChange3}
+                  defaultValue={careProvider.postalCode}
+                  onChange={handleChange}
                 />
               </Form.Group>
 
               <Form.Group as={Col}>
                 <Form.Control
                   type="email"
-                  name="email"
                   placeholder="Enter email"
                   required
                   id="email"
                   defaultValue={careProvider.email}
-                  onChange={handleChange3}
+                  onChange={handleChange}
                 />
               </Form.Group>
 
               <Form.Group as={Col}>
                 <Form.Control
                   type="tel"
-                  name="fax"
                   placeholder="Enter Fax"
                   required
                   id="fax"
                   defaultValue={careProvider.fax}
-                  onChange={handleChange3}
+                  onChange={handleChange}
                 />
               </Form.Group>
             </Form.Row>
@@ -498,6 +529,33 @@ const AdminUpdateCareProviderPage = (props) => {
           </Form>
         </Container>
       </div>
+
+      {/* This is the form that pops up when you press the Edit Me! button */}
+      <form onSubmit={(e) => handleSubmit(e, careProvider.id)} style={form}>
+        <div>
+          <label>
+            Name:
+            <input
+              type="text"
+              name="name"
+              value={careProvider.name}
+              onChange={handleChange}
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            Photo:
+            <input
+              type="text"
+              name="image"
+              value={careProvider.image}
+              onChange={handleChange}
+            />
+          </label>
+        </div>
+        <input type="submit" value="Submit" />
+      </form>
     </div>
   );
 };

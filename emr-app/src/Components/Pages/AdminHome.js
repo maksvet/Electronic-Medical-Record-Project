@@ -6,22 +6,18 @@ import {
 } from 'react-bootstrap';
 import Navigation from '../Shared/Navigation';
 
-// const submitForm = () => {
-  
-// }
-
 const AdminHome = () => {
   return (
     <React.Fragment>
       <Container className="py-5 text-center">
-      <Navigation />
+        <Navigation />
         <h1 className="py-5 text-center">Welcome Admin</h1>
         <Form>
           <Button
             className="ahbtn"
             variant="primary"
             type="submit"
-            href="/AdminCreatePatientPage" /*onSubmit={submitForm}*/
+            href="/AdminCreatePatientPage" 
           >
             Create Patient
             <br />
@@ -31,7 +27,7 @@ const AdminHome = () => {
             className="ahbtn"
             variant="primary"
             type="submit"
-            href="/AdminCreateCareProviderPage" /*onSubmit={submitForm}*/
+            href="/AdminCreateCareProviderPage" 
           >
             Create Care Provider <br /> CRUD
           </Button>
@@ -39,7 +35,7 @@ const AdminHome = () => {
             className="ahbtn"
             variant="primary"
             type="submit"
-            href="/UpdatePatientPage" /*onSubmit={submitForm}*/
+            href="/UpdatePatientPage" 
           >
             Update Patient
             <br />
@@ -49,9 +45,25 @@ const AdminHome = () => {
             className="ahbtn"
             variant="primary"
             type="submit"
-            href="/AdminUpdateCareProviderPage" /*onSubmit={submitForm}*/
+            href="/AdminUpdateCareProviderPage" 
           >
             Update Care Provider <br /> CRUD
+          </Button>
+          <Button
+            className="ahbtn"
+            variant="primary"
+            type="submit"
+            href="/RegisteredCareProviders" 
+          >
+            Care Provider List <br /> CRUD
+          </Button>
+          <Button
+            className="ahbtn"
+            variant="primary"
+            type="submit"
+            href="/RegisteredPatients" 
+          >
+            Patient List <br /> CRUD
           </Button>
         </Form>
       </Container>
