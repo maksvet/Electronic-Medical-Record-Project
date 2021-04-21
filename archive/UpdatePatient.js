@@ -80,3 +80,4 @@ const UpdatePatient = () => {
 }
 
 export default UpdatePatient
+
