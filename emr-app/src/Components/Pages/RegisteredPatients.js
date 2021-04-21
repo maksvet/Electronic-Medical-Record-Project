@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import Navigation from "../Shared/Navigation";
+import { Table } from "reactstrap";
+import { Button } from "react-bootstrap";
 
 const RegisteredPatients = (props) => {
   console.log(props);
   let id = props.match.params.health_card_number;
   const [patients, setPatients] = useState([]);
-  const [form, setForm] = useState({ display: "none" });
-  const [patient, setPatient] = useState("");
+  // const [patient, setPatient] = useState("");
   const history = useHistory();
 
   useEffect(() => {
@@ -42,37 +44,59 @@ const RegisteredPatients = (props) => {
     event.preventDefault();
     // window.location.href = `/AdminUpdatePatientPage/${patient.healthCardNumber}`;
     window.location.href = `/AdminUpdatePatientPage`;
-    console.log("D is here again");
-    console.log(patient);
-    setForm({ display: "block" });
-    setPatient(patient);
-  };
-
-  const handleChange = (event) => {
-    setPatient((prevState) => ({
-      ...prevState,
-      [event.target.name]: event.target.value,
-    }));
-  };
-
-  const handleSubmit = (event, id) => {
-    event.preventDefault();
-    console.log(id);
-    fetch(`/api/patients/${id}`, {
-      method: "put",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-
-      //make sure to serialize your JSON body
-      body: JSON.stringify(patient),
-    }).then((response) => response.json());
-    history.push("/patients");
+    // console.log("D is here again");
+    // console.log(patient);
+    // setForm({ display: "block" });
+    // setPatient(patient);
   };
 
   return (
-    <div>
+    <React.Fragment>
+      <Navigation />
+      <Table responsive>
+        <thead>
+          <tr>
+            <th>Health Card Number</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          {patients.map((patient) => (
+            <div key={patient.health_card_number}>
+              <tr>
+                <td>{patient.health_card_number}</td>
+                <td>{patient.first_name}</td>
+                <td>{patient.last_name}</td>
+                <td>{patient.last_name}</td>
+                <td>{patient.last_name}</td>
+                <td>{patient.last_name}</td>
+                <td>{patient.last_name}</td>
+                <td>{patient.last_name}</td>
+                <td>
+                  <Button
+                    onClick={(event) => {
+                      handleDelete(event, patient.health_card_number);
+                    }}
+                  >
+                    Delete Me!
+                  </Button>
+                </td>
+                <td>
+                  <Button
+                    onClick={(event) => {
+                      handleEdit(event, patient.health_card_number);
+                    }}
+                  >
+                    Edit Me!
+                  </Button>
+                </td>
+              </tr>
+            </div>
+          ))}
+        </tbody>
+      </Table>
+      {/* <Navigation />
       {patients.map((patient) => (
         <div key={patient.id}>
           <p>{patient.name}</p>
@@ -97,35 +121,8 @@ const RegisteredPatients = (props) => {
             Edit Me!
           </button>
         </div>
-      ))}
-
-      {/* This is the form that pops up when you press the Edit Me! button */}
-      <form onSubmit={(e) => handleSubmit(e, patient.id)} style={form}>
-        <div>
-          <label>
-            Name:
-            <input
-              type="text"
-              name="name"
-              value={patient.name}
-              onChange={handleChange}
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Photo:
-            <input
-              type="text"
-              name="image"
-              value={patient.image}
-              onChange={handleChange}
-            />
-          </label>
-        </div>
-        <input type="submit" value="Submit" />
-      </form>
-    </div>
+      ))} */}
+    </React.Fragment>
   );
 };
 

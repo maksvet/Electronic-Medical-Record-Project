@@ -4,76 +4,76 @@ import { Col, Input, Container } from 'reactstrap';
 import Navigation from "../Shared/Navigation";
 
 const AdminCreatePatientPage = () => {
-const [phoneNumber, setPhoneNumber] = useState("");
-const [streetNumber, setStreetNumber] = useState("");
-const [streetName, setStreetName] = useState("");
+const [phone_number, setPhoneNumber] = useState("");
+const [street_number, setStreetNumber] = useState("");
+const [street_name, setStreetName] = useState("");
 const [city, setCity] = useState("");
 const [province, setProvince] = useState("");
 const [country, setCountry] = useState("");
-const [postalCode, setPostalCode] = useState("");
+const [postal_code, setPostalCode] = useState("");
 const [email, setEmail] = useState("");
 const [fax, setFax] = useState("");
-const [firstName, setFirstName] = useState("");
-const [middleName, setMiddleName] = useState("");
-const [lastName, setLastName] = useState("");
+const [first_name, setFirstName] = useState("");
+const [middle_name, setMiddleName] = useState("");
+const [last_name, setLastName] = useState("");
 const [dob, setDob] = useState("");
 const [gender, setGender] = useState("");
 const [language, setLanguage] = useState("");
-const [healthCardNumber, setHealthCardNumber] = useState("");
-const [emergencyContactName, setEmergencyContactName] = useState("");
-const [emergencyContactNumber, setEmergencyContactNumber] = useState("");
+const [health_card_number, setHealthCardNumber] = useState("");
+const [emergency_contact_name, setEmergencyContactName] = useState("");
+const [emergency_contact_number, setEmergencyContactNumber] = useState("");
 const [allergies, setAllergies] = useState("");
-const [bloodType, setBloodType] = useState("");
+const [blood_type, setBloodType] = useState("");
 const [race, setRace] = useState("");
-const [maritalStatus, setMaritalStatus] = useState("");
-const [familySize, setFamilySize] = useState("");
+const [marital_status, setMaritalStatus] = useState("");
+const [family_size, setFamilySize] = useState("");
 const [occupation, setOccupation] = useState("");
-const [incomeLevel, setIncomeLevel] = useState("");
+const [income_level, setIncomeLevel] = useState("");
 const [nationality, setNationality] = useState("");
 const [religion, setReligion] = useState("");
-const [insuranceDetails, setInsuranceDetails] = useState("");
-const [familyPhysician, setFamilyPhysician] = useState("");
-const [immunizationType, setImmunizationType] = useState("");
-const [immunizationDate, setImmunizationDate] = useState("");
-const [employeeID, setEmployeeID] = useState("");
+const [insurance_details, setInsuranceDetails] = useState("");
+const [family_physician, setFamilyPhysician] = useState("");
+const [immunization_type, setImmunizationType] = useState("");
+const [immunization_date, setImmunizationDate] = useState("");
+const [employee_id, setEmployeeID] = useState("");
 
 
 const handleSubmit = async (event) => {
   event.preventDefault();
   alert("Successful!");
   console.log(
-      phoneNumber,
-      streetNumber,
-      streetName,
+      phone_number,
+      street_number,
+      street_name,
       city,
       province,
       country,
-      postalCode,
+      postal_code,
       email,
       fax,
-      firstName,
-      middleName,
-      lastName,
+      first_name,
+      middle_name,
+      last_name,
       dob,
       gender,
       language,
-      healthCardNumber,
-      emergencyContactName,
-      emergencyContactNumber,
+      health_card_number,
+      emergency_contact_name,
+      emergency_contact_number,
       allergies,
-      bloodType,
+      blood_type,
       race,
-      maritalStatus,
-      familySize,
+      marital_status,
+      family_size,
       occupation,
-      incomeLevel,
+      income_level,
       nationality,
       religion,
-      insuranceDetails,
-      familyPhysician,
-      immunizationType,
-      immunizationDate,
-      employeeID
+      insurance_details,
+      family_physician,
+      immunization_type,
+      immunization_date,
+      employee_id
   );
   // const response = await fetch("http://localhost:4000/", {
   //   method: "POST",
@@ -82,38 +82,38 @@ const handleSubmit = async (event) => {
   //     "Content-Type": "application/json",
   //   },
   //   body: JSON.stringify({
-  //     phoneNumber,
-  //     streetNumber,
-  //     streetName,
+  //     phone_number,
+  //     street_number,
+  //     street_name,
   //     city,
   //     province,
   //     country,
-  //     postalCode,
+  //     postal_code,
   //     email,
   //     fax,
-  //     firstName,
-  //     middleName,
-  //     lastName,
+  //     first_name,
+  //     middle_name,
+  //     last_name,
   //     dob,
   //     gender,
   //     language,
-  //     healthCardNumber,
-  //     emergencyContactName,
-  //     emergencyContactNumber,
+  //     health_card_number,
+  //     emergency_contact_name,
+  //     emergency_contact_number,
   //     allergies,
-  //     bloodType,
+  //     blood_type,
   //     race,
-  //     maritalStatus,
-  //     familySize,
+  //     marital_status,
+  //     family_size,
   //     occupation,
-  //     incomeLevel,
+  //     income_level,
   //     nationality,
   //     religion,
-  //     insuranceDetails,
-  //     familyPhysician,
-  //     immunizationType,
-  //     immunizationDate,
-  //     employeeID,
+  //     insurance_details,
+  //     family_physician,
+  //     immunization_type,
+  //     immunization_date,
+  //     employee_id,
   //   }),
   // });
 
@@ -171,8 +171,8 @@ const handleSubmit = async (event) => {
               type="tel"
               placeholder="Phone Number"
               required
-              id="phoneNumber"
-              value={phoneNumber}
+              id="phone_number"
+              value={phone_number}
               onChange={(e) => setPhoneNumber(e.target.value)}
             />
           </Form.Group>
@@ -182,8 +182,8 @@ const handleSubmit = async (event) => {
               type="text"
               placeholder="Street Number"
               required
-              id="streetNumber"
-              value={streetNumber}
+              id="street_number"
+              value={street_number}
               onChange={(e) => setStreetNumber(e.target.value)}
             />
           </Form.Group>
@@ -193,8 +193,8 @@ const handleSubmit = async (event) => {
               type="text"
               placeholder="Street Name"
               required
-              id="streetName"
-              value={streetName}
+              id="street_name"
+              value={street_name}
               onChange={(e) => setStreetName(e.target.value)}
             />
           </Form.Group>
@@ -259,7 +259,7 @@ const handleSubmit = async (event) => {
               placeholder="Enter Postal Code"
               required
               id="postal code"
-              value={postalCode}
+              value={postal_code}
               onChange={(e) => setPostalCode(e.target.value)}
             />
           </Form.Group>
@@ -292,11 +292,11 @@ const handleSubmit = async (event) => {
           <Col sm={4}>
             <Input
               type="text"
-              name="firstName"
-              id="firstName"
+              name="first_name"
+              id="first_name"
               placeholder="Enter First Name"
               required
-              value={firstName}
+              value={first_name}
               onChange={(e) => setFirstName(e.target.value)}
             />
           </Col>
@@ -304,11 +304,11 @@ const handleSubmit = async (event) => {
           <Col sm={4}>
             <Input
               type="text"
-              name="middleName"
-              id="middleName"
+              name="middle_name"
+              id="middle_name"
               placeholder="Enter Middle Name"
               required
-              value={middleName}
+              value={middle_name}
               onChange={(e) => setMiddleName(e.target.value)}
             />
           </Col>
@@ -316,11 +316,11 @@ const handleSubmit = async (event) => {
           <Col sm={4}>
             <Input
               type="text"
-              name="lastName"
-              id="lastName"
+              name="last_name"
+              id="last_name"
               placeholder="Enter Last Name"
               required
-              value={lastName}
+              value={last_name}
               onChange={(e) => setLastName(e.target.value)}
             />
           </Col>
@@ -366,8 +366,8 @@ const handleSubmit = async (event) => {
               type="text"
               placeholder="Enter Health Card Number"
               required
-              id="healthCardNumber"
-              value={healthCardNumber}
+              id="health_card_number"
+              value={health_card_number}
               onChange={(e) => setHealthCardNumber(e.target.value)}
             />
           </Form.Group>
@@ -376,8 +376,8 @@ const handleSubmit = async (event) => {
             <Form.Control
               as="select"
               required
-              id="maritalStatus"
-              value={maritalStatus}
+              id="marital_status"
+              value={marital_status}
               onChange={(e) => setMaritalStatus(e.target.value)}
             >
               <option>Choose Marital status</option>
@@ -478,8 +478,8 @@ const handleSubmit = async (event) => {
               type="text"
               placeholder="Enter Emergency Contact Number"
               required
-              id="emergencyContactNumber"
-              value={emergencyContactNumber}
+              id="emergency_contact_number"
+              value={emergency_contact_number}
               onChange={(e) => setEmergencyContactNumber(e.target.value)}
             />
           </Form.Group>
@@ -489,8 +489,8 @@ const handleSubmit = async (event) => {
               type="text"
               placeholder="Enter Emergency Contact Name"
               required
-              id="emergencyContactName"
-              value={emergencyContactName}
+              id="emergency_contact_name"
+              value={emergency_contact_name}
               onChange={(e) => setEmergencyContactName(e.target.value)}
             />
           </Form.Group>
@@ -512,8 +512,8 @@ const handleSubmit = async (event) => {
             <Form.Control
               as="select"
               required
-              id="incomeLevel"
-              value={incomeLevel}
+              id="income_level"
+              value={income_level}
               onChange={(e) => setIncomeLevel(e.target.value)}
             >
               <option>Choose Income Level</option>
@@ -531,8 +531,8 @@ const handleSubmit = async (event) => {
               min="1"
               placeholder="Enter Family Size"
               required
-              id="familySize"
-              value={familySize}
+              id="family_size"
+              value={family_size}
               onChange={(e) => setFamilySize(e.target.value)}
             />
           </Form.Group>
@@ -555,8 +555,8 @@ const handleSubmit = async (event) => {
             <Form.Control
               as="select"
               required
-              id="bloodType"
-              value={bloodType}
+              id="blood_type"
+              value={blood_type}
               onChange={(e) => setBloodType(e.target.value)}
             >
               <option>Blood Type</option>
@@ -574,8 +574,8 @@ const handleSubmit = async (event) => {
               type="text"
               placeholder="Enter Insurance Details"
               required
-              id="insuranceDetails"
-              value={insuranceDetails}
+              id="insurance_details"
+              value={insurance_details}
               onChange={(e) => setInsuranceDetails(e.target.value)}
             />
           </Form.Group>
@@ -585,8 +585,8 @@ const handleSubmit = async (event) => {
               type="text"
               placeholder="Enter Family Physician"
               required
-              id="familyPhysician"
-              value={familyPhysician}
+              id="family_physician"
+              value={family_physician}
               onChange={(e) => setFamilyPhysician(e.target.value)}
             />
           </Form.Group>
@@ -598,8 +598,8 @@ const handleSubmit = async (event) => {
               type="text"
               placeholder="Enter Immunization Type"
               required
-              id="immunizationType"
-              value={immunizationType}
+              id="immunization_type"
+              value={immunization_type}
               onChange={(e) => setImmunizationType(e.target.value)}
             />
           </Form.Group>
@@ -609,8 +609,8 @@ const handleSubmit = async (event) => {
               type="date"
               placeholder="Enter Immunization Date"
               required
-              id="immunizationDate"
-              value={immunizationDate}
+              id="immunization_date"
+              value={immunization_date}
               onChange={(e) => setImmunizationDate(e.target.value)}
             />
           </Form.Group>
@@ -620,8 +620,8 @@ const handleSubmit = async (event) => {
               type="number"
               placeholder="Enter Employee ID"
               required
-              id="employeeID"
-              value={employeeID}
+              id="employee_id"
+              value={employee_id}
               onChange={(e) => setEmployeeID(e.target.value)}
             />
           </Form.Group>

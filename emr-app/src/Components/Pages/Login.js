@@ -10,14 +10,14 @@ import { Input } from 'reactstrap';
 const Navigation = () => {
   // let history = useHistory();
   // let location = useLocation();
-  const [userID, setUserID] = useState("");
+  const [login_id, setLoginID] = useState("");
   const [password, setPassword] = useState("");
   // const [auth, setAuth] = useState(true);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     alert("Successful!");
-    console.log(userID, password);
+    console.log(login_id, password);
     // const response = await fetch("http://localhost:4000/", {
     //   method: "POST",
     //   headers: {
@@ -25,7 +25,7 @@ const Navigation = () => {
     //     "Content-Type": "application/json",
     //   },
     //   body: JSON.stringify({
-    //     userID,
+    //     login_id,
     //     password,
     //   }),
     // });
@@ -40,7 +40,7 @@ const Navigation = () => {
     //   let { from } = location.state || { from: { pathname: "/AdminHome" } };
     //   history.replace(from);
     // }
-    setUserID("");
+   setLoginID("");
     setPassword("");
   };
 
@@ -53,10 +53,10 @@ const Navigation = () => {
           <Form.Label>User ID</Form.Label>
           <Input
             type="text"
-            id="userID"
+            id="login_id"
             placeholder="Enter User ID"
-            value={userID}
-            onChange={(e) => setUserID(e.target.value)}
+            value={login_id}
+            onChange={(e) => setLoginID(e.target.value)}
           />
           <Form.Text style={{ color: "black" }}>
             * Only registered care providers can access this system.
