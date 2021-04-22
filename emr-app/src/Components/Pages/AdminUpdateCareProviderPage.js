@@ -54,8 +54,8 @@ const AdminUpdateCareProviderPage = (props) => {
       phone_number: careProvider.phone_number,
       street_number: careProvider.street_number,
       street_name: careProvider.street_name,
-      city: careProvider.city,
-      province: careProvider.province,
+      city_Town: careProvider.city,
+      province_State: careProvider.province,
       country: careProvider.country,
       postal_code: careProvider.postal_code,
       email: careProvider.email,
@@ -161,8 +161,8 @@ const AdminUpdateCareProviderPage = (props) => {
     //     phone_number,
     //     street_number,
     //     street_name,
-    //     city,
-    //     province,
+    //     city_Town,
+    //     province_State,
     //     country,
     //     postal_code,
     //     email,
@@ -403,11 +403,11 @@ const AdminUpdateCareProviderPage = (props) => {
               <Form.Group as={Col}>
                 <Form.Control
                   type="text"
-                  name="city"
+                  name="city_Town"
                   placeholder="City"
                   required
-                  id="city"
-                  defaultValue={careProvider.city}
+                  id="city_Town"
+                  defaultValue={careProvider.city_Town}
                   onChange={handleChange3}
                 />
               </Form.Group>
@@ -415,10 +415,10 @@ const AdminUpdateCareProviderPage = (props) => {
               <Form.Group as={Col}>
                 <Form.Control
                   as="select"
-                  name="province"
+                  name="province_State"
                   required
-                  id="province"
-                  defaultValue={careProvider.province}
+                  id="province_State"
+                  defaultValue={careProvider.province_State}
                   onChange={handleChange3}
                 >
                   <option>Choose Province</option>

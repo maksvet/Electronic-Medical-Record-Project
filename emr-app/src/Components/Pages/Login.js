@@ -65,6 +65,7 @@ const Navigation = () => {
         <Form.Group>
           <Form.Label>Password</Form.Label>
           <Input
+            style={{  }}
             type="password"
             id="password"
             placeholder="Password"

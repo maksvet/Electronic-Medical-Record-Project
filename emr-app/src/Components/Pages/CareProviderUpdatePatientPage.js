@@ -36,8 +36,8 @@ const CareProviderUpdatePatientPage = (props) => {
     phone_number: patient.phone_number,
     street_number: patient.street_number,
     street_name: patient.street_name,
-    city: patient.city,
-    province: patient.province,
+    city_Town: patient.city,
+    province_State: patient.province,
     country: patient.country,
     postal_code: patient.postal_code,
     email: patient.email,
@@ -115,8 +115,8 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
     //     phone_number,
     //     street_number,
     //     street_name,
-    //     city,
-    //     province,
+    //     city_Town,
+    //     province_State,
     //     country,
     //     postal_code,
     //     email,
@@ -426,11 +426,11 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
           <Form.Group as={Col}>
             <Form.Control
               type="text"
-              name="city"
+              name="city_Town"
               placeholder="City"
               required
-              id="city"
-              defaultValue={patient.city}
+              id="city_Town"
+              defaultValue={patient.city_Town}
               onChange={handleChange1}
             />
           </Form.Group>
@@ -438,10 +438,10 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
           <Form.Group as={Col}>
             <Form.Control
               as="select"
-              name="province"
+              name="province_State"
               required
-              id="province"
-              defaultValue={patient.province}
+              id="province_State"
+              defaultValue={patient.province_State}
               onChange={handleChange1}
             >
               <option>Choose Province</option>

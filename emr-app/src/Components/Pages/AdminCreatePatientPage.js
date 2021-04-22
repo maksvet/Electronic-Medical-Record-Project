@@ -7,23 +7,27 @@ const AdminCreatePatientPage = () => {
 const [phone_number, setPhoneNumber] = useState("");
 const [street_number, setStreetNumber] = useState("");
 const [street_name, setStreetName] = useState("");
-const [city, setCity] = useState("");
-const [province, setProvince] = useState("");
+const [city_Town, setCity] = useState("");
+const [province_State, setProvince] = useState("");
 const [country, setCountry] = useState("");
 const [postal_code, setPostalCode] = useState("");
 const [email, setEmail] = useState("");
 const [fax, setFax] = useState("");
+
 const [first_name, setFirstName] = useState("");
 const [middle_name, setMiddleName] = useState("");
 const [last_name, setLastName] = useState("");
 const [dob, setDob] = useState("");
 const [gender, setGender] = useState("");
+
 const [language, setLanguage] = useState("");
 const [health_card_number, setHealthCardNumber] = useState("");
 const [emergency_contact_name, setEmergencyContactName] = useState("");
 const [emergency_contact_number, setEmergencyContactNumber] = useState("");
 const [allergies, setAllergies] = useState("");
 const [blood_type, setBloodType] = useState("");
+
+
 const [race, setRace] = useState("");
 const [marital_status, setMaritalStatus] = useState("");
 const [family_size, setFamilySize] = useState("");
@@ -45,8 +49,8 @@ const handleSubmit = async (event) => {
       phone_number,
       street_number,
       street_name,
-      city,
-      province,
+      city_Town,
+      province_State,
       country,
       postal_code,
       email,
@@ -85,8 +89,8 @@ const handleSubmit = async (event) => {
   //     phone_number,
   //     street_number,
   //     street_name,
-  //     city,
-  //     province,
+  //     city_Town,
+  //     province_State,
   //     country,
   //     postal_code,
   //     email,
@@ -206,8 +210,8 @@ const handleSubmit = async (event) => {
               type="text"
               placeholder="City"
               required
-              id="city"
-              value={city}
+              id="city_Town"
+              value={city_Town}
               onChange={(e) => setCity(e.target.value)}
             />
           </Form.Group>
@@ -216,8 +220,8 @@ const handleSubmit = async (event) => {
             <Form.Control
               as="select"
               required
-              id="province"
-              value={province}
+              id="province_State"
+              value={province_State}
               onChange={(e) => setProvince(e.target.value)}
             >
               <option>Choose Province</option>
