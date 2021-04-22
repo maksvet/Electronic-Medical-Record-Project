@@ -4,8 +4,8 @@ import { Row, Col, Input } from "reactstrap";
 import Navigation from "../Shared/Navigation";
 import { Container } from "react-bootstrap";
 
-const UpdatePatientPage = (props) => {
-  const [patient, setPatient] = useState([]);
+const CareProviderUpdatePatientPage1 = (props) => {
+  const [patient, setPatient] = useState("");
 
   console.log(props);
   let id = props.match.params.health_card_number;
@@ -67,6 +67,7 @@ const UpdatePatientPage = (props) => {
     immunization_date: patient.immunization_date,
     employee_id: patient.employee_id,
   });
+
 
   const handleChange1 = (event) => {
     setContactInfo((prevState) => ({
@@ -224,7 +225,7 @@ const UpdatePatientPage = (props) => {
     <Container className="p-3">
       <Navigation />
 
-      <h1>Admin Update Patient</h1>
+      <h1>Care Provider Update Patient</h1>
       <h2>Contact Info</h2>
       <Form onSubmit={handleSubmit1}>
         <Form.Row>
@@ -236,6 +237,7 @@ const UpdatePatientPage = (props) => {
               required
               id="phone_number"
               defaultValue={patient.phone_number}
+              onChange={handleChange1}
             />
           </Form.Group>
 
@@ -247,7 +249,7 @@ const UpdatePatientPage = (props) => {
               required
               id="street_number"
               defaultValue={patient.street_number}
-
+              onChange={handleChange1}
             />
           </Form.Group>
 
@@ -734,8 +736,11 @@ const UpdatePatientPage = (props) => {
           Update
         </Button>
       </Form>
+      <Button variant="primary" type="submit" href="/CareProviderUpdatePatientPage2">
+        Add Patient Notes
+      </Button>
     </Container>
   );
 };
 
-export default UpdatePatientPage;
+export default CareProviderUpdatePatientPage1;

@@ -14,7 +14,7 @@ const Navigation = () => {
     <div style={{ borderBottom:"3px solid grey", marginBottom:"5px"}}>
       <Nav style={{ border: "2px black" }}>
         <div className="btn-group">
-          <a href="/AdminHome" style={{ fontSize: "2rem" }} onClick={ goBack }>
+          <a href="/" style={{ fontSize: "2rem" }} onClick={ goBack }>
             {" "}
             <ArrowLeftCircle />
           </a>
