@@ -32,8 +32,8 @@ const AdminUpdateCareProviderPage = (props) => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [streetNumber, setStreetNumber] = useState("");
   const [streetName, setStreetName] = useState("");
-  const [city, setCity] = useState("");
-  const [province, setProvince] = useState("");
+  const [city_Town, setCity] = useState("");
+  const [province_State, setProvince] = useState("");
   const [country, setCountry] = useState("");
   const [postalCode, setPostalCode] = useState("");
   const [email, setEmail] = useState("");
@@ -117,8 +117,8 @@ const AdminUpdateCareProviderPage = (props) => {
       phoneNumber,
       streetNumber,
       streetName,
-      city,
-      province,
+      city_Town,
+      province_State,
       country,
       postalCode,
       email,
@@ -134,8 +134,8 @@ const AdminUpdateCareProviderPage = (props) => {
     //     phoneNumber,
     //     streetNumber,
     //     streetName,
-    //     city,
-    //     province,
+    //     city_Town,
+    //     province_State,
     //     country,
     //     postalCode,
     //     email,
@@ -442,8 +442,8 @@ const AdminUpdateCareProviderPage = (props) => {
                   type="text"
                   placeholder="City"
                   required
-                  id="city"
-                  defaultValue={careProvider.city}
+                  id="city_Town"
+                  defaultValue={careProvider.city_Town}
                   onChange={handleChange}
                 />
               </Form.Group>
@@ -452,8 +452,8 @@ const AdminUpdateCareProviderPage = (props) => {
                 <Form.Control
                   as="select"
                   required
-                  id="province"
-                  defaultValue={careProvider.province}
+                  id="province_State"
+                  defaultValue={careProvider.province_State}
                   onChange={handleChange}
                 >
                   <option>Choose Province</option>

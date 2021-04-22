@@ -24,7 +24,7 @@ const CareProviderHome = () => {
             placeholder="Enter Health Card Number"
             className="mr-sm-2"
           />
-          <Button variant="outline-success" href="/CareProviderUpdatePatientPage">
+          <Button variant="outline-success" href="/IndividualPatientInfoPage">
             Search
           </Button>
         </Form>

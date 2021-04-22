@@ -11,19 +11,24 @@ const AdminCreateCareProviderPage = () => {
   const [last_name, setLastName] = useState("");
   const [dob, setDob] = useState("");
   const [gender, setGender] = useState("");
+
   const [phone_number, setPhoneNumber] = useState("");
   const [street_number, setStreetNumber] = useState("");
   const [street_name, setStreetName] = useState("");
-  const [city, setCity] = useState("");
-  const [province, setProvince] = useState("");
+  const [city_Town, setCity] = useState("");
+  const [province_State, setProvince] = useState("");
   const [country, setCountry] = useState("");
   const [postal_code, setPostalCode] = useState("");
   const [email, setEmail] = useState("");
   const [fax, setFax] = useState("");
+
   const [login_id, setLoginID] = useState("");
   const [password, setPassword] = useState("");
+
   const [job_title, setJobTitle] = useState("");
+  
   const [qualification, setQualification] = useState("");
+  
   const [institution_name, setInstitutionName] = useState("");
 
   const handleSubmit = async (event) => {
@@ -33,8 +38,8 @@ const AdminCreateCareProviderPage = () => {
       phone_number,
       street_number,
       street_name,
-      city,
-      province,
+      city_Town,
+      province_State,
       country,
       postal_code,
       email,
@@ -60,8 +65,8 @@ const AdminCreateCareProviderPage = () => {
     //     phone_number,
     //     street_number,
     //     street_name,
-    //     city,
-    //     province,
+    //     city_Town,
+    //     province_State,
     //     country,
     //     postal_code,
     //     email,
@@ -291,8 +296,8 @@ const AdminCreateCareProviderPage = () => {
               type="text"
               placeholder="City"
               required
-              id="city"
-              value={city}
+              id="city_Town"
+              value={city_Town}
               onChange={(e) => setCity(e.target.value)}
             />
           </Form.Group>
@@ -301,8 +306,8 @@ const AdminCreateCareProviderPage = () => {
             <Form.Control
               as="select"
               required
-              id="province"
-              value={province}
+              id="province_State"
+              value={province_State}
               onChange={(e) => setProvince(e.target.value)}
             >
               <option>Choose Province</option>

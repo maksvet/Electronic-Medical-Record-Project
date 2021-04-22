@@ -5,7 +5,7 @@ import Navigation from "../Shared/Navigation";
 import { Container } from "react-bootstrap";
 
 const UpdatePatientPage = (props) => {
-  const [patient, setPatient] = useState("");
+  const [patient, setPatient] = useState([]);
 
   console.log(props);
   let id = props.match.params.health_card_number;
@@ -14,7 +14,7 @@ const UpdatePatientPage = (props) => {
     async function fetchData() {
       console.log("something");
       const res = await fetch(
-        `https://run.mocky.io/v3/9169b99f-3d1b-43a8-8776-4e9587211b60`,
+        `https://run.mocky.io/v3/c94433df-7ccf-4884-9224-16ce97623f48`,
         {
           method: "GET",
         }
@@ -36,8 +36,8 @@ const UpdatePatientPage = (props) => {
     phone_number: patient.phone_number,
     street_number: patient.street_number,
     street_name: patient.street_name,
-    city: patient.city,
-    province: patient.province,
+    city_Town: patient.city,
+    province_State: patient.province,
     country: patient.country,
     postal_code: patient.postal_code,
     email: patient.email,
@@ -90,8 +90,8 @@ const UpdatePatientPage = (props) => {
     //     phone_number,
     //     street_number,
     //     street_name,
-    //     city,
-    //     province,
+    //     city_Town,
+    //     province_State,
     //     country,
     //     postal_code,
     //     email,
@@ -236,7 +236,6 @@ const UpdatePatientPage = (props) => {
               required
               id="phone_number"
               defaultValue={patient.phone_number}
-              onChange={handleChange1}
             />
           </Form.Group>
 
@@ -248,7 +247,7 @@ const UpdatePatientPage = (props) => {
               required
               id="street_number"
               defaultValue={patient.street_number}
-              onChange={handleChange1}
+
             />
           </Form.Group>
 
@@ -269,11 +268,11 @@ const UpdatePatientPage = (props) => {
           <Form.Group as={Col}>
             <Form.Control
               type="text"
-              name="city"
+              name="city_Town"
               placeholder="City"
               required
-              id="city"
-              defaultValue={patient.city}
+              id="city_Town"
+              defaultValue={patient.city_Town}
               onChange={handleChange1}
             />
           </Form.Group>
@@ -281,10 +280,10 @@ const UpdatePatientPage = (props) => {
           <Form.Group as={Col}>
             <Form.Control
               as="select"
-              name="province"
+              name="province_State"
               required
-              id="province"
-              defaultValue={patient.province}
+              id="province_State"
+              defaultValue={patient.province_State}
               onChange={handleChange1}
             >
               <option>Choose Province</option>
