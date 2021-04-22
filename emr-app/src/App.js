@@ -8,6 +8,7 @@ import AdminCreatePatientPage from './Components/Pages/AdminCreatePatientPage';
 import AdminCreateCareProviderPage from '../src/Components/Pages/AdminCreateCareProviderPage';
 import AdminHome from '../src/Components/Pages/AdminHome';
 import UpdatePatientPage from '../src/Components/Pages/UpdatePatientPage';
+import CareProviderUpdatePatientPage from '../src/Components/Pages/CareProviderUpdatePatientPage';
 import PrivateRoute from '../src/Components/Shared/PrivateRoute';
 import AdminUpdateCareProviderPage from './Components/Pages/AdminUpdateCareProviderPage';
 import CareProviderHome from './Components/Pages/CareProviderHome';
@@ -22,6 +23,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Login} />
         <Route path="/UpdatePatientPage" component={UpdatePatientPage} />
+        <Route path="/CareProviderUpdatePatientPage" component={CareProviderUpdatePatientPage} />
         <Route path="/AdminHome" component={AdminHome} />
         <Route path="/AdminCreatePatientPage" component={AdminCreatePatientPage} />
         <Route path="/AdminCreateCareProviderPage" component={AdminCreateCareProviderPage} />
