@@ -4,7 +4,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 // import Footer from "../src/Components/Shared/Footer";
 // import Landing from "./Components/Pages/Login";
 import Login from '../src/Components/Pages/Login';
-import AdminCreatePatientPage from './Components/Pages/AdminCreatePatientPage';
+import AdminCreatePatientPage from '../src/Components/Pages/AdminCreatePatientPage';
 import AdminCreateCareProviderPage from '../src/Components/Pages/AdminCreateCareProviderPage';
 import AdminHome from '../src/Components/Pages/AdminHome';
 import UpdatePatientPage from '../src/Components/Pages/UpdatePatientPage';

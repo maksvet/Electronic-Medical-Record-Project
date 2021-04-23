@@ -6,8 +6,8 @@ import Navigation from "../Shared/Navigation";
 import { Container } from "react-bootstrap";
 
 const AdminUpdateCareProviderPage = (props) => {
-  const [careProvider, setCareProvider] = useState(""); 
-  
+  const [careProvider, setCareProvider] = useState("");
+
   //Fetching data from API
   let id = props.match.params.employee_id;
   // const [careProviders, setCareProviders] = useState([]);
@@ -31,44 +31,44 @@ const AdminUpdateCareProviderPage = (props) => {
   //   // [id]
   // );
 
-    useEffect(() => {
-      async function fetchData() {
-        console.log("something");
-        const res = await fetch(
-          `https://run.mocky.io/v3/36919d01-9c59-4d91-a4bb-b565e5a24af4`
-        );
-        res.json().then((res) => setCareProvider(...res));
-      }
-      fetchData();
-    }, [id]);
+  useEffect(() => {
+    async function fetchData() {
+      console.log("something");
+      const res = await fetch(
+        `https://run.mocky.io/v3/36919d01-9c59-4d91-a4bb-b565e5a24af4`
+      );
+      res.json().then((res) => setCareProvider(...res));
+    }
+    fetchData();
+  }, [id]);
 
-    const [personalInfo, setPersonalInfo] = useState({
-      first_name: careProvider.first_name,
-      middle_name: careProvider.middle_name,
-      last_name: careProvider.last_name,
-      dob: careProvider.dob,
-      gender: careProvider.gender,
-    });
+  const [personalInfo, setPersonalInfo] = useState({
+    first_name: careProvider.first_name,
+    middle_name: careProvider.middle_name,
+    last_name: careProvider.last_name,
+    dob: careProvider.dob,
+    gender: careProvider.gender,
+  });
 
-    const [contactInfo, setContactInfo] = useState({
-      phone_number: careProvider.phone_number,
-      street_number: careProvider.street_number,
-      street_name: careProvider.street_name,
-      city_Town: careProvider.city,
-      province_State: careProvider.province,
-      country: careProvider.country,
-      postal_code: careProvider.postal_code,
-      email: careProvider.email,
-      fax: careProvider.fax,
-    });
+  const [contactInfo, setContactInfo] = useState({
+    phone_number: careProvider.phone_number,
+    street_number: careProvider.street_number,
+    street_name: careProvider.street_name,
+    city_Town: careProvider.city,
+    province_State: careProvider.province,
+    country: careProvider.country,
+    postal_code: careProvider.postal_code,
+    email: careProvider.email,
+    fax: careProvider.fax,
+  });
 
-    const [credentialsInfo, setCredentialsInfo] = useState({
-      login_id: careProvider.login_id,
-      password: careProvider.password,
-      job_title: careProvider.job_title,
-      qualification: careProvider.qualification,
-      institution_name: careProvider.institution_name,
-    });
+  const [credentialsInfo, setCredentialsInfo] = useState({
+    login_id: careProvider.login_id,
+    password: careProvider.password,
+    job_title: careProvider.job_title,
+    qualification: careProvider.qualification,
+    institution_name: careProvider.institution_name,
+  });
 
   const handleChange1 = (event) => {
     setPersonalInfo((prevState) => ({
@@ -112,7 +112,7 @@ const AdminUpdateCareProviderPage = (props) => {
     }));
   };
 
-    const handleSubmit2 = async (event) => {
+  const handleSubmit2 = async (event) => {
     alert("Successful Submit!");
     event.preventDefault();
     console.log(credentialsInfo);
@@ -219,7 +219,6 @@ const AdminUpdateCareProviderPage = (props) => {
                   name="first_name"
                   id="first_name"
                   placeholder="Enter First Name"
-                  required
                   defaultValue={careProvider.first_name}
                   onChange={handleChange1}
                 />
@@ -231,7 +230,6 @@ const AdminUpdateCareProviderPage = (props) => {
                   name="middle_name"
                   id="middle_name"
                   placeholder="Enter Middle Name"
-                  required
                   defaultValue={careProvider.middle_name}
                   onChange={handleChange1}
                 />
@@ -243,7 +241,6 @@ const AdminUpdateCareProviderPage = (props) => {
                   name="last_name"
                   id="last_name"
                   placeholder="Enter Last Name"
-                  required
                   defaultValue={careProvider.last_name}
                   onChange={handleChange1}
                 />
@@ -258,7 +255,6 @@ const AdminUpdateCareProviderPage = (props) => {
                   name="dob"
                   id="dob"
                   placeholder="Enter Date Of Birth"
-                  required
                   defaultValue={careProvider.dob}
                   onChange={handleChange1}
                 />
@@ -271,7 +267,6 @@ const AdminUpdateCareProviderPage = (props) => {
                   type="text"
                   name="gender"
                   id="gender"
-                  required
                   defaultValue={careProvider.gender}
                   onChange={handleChange1}
                   custom
@@ -297,7 +292,6 @@ const AdminUpdateCareProviderPage = (props) => {
                   name="login_id"
                   id="login_id"
                   placeholder="Enter login ID"
-                  required
                   defaultValue={careProvider.login_id}
                   onChange={handleChange2}
                 />
@@ -308,7 +302,6 @@ const AdminUpdateCareProviderPage = (props) => {
                   name="password"
                   id="password"
                   placeholder="Enter new password"
-                  required
                   defaultValue={careProvider.password}
                   onChange={handleChange2}
                 />
@@ -321,7 +314,6 @@ const AdminUpdateCareProviderPage = (props) => {
                   name="job_title"
                   id="job_title"
                   placeholder="Enter Job Title"
-                  required
                   defaultValue={careProvider.job_title}
                   onChange={handleChange2}
                 />
@@ -333,7 +325,6 @@ const AdminUpdateCareProviderPage = (props) => {
                   name="qualification"
                   id="qualification"
                   placeholder="Enter Qualification"
-                  required
                   defaultValue={careProvider.qualification}
                   onChange={handleChange2}
                 />
@@ -345,7 +336,6 @@ const AdminUpdateCareProviderPage = (props) => {
                   name="institution_name"
                   id="institution_name"
                   placeholder="Enter Institution Name"
-                  required
                   defaultValue={careProvider.institution_name}
                   onChange={handleChange2}
                 />
@@ -367,7 +357,6 @@ const AdminUpdateCareProviderPage = (props) => {
                   type="tel"
                   name="phone_number"
                   placeholder="Phone Number"
-                  required
                   id="phone_number"
                   defaultValue={careProvider.phone_number}
                   onChange={handleChange3}
@@ -379,7 +368,6 @@ const AdminUpdateCareProviderPage = (props) => {
                   type="text"
                   name="street_number"
                   placeholder="Street Number"
-                  required
                   id="street_number"
                   defaultValue={careProvider.street_number}
                   onChange={handleChange3}
@@ -391,7 +379,6 @@ const AdminUpdateCareProviderPage = (props) => {
                   type="text"
                   name="street_name"
                   placeholder="Street Name"
-                  required
                   id="street_name"
                   defaultValue={careProvider.street_name}
                   onChange={handleChange3}
@@ -405,7 +392,6 @@ const AdminUpdateCareProviderPage = (props) => {
                   type="text"
                   name="city_Town"
                   placeholder="City"
-                  required
                   id="city_Town"
                   defaultValue={careProvider.city_Town}
                   onChange={handleChange3}
@@ -416,7 +402,6 @@ const AdminUpdateCareProviderPage = (props) => {
                 <Form.Control
                   as="select"
                   name="province_State"
-                  required
                   id="province_State"
                   defaultValue={careProvider.province_State}
                   onChange={handleChange3}
@@ -442,7 +427,6 @@ const AdminUpdateCareProviderPage = (props) => {
                 <Form.Control
                   as="select"
                   name="country"
-                  required
                   id="country"
                   defaultValue={careProvider.country}
                   onChange={handleChange3}
@@ -460,7 +444,6 @@ const AdminUpdateCareProviderPage = (props) => {
                   type="text"
                   name="postal_code"
                   placeholder="Enter Postal Code"
-                  required
                   id="postal code"
                   defaultValue={careProvider.postal_code}
                   onChange={handleChange3}
@@ -472,7 +455,6 @@ const AdminUpdateCareProviderPage = (props) => {
                   type="email"
                   name="email"
                   placeholder="Enter email"
-                  required
                   id="email"
                   defaultValue={careProvider.email}
                   onChange={handleChange3}
@@ -484,7 +466,6 @@ const AdminUpdateCareProviderPage = (props) => {
                   type="tel"
                   name="fax"
                   placeholder="Enter Fax"
-                  required
                   id="fax"
                   defaultValue={careProvider.fax}
                   onChange={handleChange3}

@@ -192,7 +192,6 @@ const CareProviderUpdatePatientPage2 = (props) => {
             type="text"
             name="employee_id"
             placeholder="Enter Employee ID"
-            required
             id="employee_id"
             onChange={handleChange5}
           />
@@ -202,7 +201,6 @@ const CareProviderUpdatePatientPage2 = (props) => {
             type="textarea"
             name="patient_note"
             placeholder="Enter Patient Notes"
-            required
             id="patient_note"
             onChange={handleChange5}
           />
@@ -212,7 +210,6 @@ const CareProviderUpdatePatientPage2 = (props) => {
             type="date"
             name="date_stamp"
             placeholder="Choose Date"
-            required
             id="date_stamp"
             onChange={handleChange5}
           />
@@ -229,7 +226,6 @@ const CareProviderUpdatePatientPage2 = (props) => {
             type="text"
             name="employee_id"
             placeholder="Enter Employee ID"
-            required
             id="employee_id"
             onChange={handleChange6}
           />
@@ -238,7 +234,6 @@ const CareProviderUpdatePatientPage2 = (props) => {
           <Form.Control
             type="file"
             name="diagnostic_image"
-            required
             id="diagnostic_image"
             onChange={handleChange6}
           />
@@ -248,7 +243,6 @@ const CareProviderUpdatePatientPage2 = (props) => {
             type="date"
             name="date_stamp"
             placeholder="Enter Date"
-            required
             id="date_stamp"
             onChange={handleChange6}
           />
@@ -266,7 +260,6 @@ const CareProviderUpdatePatientPage2 = (props) => {
             type="file"
             name="lab_result"
             placeholder="Attach Lab Result"
-            required
             id="lab_result"
             onChange={handleChange7}
           />
@@ -276,7 +269,6 @@ const CareProviderUpdatePatientPage2 = (props) => {
             type="date"
             name="date_stamp"
             placeholder="Enter Date"
-            required
             id="date_stamp"
             onChange={handleChange7}
           />
@@ -294,7 +286,6 @@ const CareProviderUpdatePatientPage2 = (props) => {
             type="textarea"
             name="medication"
             placeholder="Enter Medication"
-            required
             id="medication"
             onChange={handleChange8}
           />
@@ -304,7 +295,6 @@ const CareProviderUpdatePatientPage2 = (props) => {
             type="date"
             name="date_stamp"
             placeholder="Enter Date"
-            required
             id="date_stamp"
             onChange={handleChange8}
           />
@@ -315,7 +305,6 @@ const CareProviderUpdatePatientPage2 = (props) => {
               type="text"
               name="prescription"
               placeholder="Enter Prescription"
-              required
               id="prescription"
               onChange={handleChange8}
             />
@@ -325,7 +314,6 @@ const CareProviderUpdatePatientPage2 = (props) => {
               type="date"
               name="last_filled_date"
               placeholder="Enter Date"
-              required
               id="last_filled_date"
               onChange={handleChange8}
             />
