@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { Form, FormControl, Button } from "react-bootstrap";
 import { Row, Col, Input } from "reactstrap";
 import Navigation from "../Shared/Navigation";
@@ -30,7 +30,7 @@ const IndividualPatientInfoPage = (props) => {
     async function fetchData2() {
       console.log("notes");
       const res = await fetch(
-        `https://run.mocky.io/v3/3a15c1fe-c6da-4f0e-93e4-c959ad68e28b`,
+        `https://run.mocky.io/v3/1239d017-27a8-441e-aa8b-e872617e7463`,
         {
           method: "GET",
         }
@@ -489,28 +489,29 @@ const IndividualPatientInfoPage = (props) => {
         </div>
       ))}
 
-    
       <h2>Patients Notes</h2>
       <Table responsive>
         <thead>
           <tr>
             <th>Note ID</th>
-            <th>Physician ID Number</th>
             <th>Date Note Entered</th>
+            <th>Physician ID Number</th>
             <th>Patient Notes</th>
           </tr>
         </thead>
         <tbody>
-          {notes.map((note) => (
-            <div key={note.patient_note_id}>
-              <tr>
-                <td>{note.patient_note_id}</td>
-                <td>{note.date_stamp}</td>
-                <td>{note.employee_id}</td>
-                <td>{note.patient_note}</td>
-              </tr>
-            </div>
-          ))}
+          {notes
+            .sort((a, b) => (b.date_stamp > a.date_stamp ? 1 : -1))
+            .map((note) => (
+              <React.Fragment key={note.patient_note_id}>
+                <tr>
+                  <td>{note.patient_note_id}</td>
+                  <td>{note.date_stamp}</td>
+                  <td>{note.employee_id}</td>
+                  <td>{note.patient_note}</td>
+                </tr>
+              </React.Fragment>
+            ))}
         </tbody>
       </Table>
       <h2>Medication</h2>
@@ -526,18 +527,20 @@ const IndividualPatientInfoPage = (props) => {
           </tr>
         </thead>
         <tbody>
-          {medication.map((medication) => (
-            <div key={medication.medication_id}>
-              <tr>
-                <td>{medication.medication_id}</td>
-                <td>{medication.date_stamp}</td>
-                <td>{medication.employee_id}</td>
-                <td>{medication.medication}</td>
-                <td>{medication.prescription}</td>
-                <td>{medication.last_filled}</td>
-              </tr>
-            </div>
-          ))}
+          {medication
+            .sort((a, b) => (b.date_stamp > a.date_stamp ? 1 : -1))
+            .map((medication) => (
+              <React.Fragment key={medication.medication_id}>
+                <tr>
+                  <td>{medication.medication_id}</td>
+                  <td>{medication.date_stamp}</td>
+                  <td>{medication.employee_id}</td>
+                  <td>{medication.medication}</td>
+                  <td>{medication.prescription}</td>
+                  <td>{medication.last_filled}</td>
+                </tr>
+              </React.Fragment>
+            ))}
         </tbody>
       </Table>
 
@@ -552,16 +555,18 @@ const IndividualPatientInfoPage = (props) => {
           </tr>
         </thead>
         <tbody>
-          {diagnostics.map((image) => (
-            <div key={image.diagnostic_image_id}>
-              <tr>
-                <td>{image.diagnostic_image_id}</td>
-                <td>{image.date_stamp}</td>
-                <td>{image.employee_id}</td>
-                <td>{image.diagnostic_image}</td>
-              </tr>
-            </div>
-          ))}
+          {diagnostics
+            .sort((a, b) => (b.date_stamp > a.date_stamp ? 1 : -1))
+            .map((image) => (
+              <React.Fragment key={image.diagnostic_image_id}>
+                <tr>
+                  <td>{image.diagnostic_image_id}</td>
+                  <td>{image.date_stamp}</td>
+                  <td>{image.employee_id}</td>
+                  <td>{image.diagnostic_image}</td>
+                </tr>
+              </React.Fragment>
+            ))}
         </tbody>
       </Table>
 
@@ -576,16 +581,18 @@ const IndividualPatientInfoPage = (props) => {
           </tr>
         </thead>
         <tbody>
-          {labResults.map((lab) => (
-            <div key={lab.lab_result_id}>
-              <tr>
-                <td>{lab.lab_result_id}</td>
-                <td>{lab.date_stamp}</td>
-                <td>{lab.employee_id}</td>
-                <td>{lab.lab_result}</td>
-              </tr>
-            </div>
-          ))}
+          {labResults
+            .sort((a, b) => (b.date_stamp > a.date_stamp ? 1 : -1))
+            .map((lab) => (
+              <div key={lab.lab_result_id}>
+                <tr>
+                  <td>{lab.lab_result_id}</td>
+                  <td>{lab.date_stamp}</td>
+                  <td>{lab.employee_id}</td>
+                  <td>{lab.lab_result}</td>
+                </tr>
+              </div>
+            ))}
         </tbody>
       </Table>
       <Button

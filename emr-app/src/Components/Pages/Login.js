@@ -29,6 +29,7 @@ const Login = () => {
     // });
 
     // const payload = await response.json();
+    // // console.log(adminChecked.toString());
     // if (response.status >= 400) {
     //   setAuth(false);
     //   alert(`Oops! Error ${response.status}:  ${payload.message}`);
@@ -43,8 +44,8 @@ const Login = () => {
       history.replace(from);
     }
 
-    //   let { from } = location.state || { from: { pathname: "/AdminHome" } };
-    //   history.replace(from);
+      // let { from } = location.state || { from: { pathname: "/AdminHome" } };
+      // history.replace(from);
     // }
     setLoginID("");
     setPassword("");

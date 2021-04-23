@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import Navigation from "../Shared/Navigation";
 import { Table } from "reactstrap";
 import { Button } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 const RegisteredPatients = (props) => {
   console.log(props);
@@ -51,8 +52,9 @@ const RegisteredPatients = (props) => {
   };
 
   return (
-    <React.Fragment>
+    <Container className="p-3">
       <Navigation />
+      <h2>Registered Patients</h2>
       <Table responsive>
         <thead>
           <tr>
@@ -63,7 +65,7 @@ const RegisteredPatients = (props) => {
         </thead>
         <tbody>
           {patients.map((patient) => (
-            <div key={patient.health_card_number}>
+            <React.Fragment key={patient.health_card_number}>
               <tr>
                 <td>{patient.health_card_number}</td>
                 <td>{patient.first_name}</td>
@@ -92,7 +94,7 @@ const RegisteredPatients = (props) => {
                   </Button>
                 </td>
               </tr>
-            </div>
+            </React.Fragment>
           ))}
         </tbody>
       </Table>
@@ -122,7 +124,7 @@ const RegisteredPatients = (props) => {
           </button>
         </div>
       ))} */}
-    </React.Fragment>
+    </Container>
   );
 };
 

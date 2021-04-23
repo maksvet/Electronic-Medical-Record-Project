@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Navigation from "../Shared/Navigation";
 import { Button } from "react-bootstrap";
 import { Table } from "reactstrap";
+import { Container } from "react-bootstrap";
 
 const RegisteredCareProviders = (props) => {
   console.log(props);
@@ -51,8 +52,9 @@ const RegisteredCareProviders = (props) => {
   };
 
   return (
-    <React.Fragment>
+    <Container className="p-3">
       <Navigation />
+      <h2>Registered Care Providers</h2>
       <Table responsive>
         <thead>
           <tr>
@@ -62,7 +64,7 @@ const RegisteredCareProviders = (props) => {
           </tr>
         </thead>
           {careProviders.map((careProvider) => (
-            <div key={careProvider.employeeID}>
+            <React.Fragment key={careProvider.employeeID}>
               <tbody>
               <tr>
                 <td>{careProvider.employeeID}</td>
@@ -88,10 +90,10 @@ const RegisteredCareProviders = (props) => {
                 </td>
               </tr>
               </tbody>
-            </div>
+            </React.Fragment>
           ))}
       </Table>
-    </React.Fragment>
+    </Container>
   );
 };
 
