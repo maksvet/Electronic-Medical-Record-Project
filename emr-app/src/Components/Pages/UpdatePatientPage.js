@@ -224,7 +224,82 @@ const UpdatePatientPage = (props) => {
     <Container className="p-3">
       <Navigation />
 
-      <h1>Admin Update Patient</h1>
+      <h1>
+        Admin Update Patient: <span className="userName">{patient.name}</span>
+      </h1>
+
+      <h2>Personal Details</h2>
+      <Form onSubmit={handleSubmit2}>
+        <Row className="py-2">
+          <Col sm={4}>
+            <Input
+              type="text"
+              name="first_name"
+              id="first_name"
+              placeholder="Enter First Name"
+              defaultValue={patient.first_name}
+              onChange={handleChange2}
+            />
+          </Col>
+
+          <Col sm={4}>
+            <Input
+              type="text"
+              name="middle_name"
+              id="middle_name"
+              placeholder="Enter Middle Name"
+              defaultValue={patient.middle_name}
+              onChange={handleChange2}
+            />
+          </Col>
+
+          <Col sm={4}>
+            <Input
+              type="text"
+              name="last_name"
+              id="last_name"
+              placeholder="Enter Last Name"
+              defaultValue={patient.last_name}
+              onChange={handleChange2}
+            />
+          </Col>
+        </Row>
+
+        <Row className="py-2">
+          <label className="ml-3">Date of Birth</label>
+          <Col sm={2}>
+            <Input
+              type="date"
+              name="dob"
+              id="dob"
+              placeholder="Enter Date Of Birth"
+              defaultValue={patient.dob}
+              onChange={handleChange2}
+            />
+          </Col>
+
+          <Col sm={2}>
+            <FormControl
+              as="select"
+              className="mr-sm-2"
+              name="gender"
+              id="gender"
+              defaultValue={patient.gender}
+              onChange={handleChange2}
+              custom
+            >
+              <option value="0">Select Gender</option>
+              <option value="1">Male</option>
+              <option value="2">Female</option>
+              <option value="3">Non-Binary</option>
+            </FormControl>
+          </Col>
+        </Row>
+        <Button variant="primary" type="submit">
+          Update
+        </Button>
+      </Form>
+
       <h2>Contact Info</h2>
       <Form onSubmit={handleSubmit1}>
         <Form.Row>
@@ -346,78 +421,6 @@ const UpdatePatientPage = (props) => {
             />
           </Form.Group>
         </Form.Row>
-        <Button variant="primary" type="submit">
-          Update
-        </Button>
-      </Form>
-
-      <h2>Personal Details</h2>
-      <Form onSubmit={handleSubmit2}>
-        <Row className="py-2">
-          <Col sm={4}>
-            <Input
-              type="text"
-              name="first_name"
-              id="first_name"
-              placeholder="Enter First Name"
-              defaultValue={patient.first_name}
-              onChange={handleChange2}
-            />
-          </Col>
-
-          <Col sm={4}>
-            <Input
-              type="text"
-              name="middle_name"
-              id="middle_name"
-              placeholder="Enter Middle Name"
-              defaultValue={patient.middle_name}
-              onChange={handleChange2}
-            />
-          </Col>
-
-          <Col sm={4}>
-            <Input
-              type="text"
-              name="last_name"
-              id="last_name"
-              placeholder="Enter Last Name"
-              defaultValue={patient.last_name}
-              onChange={handleChange2}
-            />
-          </Col>
-        </Row>
-
-        <Row className="py-2">
-          <label>Date of Birth</label>
-          <Col sm={2}>
-            <Input
-              type="date"
-              name="dob"
-              id="dob"
-              placeholder="Enter Date Of Birth"
-              defaultValue={patient.dob}
-              onChange={handleChange2}
-            />
-          </Col>
-
-          <Col sm={2}>
-            <FormControl
-              as="select"
-              className="mr-sm-2"
-              name="gender"
-              id="gender"
-              defaultValue={patient.gender}
-              onChange={handleChange2}
-              custom
-            >
-              <option value="0">Select Gender</option>
-              <option value="1">Male</option>
-              <option value="2">Female</option>
-              <option value="3">Non-Binary</option>
-            </FormControl>
-          </Col>
-        </Row>
         <Button variant="primary" type="submit">
           Update
         </Button>

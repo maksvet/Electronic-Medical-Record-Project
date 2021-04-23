@@ -167,8 +167,80 @@ const handleSubmit = async (event) => {
       <Navigation />
 
       <h1>Create Patient</h1>
-      <h2>Contact Info</h2>
       <Form onSubmit={handleSubmit}>
+        <h2>Personal Details</h2>
+        <Row className="py-2">
+          <Col sm={4}>
+            <Input
+              type="text"
+              name="first_name"
+              id="first_name"
+              placeholder="Enter First Name"
+              required
+              value={first_name}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+          </Col>
+
+          <Col sm={4}>
+            <Input
+              type="text"
+              name="middle_name"
+              id="middle_name"
+              placeholder="Enter Middle Name"
+              required
+              value={middle_name}
+              onChange={(e) => setMiddleName(e.target.value)}
+            />
+          </Col>
+
+          <Col sm={4}>
+            <Input
+              type="text"
+              name="last_name"
+              id="last_name"
+              placeholder="Enter Last Name"
+              required
+              value={last_name}
+              onChange={(e) => setLastName(e.target.value)}
+            />
+          </Col>
+        </Row>
+
+        <Row className="py-2">
+          <label className="ml-3">Date of Birth</label>
+          <Col sm={3}>
+            <Input
+              type="date"
+              name="dob"
+              id="dob"
+              placeholder="Enter Date Of Birth"
+              required
+              value={dob}
+              onChange={(e) => setDob(e.target.value)}
+            />
+          </Col>
+
+          <Col sm={2}>
+            <FormControl
+              as="select"
+              className="mr-sm-2"
+              name="gender"
+              id="gender"
+              required
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+              custom
+            >
+              <option value="0">Select Gender</option>
+              <option value="1">Male</option>
+              <option value="2">Female</option>
+              <option value="3">Non-Binary</option>
+            </FormControl>
+          </Col>
+        </Row>
+
+        <h2>Contact Info</h2>
         <Form.Row>
           <Form.Group as={Col}>
             <Form.Control
@@ -290,78 +362,6 @@ const handleSubmit = async (event) => {
             />
           </Form.Group>
         </Form.Row>
-
-        <h2>Personal Details</h2>
-        <Row className="py-2">
-          <Col sm={4}>
-            <Input
-              type="text"
-              name="first_name"
-              id="first_name"
-              placeholder="Enter First Name"
-              required
-              value={first_name}
-              onChange={(e) => setFirstName(e.target.value)}
-            />
-          </Col>
-
-          <Col sm={4}>
-            <Input
-              type="text"
-              name="middle_name"
-              id="middle_name"
-              placeholder="Enter Middle Name"
-              required
-              value={middle_name}
-              onChange={(e) => setMiddleName(e.target.value)}
-            />
-          </Col>
-
-          <Col sm={4}>
-            <Input
-              type="text"
-              name="last_name"
-              id="last_name"
-              placeholder="Enter Last Name"
-              required
-              value={last_name}
-              onChange={(e) => setLastName(e.target.value)}
-            />
-          </Col>
-        </Row>
-
-        <Row className="py-2">
-          <label>Date of Birth</label>
-          <Col sm={2}>
-            <Input
-              type="date"
-              name="dob"
-              id="dob"
-              placeholder="Enter Date Of Birth"
-              required
-              value={dob}
-              onChange={(e) => setDob(e.target.value)}
-            />
-          </Col>
-
-          <Col sm={2}>
-            <FormControl
-              as="select"
-              className="mr-sm-2"
-              name="gender"
-              id="gender"
-              required
-              value={gender}
-              onChange={(e) => setGender(e.target.value)}
-              custom
-            >
-              <option value="0">Select Gender</option>
-              <option value="1">Male</option>
-              <option value="2">Female</option>
-              <option value="3">Non-Binary</option>
-            </FormControl>
-          </Col>
-        </Row>
 
         <h2>Patients Details</h2>
         <Form.Row>

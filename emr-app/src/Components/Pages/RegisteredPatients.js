@@ -54,7 +54,7 @@ const RegisteredPatients = (props) => {
   return (
     <Container className="p-3">
       <Navigation />
-      <h2>Registered Patients</h2>
+      <h1>Registered Patients</h1>
       <Table responsive>
         <thead>
           <tr>
@@ -78,19 +78,21 @@ const RegisteredPatients = (props) => {
                 <td>
                   <Button
                     onClick={(event) => {
-                      handleDelete(event, patient.health_card_number);
+                      handleEdit(event, patient.health_card_number);
                     }}
+                    variant="outline-secondary"
                   >
-                    Delete Me!
+                    Edit
                   </Button>
                 </td>
                 <td>
                   <Button
                     onClick={(event) => {
-                      handleEdit(event, patient.health_card_number);
+                      handleDelete(event, patient.health_card_number);
                     }}
+                    variant="outline-danger"
                   >
-                    Edit Me!
+                    Delete
                   </Button>
                 </td>
               </tr>

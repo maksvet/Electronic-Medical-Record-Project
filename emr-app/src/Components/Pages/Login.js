@@ -40,12 +40,14 @@ const Login = () => {
       let { from } = location.state || { from: { pathname: "/AdminHome" } };
       history.replace(from);
     } else {
-      let { from } = location.state || { from: { pathname: "/CareProviderHome" } };
+      let { from } = location.state || {
+        from: { pathname: "/CareProviderHome" },
+      };
       history.replace(from);
     }
 
-      // let { from } = location.state || { from: { pathname: "/AdminHome" } };
-      // history.replace(from);
+    // let { from } = location.state || { from: { pathname: "/AdminHome" } };
+    // history.replace(from);
     // }
     setLoginID("");
     setPassword("");
@@ -61,48 +63,51 @@ const Login = () => {
 
   return (
     <Container className="py-5">
-      {/* {!auth && <div>Invalid credentials, please try again</div>} */}
-      <h1 className="py-5 text-center">Electronic Medical Record System</h1>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group>
-          <Form.Label>User ID</Form.Label>
-          <Input
-            type="text"
-            id="login_id"
-            placeholder="Enter User ID"
-            value={login_id}
-            onChange={(e) => setLoginID(e.target.value)}
-          />
-          <Form.Text style={{ color: "black" }}>
-            * Only registered care providers can access this system.
-          </Form.Text>
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>Password</Form.Label>
-          <Input
-            style={{}}
-            type="password"
-            id="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </Form.Group>
-        <Form.Group controlId="formBasicCheckbox">
-          <Form.Check
-            type="checkbox"
-            label="Admin"
-            checked={adminChecked}
-            onChange={(e) => setAdminChecked(e.target.checked)}
-          />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Login
-        </Button>{" "}
-        {/* <Button variant="primary" type="submit">
+      <h1 className="py-1 text-center">Group-D Clinic Group</h1>
+      <h2 className="text-center">Electronic Medical Record System</h2>
+      <div className="row h-100 justify-content-center align-items-center">
+        {/* {!auth && <div>Invalid credentials, please try again</div>} */}
+        <Form onSubmit={handleSubmit} className= "loginForm">
+          <Form.Group>
+            {/* <Form.Label>User ID</Form.Label> */}
+            <Input
+              type="text"
+              id="login_id"
+              placeholder="Enter User ID"
+              value={login_id}
+              onChange={(e) => setLoginID(e.target.value)}
+            />
+            <Form.Text style={{ color: "black" }}>
+              * Only registered care providers can access this system.
+            </Form.Text>
+          </Form.Group>
+          <Form.Group>
+            {/* <Form.Label>Password</Form.Label> */}
+            <Input
+              style={{}}
+              type="password"
+              id="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group controlId="formBasicCheckbox">
+            <Form.Check
+              type="checkbox"
+              label="Admin"
+              checked={adminChecked}
+              onChange={(e) => setAdminChecked(e.target.checked)}
+            />
+          </Form.Group>
+          <Button variant="primary" type="submit" >
+            Login
+          </Button>{" "}
+          {/* <Button variant="primary" type="submit">
           Care Provider
         </Button> */}
-      </Form>
+        </Form>
+      </div>
     </Container>
   );
 };

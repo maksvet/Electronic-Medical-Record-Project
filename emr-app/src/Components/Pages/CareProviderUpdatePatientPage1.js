@@ -224,7 +224,10 @@ const CareProviderUpdatePatientPage1 = (props) => {
     <Container className="p-3">
       <Navigation />
 
-      <h1>Care Provider Update Patient</h1>
+      <h1>
+        Care Provider Update Patient:{" "}
+        <span className="userName">{patient.name}</span>
+      </h1>
       <h2>Contact Info</h2>
       <Form onSubmit={handleSubmit1}>
         <Form.Row>
@@ -434,6 +437,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
               name="health_card_number"
               placeholder="Enter Health Card Number"
               id="health_card_number"
+              readOnly
               defaultValue={patient.health_card_number}
               onChange={handleChange3}
             />
@@ -707,6 +711,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
         variant="primary"
         type="submit"
         href="/CareProviderUpdatePatientPage2"
+        className="my-3"
       >
         Add Patient Notes
       </Button>

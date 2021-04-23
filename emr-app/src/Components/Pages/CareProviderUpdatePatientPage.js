@@ -380,7 +380,7 @@ const CareProviderUpdatePatientPage = (props) => {
     <Container className="p-3">
       <Navigation />
 
-      <h1>Care Provider Update Patient</h1>
+      <h1>Care Provider Update Patient: <span className="userName">{patient.name}</span></h1>
       <h2>Contact Info</h2>
       <Form onSubmit={handleSubmit1}>
         <Form.Row>

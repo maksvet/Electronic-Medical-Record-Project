@@ -1,21 +1,18 @@
-import React from 'react';
-import {
-  Container,
-  Form,
-  Button,
-  FormControl
-} from 'react-bootstrap';
-import Navigation from '../Shared/Navigation';
+import React from "react";
+import { Container, Form, Button, FormControl } from "react-bootstrap";
+import Navigation from "../Shared/Navigation";
 
 // const submitForm = () => {
-  
+
 // }
 
 const CareProviderHome = () => {
   return (
     <Container className="p-3">
       <Navigation />
-      <h2 className="py-5 text-center">Welcome John Doe</h2>
+      <h2 className="py-5 text-center">
+        Welcome Care Provider: <span className="userName">John Doe</span>
+      </h2>
 
       <Form className="p-5 mx-5" inline>
         <FormControl

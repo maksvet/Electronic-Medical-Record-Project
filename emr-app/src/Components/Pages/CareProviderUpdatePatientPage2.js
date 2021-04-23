@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Form, FormControl, Button } from "react-bootstrap";
-import { Row, Col, Input } from "reactstrap";
+import { Form, Button } from "react-bootstrap";
+import { Row, Col } from "reactstrap";
 import Navigation from "../Shared/Navigation";
 import { Container } from "react-bootstrap";
 
@@ -184,8 +184,11 @@ const CareProviderUpdatePatientPage2 = (props) => {
     <Container className="p-3">
       <Navigation />
 
-      <h1>Add Patient Notes</h1>
-      <h2>Patient Notes</h2>
+      <h1 className="ml-3">
+        (Add Notes) Patient Name:{" "}
+        <span className="userName">{patient.name}</span>
+      </h1>
+      <h2 className="ml-3">Patient Notes</h2>
       <Form onSubmit={handleSubmit5}>
         <Form.Group as={Col} sm={2}>
           <Form.Control
@@ -214,12 +217,12 @@ const CareProviderUpdatePatientPage2 = (props) => {
             onChange={handleChange5}
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" className="ml-3">
           Add
         </Button>
       </Form>
 
-      <h2>Diagnostic Images</h2>
+      <h2 className="ml-3">Diagnostic Images</h2>
       <Form onSubmit={handleSubmit6}>
         <Form.Group as={Col} sm={2}>
           <Form.Control
@@ -248,12 +251,12 @@ const CareProviderUpdatePatientPage2 = (props) => {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" className="ml-3">
           Add
         </Button>
       </Form>
 
-      <h2>Lab Results</h2>
+      <h2 className="ml-3">Lab Results</h2>
       <Form onSubmit={handleSubmit7}>
         <Form.Group as={Col}>
           <Form.Control
@@ -274,12 +277,12 @@ const CareProviderUpdatePatientPage2 = (props) => {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" className="ml-3">
           Add
         </Button>
       </Form>
 
-      <h2>Medication</h2>
+      <h2 className="ml-3">Medication</h2>
       <Form onSubmit={handleSubmit8}>
         <Form.Group as={Col}>
           <Form.Control
@@ -300,7 +303,7 @@ const CareProviderUpdatePatientPage2 = (props) => {
           />
         </Form.Group>
         <Row>
-          <Form.Group as={Col}>
+          <Form.Group as={Col} className="ml-3">
             <Form.Control
               type="text"
               name="prescription"
@@ -320,7 +323,7 @@ const CareProviderUpdatePatientPage2 = (props) => {
           </Form.Group>
         </Row>
 
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" className="ml-3">
           Add
         </Button>
       </Form>

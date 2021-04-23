@@ -1,6 +1,6 @@
 import React from "react";
 import { Nav, NavDropdown, Button } from "react-bootstrap";
-import { BoxArrowRight, ArrowLeftCircle } from "react-bootstrap-icons";
+import { BoxArrowRight } from "react-bootstrap-icons";
 
 const goBack = () => {
   window.history.back();
@@ -12,15 +12,14 @@ const Navigation = () => {
       <Nav style={{ border: "2px black" }}>
         <div className="btn-group">
           <Button
-            className="btn btn-outline-primary"
+            variant="link"
             style={{ fontSize: "2rem" }}
             onClick={goBack}
           >
-            <i class="fas fa-arrow-left"></i>
+            <i className="fas fa-arrow-left"></i>
           </Button>
-          {/* <ArrowLeftCircle /> */}
         </div>
-        <h1 style={{ fontSize: "20px", padding: "1rem" }}>
+        <h1 style={{ fontSize: "2rem", padding: "1rem" }}>
           Group-D Clinic Group
         </h1>
         <div className="ml-auto">

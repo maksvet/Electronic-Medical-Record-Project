@@ -249,8 +249,8 @@ const AdminUpdateCareProviderPage = (props) => {
       <div>
         <Container className="pb-5">
           <Navigation />
-          <h2>Update Care Provider Form</h2>
-          <h3>Personal Details</h3>
+          <h1>Update Care Provider Form</h1>
+          <h2>Personal Details</h2>
           <Form onSubmit={handleSubmit1} className="pb-3">
             <Row className="py-2">
               <Col sm={4}>
@@ -323,7 +323,7 @@ const AdminUpdateCareProviderPage = (props) => {
             </Button>
           </Form>
 
-          <h3>Credentials</h3>
+          <h2>Credentials</h2>
           <Form onSubmit={handleSubmit2} className="pb-3">
             <Row className="py-2">
               <Col sm={4}>
@@ -389,7 +389,7 @@ const AdminUpdateCareProviderPage = (props) => {
             </Button>
           </Form>
 
-          <h3>Contact Information</h3>
+          <h2>Contact Information</h2>
           <Form onSubmit={handleSubmit3} className="pb-3">
             <Form.Row>
               <Form.Group as={Col}>

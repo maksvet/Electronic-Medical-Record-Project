@@ -209,8 +209,11 @@ const AdminUpdateCareProviderPage = (props) => {
       <div>
         <Container className="pb-5">
           <Navigation />
-          <h2>Update Care Provider Form</h2>
-          <h3>Personal Details</h3>
+          <h1>
+            Update Care Provider:{" "}
+            <span className="userName">{careProvider.first_name}</span>
+          </h1>
+          <h2>Personal Details</h2>
           <Form onSubmit={handleSubmit1} className="pb-3">
             <Row className="py-2">
               <Col sm={4}>
@@ -283,73 +286,7 @@ const AdminUpdateCareProviderPage = (props) => {
             </Button>
           </Form>
 
-          <h3>Credentials</h3>
-          <Form onSubmit={handleSubmit2} className="pb-3">
-            <Row className="py-2">
-              <Col sm={4}>
-                <Input
-                  type="text"
-                  name="login_id"
-                  id="login_id"
-                  placeholder="Enter login ID"
-                  defaultValue={careProvider.login_id}
-                  onChange={handleChange2}
-                />
-              </Col>
-              <Col sm={4}>
-                <Input
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="Enter new password"
-                  defaultValue={careProvider.password}
-                  onChange={handleChange2}
-                />
-              </Col>
-            </Row>
-            <Row className="py-2">
-              <Col sm={4}>
-                <Input
-                  type="text"
-                  name="job_title"
-                  id="job_title"
-                  placeholder="Enter Job Title"
-                  defaultValue={careProvider.job_title}
-                  onChange={handleChange2}
-                />
-              </Col>
-
-              <Col sm={4}>
-                <Input
-                  type="text"
-                  name="qualification"
-                  id="qualification"
-                  placeholder="Enter Qualification"
-                  defaultValue={careProvider.qualification}
-                  onChange={handleChange2}
-                />
-              </Col>
-
-              <Col sm={4}>
-                <Input
-                  type="text"
-                  name="institution_name"
-                  id="institution_name"
-                  placeholder="Enter Institution Name"
-                  defaultValue={careProvider.institution_name}
-                  onChange={handleChange2}
-                />
-              </Col>
-            </Row>
-            <Form.Group id="formGridCheckbox">
-              <Form.Check type="checkbox" label="Assign Admin Role" />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-              Update
-            </Button>
-          </Form>
-
-          <h3>Contact Information</h3>
+          <h2>Contact Information</h2>
           <Form onSubmit={handleSubmit3} className="pb-3">
             <Form.Row>
               <Form.Group as={Col}>
@@ -473,6 +410,72 @@ const AdminUpdateCareProviderPage = (props) => {
               </Form.Group>
             </Form.Row>
 
+            <Button variant="primary" type="submit">
+              Update
+            </Button>
+          </Form>
+
+          <h2>Credentials</h2>
+          <Form onSubmit={handleSubmit2} className="pb-3">
+            <Row className="py-2">
+              <Col sm={4}>
+                <Input
+                  type="text"
+                  name="login_id"
+                  id="login_id"
+                  placeholder="Enter login ID"
+                  defaultValue={careProvider.login_id}
+                  onChange={handleChange2}
+                />
+              </Col>
+              <Col sm={4}>
+                <Input
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="Enter new password"
+                  defaultValue={careProvider.password}
+                  onChange={handleChange2}
+                />
+              </Col>
+            </Row>
+            <Row className="py-2">
+              <Col sm={4}>
+                <Input
+                  type="text"
+                  name="job_title"
+                  id="job_title"
+                  placeholder="Enter Job Title"
+                  defaultValue={careProvider.job_title}
+                  onChange={handleChange2}
+                />
+              </Col>
+
+              <Col sm={4}>
+                <Input
+                  type="text"
+                  name="qualification"
+                  id="qualification"
+                  placeholder="Enter Qualification"
+                  defaultValue={careProvider.qualification}
+                  onChange={handleChange2}
+                />
+              </Col>
+
+              <Col sm={4}>
+                <Input
+                  type="text"
+                  name="institution_name"
+                  id="institution_name"
+                  placeholder="Enter Institution Name"
+                  defaultValue={careProvider.institution_name}
+                  onChange={handleChange2}
+                />
+              </Col>
+            </Row>
+            <Form.Group id="formGridCheckbox">
+              <Form.Check type="checkbox" label="Assign Admin Role" />
+            </Form.Group>
             <Button variant="primary" type="submit">
               Update
             </Button>
