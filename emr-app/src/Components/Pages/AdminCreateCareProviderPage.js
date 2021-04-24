@@ -26,14 +26,14 @@ const AdminCreateCareProviderPage = () => {
   const [password, setPassword] = useState("");
 
   const [job_title, setJobTitle] = useState("");
-  
-  const [qualification, setQualification] = useState("");
-  
-  const [institution_name, setInstitutionName] = useState("");
+
+  // const [qualification, setQualification] = useState("");
+
+  const [institution_id, setInstitution_id] = useState("");
 
   const handleSubmit = async (event) => {
-    alert("Successful!");
     event.preventDefault();
+    const token = sessionStorage.getItem("token");
     console.log(
       phone_number,
       street_number,
@@ -52,44 +52,55 @@ const AdminCreateCareProviderPage = () => {
       login_id,
       password,
       job_title,
-      qualification,
-      institution_name
+      institution_id
+      // qualification
     );
-    // const response = await fetch("http://localhost:4000/", {
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     phone_number,
-    //     street_number,
-    //     street_name,
-    //     city_Town,
-    //     province_State,
-    //     country,
-    //     postal_code,
-    //     email,
-    //     fax,
-    //     first_name,
-    //     middle_name,
-    //     last_name,
-    //     dob,
-    //     gender,
-    //     login_id,
-    //     password,
-    //     job_title,
-    //     qualification,
-    //     institution_name,
-    //   }),
-    // });
+    try {
+      var response = await fetch("http://localhost:9000/patient/", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          phone_number,
+          street_number,
+          street_name,
+          city_Town,
+          province_State,
+          country,
+          postal_code,
+          email,
+          fax,
+          first_name,
+          middle_name,
+          last_name,
+          dob,
+          gender,
+          login_id,
+          password,
+          job_title,
+          // qualification,
+          institution_id,
+        }),
+      });
 
-    // // const payload = await response.json();
-    // // if (response.status >= 400) {
-    // //   alert(`Oops! Error ${response.status}:  ${payload.message}`);
-    // // } else {
-    // //   alert(`Congratulations! Submission submitted with id: ${payload.id}`);
-    // // }
+      var payload = await response.json();
+      console.log(payload);
+    } catch (error) {
+      console.log(error);
+      alert(error);
+    }
+
+    if (response.status >= 400) {
+      alert(`Oops! Error ${response.status}:  ${payload}`);
+    } else {
+      alert(payload);
+    }
+
     setPhoneNumber("");
     setStreetNumber("");
     setStreetName("");
@@ -107,8 +118,8 @@ const AdminCreateCareProviderPage = () => {
     setLoginID("");
     setPassword("");
     setJobTitle("");
-    setQualification("");
-    setInstitutionName("");
+    // setQualification("");
+    setInstitution_id("");
   };
 
   return (
@@ -349,7 +360,7 @@ const AdminCreateCareProviderPage = () => {
             />
           </Col>
 
-          <Col sm={4}>
+          {/* <Col sm={4}>
             <Input
               type="text"
               name="qualification"
@@ -359,17 +370,17 @@ const AdminCreateCareProviderPage = () => {
               value={qualification}
               onChange={(e) => setQualification(e.target.value)}
             />
-          </Col>
+          </Col> */}
 
           <Col sm={4}>
             <Input
               type="text"
-              name="institution_name"
-              id="institution_name"
+              name="institution_id"
+              id="institution_id"
               placeholder="Enter Institution Name"
               required
-              value={institution_name}
-              onChange={(e) => setInstitutionName(e.target.value)}
+              value={institution_id}
+              onChange={(e) => setInstitution_id(e.target.value)}
             />
           </Col>
         </Row>
