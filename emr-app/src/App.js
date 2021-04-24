@@ -1,21 +1,21 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 // import Header from "../src/Components/Shared/Header";
 // import Footer from "../src/Components/Shared/Footer";
 // import Landing from "./Components/Pages/Login";
-import Login from '../src/Components/Pages/Login';
-import AdminCreatePatientPage from '../src/Components/Pages/AdminCreatePatientPage';
-import AdminCreateCareProviderPage from '../src/Components/Pages/AdminCreateCareProviderPage';
-import AdminHome from '../src/Components/Pages/AdminHome';
-import UpdatePatientPage from '../src/Components/Pages/UpdatePatientPage';
-import CareProviderUpdatePatientPage1 from '../src/Components/Pages/CareProviderUpdatePatientPage1';
-import CareProviderUpdatePatientPage2 from '../src/Components/Pages/CareProviderUpdatePatientPage2';
+import Login from "../src/Components/Pages/Login";
+import AdminCreatePatientPage from "../src/Components/Pages/AdminCreatePatientPage";
+import AdminCreateCareProviderPage from "../src/Components/Pages/AdminCreateCareProviderPage";
+import AdminHome from "../src/Components/Pages/AdminHome";
+import UpdatePatientPage from "../src/Components/Pages/UpdatePatientPage";
+import CareProviderUpdatePatientPage1 from "../src/Components/Pages/CareProviderUpdatePatientPage1";
+import CareProviderUpdatePatientPage2 from "../src/Components/Pages/CareProviderUpdatePatientPage2";
 import IndividualPatientInfoPage from "../src/Components/Pages/IndividualPatientInfoPage";
-import PrivateRoute from '../src/Components/Shared/PrivateRoute';
-import AdminUpdateCareProviderPage from './Components/Pages/AdminUpdateCareProviderPage';
-import CareProviderHome from './Components/Pages/CareProviderHome';
-import RegisteredCareProviders from './Components/Pages/RegisteredCareProviders';
-import RegisteredPatients from './Components/Pages/RegisteredPatients';
+import PrivateRoute from "../src/Components/Shared/PrivateRoute";
+import AdminUpdateCareProviderPage from "./Components/Pages/AdminUpdateCareProviderPage";
+import CareProviderHome from "./Components/Pages/CareProviderHome";
+import RegisteredCareProviders from "./Components/Pages/RegisteredCareProviders";
+import RegisteredPatients from "./Components/Pages/RegisteredPatients";
 
 // import { Card } from "react-bootstrap";
 
@@ -26,7 +26,7 @@ function App() {
         <Route exact path="/" component={Login} />
         <Route path="/UpdatePatientPage" component={UpdatePatientPage} />
         <Route
-          path="/CareProviderUpdatePatientPage1"
+          path="/CareProviderUpdatePatientPage1/:health_card_number"
           component={CareProviderUpdatePatientPage1}
         />
         <Route
