@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import Navigation from "../Shared/Navigation";
-import isAuthenticated from "../../utilities/authHelper";
+import isAuthenticated from "../../Utilities/authHelper";
 
 const AdminHome = () => {
   const isadmin = isAuthenticated().isadmin;
@@ -70,6 +70,16 @@ const AdminHome = () => {
             href="/RegisteredPatients"
           >
             Patient List <br /> CRUD
+          </Button>
+          <Button
+            className="ahbtn"
+            variant="primary"
+            type="submit"
+            href="/CareProviderHome"
+          >
+            Search Patient
+            <br />
+            CRUD
           </Button>
         </Form>
       </Container>
