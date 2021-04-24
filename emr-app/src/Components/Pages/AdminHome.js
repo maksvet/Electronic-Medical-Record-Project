@@ -14,7 +14,7 @@ const AdminHome = () => {
           <span className="userName">{isAuthenticated().login_id}</span>
         </h1>
         <Form>
-          {isadmin && (
+          {!!isadmin && (
             <React.Fragment>
               <Button
                 className="ahbtn"
@@ -35,14 +35,14 @@ const AdminHome = () => {
                 Create Care Provider <br /> CRUD
               </Button>
 
-              <Button
+              {/* <Button
                 className="ahbtn"
                 variant="primary"
                 type="submit"
                 href="/AdminUpdateCareProviderPage"
               >
                 Update Care Provider <br /> CRUD
-              </Button>
+              </Button> */}
               <Button
                 className="ahbtn"
                 variant="primary"
@@ -53,7 +53,7 @@ const AdminHome = () => {
               </Button>
             </React.Fragment>
           )}
-          <Button
+          {/* <Button
             className="ahbtn"
             variant="primary"
             type="submit"
@@ -62,7 +62,7 @@ const AdminHome = () => {
             Update Patient
             <br />
             CRUD
-          </Button>{" "}
+          </Button>{" "} */}
           <Button
             className="ahbtn"
             variant="primary"
