@@ -11,7 +11,7 @@ import { Table } from "reactstrap";
 const IndividualPatientInfoPage = (props) => {
   const [patient, setPatient] = useState([]);
 
-  console.log(props.match.params.health_card_number);
+  // var health_card_number = props.match.params.health_card_number;
 
   useEffect(() => {
     async function fetchData() {
@@ -452,7 +452,7 @@ const IndividualPatientInfoPage = (props) => {
               </Form.Group>
             </Row>
 
-            <Form.Row>
+            {/* <Form.Row>
               <Form.Group as={Col} sm={6}>
                 <Label>Immunization</Label>
                 <Form.Control
@@ -488,7 +488,7 @@ const IndividualPatientInfoPage = (props) => {
                   defaultValue={patient.employee_id}
                 />
               </Form.Group>
-            </Form.Row>
+            </Form.Row> */}
           </Form>
         </div>
       ))}
@@ -598,7 +598,7 @@ const IndividualPatientInfoPage = (props) => {
               </div>
             ))}
         </tbody>
-      </Table>
+      </Table> */}
       <Row>
         <Button
           className="m-3"
@@ -615,8 +615,8 @@ const IndividualPatientInfoPage = (props) => {
           href="/CareProviderUpdatePatientPage1"
         >
           Update Patient Information
-        </Button> */}
-      {/* </Row> */}
+        </Button>
+      </Row>
       {/* <Table responsive>
         <thead>
           <tr>
