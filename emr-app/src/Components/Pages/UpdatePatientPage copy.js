@@ -4,69 +4,41 @@ import { Row, Col, Input } from "reactstrap";
 import Navigation from "../Shared/Navigation";
 import { Container } from "react-bootstrap";
 
+var  token = sessionStorage.getItem("token");
+
 const UpdatePatientPage = (props) => {
   const [patient, setPatient] = useState([]);
-  // const [health_card_number, setHealth_card_number] = useState("");
-  // setHealth_card_number(props.match.params.health_card_number);
+  const [health_card_number, setHealth_card_number] = useState("");
+  setHealth_card_number(props.match.params.health_card_number);
 
-  useEffect((token, patient) => {
-    const fetchData = () => {
-      const token = sessionStorage.getItem("token");
-      return fetch("http://localhost:9000/", {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Credentials": true,
-          Authorization: `Bearer ${token}`,
-        },
-      })
-        .then((res) => {
-          return res.json();
-        })
-        .then((result) => {
-          // some stuff
-          setPatient(result);
-        })
-        .catch((err) => {
-          // some error handling
-          console.log(err);
-        });
-    };
-    fetchData();
-    alert(patient);
-  }, []);
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const res = await fetch(`http://localhost:9000/`, {
-  //       method: "GET",
-  //       headers: {
-  //         Accept: "application/json",
-  //         "Content-Type": "application/json",
-  //         "Access-Control-Allow-Origin": "*",
-  //         "Access-Control-Allow-Credentials": true,
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     });
+  useEffect(() => {
+
+  //   async function fetchData(health_card_number) {
+  //     const res = await fetch(
+  //       `http://localhost:9000/patient/${health_card_number}`,
+  //       {
+  //         method: "GET",
+  //         headers: {
+  //           Accept: "application/json",
+  //           "Content-Type": "application/json",
+  //           "Access-Control-Allow-Origin": "*",
+  //           "Access-Control-Allow-Credentials": true,
+  //           Authorization: `Bearer ${token}`,
+  //         },
+  //       }
+  //     );
   //     res.json().then((res) => setPatient([...res]));
   //   }
   //   fetchData();
   // }, []);
 
-  const [personalInfo, setPersonalInfo] = useState({
-    first_name: patient.first_name,
-    middle_name: patient.middle_name,
-    last_name: patient.last_name,
-    dob: patient.dob,
-    gender: patient.gender,
-  });
+      
 
   const [contactInfo, setContactInfo] = useState({
     phone_number: patient.phone_number,
     street_number: patient.street_number,
-    street_name: patient.street_nameve,
+    street_name: patient.street_nameve 
   });
 
   const [patientDetailsInfo, setPatientDetailsInfo] = useState({
@@ -244,13 +216,13 @@ const UpdatePatientPage = (props) => {
     //   alert(`Congratulations! Submission submitted with id: ${payload.id}`);
     // }
   };
-
+  
   return (
     <Container className="p-3">
       <Navigation />
 
       <h1>
-        Admin Update Patient:
+        Admin Update Patient: 
         <span className="userName">{patient.name}</span>
       </h1>
 
@@ -734,5 +706,6 @@ const UpdatePatientPage = (props) => {
     </Container>
   );
 };
+
 
 export default UpdatePatientPage;

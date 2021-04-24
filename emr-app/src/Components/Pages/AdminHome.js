@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import Navigation from "../Shared/Navigation";
-import isAuthenticated from "../../Utilities/authHelper";
+import isAuthenticated from "../../utilities/authHelper";
 
 const AdminHome = () => {
   const isadmin = isAuthenticated().isadmin;

@@ -3,20 +3,17 @@ import { Form, FormControl, Button } from "react-bootstrap";
 import { Row, Col, Input, Label } from "reactstrap";
 import Navigation from "../Shared/Navigation";
 import { Container } from "react-bootstrap";
-import { Table } from "reactstrap";
 // import { CareProviderHome } from "../Pages/CareProviderHome"
-
-// const id = CareProviderHome().health_card_number;
+var token = sessionStorage.getItem("token");
 
 const IndividualPatientInfoPage = (props) => {
   const [patient, setPatient] = useState([]);
-
   // var health_card_number = props.match.params.health_card_number;
 
   useEffect(() => {
     async function fetchData() {
       const res = await fetch(
-        `https://run.mocky.io/v3/aabe6ccc-eec9-4f20-99b7-bdfe9f6adb1c`,
+        `http://localhost:9000/patient/${props.match.params.health_card_number}`,
         {
           method: "GET",
           headers: {
@@ -24,6 +21,7 @@ const IndividualPatientInfoPage = (props) => {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Credentials": true,
+            Authorization: `Bearer ${token}`,
           },
         }
       );
@@ -51,8 +49,6 @@ const IndividualPatientInfoPage = (props) => {
   //     }
   //     fetchData1();
   //   }, []);
-    
-  
 
   // useEffect(() => {
   //     fetch(
