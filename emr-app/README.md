@@ -3,14 +3,7 @@ Electronic Medical Record System
 fs1030-fall2020-grp-d
 ----------------------------------------------------------------------------------------------------------------------
 
-Link to Trello Project Management files
-https://trello.com/b/5AARbiGI/fs1030-fall2020-grp-d
-
-Link to GitLab respository for code
-https://gitlab.com/DonKur/fs1030-fall2020-grp-d.git
-
-
-ReadMe
+**ReadMe**
 
 1. To run emr-app log into Git and navigate to the following repository: https://gitlab.com/DonKur/fs1030-fall2020-grp-d.git
 
@@ -38,3 +31,10 @@ Note: When we do a push .ENV file gets ignored.
 
 7. The application will start on port localhost:9001.
 
+**Related Links**
+
+Link to Trello Project Management files
+https://trello.com/b/5AARbiGI/fs1030-fall2020-grp-d
+
+Link to GitLab respository for code
+https://gitlab.com/DonKur/fs1030-fall2020-grp-d.git
