@@ -8,82 +8,51 @@ import { Table } from "reactstrap";
 
 // const id = CareProviderHome().health_card_number;
 
-const IndividualPatientInfoPage = (id) => {
+const IndividualPatientInfoPage = (props) => {
   const [patient, setPatient] = useState([]);
-  const [notes, setNotes] = useState([]);
-  const [labResults, setLabResults] = useState([]);
-  const [medication, setMedication] = useState([]);
-  const [diagnostics, setDiagnostics] = useState([]);
+
+  console.log(props.match.params.health_card_number);
 
   useEffect(() => {
-    async function fetchData1() {
-      console.log("patients");
+    async function fetchData() {
       const res = await fetch(
-        `https://run.mocky.io/v3/c94433df-7ccf-4884-9224-16ce97623f48/${id}`,
+        `https://run.mocky.io/v3/aabe6ccc-eec9-4f20-99b7-bdfe9f6adb1c`,
         {
           method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Credentials": true,
+          },
         }
       );
-      res.json().then((res) => setPatient(res));
+      res.json().then((res) => setPatient([...res]));
     }
-    fetchData1();
-  }, []);
+    fetchData();
+  }, [patient]);
 
-  useEffect(() => {
-    async function fetchData2() {
-      console.log("notes");
-      const res = await fetch(
-        `https://run.mocky.io/v3/1239d017-27a8-441e-aa8b-e872617e7463`,
-        {
-          method: "GET",
-        }
-      );
-      res.json().then((res) => setNotes(res));
-    }
-    fetchData2();
-  }, []);
+  console.log(patient);
 
-  useEffect(() => {
-    async function fetchData3() {
-      console.log("labs");
-      const res = await fetch(
-        `https://run.mocky.io/v3/3a15c1fe-c6da-4f0e-93e4-c959ad68e28b`,
-        {
-          method: "GET",
-        }
-      );
-      res.json().then((res) => setLabResults(res));
-    }
-    fetchData3();
-  }, []);
-
-  useEffect(() => {
-    async function fetchData4() {
-      console.log("medication");
-      const res = await fetch(
-        `https://run.mocky.io/v3/3a15c1fe-c6da-4f0e-93e4-c959ad68e28b`,
-        {
-          method: "GET",
-        }
-      );
-      res.json().then((res) => setMedication(res));
-    }
-    fetchData4();
-  }, []);
-
-  useEffect(() => {
-    async function fetchData5() {
-      console.log("diagnostics");
-      const res = await fetch(
-        `https://run.mocky.io/v3/3a15c1fe-c6da-4f0e-93e4-c959ad68e28b`,
-        {
-          method: "GET",
-        }
-      );
-      res.json().then((res) => setDiagnostics(res));
-    }
-    fetchData5();
-  }, []);
+  // useEffect(() => {
+  //   async function fetchData1() {
+  //     const res = await fetch(
+  //       `https://run.mocky.io/v3/aabe6ccc-eec9-4f20-99b7-bdfe9f6adb1c8`,
+  //       {
+  //         method: "GET",
+  //       },
+  //       headers: {
+  //         Accept: "application/json",
+  //         "Content-Type": "application/json",
+  //         "Access-Control-Allow-Origin": "*",
+  //         "Access-Control-Allow-Credentials": true,
+  //       }
+  //       res.json().then((res) => setPatient(res));
+  //     }
+  //     fetchData1();
+  //   }, []);
+    
+  
 
   // useEffect(() => {
   //     fetch(
@@ -524,7 +493,7 @@ const IndividualPatientInfoPage = (id) => {
         </div>
       ))}
 
-      <h2>Patients Notes</h2>
+      {/* <h2>Patients Notes</h2>
       <Table responsive>
         <thead>
           <tr>
@@ -646,8 +615,8 @@ const IndividualPatientInfoPage = (id) => {
           href="/CareProviderUpdatePatientPage1"
         >
           Update Patient Information
-        </Button>
-      </Row>
+        </Button> */}
+      {/* </Row> */}
       {/* <Table responsive>
         <thead>
           <tr>
