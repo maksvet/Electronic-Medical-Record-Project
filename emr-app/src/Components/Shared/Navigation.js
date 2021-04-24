@@ -1,7 +1,7 @@
 import React from "react";
 import { Nav, NavDropdown, Button } from "react-bootstrap";
 import { BoxArrowRight } from "react-bootstrap-icons";
-import isAuthenticated from "../../utilities/authHelper";
+import isAuthenticated from "../../Utilities/authHelper";
 
 const goBack = () => {
   window.history.back();

@@ -4,8 +4,11 @@ import { Row, Col, Input, Label } from "reactstrap";
 import Navigation from "../Shared/Navigation";
 import { Container } from "react-bootstrap";
 import { Table } from "reactstrap";
+// import { CareProviderHome } from "../Pages/CareProviderHome"
 
-const IndividualPatientInfoPage = (props) => {
+// const id = CareProviderHome().health_card_number;
+
+const IndividualPatientInfoPage = (id) => {
   const [patient, setPatient] = useState([]);
   const [notes, setNotes] = useState([]);
   const [labResults, setLabResults] = useState([]);
@@ -16,7 +19,7 @@ const IndividualPatientInfoPage = (props) => {
     async function fetchData1() {
       console.log("patients");
       const res = await fetch(
-        `https://run.mocky.io/v3/c94433df-7ccf-4884-9224-16ce97623f48`,
+        `https://run.mocky.io/v3/c94433df-7ccf-4884-9224-16ce97623f48/${id}`,
         {
           method: "GET",
         }
