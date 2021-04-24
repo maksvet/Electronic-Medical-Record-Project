@@ -7,7 +7,7 @@ https://trello.com/b/5AARbiGI/fs1030-fall2020-grp-d
 
 Link to GitLab respository for code
 https://gitlab.com/DonKur/fs1030-fall2020-grp-d.git
----------------------------------------------------------------------------------------------------------------------------
+
 
 ReadMe
 
