@@ -1,56 +1,56 @@
-import React, { useState } from 'react';
-import { Row, Form, FormControl, Button } from 'react-bootstrap';
-import { Col, Input, Container } from 'reactstrap';
+import React, { useState } from "react";
+import { Row, Form, FormControl, Button } from "react-bootstrap";
+import { Col, Input, Container } from "reactstrap";
 import Navigation from "../Shared/Navigation";
 
 const AdminCreatePatientPage = () => {
-const [phone_number, setPhoneNumber] = useState("");
-const [street_number, setStreetNumber] = useState("");
-const [street_name, setStreetName] = useState("");
-const [city_Town, setCity] = useState("");
-const [province_State, setProvince] = useState("");
-const [country, setCountry] = useState("");
-const [postal_code, setPostalCode] = useState("");
-const [email, setEmail] = useState("");
-const [fax, setFax] = useState("");
+  const [phone_number, setPhoneNumber] = useState("");
+  const [street_number, setStreetNumber] = useState("");
+  const [street_name, setStreetName] = useState("");
+  const [city_town, setCity] = useState("");
+  const [province_state, setProvince] = useState("");
+  const [country, setCountry] = useState("");
+  const [postal_code, setPostalCode] = useState("");
+  const [email, setEmail] = useState("");
+  const [fax, setFax] = useState("");
 
-const [first_name, setFirstName] = useState("");
-const [middle_name, setMiddleName] = useState("");
-const [last_name, setLastName] = useState("");
-const [dob, setDob] = useState("");
-const [gender, setGender] = useState("");
+  const [first_name, setFirstName] = useState("");
+  const [middle_name, setMiddleName] = useState("");
+  const [last_name, setLastName] = useState("");
+  const [dob, setDob] = useState("");
+  const [gender, setGender] = useState("");
 
-const [language, setLanguage] = useState("");
-const [health_card_number, setHealthCardNumber] = useState("");
-const [emergency_contact_name, setEmergencyContactName] = useState("");
-const [emergency_contact_number, setEmergencyContactNumber] = useState("");
-const [allergies, setAllergies] = useState("");
-const [blood_type, setBloodType] = useState("");
+  const [language, setLanguage] = useState("");
+  const [health_card_number, setHealthCardNumber] = useState("");
+  const [emergency_contact_name, setEmergencyContactName] = useState("");
+  const [emergency_contact_number, setEmergencyContactNumber] = useState("");
+  const [allergies, setAllergies] = useState("");
+  const [blood_type, setBloodType] = useState("");
 
+  // const [race, setRace] = useState("");
+  // const [marital_status, setMaritalStatus] = useState("");
+  // const [family_size, setFamilySize] = useState("");
+  // const [occupation, setOccupation] = useState("");
+  // const [income_level, setIncomeLevel] = useState("");
+  // const [nationality, setNationality] = useState("");
+  // const [religion, setReligion] = useState("");
+  // const [insurance_details, setInsuranceDetails] = useState("");
+  // const [family_physician, setFamilyPhysician] = useState("");
+  // const [immunization_type, setImmunizationType] = useState("");
+  // const [immunization_date, setImmunizationDate] = useState("");
+  // const [employee_id, setEmployeeID] = useState("");
 
-const [race, setRace] = useState("");
-const [marital_status, setMaritalStatus] = useState("");
-const [family_size, setFamilySize] = useState("");
-const [occupation, setOccupation] = useState("");
-const [income_level, setIncomeLevel] = useState("");
-const [nationality, setNationality] = useState("");
-const [religion, setReligion] = useState("");
-const [insurance_details, setInsuranceDetails] = useState("");
-const [family_physician, setFamilyPhysician] = useState("");
-const [immunization_type, setImmunizationType] = useState("");
-const [immunization_date, setImmunizationDate] = useState("");
-const [employee_id, setEmployeeID] = useState("");
-
-
-const handleSubmit = async (event) => {
-  event.preventDefault();
-  alert("Successful!");
-  console.log(
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const token = sessionStorage.getItem("token");
+    alert("Successful!");
+    alert("Successful!");
+    console.log(
       phone_number,
       street_number,
       street_name,
-      city_Town,
-      province_State,
+      city_town,
+      province_state,
       country,
       postal_code,
       email,
@@ -65,102 +65,113 @@ const handleSubmit = async (event) => {
       emergency_contact_name,
       emergency_contact_number,
       allergies,
-      blood_type,
-      race,
-      marital_status,
-      family_size,
-      occupation,
-      income_level,
-      nationality,
-      religion,
-      insurance_details,
-      family_physician,
-      immunization_type,
-      immunization_date,
-      employee_id
-  );
-  // const response = await fetch("http://localhost:4000/", {
-  //   method: "POST",
-  //   headers: {
-  //     Accept: "application/json",
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify({
-  //     phone_number,
-  //     street_number,
-  //     street_name,
-  //     city_Town,
-  //     province_State,
-  //     country,
-  //     postal_code,
-  //     email,
-  //     fax,
-  //     first_name,
-  //     middle_name,
-  //     last_name,
-  //     dob,
-  //     gender,
-  //     language,
-  //     health_card_number,
-  //     emergency_contact_name,
-  //     emergency_contact_number,
-  //     allergies,
-  //     blood_type,
-  //     race,
-  //     marital_status,
-  //     family_size,
-  //     occupation,
-  //     income_level,
-  //     nationality,
-  //     religion,
-  //     insurance_details,
-  //     family_physician,
-  //     immunization_type,
-  //     immunization_date,
-  //     employee_id,
-  //   }),
-  // });
+      blood_type
+      // race,
+      // marital_status,
+      // family_size,
+      // occupation,
+      // income_level,
+      // nationality,
+      // religion,
+      // insurance_details,
+      // family_physician,
+      // immunization_type,
+      // immunization_date,
+      // employee_id
+    );
+    try {
+      var response = await fetch("http://localhost:9000/patient/", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          phone_number,
+          street_number,
+          street_name,
+          city_town,
+          province_state,
+          country,
+          postal_code,
+          email,
+          fax,
+          first_name,
+          middle_name,
+          last_name,
+          dob,
+          gender,
+          language,
+          health_card_number,
+          emergency_contact_name,
+          emergency_contact_number,
+          allergies,
+          blood_type,
+          // race,
+          // marital_status,
+          // family_size,
+          // occupation,
+          // income_level,
+          // nationality,
+          // religion,
+          // insurance_details,
+          // family_physician,
+          // immunization_type,
+          // immunization_date,
+          // employee_id,
+        }),
+      });
 
-  // // const payload = await response.json();
-  // if (response.status >= 400) {
-  //   alert(`Oops! Error ${response.status}:  ${payload.message}`);
-  // } else {
-  //   alert(`Congratulations! Submission submitted with id: ${payload.id}`);
-  // }
+      var payload = await response.json();
+      console.log(payload);
+      alert(payload);
+    } catch (error) {
+      console.log(error);
+      alert(error);
+    }
 
-  setPhoneNumber("");
-  setStreetNumber("");
-  setStreetName("");
-  setCity("");
-  setProvince("");
-  setCountry("");
-  setPostalCode("");
-  setEmail("");
-  setFax("");
-  setFirstName("");
-  setMiddleName("");
-  setLastName("");
-  setDob("");
-  setGender("");
-  setLanguage("");
-  setHealthCardNumber("");
-  setEmergencyContactName("");
-  setEmergencyContactNumber("");
-  setAllergies("");
-  setBloodType("");
-  setRace("");
-  setMaritalStatus("");
-  setFamilySize("");
-  setOccupation("");
-  setIncomeLevel("");
-  setNationality("");
-  setReligion("");
-  setInsuranceDetails("");
-  setFamilyPhysician("");
-  setImmunizationType("");
-  setImmunizationDate("");
-  setEmployeeID("");
-};
+    if (response.status >= 400) {
+      alert(`Oops! Error ${response.status}:  ${payload.message}`);
+    } else {
+      alert(`Congratulations! Submission submitted with id: ${payload.id}`);
+    }
+
+    setPhoneNumber("");
+    setStreetNumber("");
+    setStreetName("");
+    setCity("");
+    setProvince("");
+    setCountry("");
+    setPostalCode("");
+    setEmail("");
+    setFax("");
+    setFirstName("");
+    setMiddleName("");
+    setLastName("");
+    setDob("");
+    setGender("");
+    setLanguage("");
+    setHealthCardNumber("");
+    setEmergencyContactName("");
+    setEmergencyContactNumber("");
+    setAllergies("");
+    setBloodType("");
+    // setRace("");
+    // setMaritalStatus("");
+    // setFamilySize("");
+    // setOccupation("");
+    // setIncomeLevel("");
+    // setNationality("");
+    // setReligion("");
+    // setInsuranceDetails("");
+    // setFamilyPhysician("");
+    // setImmunizationType("");
+    // setImmunizationDate("");
+    // setEmployeeID("");
+  };
 
   return (
     <Container className="p-3">
@@ -282,8 +293,8 @@ const handleSubmit = async (event) => {
               type="text"
               placeholder="City"
               required
-              id="city_Town"
-              value={city_Town}
+              id="city_town"
+              value={city_town}
               onChange={(e) => setCity(e.target.value)}
             />
           </Form.Group>
@@ -292,8 +303,8 @@ const handleSubmit = async (event) => {
             <Form.Control
               as="select"
               required
-              id="province_State"
-              value={province_State}
+              id="province_state"
+              value={province_state}
               onChange={(e) => setProvince(e.target.value)}
             >
               <option>Choose Province</option>
@@ -376,7 +387,7 @@ const handleSubmit = async (event) => {
             />
           </Form.Group>
 
-          <Form.Group as={Col} sm={3}>
+          {/* <Form.Group as={Col} sm={3}>
             <Form.Control
               as="select"
               required
@@ -392,7 +403,7 @@ const handleSubmit = async (event) => {
               <option>Separated</option>
               <option>Widowed</option>
             </Form.Control>
-          </Form.Group>
+          </Form.Group> */}
         </Form.Row>
 
         <Form.Row>
@@ -412,7 +423,7 @@ const handleSubmit = async (event) => {
             </Form.Control>
           </Form.Group>
 
-          <Form.Group as={Col} sm={2}>
+          {/* <Form.Group as={Col} sm={2}>
             <Form.Control
               as="select"
               required
@@ -431,9 +442,9 @@ const handleSubmit = async (event) => {
               <option>Scottish</option>
               <option>Other</option>
             </Form.Control>
-          </Form.Group>
+          </Form.Group> */}
 
-          <Form.Group as={Col} sm={2}>
+          {/* <Form.Group as={Col} sm={2}>
             <Form.Control
               as="select"
               required
@@ -449,9 +460,9 @@ const handleSubmit = async (event) => {
               <option>Hinduism</option>
               <option>Other</option>
             </Form.Control>
-          </Form.Group>
+          </Form.Group> */}
 
-          <Form.Group as={Col} sm={2}>
+          {/* <Form.Group as={Col} sm={2}>
             <Form.Control
               as="select"
               required
@@ -473,7 +484,7 @@ const handleSubmit = async (event) => {
               <option>White (Caucasian)</option>
               <option>Other</option>
             </Form.Control>
-          </Form.Group>
+          </Form.Group> */}
         </Form.Row>
 
         <Form.Row>
@@ -501,7 +512,7 @@ const handleSubmit = async (event) => {
         </Form.Row>
 
         <Form.Row>
-          <Form.Group as={Col}>
+          {/* <Form.Group as={Col}>
             <Form.Control
               type="text"
               placeholder="Enter Occupation"
@@ -510,9 +521,9 @@ const handleSubmit = async (event) => {
               value={occupation}
               onChange={(e) => setOccupation(e.target.value)}
             />
-          </Form.Group>
+          </Form.Group> */}
 
-          <Form.Group as={Col} sm={3}>
+          {/* <Form.Group as={Col} sm={3}>
             <Form.Control
               as="select"
               required
@@ -527,9 +538,9 @@ const handleSubmit = async (event) => {
               <option>50000-70000</option>
               <option> over 70000</option>
             </Form.Control>
-          </Form.Group>
+          </Form.Group> */}
 
-          <Form.Group as={Col} sm={2}>
+          {/* <Form.Group as={Col} sm={2}>
             <Form.Control
               type="number"
               min="1"
@@ -539,7 +550,7 @@ const handleSubmit = async (event) => {
               value={family_size}
               onChange={(e) => setFamilySize(e.target.value)}
             />
-          </Form.Group>
+          </Form.Group> */}
         </Form.Row>
 
         <h2>Medical History</h2>
@@ -573,7 +584,7 @@ const handleSubmit = async (event) => {
           </Form.Group>
         </Row>
         <Row>
-          <Form.Group as={Col}>
+          {/* <Form.Group as={Col}>
             <Form.Control
               type="text"
               placeholder="Enter Insurance Details"
@@ -582,9 +593,9 @@ const handleSubmit = async (event) => {
               value={insurance_details}
               onChange={(e) => setInsuranceDetails(e.target.value)}
             />
-          </Form.Group>
+          </Form.Group> */}
 
-          <Form.Group as={Col} sm={4}>
+          {/* <Form.Group as={Col} sm={4}>
             <Form.Control
               type="text"
               placeholder="Enter Family Physician"
@@ -593,11 +604,11 @@ const handleSubmit = async (event) => {
               value={family_physician}
               onChange={(e) => setFamilyPhysician(e.target.value)}
             />
-          </Form.Group>
+          </Form.Group> */}
         </Row>
 
         <Form.Row>
-          <Form.Group as={Col} sm={6}>
+          {/* <Form.Group as={Col} sm={6}>
             <Form.Control
               type="text"
               placeholder="Enter Immunization Type"
@@ -606,9 +617,9 @@ const handleSubmit = async (event) => {
               value={immunization_type}
               onChange={(e) => setImmunizationType(e.target.value)}
             />
-          </Form.Group>
+          </Form.Group> */}
 
-          <Form.Group as={Col} sm={2}>
+          {/* <Form.Group as={Col} sm={2}>
             <Form.Control
               type="date"
               placeholder="Enter Immunization Date"
@@ -617,9 +628,9 @@ const handleSubmit = async (event) => {
               value={immunization_date}
               onChange={(e) => setImmunizationDate(e.target.value)}
             />
-          </Form.Group>
+          </Form.Group> */}
 
-          <Form.Group as={Col} sm={2}>
+          {/* <Form.Group as={Col} sm={2}>
             <Form.Control
               type="number"
               placeholder="Enter Employee ID"
@@ -628,7 +639,7 @@ const handleSubmit = async (event) => {
               value={employee_id}
               onChange={(e) => setEmployeeID(e.target.value)}
             />
-          </Form.Group>
+          </Form.Group> */}
         </Form.Row>
 
         <Button variant="primary" type="submit">
