@@ -43,8 +43,6 @@ const AdminCreatePatientPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const token = sessionStorage.getItem("token");
-    alert("Successful!");
-    alert("Successful!");
     console.log(
       phone_number,
       street_number,
@@ -127,16 +125,15 @@ const AdminCreatePatientPage = () => {
 
       var payload = await response.json();
       console.log(payload);
-      alert(payload);
     } catch (error) {
       console.log(error);
       alert(error);
     }
 
     if (response.status >= 400) {
-      alert(`Oops! Error ${response.status}:  ${payload.message}`);
+      alert(`Oops! Error ${response.status}:  ${payload}`);
     } else {
-      alert(`Congratulations! Submission submitted with id: ${payload.id}`);
+      alert(payload);
     }
 
     setPhoneNumber("");
