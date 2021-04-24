@@ -5,50 +5,60 @@ import { Button } from "react-bootstrap";
 import { Table } from "reactstrap";
 import { Container } from "react-bootstrap";
 
+var token = sessionStorage.getItem("token");
+
 const RegisteredCareProviders = (props) => {
-  console.log(props);
-  let id = props.match.params.employeeID;
   const [careProviders, setCareProviders] = useState([]);
   // const [careProvider, setCareProvider] = useState("");
   // const history = useHistory();
 
   useEffect(() => {
     async function fetchData() {
-      console.log("something");
-      const res = await fetch(
-        `https://run.mocky.io/v3/342ddaf9-7e18-44c4-9a68-f7e47778221a`,
-        {
-          method: "GET",
-        }
-      );
-      res.json().then((res) => setCareProviders(res));
+      const res = await fetch(`http://localhost:9000/careprovider/`, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      res.json().then((res) => setCareProviders([...res]));
     }
     fetchData();
-  }, [id]);
- 
-  const handleDelete = (event, id) => {
+  }, [careProviders]);
+
+  function handleDelete(event, employee_id) {
     event.preventDefault();
     const index = careProviders.findIndex(
-      (careProvider) => careProvider.employeeID === id
+      (props) => props.employee_id === employee_id
     );
-    console.log(index);
     careProviders.splice(index, 1);
     setCareProviders([...careProviders]);
+    console.log(careProviders);
 
-    // fetch(`/api/careProviders/${careProvider.employeeID}`, {
-    //   method: "delete",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //   },
-    // }).then((response) => response.json());
-    // history.push("/careProviders");
-  };
+    fetch(`http://localhost:9000/careprovider/${employee_id}`, {
+      method: "delete",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((response) => response.json());
+    // history.push("/patients");
+  }
 
-  const handleEdit = (event, id) => {
+  const handleEdit = (event, employee_id) => {
     event.preventDefault();
-    // window.location.href = `/AdminUpdateCareProvider/${id}`;
-    window.location.href = "/AdminUpdateCareProviderPage";
+    // window.location.href = `/AdminUpdatePatientPage/${patient.healthCardNumber}`;
+    window.location.href = `/AdminUpdateCareProviderPage/${employee_id}`;
+    // console.log("D is here again");
+    // console.log(patient);
+    // setForm({ display: "block" });
+    // setPatient(patient);
   };
 
   return (
@@ -58,9 +68,11 @@ const RegisteredCareProviders = (props) => {
       <Table responsive>
         <thead>
           <tr>
-            <th>ID</th>
+            <th>Employee ID</th>
+            <th>Title</th>
             <th>First Name</th>
             <th>Last Name</th>
+            <th>Admin</th>
           </tr>
         </thead>
         {careProviders.map((careProvider) => (
@@ -68,8 +80,10 @@ const RegisteredCareProviders = (props) => {
             <tbody>
               <tr>
                 <td>{careProvider.employee_id}</td>
+                <td>{careProvider.job_title}</td>
                 <td>{careProvider.first_name}</td>
                 <td>{careProvider.last_name}</td>
+                <td>{careProvider.isadmin}</td>
                 <td>
                   <Button
                     onClick={(event) => {
@@ -83,7 +97,7 @@ const RegisteredCareProviders = (props) => {
                 <td>
                   <Button
                     onClick={(event) => {
-                      handleDelete(event, careProvider.employeeID);
+                      handleDelete(event, careProvider.employee_id);
                     }}
                     variant="outline-danger"
                   >
