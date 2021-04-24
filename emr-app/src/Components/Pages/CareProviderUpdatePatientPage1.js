@@ -4,25 +4,32 @@ import { Row, Col, Input } from "reactstrap";
 import Navigation from "../Shared/Navigation";
 import { Container } from "react-bootstrap";
 
+var token = sessionStorage.getItem("token");
+
 const CareProviderUpdatePatientPage1 = (props) => {
   const [patient, setPatient] = useState("");
 
-  console.log(props);
-  let id = props.match.params.health_card_number;
-
   useEffect(() => {
     async function fetchData() {
-      console.log("something");
       const res = await fetch(
-        `https://run.mocky.io/v3/c94433df-7ccf-4884-9224-16ce97623f48`,
+        `http://localhost:9000/patient/${props.match.params.health_card_number}`,
         {
           method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Credentials": true,
+            Authorization: `Bearer ${token}`,
+          },
         }
       );
       res.json().then((res) => setPatient(...res));
     }
     fetchData();
-  }, [id]);
+  }, []);
+
+  console.log(patient);
 
   const [personalInfo, setPersonalInfo] = useState({
     first_name: patient.first_name,

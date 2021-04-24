@@ -8,7 +8,8 @@ var token = sessionStorage.getItem("token");
 
 const IndividualPatientInfoPage = (props) => {
   const [patient, setPatient] = useState([]);
-  // var health_card_number = props.match.params.health_card_number;
+
+  var health_card_number = props.match.params.health_card_number;
 
   useEffect(() => {
     async function fetchData() {
@@ -264,7 +265,7 @@ const IndividualPatientInfoPage = (props) => {
                   placeholder="Health Card Number"
                   readOnly
                   id="health_card_number"
-                  defaultValue={patient.health_card_number}
+                  defaultValue={health_card_number}
                 />
               </Form.Group>
 
@@ -599,7 +600,7 @@ const IndividualPatientInfoPage = (props) => {
         <Button
           className="m-3"
           variant="primary"
-          type="submit"
+          // type="submit"
           href="/CareProviderUpdatePatientPage2"
         >
           Add Patient Notes
@@ -607,8 +608,8 @@ const IndividualPatientInfoPage = (props) => {
         <Button
           className="m-3"
           variant="outline-primary"
-          type="submit"
-          href="/CareProviderUpdatePatientPage1"
+          // type="submit"
+          href={`/CareProviderUpdatePatientPage1/${health_card_number}`}
         >
           Update Patient Information
         </Button>
