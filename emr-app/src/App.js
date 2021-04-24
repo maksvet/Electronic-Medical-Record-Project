@@ -34,7 +34,7 @@ function App() {
           component={CareProviderUpdatePatientPage2}
         />
         <Route
-          path="/IndividualPatientInfoPage"
+          path="/IndividualPatientInfoPage/:health_card_number"
           component={IndividualPatientInfoPage}
         />
         <Route path="/AdminHome" component={AdminHome} />
