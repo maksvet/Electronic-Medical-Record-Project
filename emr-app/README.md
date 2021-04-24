@@ -9,8 +9,10 @@ fs1030-fall2020-grp-d
 
 2. Clone the repository.
 
-3. Navigate to the root folder _emr.app_ and create an _.ENV_ file. Add the following information:
+3. In the root folder _emr.app_, create an _.ENV_ file and the following:
+Note: When we do a push _.ENV_ file gets ignored.
 
+```
 	PORT=9001
 	REACT_APP_SERVERPORT=9000
 	PRIVATEKEY="anykey"
@@ -18,10 +20,9 @@ fs1030-fall2020-grp-d
 	DBUSER= "nodeclient"
 	DBPASSWORD= "123456"
 	DBNAME= "emrconn"
+```
 
-Note: When we do a push _.ENV_ file gets ignored.
-
-4. Open command line.
+4. Open _command line_.
 
 5. Navigate to the _emr.app_ directory.
 .
