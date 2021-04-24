@@ -1,6 +1,7 @@
 FS1030 Group Project
 Electronic Medical Record System
 fs1030-fall2020-grp-d
+----------------------------------------------------------------------------------------------------------------------
 
 Link to Trello Project Management files
 https://trello.com/b/5AARbiGI/fs1030-fall2020-grp-d
