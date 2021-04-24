@@ -5,7 +5,7 @@ fs1030-fall2020-grp-d
 
 **ReadMe**
 
-1. To run the _emr-app_ log into Git and navigate to the following repository: https://gitlab.com/DonKur/fs1030-fall2020-grp-d.git
+1. To run the _emr-app_, log into Git and navigate to the following repository: https://gitlab.com/DonKur/fs1030-fall2020-grp-d.git
 
 2. Clone the repository.
 
