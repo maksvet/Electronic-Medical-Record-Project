@@ -114,9 +114,9 @@ const AdminCreateCareProviderPage = () => {
   return (
     <Container className="p-3">
       <Navigation />
-      <h2>Create Care Provider Form</h2>
-      <h3>Personal Details</h3>
+      <h1>Create Care Provider</h1>
       <Form onSubmit={handleSubmit}>
+        <h2>Personal Details</h2>
         <Row className="py-2">
           <Col sm={4}>
             <Input
@@ -188,73 +188,7 @@ const AdminCreateCareProviderPage = () => {
           </Col>
         </Row>
 
-        <h3>Credentials</h3>
-        <Row className="py-2">
-          <Col sm={4}>
-            <Input
-              type="text"
-              name="login_id"
-              id="login_id"
-              placeholder="Enter login ID"
-              required
-              value={login_id}
-              onChange={(e) => setLoginID(e.target.value)}
-            />
-          </Col>
-          <Col sm={4}>
-            <Input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Enter login password"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Col>
-        </Row>
-        <Row className="py-2">
-          <Col sm={4}>
-            <Input
-              type="text"
-              name="job_title"
-              id="job_title"
-              placeholder="Enter Job Title"
-              required
-              value={job_title}
-              onChange={(e) => setJobTitle(e.target.value)}
-            />
-          </Col>
-
-          <Col sm={4}>
-            <Input
-              type="text"
-              name="qualification"
-              id="qualification"
-              placeholder="Enter Qualification"
-              required
-              value={qualification}
-              onChange={(e) => setQualification(e.target.value)}
-            />
-          </Col>
-
-          <Col sm={4}>
-            <Input
-              type="text"
-              name="institution_name"
-              id="institution_name"
-              placeholder="Enter Institution Name"
-              required
-              value={institution_name}
-              onChange={(e) => setInstitutionName(e.target.value)}
-            />
-          </Col>
-        </Row>
-        <Form.Group id="formGridCheckbox">
-          <Form.Check type="checkbox" label="Assign Admin Role" />
-        </Form.Group>
-
-        <h3>Contact Information</h3>
+        <h2>Contact Information</h2>
         <Form.Row>
           <Form.Group as={Col}>
             <Form.Control
@@ -376,6 +310,72 @@ const AdminCreateCareProviderPage = () => {
             />
           </Form.Group>
         </Form.Row>
+
+        <h2>Credentials</h2>
+        <Row className="py-2">
+          <Col sm={4}>
+            <Input
+              type="text"
+              name="login_id"
+              id="login_id"
+              placeholder="Enter login ID"
+              required
+              value={login_id}
+              onChange={(e) => setLoginID(e.target.value)}
+            />
+          </Col>
+          <Col sm={4}>
+            <Input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter login password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </Col>
+        </Row>
+        <Row className="py-2">
+          <Col sm={4}>
+            <Input
+              type="text"
+              name="job_title"
+              id="job_title"
+              placeholder="Enter Job Title"
+              required
+              value={job_title}
+              onChange={(e) => setJobTitle(e.target.value)}
+            />
+          </Col>
+
+          <Col sm={4}>
+            <Input
+              type="text"
+              name="qualification"
+              id="qualification"
+              placeholder="Enter Qualification"
+              required
+              value={qualification}
+              onChange={(e) => setQualification(e.target.value)}
+            />
+          </Col>
+
+          <Col sm={4}>
+            <Input
+              type="text"
+              name="institution_name"
+              id="institution_name"
+              placeholder="Enter Institution Name"
+              required
+              value={institution_name}
+              onChange={(e) => setInstitutionName(e.target.value)}
+            />
+          </Col>
+        </Row>
+        <Form.Group id="formGridCheckbox">
+          <Form.Check type="checkbox" label="Assign Admin Role" />
+        </Form.Group>
 
         <Button variant="primary" type="submit">
           Submit

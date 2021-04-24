@@ -11,13 +11,15 @@ const AdminHome = () => {
     <React.Fragment>
       <Container className="py-5 text-center">
         <Navigation />
-        <h1 className="py-5 text-center">Welcome Admin</h1>
+        <h1 className="py-5 text-center">
+          Welcome Admin: <span className="userName">John Doe</span>
+        </h1>
         <Form>
           <Button
             className="ahbtn"
             variant="primary"
             type="submit"
-            href="/AdminCreatePatientPage" 
+            href="/AdminCreatePatientPage"
           >
             Create Patient
             <br />
@@ -27,7 +29,7 @@ const AdminHome = () => {
             className="ahbtn"
             variant="primary"
             type="submit"
-            href="/AdminCreateCareProviderPage" 
+            href="/AdminCreateCareProviderPage"
           >
             Create Care Provider <br /> CRUD
           </Button>
@@ -35,7 +37,7 @@ const AdminHome = () => {
             className="ahbtn"
             variant="primary"
             type="submit"
-            href="/UpdatePatientPage" 
+            href="/UpdatePatientPage"
           >
             Update Patient
             <br />
@@ -45,7 +47,7 @@ const AdminHome = () => {
             className="ahbtn"
             variant="primary"
             type="submit"
-            href="/AdminUpdateCareProviderPage" 
+            href="/AdminUpdateCareProviderPage"
           >
             Update Care Provider <br /> CRUD
           </Button>
@@ -53,7 +55,7 @@ const AdminHome = () => {
             className="ahbtn"
             variant="primary"
             type="submit"
-            href="/RegisteredCareProviders" 
+            href="/RegisteredCareProviders"
           >
             Care Provider List <br /> CRUD
           </Button>
@@ -61,7 +63,7 @@ const AdminHome = () => {
             className="ahbtn"
             variant="primary"
             type="submit"
-            href="/RegisteredPatients" 
+            href="/RegisteredPatients"
           >
             Patient List <br /> CRUD
           </Button>

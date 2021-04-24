@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Form, FormControl, Button } from "react-bootstrap";
-import { Row, Col, Input } from "reactstrap";
+import { Row, Col, Input, Label } from "reactstrap";
 import Navigation from "../Shared/Navigation";
 import { Container } from "react-bootstrap";
 import { Table } from "reactstrap";
@@ -30,7 +30,7 @@ const IndividualPatientInfoPage = (props) => {
     async function fetchData2() {
       console.log("notes");
       const res = await fetch(
-        `https://run.mocky.io/v3/3a15c1fe-c6da-4f0e-93e4-c959ad68e28b`,
+        `https://run.mocky.io/v3/1239d017-27a8-441e-aa8b-e872617e7463`,
         {
           method: "GET",
         }
@@ -96,119 +96,15 @@ const IndividualPatientInfoPage = (props) => {
       <Navigation />
       {patient.map((patient) => (
         <div key={patient.health_card_number}>
-          <h1>Patient Information</h1>
-          <h2>Contact Info</h2>
-          <Form>
-            <Form.Row>
-              <Form.Group as={Col}>
-                <Form.Control
-                  type="tel"
-                  name="phone_number"
-                  placeholder="Phone Number"
-                  id="phone_number"
-                  readOnly
-                  value={patient.phone_number}
-                />
-              </Form.Group>
-
-              <Form.Group as={Col}>
-                <Form.Control
-                  type="text"
-                  name="street_number"
-                  placeholder="Street Number"
-                  id="street_number"
-                  readOnly
-                  defaultValue={patient.street_number}
-                />
-              </Form.Group>
-
-              <Form.Group as={Col}>
-                <Form.Control
-                  type="text"
-                  name="street_name"
-                  placeholder="Street Name"
-                  id="street_name"
-                  readOnly
-                  defaultValue={patient.street_name}
-                />
-              </Form.Group>
-            </Form.Row>
-
-            <Form.Row>
-              <Form.Group as={Col}>
-                <Form.Control
-                  type="text"
-                  name="city_Town"
-                  placeholder="City"
-                  id="city_Town"
-                  readOnly
-                  defaultValue={patient.city_Town}
-                />
-              </Form.Group>
-
-              <Form.Group as={Col}>
-                <Form.Control
-                  type="text"
-                  name="province_State"
-                  placeholder="Province"
-                  id="province_State"
-                  readOnly
-                  defaultValue={patient.province_State}
-                ></Form.Control>
-              </Form.Group>
-
-              <Form.Group as={Col}>
-                <Form.Control
-                  type="text"
-                  name="country"
-                  placeholder="Country"
-                  id="country"
-                  readOnly
-                  defaultValue={patient.country}
-                ></Form.Control>
-              </Form.Group>
-            </Form.Row>
-
-            <Form.Row>
-              <Form.Group as={Col}>
-                <Form.Control
-                  type="text"
-                  name="postal_code"
-                  placeholder="Postal Code"
-                  id="postal code"
-                  readOnly
-                  defaultValue={patient.postal_code}
-                />
-              </Form.Group>
-
-              <Form.Group as={Col}>
-                <Form.Control
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  id="email"
-                  readOnly
-                  defaultValue={patient.email}
-                />
-              </Form.Group>
-
-              <Form.Group as={Col}>
-                <Form.Control
-                  type="tel"
-                  name="fax"
-                  placeholder="Fax"
-                  id="fax"
-                  readOnly
-                  defaultValue={patient.fax}
-                />
-              </Form.Group>
-            </Form.Row>
-          </Form>
+          <h1>
+            Patient name: <span className="userName">{patient.name}</span>
+          </h1>
 
           <h2>Personal Details</h2>
           <Form>
             <Row className="py-2">
               <Col sm={4}>
+                <Label>First Name</Label>
                 <Input
                   type="text"
                   name="first_name"
@@ -220,6 +116,7 @@ const IndividualPatientInfoPage = (props) => {
               </Col>
 
               <Col sm={4}>
+                <Label>Middle Name</Label>
                 <Input
                   type="text"
                   name="middle_name"
@@ -231,6 +128,7 @@ const IndividualPatientInfoPage = (props) => {
               </Col>
 
               <Col sm={4}>
+                <Label>Last Name</Label>
                 <Input
                   type="text"
                   name="last_name"
@@ -243,8 +141,8 @@ const IndividualPatientInfoPage = (props) => {
             </Row>
 
             <Row className="py-2">
-              <label>Date of Birth</label>
-              <Col sm={2}>
+              <Col sm={5}>
+                <label>Date of Birth</label>
                 <Input
                   type="date"
                   name="dob"
@@ -256,6 +154,7 @@ const IndividualPatientInfoPage = (props) => {
               </Col>
 
               <Col sm={2}>
+                <Label>Gender</Label>
                 <FormControl
                   type="text"
                   className="mr-sm-2"
@@ -269,10 +168,128 @@ const IndividualPatientInfoPage = (props) => {
             </Row>
           </Form>
 
+          <h2>Contact Info</h2>
+          <Form className="contactInfo">
+            <Form.Row className="contactInfo">
+              <Form.Group as={Col}>
+                <Label>Phone Number</Label>
+                <Form.Control
+                  type="tel"
+                  name="phone_number"
+                  placeholder="Phone Number"
+                  id="phone_number"
+                  readOnly
+                  value={patient.phone_number}
+                />
+              </Form.Group>
+
+              <Form.Group as={Col}>
+                <Label>Street Number</Label>
+                <Form.Control
+                  type="text"
+                  name="street_number"
+                  placeholder="Street Number"
+                  id="street_number"
+                  readOnly
+                  defaultValue={patient.street_number}
+                />
+              </Form.Group>
+
+              <Form.Group as={Col}>
+                <Label>Street Name</Label>
+                <Form.Control
+                  type="text"
+                  name="street_name"
+                  placeholder="Street Name"
+                  id="street_name"
+                  readOnly
+                  defaultValue={patient.street_name}
+                />
+              </Form.Group>
+            </Form.Row>
+
+            <Form.Row>
+              <Form.Group as={Col}>
+                <Label>City</Label>
+                <Form.Control
+                  type="text"
+                  name="city_Town"
+                  placeholder="City"
+                  id="city_Town"
+                  readOnly
+                  defaultValue={patient.city_Town}
+                />
+              </Form.Group>
+
+              <Form.Group as={Col}>
+                <Label>Province</Label>
+                <Form.Control
+                  type="text"
+                  name="province_State"
+                  placeholder="Province"
+                  id="province_State"
+                  readOnly
+                  defaultValue={patient.province_State}
+                ></Form.Control>
+              </Form.Group>
+
+              <Form.Group as={Col}>
+                <Label>Country</Label>
+                <Form.Control
+                  type="text"
+                  name="country"
+                  placeholder="Country"
+                  id="country"
+                  readOnly
+                  defaultValue={patient.country}
+                ></Form.Control>
+              </Form.Group>
+            </Form.Row>
+
+            <Form.Row>
+              <Form.Group as={Col}>
+                <Label>Postal Code</Label>
+                <Form.Control
+                  type="text"
+                  name="postal_code"
+                  placeholder="Postal Code"
+                  id="postal code"
+                  readOnly
+                  defaultValue={patient.postal_code}
+                />
+              </Form.Group>
+
+              <Form.Group as={Col}>
+                <Label>Email</Label>
+                <Form.Control
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  id="email"
+                  readOnly
+                  defaultValue={patient.email}
+                />
+              </Form.Group>
+
+              <Form.Group as={Col}>
+                <Label>Fax</Label>
+                <Form.Control
+                  type="tel"
+                  name="fax"
+                  placeholder="Fax"
+                  id="fax"
+                  readOnly
+                  defaultValue={patient.fax}
+                />
+              </Form.Group>
+            </Form.Row>
+          </Form>
+
           <h2>Patient Details</h2>
           <Form>
             <Form.Row>
               <Form.Group as={Col} sm={4}>
+                <Label>Health Card Number</Label>
                 <Form.Control
                   type="text"
                   name="health_card_number"
@@ -284,6 +301,7 @@ const IndividualPatientInfoPage = (props) => {
               </Form.Group>
 
               <Form.Group as={Col} sm={3}>
+                <Label>Marital Status</Label>
                 <Form.Control
                   type="text"
                   name="marital_status"
@@ -293,10 +311,9 @@ const IndividualPatientInfoPage = (props) => {
                   defaultValue={patient.marital_status}
                 ></Form.Control>
               </Form.Group>
-            </Form.Row>
 
-            <Form.Row>
               <Form.Group as={Col} sm={2}>
+                <Label>Language</Label>
                 <Form.Control
                   type="text"
                   name="language"
@@ -308,6 +325,7 @@ const IndividualPatientInfoPage = (props) => {
               </Form.Group>
 
               <Form.Group as={Col} sm={2}>
+                <Label>Nationality</Label>
                 <Form.Control
                   type="text"
                   name="nationality"
@@ -319,6 +337,7 @@ const IndividualPatientInfoPage = (props) => {
               </Form.Group>
 
               <Form.Group as={Col} sm={2}>
+                <Label>Religion</Label>
                 <Form.Control
                   type="text"
                   name="religion"
@@ -330,6 +349,7 @@ const IndividualPatientInfoPage = (props) => {
               </Form.Group>
 
               <Form.Group as={Col} sm={2}>
+                <Label>Race</Label>
                 <Form.Control
                   type="text"
                   name="race"
@@ -343,6 +363,7 @@ const IndividualPatientInfoPage = (props) => {
 
             <Form.Row>
               <Form.Group as={Col} sm={3}>
+                <Label>Emergency Contact Number</Label>
                 <Form.Control
                   type="number"
                   name="emergency_contact_number"
@@ -354,6 +375,7 @@ const IndividualPatientInfoPage = (props) => {
               </Form.Group>
 
               <Form.Group as={Col} sm={8}>
+                <Label>Emergency Contact Name</Label>
                 <Form.Control
                   type="text"
                   name="emergency_contact_name"
@@ -367,6 +389,7 @@ const IndividualPatientInfoPage = (props) => {
 
             <Form.Row>
               <Form.Group as={Col}>
+                <Label>Occupation</Label>
                 <Form.Control
                   type="text"
                   name="occupation"
@@ -378,6 +401,7 @@ const IndividualPatientInfoPage = (props) => {
               </Form.Group>
 
               <Form.Group as={Col} sm={3}>
+                <Label>Income Level</Label>
                 <Form.Control
                   type="text"
                   name="income_level"
@@ -389,6 +413,7 @@ const IndividualPatientInfoPage = (props) => {
               </Form.Group>
 
               <Form.Group as={Col} sm={2}>
+                <Label>Family Size</Label>
                 <Form.Control
                   type="number"
                   name="family_size"
@@ -406,6 +431,7 @@ const IndividualPatientInfoPage = (props) => {
           <Form>
             <Row>
               <Form.Group as={Col}>
+                <Label>Allergies</Label>
                 <Form.Control
                   type="text"
                   name="allergies"
@@ -417,6 +443,7 @@ const IndividualPatientInfoPage = (props) => {
               </Form.Group>
 
               <Form.Group as={Col} sm={2}>
+                <Label>Blood Type</Label>
                 <Form.Control
                   type="text"
                   name="blood_type"
@@ -429,6 +456,7 @@ const IndividualPatientInfoPage = (props) => {
             </Row>
             <Row>
               <Form.Group as={Col}>
+                <Label>Insurance Details</Label>
                 <Form.Control
                   type="text"
                   name="insurance_details"
@@ -440,6 +468,7 @@ const IndividualPatientInfoPage = (props) => {
               </Form.Group>
 
               <Form.Group as={Col} sm={4}>
+                <Label>Family Physician</Label>
                 <Form.Control
                   type="text"
                   name="family_physician"
@@ -453,6 +482,7 @@ const IndividualPatientInfoPage = (props) => {
 
             <Form.Row>
               <Form.Group as={Col} sm={6}>
+                <Label>Immunization</Label>
                 <Form.Control
                   type="text"
                   name="immunization_type"
@@ -464,6 +494,7 @@ const IndividualPatientInfoPage = (props) => {
               </Form.Group>
 
               <Form.Group as={Col} sm={2}>
+                <Label>Immunization Date</Label>
                 <Form.Control
                   type="date"
                   name="immunization_date"
@@ -475,6 +506,7 @@ const IndividualPatientInfoPage = (props) => {
               </Form.Group>
 
               <Form.Group as={Col} sm={2}>
+                <Label>Administered by</Label>
                 <Form.Control
                   type="number"
                   name="employee_id"
@@ -489,28 +521,29 @@ const IndividualPatientInfoPage = (props) => {
         </div>
       ))}
 
-    
       <h2>Patients Notes</h2>
       <Table responsive>
         <thead>
           <tr>
             <th>Note ID</th>
-            <th>Physician ID Number</th>
             <th>Date Note Entered</th>
+            <th>Physician ID Number</th>
             <th>Patient Notes</th>
           </tr>
         </thead>
         <tbody>
-          {notes.map((note) => (
-            <div key={note.patient_note_id}>
-              <tr>
-                <td>{note.patient_note_id}</td>
-                <td>{note.date_stamp}</td>
-                <td>{note.employee_id}</td>
-                <td>{note.patient_note}</td>
-              </tr>
-            </div>
-          ))}
+          {notes
+            .sort((a, b) => (b.date_stamp > a.date_stamp ? 1 : -1))
+            .map((note) => (
+              <React.Fragment key={note.patient_note_id}>
+                <tr>
+                  <td>{note.patient_note_id}</td>
+                  <td>{note.date_stamp}</td>
+                  <td>{note.employee_id}</td>
+                  <td>{note.patient_note}</td>
+                </tr>
+              </React.Fragment>
+            ))}
         </tbody>
       </Table>
       <h2>Medication</h2>
@@ -526,18 +559,20 @@ const IndividualPatientInfoPage = (props) => {
           </tr>
         </thead>
         <tbody>
-          {medication.map((medication) => (
-            <div key={medication.medication_id}>
-              <tr>
-                <td>{medication.medication_id}</td>
-                <td>{medication.date_stamp}</td>
-                <td>{medication.employee_id}</td>
-                <td>{medication.medication}</td>
-                <td>{medication.prescription}</td>
-                <td>{medication.last_filled}</td>
-              </tr>
-            </div>
-          ))}
+          {medication
+            .sort((a, b) => (b.date_stamp > a.date_stamp ? 1 : -1))
+            .map((medication) => (
+              <React.Fragment key={medication.medication_id}>
+                <tr>
+                  <td>{medication.medication_id}</td>
+                  <td>{medication.date_stamp}</td>
+                  <td>{medication.employee_id}</td>
+                  <td>{medication.medication}</td>
+                  <td>{medication.prescription}</td>
+                  <td>{medication.last_filled}</td>
+                </tr>
+              </React.Fragment>
+            ))}
         </tbody>
       </Table>
 
@@ -552,16 +587,18 @@ const IndividualPatientInfoPage = (props) => {
           </tr>
         </thead>
         <tbody>
-          {diagnostics.map((image) => (
-            <div key={image.diagnostic_image_id}>
-              <tr>
-                <td>{image.diagnostic_image_id}</td>
-                <td>{image.date_stamp}</td>
-                <td>{image.employee_id}</td>
-                <td>{image.diagnostic_image}</td>
-              </tr>
-            </div>
-          ))}
+          {diagnostics
+            .sort((a, b) => (b.date_stamp > a.date_stamp ? 1 : -1))
+            .map((image) => (
+              <React.Fragment key={image.diagnostic_image_id}>
+                <tr>
+                  <td>{image.diagnostic_image_id}</td>
+                  <td>{image.date_stamp}</td>
+                  <td>{image.employee_id}</td>
+                  <td>{image.diagnostic_image}</td>
+                </tr>
+              </React.Fragment>
+            ))}
         </tbody>
       </Table>
 
@@ -576,25 +613,38 @@ const IndividualPatientInfoPage = (props) => {
           </tr>
         </thead>
         <tbody>
-          {labResults.map((lab) => (
-            <div key={lab.lab_result_id}>
-              <tr>
-                <td>{lab.lab_result_id}</td>
-                <td>{lab.date_stamp}</td>
-                <td>{lab.employee_id}</td>
-                <td>{lab.lab_result}</td>
-              </tr>
-            </div>
-          ))}
+          {labResults
+            .sort((a, b) => (b.date_stamp > a.date_stamp ? 1 : -1))
+            .map((lab) => (
+              <div key={lab.lab_result_id}>
+                <tr>
+                  <td>{lab.lab_result_id}</td>
+                  <td>{lab.date_stamp}</td>
+                  <td>{lab.employee_id}</td>
+                  <td>{lab.lab_result}</td>
+                </tr>
+              </div>
+            ))}
         </tbody>
       </Table>
-      <Button
-        variant="primary"
-        type="submit"
-        href="/CareProviderUpdatePatientPage1"
-      >
-        Add New Information
-      </Button>
+      <Row>
+        <Button
+          className="m-3"
+          variant="primary"
+          type="submit"
+          href="/CareProviderUpdatePatientPage2"
+        >
+          Add Patient Notes
+        </Button>
+        <Button
+          className="m-3"
+          variant="outline-primary"
+          type="submit"
+          href="/CareProviderUpdatePatientPage1"
+        >
+          Update Patient Information
+        </Button>
+      </Row>
       {/* <Table responsive>
         <thead>
           <tr>

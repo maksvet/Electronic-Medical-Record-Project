@@ -224,7 +224,82 @@ const UpdatePatientPage = (props) => {
     <Container className="p-3">
       <Navigation />
 
-      <h1>Admin Update Patient</h1>
+      <h1>
+        Admin Update Patient: <span className="userName">{patient.name}</span>
+      </h1>
+
+      <h2>Personal Details</h2>
+      <Form onSubmit={handleSubmit2}>
+        <Row className="py-2">
+          <Col sm={4}>
+            <Input
+              type="text"
+              name="first_name"
+              id="first_name"
+              placeholder="Enter First Name"
+              defaultValue={patient.first_name}
+              onChange={handleChange2}
+            />
+          </Col>
+
+          <Col sm={4}>
+            <Input
+              type="text"
+              name="middle_name"
+              id="middle_name"
+              placeholder="Enter Middle Name"
+              defaultValue={patient.middle_name}
+              onChange={handleChange2}
+            />
+          </Col>
+
+          <Col sm={4}>
+            <Input
+              type="text"
+              name="last_name"
+              id="last_name"
+              placeholder="Enter Last Name"
+              defaultValue={patient.last_name}
+              onChange={handleChange2}
+            />
+          </Col>
+        </Row>
+
+        <Row className="py-2">
+          <label className="ml-3">Date of Birth</label>
+          <Col sm={2}>
+            <Input
+              type="date"
+              name="dob"
+              id="dob"
+              placeholder="Enter Date Of Birth"
+              defaultValue={patient.dob}
+              onChange={handleChange2}
+            />
+          </Col>
+
+          <Col sm={2}>
+            <FormControl
+              as="select"
+              className="mr-sm-2"
+              name="gender"
+              id="gender"
+              defaultValue={patient.gender}
+              onChange={handleChange2}
+              custom
+            >
+              <option value="0">Select Gender</option>
+              <option value="1">Male</option>
+              <option value="2">Female</option>
+              <option value="3">Non-Binary</option>
+            </FormControl>
+          </Col>
+        </Row>
+        <Button variant="primary" type="submit">
+          Update
+        </Button>
+      </Form>
+
       <h2>Contact Info</h2>
       <Form onSubmit={handleSubmit1}>
         <Form.Row>
@@ -233,7 +308,6 @@ const UpdatePatientPage = (props) => {
               type="tel"
               name="phone_number"
               placeholder="Phone Number"
-              required
               id="phone_number"
               defaultValue={patient.phone_number}
             />
@@ -244,10 +318,8 @@ const UpdatePatientPage = (props) => {
               type="text"
               name="street_number"
               placeholder="Street Number"
-              required
               id="street_number"
               defaultValue={patient.street_number}
-
             />
           </Form.Group>
 
@@ -256,7 +328,6 @@ const UpdatePatientPage = (props) => {
               type="text"
               name="street_name"
               placeholder="Street Name"
-              required
               id="street_name"
               defaultValue={patient.street_name}
               onChange={handleChange1}
@@ -270,7 +341,6 @@ const UpdatePatientPage = (props) => {
               type="text"
               name="city_Town"
               placeholder="City"
-              required
               id="city_Town"
               defaultValue={patient.city_Town}
               onChange={handleChange1}
@@ -281,7 +351,6 @@ const UpdatePatientPage = (props) => {
             <Form.Control
               as="select"
               name="province_State"
-              required
               id="province_State"
               defaultValue={patient.province_State}
               onChange={handleChange1}
@@ -307,7 +376,6 @@ const UpdatePatientPage = (props) => {
             <Form.Control
               as="select"
               name="country"
-              required
               id="country"
               defaultValue={patient.country}
               onChange={handleChange1}
@@ -325,7 +393,6 @@ const UpdatePatientPage = (props) => {
               type="text"
               name="postal_code"
               placeholder="Enter Postal Code"
-              required
               id="postal code"
               defaultValue={patient.postal_code}
               onChange={handleChange1}
@@ -337,7 +404,6 @@ const UpdatePatientPage = (props) => {
               type="email"
               name="email"
               placeholder="Enter email"
-              required
               id="email"
               defaultValue={patient.email}
               onChange={handleChange1}
@@ -349,90 +415,12 @@ const UpdatePatientPage = (props) => {
               type="tel"
               name="fax"
               placeholder="Enter Fax"
-              required
               id="fax"
               defaultValue={patient.fax}
               onChange={handleChange1}
             />
           </Form.Group>
         </Form.Row>
-        <Button variant="primary" type="submit">
-          Update
-        </Button>
-      </Form>
-
-      <h2>Personal Details</h2>
-      <Form onSubmit={handleSubmit2}>
-        <Row className="py-2">
-          <Col sm={4}>
-            <Input
-              type="text"
-              name="first_name"
-              id="first_name"
-              placeholder="Enter First Name"
-              required
-              defaultValue={patient.first_name}
-              onChange={handleChange2}
-            />
-          </Col>
-
-          <Col sm={4}>
-            <Input
-              type="text"
-              name="middle_name"
-              id="middle_name"
-              placeholder="Enter Middle Name"
-              required
-              defaultValue={patient.middle_name}
-              onChange={handleChange2}
-            />
-          </Col>
-
-          <Col sm={4}>
-            <Input
-              type="text"
-              name="last_name"
-              id="last_name"
-              placeholder="Enter Last Name"
-              required
-              defaultValue={patient.last_name}
-              onChange={handleChange2}
-            />
-          </Col>
-        </Row>
-
-        <Row className="py-2">
-          <label>Date of Birth</label>
-          <Col sm={2}>
-            <Input
-              type="date"
-              name="dob"
-              id="dob"
-              placeholder="Enter Date Of Birth"
-              required
-              defaultValue={patient.dob}
-              onChange={handleChange2}
-            />
-          </Col>
-
-          <Col sm={2}>
-            <FormControl
-              as="select"
-              className="mr-sm-2"
-              name="gender"
-              id="gender"
-              required
-              defaultValue={patient.gender}
-              onChange={handleChange2}
-              custom
-            >
-              <option value="0">Select Gender</option>
-              <option value="1">Male</option>
-              <option value="2">Female</option>
-              <option value="3">Non-Binary</option>
-            </FormControl>
-          </Col>
-        </Row>
         <Button variant="primary" type="submit">
           Update
         </Button>
@@ -446,7 +434,6 @@ const UpdatePatientPage = (props) => {
               type="text"
               name="health_card_number"
               placeholder="Enter Health Card Number"
-              required
               id="health_card_number"
               defaultValue={patient.health_card_number}
               onChange={handleChange3}
@@ -457,7 +444,6 @@ const UpdatePatientPage = (props) => {
             <Form.Control
               as="select"
               name="marital_status"
-              required
               id="marital_status"
               defaultValue={patient.marital_status}
               onChange={handleChange3}
@@ -478,7 +464,6 @@ const UpdatePatientPage = (props) => {
             <Form.Control
               as="select"
               name="language"
-              required
               id="language"
               defaultValue={patient.language}
               onChange={handleChange3}
@@ -495,7 +480,6 @@ const UpdatePatientPage = (props) => {
             <Form.Control
               as="select"
               name="nationality"
-              required
               id="nationality"
               defaultValue={patient.nationality}
               onChange={handleChange3}
@@ -517,7 +501,6 @@ const UpdatePatientPage = (props) => {
             <Form.Control
               as="select"
               name="religion"
-              required
               id="religion"
               defaultValue={patient.religion}
               onChange={handleChange3}
@@ -536,7 +519,6 @@ const UpdatePatientPage = (props) => {
             <Form.Control
               as="select"
               name="race"
-              required
               id="race"
               defaultValue={patient.race}
               onChange={handleChange3}
@@ -564,7 +546,6 @@ const UpdatePatientPage = (props) => {
               type="text"
               name="emergency_contact_number"
               placeholder="Enter Emergency Contact Number"
-              required
               id="emergency_contact_number"
               defaultValue={patient.emergency_contact_number}
               onChange={handleChange3}
@@ -576,7 +557,6 @@ const UpdatePatientPage = (props) => {
               type="text"
               name="emergency_contact_name"
               placeholder="Enter Emergency Contact Name"
-              required
               id="emergency_contact_name"
               defaultValue={patient.emergency_contact_name}
               onChange={handleChange3}
@@ -590,7 +570,6 @@ const UpdatePatientPage = (props) => {
               type="text"
               name="occupation"
               placeholder="Enter Occupation"
-              required
               id="occupation"
               defaultValue={patient.occupation}
               onChange={handleChange3}
@@ -601,7 +580,6 @@ const UpdatePatientPage = (props) => {
             <Form.Control
               as="select"
               name="income_level"
-              required
               id="income_level"
               defaultValue={patient.income_level}
               onChange={handleChange3}
@@ -621,7 +599,6 @@ const UpdatePatientPage = (props) => {
               name="family_size"
               min="1"
               placeholder="Enter Family Size"
-              required
               id="family_size"
               defaultValue={patient.family_size}
               onChange={handleChange3}
@@ -641,7 +618,6 @@ const UpdatePatientPage = (props) => {
               type="text"
               name="allergies"
               placeholder="Enter Allergies"
-              required
               id="allergies"
               defaultValue={patient.allergies}
               onChange={handleChange4}
@@ -652,7 +628,6 @@ const UpdatePatientPage = (props) => {
             <Form.Control
               as="select"
               name="blood_type"
-              required
               id="blood_type"
               defaultValue={patient.blood_type}
               onChange={handleChange4}
@@ -672,7 +647,6 @@ const UpdatePatientPage = (props) => {
               type="text"
               name="insurance_details"
               placeholder="Enter Insurance Details"
-              required
               id="insurance_details"
               defaultValue={patient.insurance_details}
               onChange={handleChange4}
@@ -684,7 +658,6 @@ const UpdatePatientPage = (props) => {
               type="text"
               name="family_physician"
               placeholder="Enter Family Physician"
-              required
               id="family_physician"
               defaultValue={patient.family_physician}
               onChange={handleChange4}
@@ -698,7 +671,6 @@ const UpdatePatientPage = (props) => {
               type="text"
               name="immunization_type"
               placeholder="Enter Immunization Type"
-              required
               id="immunization_type"
               defaultValue={patient.immunization_type}
               onChange={handleChange4}
@@ -710,7 +682,6 @@ const UpdatePatientPage = (props) => {
               type="date"
               name="immunization_date"
               placeholder="Enter Immunization Date"
-              required
               id="immunization_date"
               defaultValue={patient.immunization_date}
               onChange={handleChange4}
@@ -722,8 +693,8 @@ const UpdatePatientPage = (props) => {
               type="number"
               name="employee_id"
               placeholder="Enter Employee ID"
-              required
               id="employee_id"
+              min="1"
               defaultValue={patient.employee_id}
               onChange={handleChange4}
             />

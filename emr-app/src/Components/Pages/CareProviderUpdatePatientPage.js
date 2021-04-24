@@ -71,27 +71,26 @@ const CareProviderUpdatePatientPage = (props) => {
   const [patientNotesInfo, setPatientNotesInfo] = useState({
     employee_id: patient.employee_id,
     employee_note: patient.note,
-    date_stamp: patient.date_stamp
+    date_stamp: patient.date_stamp,
   });
 
-const [patientDiagnosticInfo, setPatientDiagnosticInfo] = useState({
-  employee_id: patient.employee_id,
-  diagnostic_image: patient.diagnostic_image,
-  date_stamp: patient.date_stamp
-});
+  const [patientDiagnosticInfo, setPatientDiagnosticInfo] = useState({
+    employee_id: patient.employee_id,
+    diagnostic_image: patient.diagnostic_image,
+    date_stamp: patient.date_stamp,
+  });
 
-const [patientLabResultsInfo, setPatientLabResultsInfo] = useState({
-  lab_result: patient.lab_result,
-  date_stamp: patient.date_stamp
-});
+  const [patientLabResultsInfo, setPatientLabResultsInfo] = useState({
+    lab_result: patient.lab_result,
+    date_stamp: patient.date_stamp,
+  });
 
-const [patientMedicationInfo, setPatientMedicationInfo] = useState({
-  medication: patient.medication,
-  date_stamp: patient.date_stamp,
-  prescription: patient.prescription,
-  last_filled_date: patient.last_filled_date
-});
-
+  const [patientMedicationInfo, setPatientMedicationInfo] = useState({
+    medication: patient.medication,
+    date_stamp: patient.date_stamp,
+    prescription: patient.prescription,
+    last_filled_date: patient.last_filled_date,
+  });
 
   const handleChange1 = (event) => {
     setContactInfo((prevState) => ({
@@ -381,7 +380,7 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
     <Container className="p-3">
       <Navigation />
 
-      <h1>Care Provider Update Patient</h1>
+      <h1>Care Provider Update Patient: <span className="userName">{patient.name}</span></h1>
       <h2>Contact Info</h2>
       <Form onSubmit={handleSubmit1}>
         <Form.Row>
@@ -390,7 +389,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
               type="tel"
               name="phone_number"
               placeholder="Phone Number"
-              required
               id="phone_number"
               defaultValue={patient.phone_number}
               onChange={handleChange1}
@@ -402,7 +400,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
               type="text"
               name="street_number"
               placeholder="Street Number"
-              required
               id="street_number"
               defaultValue={patient.street_number}
               onChange={handleChange1}
@@ -414,7 +411,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
               type="text"
               name="street_name"
               placeholder="Street Name"
-              required
               id="street_name"
               defaultValue={patient.street_name}
               onChange={handleChange1}
@@ -428,7 +424,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
               type="text"
               name="city_Town"
               placeholder="City"
-              required
               id="city_Town"
               defaultValue={patient.city_Town}
               onChange={handleChange1}
@@ -439,7 +434,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
             <Form.Control
               as="select"
               name="province_State"
-              required
               id="province_State"
               defaultValue={patient.province_State}
               onChange={handleChange1}
@@ -465,7 +459,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
             <Form.Control
               as="select"
               name="country"
-              required
               id="country"
               defaultValue={patient.country}
               onChange={handleChange1}
@@ -483,7 +476,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
               type="text"
               name="postal_code"
               placeholder="Enter Postal Code"
-              required
               id="postal code"
               defaultValue={patient.postal_code}
               onChange={handleChange1}
@@ -495,7 +487,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
               type="email"
               name="email"
               placeholder="Enter email"
-              required
               id="email"
               defaultValue={patient.email}
               onChange={handleChange1}
@@ -507,7 +498,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
               type="tel"
               name="fax"
               placeholder="Enter Fax"
-              required
               id="fax"
               defaultValue={patient.fax}
               onChange={handleChange1}
@@ -528,7 +518,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
               name="first_name"
               id="first_name"
               placeholder="Enter First Name"
-              required
               defaultValue={patient.first_name}
               onChange={handleChange2}
             />
@@ -540,7 +529,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
               name="middle_name"
               id="middle_name"
               placeholder="Enter Middle Name"
-              required
               defaultValue={patient.middle_name}
               onChange={handleChange2}
             />
@@ -552,7 +540,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
               name="last_name"
               id="last_name"
               placeholder="Enter Last Name"
-              required
               defaultValue={patient.last_name}
               onChange={handleChange2}
             />
@@ -567,7 +554,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
               name="dob"
               id="dob"
               placeholder="Enter Date Of Birth"
-              required
               defaultValue={patient.dob}
               onChange={handleChange2}
             />
@@ -579,7 +565,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
               className="mr-sm-2"
               name="gender"
               id="gender"
-              required
               defaultValue={patient.gender}
               onChange={handleChange2}
               custom
@@ -604,7 +589,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
               type="text"
               name="health_card_number"
               placeholder="Enter Health Card Number"
-              required
               id="health_card_number"
               defaultValue={patient.health_card_number}
               onChange={handleChange3}
@@ -615,7 +599,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
             <Form.Control
               as="select"
               name="marital_status"
-              required
               id="marital_status"
               defaultValue={patient.marital_status}
               onChange={handleChange3}
@@ -636,7 +619,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
             <Form.Control
               as="select"
               name="language"
-              required
               id="language"
               defaultValue={patient.language}
               onChange={handleChange3}
@@ -653,7 +635,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
             <Form.Control
               as="select"
               name="nationality"
-              required
               id="nationality"
               defaultValue={patient.nationality}
               onChange={handleChange3}
@@ -675,7 +656,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
             <Form.Control
               as="select"
               name="religion"
-              required
               id="religion"
               defaultValue={patient.religion}
               onChange={handleChange3}
@@ -694,7 +674,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
             <Form.Control
               as="select"
               name="race"
-              required
               id="race"
               defaultValue={patient.race}
               onChange={handleChange3}
@@ -722,7 +701,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
               type="text"
               name="emergency_contact_number"
               placeholder="Enter Emergency Contact Number"
-              required
               id="emergency_contact_number"
               defaultValue={patient.emergency_contact_number}
               onChange={handleChange3}
@@ -734,7 +712,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
               type="text"
               name="emergency_contact_name"
               placeholder="Enter Emergency Contact Name"
-              required
               id="emergency_contact_name"
               defaultValue={patient.emergency_contact_name}
               onChange={handleChange3}
@@ -748,7 +725,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
               type="text"
               name="occupation"
               placeholder="Enter Occupation"
-              required
               id="occupation"
               defaultValue={patient.occupation}
               onChange={handleChange3}
@@ -759,7 +735,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
             <Form.Control
               as="select"
               name="income_level"
-              required
               id="income_level"
               defaultValue={patient.income_level}
               onChange={handleChange3}
@@ -779,7 +754,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
               name="family_size"
               min="1"
               placeholder="Enter Family Size"
-              required
               id="family_size"
               defaultValue={patient.family_size}
               onChange={handleChange3}
@@ -799,7 +773,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
               type="text"
               name="allergies"
               placeholder="Enter Allergies"
-              required
               id="allergies"
               defaultValue={patient.allergies}
               onChange={handleChange4}
@@ -810,7 +783,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
             <Form.Control
               as="select"
               name="blood_type"
-              required
               id="blood_type"
               defaultValue={patient.blood_type}
               onChange={handleChange4}
@@ -830,7 +802,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
               type="text"
               name="insurance_details"
               placeholder="Enter Insurance Details"
-              required
               id="insurance_details"
               defaultValue={patient.insurance_details}
               onChange={handleChange4}
@@ -842,7 +813,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
               type="text"
               name="family_physician"
               placeholder="Enter Family Physician"
-              required
               id="family_physician"
               defaultValue={patient.family_physician}
               onChange={handleChange4}
@@ -856,7 +826,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
               type="text"
               name="immunization_type"
               placeholder="Enter Immunization Type"
-              required
               id="immunization_type"
               defaultValue={patient.immunization_type}
               onChange={handleChange4}
@@ -868,7 +837,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
               type="date"
               name="immunization_date"
               placeholder="Enter Immunization Date"
-              required
               id="immunization_date"
               defaultValue={patient.immunization_date}
               onChange={handleChange4}
@@ -880,7 +848,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
               type="number"
               name="employee_id"
               placeholder="Enter Employee ID"
-              required
               id="employee_id"
               defaultValue={patient.employee_id}
               onChange={handleChange4}
@@ -900,7 +867,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
             type="text"
             name="employee_id"
             placeholder="Enter Employee ID"
-            required
             id="employee_id"
             onChange={handleChange5}
           />
@@ -910,7 +876,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
             type="textarea"
             name="patient_note"
             placeholder="Enter Patient Notes"
-            required
             id="patient_note"
             onChange={handleChange5}
           />
@@ -920,7 +885,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
             type="date"
             name="date_stamp"
             placeholder="Choose Date"
-            required
             id="date_stamp"
             onChange={handleChange5}
           />
@@ -937,7 +901,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
             type="text"
             name="employee_id"
             placeholder="Enter Employee ID"
-            required
             id="employee_id"
             onChange={handleChange6}
           />
@@ -946,7 +909,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
           <Form.Control
             type="file"
             name="diagnostic_image"
-            required
             id="diagnostic_image"
             onChange={handleChange6}
           />
@@ -956,7 +918,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
             type="date"
             name="date_stamp"
             placeholder="Enter Date"
-            required
             id="date_stamp"
             onChange={handleChange6}
           />
@@ -974,7 +935,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
             type="file"
             name="lab_result"
             placeholder="Attach Lab Result"
-            required
             id="lab_result"
             onChange={handleChange7}
           />
@@ -984,7 +944,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
             type="date"
             name="date_stamp"
             placeholder="Enter Date"
-            required
             id="date_stamp"
             onChange={handleChange7}
           />
@@ -1002,7 +961,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
             type="textarea"
             name="medication"
             placeholder="Enter Medication"
-            required
             id="medication"
             onChange={handleChange8}
           />
@@ -1012,7 +970,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
             type="date"
             name="date_stamp"
             placeholder="Enter Date"
-            required
             id="date_stamp"
             onChange={handleChange8}
           />
@@ -1023,7 +980,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
               type="text"
               name="prescription"
               placeholder="Enter Prescription"
-              required
               id="prescription"
               onChange={handleChange8}
             />
@@ -1033,7 +989,6 @@ const [patientMedicationInfo, setPatientMedicationInfo] = useState({
               type="date"
               name="last_filled_date"
               placeholder="Enter Date"
-              required
               id="last_filled_date"
               onChange={handleChange8}
             />

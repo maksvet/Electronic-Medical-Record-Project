@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Navigation from "../Shared/Navigation";
 import { Button } from "react-bootstrap";
 import { Table } from "reactstrap";
+import { Container } from "react-bootstrap";
 
 const RegisteredCareProviders = (props) => {
   console.log(props);
@@ -51,8 +52,9 @@ const RegisteredCareProviders = (props) => {
   };
 
   return (
-    <React.Fragment>
+    <Container className="p-3">
       <Navigation />
+      <h1>Registered Care Providers</h1>
       <Table responsive>
         <thead>
           <tr>
@@ -61,37 +63,39 @@ const RegisteredCareProviders = (props) => {
             <th>Last Name</th>
           </tr>
         </thead>
-          {careProviders.map((careProvider) => (
-            <div key={careProvider.employeeID}>
-              <tbody>
+        {careProviders.map((careProvider) => (
+          <React.Fragment key={careProvider.employee_id}>
+            <tbody>
               <tr>
-                <td>{careProvider.employeeID}</td>
-                <td>{careProvider.firstName}</td>
-                <td>{careProvider.lastName}</td>
+                <td>{careProvider.employee_id}</td>
+                <td>{careProvider.first_name}</td>
+                <td>{careProvider.last_name}</td>
+                <td>
+                  <Button
+                    onClick={(event) => {
+                      handleEdit(event, careProvider.employee_id);
+                    }}
+                    variant="outline-secondary"
+                  >
+                    Edit
+                  </Button>
+                </td>
                 <td>
                   <Button
                     onClick={(event) => {
                       handleDelete(event, careProvider.employeeID);
                     }}
+                    variant="outline-danger"
                   >
-                    Delete Me!
-                  </Button>
-                </td>
-                <td>
-                  <Button
-                    onClick={(event) => {
-                      handleEdit(event, careProvider.employeeID);
-                    }}
-                  >
-                    Edit Me!
+                    Delete
                   </Button>
                 </td>
               </tr>
-              </tbody>
-            </div>
-          ))}
+            </tbody>
+          </React.Fragment>
+        ))}
       </Table>
-    </React.Fragment>
+    </Container>
   );
 };
 

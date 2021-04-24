@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import Navigation from "../Shared/Navigation";
 import { Table } from "reactstrap";
 import { Button } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 const RegisteredPatients = (props) => {
   console.log(props);
@@ -51,8 +52,9 @@ const RegisteredPatients = (props) => {
   };
 
   return (
-    <React.Fragment>
+    <Container className="p-3">
       <Navigation />
+      <h1>Registered Patients</h1>
       <Table responsive>
         <thead>
           <tr>
@@ -63,7 +65,7 @@ const RegisteredPatients = (props) => {
         </thead>
         <tbody>
           {patients.map((patient) => (
-            <div key={patient.health_card_number}>
+            <React.Fragment key={patient.health_card_number}>
               <tr>
                 <td>{patient.health_card_number}</td>
                 <td>{patient.first_name}</td>
@@ -76,23 +78,25 @@ const RegisteredPatients = (props) => {
                 <td>
                   <Button
                     onClick={(event) => {
-                      handleDelete(event, patient.health_card_number);
+                      handleEdit(event, patient.health_card_number);
                     }}
+                    variant="outline-secondary"
                   >
-                    Delete Me!
+                    Edit
                   </Button>
                 </td>
                 <td>
                   <Button
                     onClick={(event) => {
-                      handleEdit(event, patient.health_card_number);
+                      handleDelete(event, patient.health_card_number);
                     }}
+                    variant="outline-danger"
                   >
-                    Edit Me!
+                    Delete
                   </Button>
                 </td>
               </tr>
-            </div>
+            </React.Fragment>
           ))}
         </tbody>
       </Table>
@@ -122,7 +126,7 @@ const RegisteredPatients = (props) => {
           </button>
         </div>
       ))} */}
-    </React.Fragment>
+    </Container>
   );
 };
 

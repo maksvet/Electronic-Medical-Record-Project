@@ -10,7 +10,7 @@ const IndividualPatientInfoPage = (props) => {
   const [notes, setNotes] = useState("");
 
   console.log(props);
-  let id = props.match.params.health_card_number;
+  // let id = props.match.params.health_card_number;
 
   useEffect(() => {
     async function fetchData() {

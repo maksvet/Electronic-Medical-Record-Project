@@ -164,7 +164,7 @@ const AdminUpdateCareProviderPage = (props) => {
   console.log(props);
   let id = props.match.params.employeeID;
   // const [careProviders, setCareProviders] = useState([]);
-  const [form ] = useState({ display: "none" });
+  const [form] = useState({ display: "none" });
   const history = useHistory();
 
   useEffect(
@@ -249,8 +249,8 @@ const AdminUpdateCareProviderPage = (props) => {
       <div>
         <Container className="pb-5">
           <Navigation />
-          <h2>Update Care Provider Form</h2>
-          <h3>Personal Details</h3>
+          <h1>Update Care Provider Form</h1>
+          <h2>Personal Details</h2>
           <Form onSubmit={handleSubmit1} className="pb-3">
             <Row className="py-2">
               <Col sm={4}>
@@ -259,7 +259,6 @@ const AdminUpdateCareProviderPage = (props) => {
                   name="firstName"
                   id="firstName"
                   placeholder="Enter First Name"
-                  required
                   defaultValue={careProvider.firstName}
                   onChange={handleChange1}
                 />
@@ -271,7 +270,6 @@ const AdminUpdateCareProviderPage = (props) => {
                   name="middleName"
                   id="middleName"
                   placeholder="Enter Middle Name"
-                  required
                   defaultValue={careProvider.middleName}
                   onChange={handleChange1}
                 />
@@ -283,7 +281,6 @@ const AdminUpdateCareProviderPage = (props) => {
                   name="lastName"
                   id="lastName"
                   placeholder="Enter Last Name"
-                  required
                   defaultValue={careProvider.lastName}
                   onChange={handleChange1}
                 />
@@ -298,7 +295,6 @@ const AdminUpdateCareProviderPage = (props) => {
                   name="dob"
                   id="dob"
                   placeholder="Enter Date Of Birth"
-                  required
                   defaultValue={careProvider.dob}
                   onChange={handleChange1}
                 />
@@ -311,7 +307,6 @@ const AdminUpdateCareProviderPage = (props) => {
                   type="text"
                   name="gender"
                   id="gender"
-                  required
                   defaultValue={careProvider.gender}
                   onChange={handleChange1}
                   custom
@@ -328,7 +323,7 @@ const AdminUpdateCareProviderPage = (props) => {
             </Button>
           </Form>
 
-          <h3>Credentials</h3>
+          <h2>Credentials</h2>
           <Form onSubmit={handleSubmit2} className="pb-3">
             <Row className="py-2">
               <Col sm={4}>
@@ -337,7 +332,6 @@ const AdminUpdateCareProviderPage = (props) => {
                   name="loginID"
                   id="loginID"
                   placeholder="Enter login ID"
-                  required
                   defaultValue={careProvider.loginID}
                   onChange={handleChange}
                 />
@@ -348,7 +342,6 @@ const AdminUpdateCareProviderPage = (props) => {
                   name="password"
                   id="password"
                   placeholder="Enter new password"
-                  required
                   defaultValue={careProvider.password}
                   onChange={handleChange}
                 />
@@ -361,7 +354,6 @@ const AdminUpdateCareProviderPage = (props) => {
                   name="jobTitle"
                   id="jobTitle"
                   placeholder="Enter Job Title"
-                  required
                   defaultValue={careProvider.jobTitle}
                   onChange={handleChange}
                 />
@@ -373,7 +365,6 @@ const AdminUpdateCareProviderPage = (props) => {
                   name="qualification"
                   id="qualification"
                   placeholder="Enter Qualification"
-                  required
                   defaultValue={careProvider.qualification}
                   onChange={handleChange}
                 />
@@ -385,7 +376,6 @@ const AdminUpdateCareProviderPage = (props) => {
                   name="institutionName"
                   id="institutionName"
                   placeholder="Enter Institution Name"
-                  required
                   defaultValue={careProvider.institutionName}
                   onChange={handleChange}
                 />
@@ -399,14 +389,13 @@ const AdminUpdateCareProviderPage = (props) => {
             </Button>
           </Form>
 
-          <h3>Contact Information</h3>
+          <h2>Contact Information</h2>
           <Form onSubmit={handleSubmit3} className="pb-3">
             <Form.Row>
               <Form.Group as={Col}>
                 <Form.Control
                   type="tel"
                   placeholder="Phone Number"
-                  required
                   id="phoneNumber"
                   defaultValue={careProvider.phoneNumber}
                   onChange={handleChange}
@@ -417,7 +406,6 @@ const AdminUpdateCareProviderPage = (props) => {
                 <Form.Control
                   type="text"
                   placeholder="Street Number"
-                  required
                   id="streetNumber"
                   defaultValue={careProvider.streetNumber}
                   onChange={handleChange}
@@ -428,7 +416,6 @@ const AdminUpdateCareProviderPage = (props) => {
                 <Form.Control
                   type="text"
                   placeholder="Street Name"
-                  required
                   id="streetName"
                   defaultValue={careProvider.streetName}
                   onChange={handleChange}
@@ -441,7 +428,6 @@ const AdminUpdateCareProviderPage = (props) => {
                 <Form.Control
                   type="text"
                   placeholder="City"
-                  required
                   id="city_Town"
                   defaultValue={careProvider.city_Town}
                   onChange={handleChange}
@@ -451,7 +437,6 @@ const AdminUpdateCareProviderPage = (props) => {
               <Form.Group as={Col}>
                 <Form.Control
                   as="select"
-                  required
                   id="province_State"
                   defaultValue={careProvider.province_State}
                   onChange={handleChange}
@@ -476,7 +461,6 @@ const AdminUpdateCareProviderPage = (props) => {
               <Form.Group as={Col}>
                 <Form.Control
                   as="select"
-                  required
                   id="country"
                   defaultValue={careProvider.country}
                   onChange={handleChange}
@@ -493,7 +477,6 @@ const AdminUpdateCareProviderPage = (props) => {
                 <Form.Control
                   type="text"
                   placeholder="Enter Postal Code"
-                  required
                   id="postal code"
                   defaultValue={careProvider.postalCode}
                   onChange={handleChange}
@@ -504,7 +487,6 @@ const AdminUpdateCareProviderPage = (props) => {
                 <Form.Control
                   type="email"
                   placeholder="Enter email"
-                  required
                   id="email"
                   defaultValue={careProvider.email}
                   onChange={handleChange}
@@ -515,7 +497,6 @@ const AdminUpdateCareProviderPage = (props) => {
                 <Form.Control
                   type="tel"
                   placeholder="Enter Fax"
-                  required
                   id="fax"
                   defaultValue={careProvider.fax}
                   onChange={handleChange}

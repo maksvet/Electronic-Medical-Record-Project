@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Form, FormControl, Button } from "react-bootstrap";
-import { Row, Col, Input } from "reactstrap";
+import { Form, Button } from "react-bootstrap";
+import { Row, Col } from "reactstrap";
 import Navigation from "../Shared/Navigation";
 import { Container } from "react-bootstrap";
 
@@ -184,15 +184,17 @@ const CareProviderUpdatePatientPage2 = (props) => {
     <Container className="p-3">
       <Navigation />
 
-      <h1>Add Patient Notes</h1>
-      <h2>Patient Notes</h2>
+      <h1 className="ml-3">
+        (Add Notes) Patient Name:{" "}
+        <span className="userName">{patient.name}</span>
+      </h1>
+      <h2 className="ml-3">Patient Notes</h2>
       <Form onSubmit={handleSubmit5}>
         <Form.Group as={Col} sm={2}>
           <Form.Control
             type="text"
             name="employee_id"
             placeholder="Enter Employee ID"
-            required
             id="employee_id"
             onChange={handleChange5}
           />
@@ -202,7 +204,6 @@ const CareProviderUpdatePatientPage2 = (props) => {
             type="textarea"
             name="patient_note"
             placeholder="Enter Patient Notes"
-            required
             id="patient_note"
             onChange={handleChange5}
           />
@@ -212,24 +213,22 @@ const CareProviderUpdatePatientPage2 = (props) => {
             type="date"
             name="date_stamp"
             placeholder="Choose Date"
-            required
             id="date_stamp"
             onChange={handleChange5}
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" className="ml-3">
           Add
         </Button>
       </Form>
 
-      <h2>Diagnostic Images</h2>
+      <h2 className="ml-3">Diagnostic Images</h2>
       <Form onSubmit={handleSubmit6}>
         <Form.Group as={Col} sm={2}>
           <Form.Control
             type="text"
             name="employee_id"
             placeholder="Enter Employee ID"
-            required
             id="employee_id"
             onChange={handleChange6}
           />
@@ -238,7 +237,6 @@ const CareProviderUpdatePatientPage2 = (props) => {
           <Form.Control
             type="file"
             name="diagnostic_image"
-            required
             id="diagnostic_image"
             onChange={handleChange6}
           />
@@ -248,25 +246,23 @@ const CareProviderUpdatePatientPage2 = (props) => {
             type="date"
             name="date_stamp"
             placeholder="Enter Date"
-            required
             id="date_stamp"
             onChange={handleChange6}
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" className="ml-3">
           Add
         </Button>
       </Form>
 
-      <h2>Lab Results</h2>
+      <h2 className="ml-3">Lab Results</h2>
       <Form onSubmit={handleSubmit7}>
         <Form.Group as={Col}>
           <Form.Control
             type="file"
             name="lab_result"
             placeholder="Attach Lab Result"
-            required
             id="lab_result"
             onChange={handleChange7}
           />
@@ -276,25 +272,23 @@ const CareProviderUpdatePatientPage2 = (props) => {
             type="date"
             name="date_stamp"
             placeholder="Enter Date"
-            required
             id="date_stamp"
             onChange={handleChange7}
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" className="ml-3">
           Add
         </Button>
       </Form>
 
-      <h2>Medication</h2>
+      <h2 className="ml-3">Medication</h2>
       <Form onSubmit={handleSubmit8}>
         <Form.Group as={Col}>
           <Form.Control
             type="textarea"
             name="medication"
             placeholder="Enter Medication"
-            required
             id="medication"
             onChange={handleChange8}
           />
@@ -304,18 +298,16 @@ const CareProviderUpdatePatientPage2 = (props) => {
             type="date"
             name="date_stamp"
             placeholder="Enter Date"
-            required
             id="date_stamp"
             onChange={handleChange8}
           />
         </Form.Group>
         <Row>
-          <Form.Group as={Col}>
+          <Form.Group as={Col} className="ml-3">
             <Form.Control
               type="text"
               name="prescription"
               placeholder="Enter Prescription"
-              required
               id="prescription"
               onChange={handleChange8}
             />
@@ -325,14 +317,13 @@ const CareProviderUpdatePatientPage2 = (props) => {
               type="date"
               name="last_filled_date"
               placeholder="Enter Date"
-              required
               id="last_filled_date"
               onChange={handleChange8}
             />
           </Form.Group>
         </Row>
 
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" className="ml-3">
           Add
         </Button>
       </Form>

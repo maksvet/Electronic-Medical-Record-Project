@@ -1,9 +1,6 @@
-import React from 'react';
-import {
-  Nav,
-  NavDropdown,
-} from 'react-bootstrap';
-import { BoxArrowRight, ArrowLeftCircle } from 'react-bootstrap-icons';
+import React from "react";
+import { Nav, NavDropdown, Button } from "react-bootstrap";
+import { BoxArrowRight } from "react-bootstrap-icons";
 
 const goBack = () => {
   window.history.back();
@@ -11,15 +8,18 @@ const goBack = () => {
 
 const Navigation = () => {
   return (
-    <div style={{ borderBottom:"3px solid grey", marginBottom:"5px"}}>
+    <div style={{ borderBottom: "3px solid grey", marginBottom: "5px" }}>
       <Nav style={{ border: "2px black" }}>
         <div className="btn-group">
-          <a href="/" style={{ fontSize: "2rem" }} onClick={ goBack }>
-            {" "}
-            <ArrowLeftCircle />
-          </a>
+          <Button
+            variant="link"
+            style={{ fontSize: "2rem" }}
+            onClick={goBack}
+          >
+            <i className="fas fa-arrow-left"></i>
+          </Button>
         </div>
-        <h1 style={{ fontSize: "20px", padding: "1rem" }}>
+        <h1 style={{ fontSize: "2rem", padding: "1rem" }}>
           Group-D Clinic Group
         </h1>
         <div className="ml-auto">
