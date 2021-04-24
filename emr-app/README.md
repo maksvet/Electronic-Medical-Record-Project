@@ -32,10 +32,10 @@ Note: When we do a push _.ENV_ file gets ignored.
 
 7. The application will start on port _localhost:9001_.
 
-**Related Links**
+**Related**
 
-Link to Trello Project Management files
+Trello Project Management files
 https://trello.com/b/5AARbiGI/fs1030-fall2020-grp-d
 
-Link to GitLab respository for code
-https://gitlab.com/DonKur/fs1030-fall2020-grp-d.git
+
+
