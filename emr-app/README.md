@@ -57,7 +57,7 @@ Note: the following files are all in the folder _emr-app > src > routes_<br/><br
 >    INNER JOIN emrconn.admin a 
 >    ON ( e.employee_id = a.employee_id 
 >      AND e.employee_id = a.employee_id 
->      AND e.employee_id = a.employee_id )`;<br/><br/>
+>      AND e.employee_id = a.employee_id )`;
 
 
 **File Name:** careprovider.js<br/>
@@ -71,14 +71,13 @@ Note: the following files are all in the folder _emr-app > src > routes_<br/><br
 
 >  const sql4 = `INSERT INTO ${process.env.DBNAME}.admin (employee_id, isadmin) VALUES ( LAST_INSERT_ID(), ${isadmin} );`;
 
-
 **Line Number: 57 - 62**<br/>
 > router.get("/", async (req, res) => {
 >  const sql = `SELECT e.employee_id, e.job_title, p.first_name, p.last_name, a.isadmin
 >  FROM ${process.env.DBNAME}.employee e 
 >      INNER JOIN ${process.env.DBNAME}.person p ON ( e.person_id = p.person_id)  
 >      INNER JOIN ${process.env.DBNAME}.admin a ON ( e.employee_id = a.employee_id)
->  WHERE e.isactive  = true;`;<br/><br/>
+>  WHERE e.isactive  = true;`;
 
 **Line Number: 71 - 77**<br/>
 > router.get(`/:${pkText}`, async (req, res) => {
@@ -88,20 +87,58 @@ Note: the following files are all in the folder _emr-app > src > routes_<br/><br
 >     INNER JOIN ${process.env.DBNAME}.contact_information ci ON ( p.contact_id = ci.contact_id )  
 > WHERE e.${pkText}= ${req.params[pkText]} && e.isactive=true; `;
 
-**Line Number: 118 - 124**<br/>
+**Line Number: 93 - 99**<br/>
+>  const sql = `UPDATE ${process.env.DBNAME}.contact_information c, (SELECT ci.contact_id
+>      FROM ${process.env.DBNAME}.employee e 
+>        INNER JOIN ${process.env.DBNAME}.person p ON ( e.person_id = p.person_id)  
+          INNER JOIN ${process.env.DBNAME}.contact_information ci ON ( p.contact_id = ci.contact_id)
+>      WHERE e.${pkText} = ${req.params[pkText]}) e 
+>      SET ${query}
+>      WHERE c.contact_id = e.contact_id;`;
 
-**Line Number: 141 - 145**<br/>
+**Line Number: 118 - 126**<br/>
+>  const sql = `UPDATE ${
+>    process.env.DBNAME
+>  }.person p1, (SELECT p.person_id FROM ${
+>    process.env.DBNAME
+>  }.person p INNER JOIN ${
+>    process.env.DBNAME
+>  }.employee e ON ( p.person_id = e.person_id)WHERE e.${pkText}='${
+>    req.params[pkText]
+>  }' ) p2 SET ${query.toString()} WHERE p1.person_id = p2.person_id;`;
 
-**Line Number: 162 - 164**<br/>
+**Line Number: 150 - 154**<br/>
+>  const sql = `UPDATE ${
+>    process.env.DBNAME
+>  }.employee SET ${query.toString()} WHERE employee_id=${
+>    req.params.employee_id
+>  };`;
 
-**Line Number: 181 - 185**<br/>
+**Line Number: 171 - 173**<br/>
+>  const sql = `UPDATE ${
+>    process.env.DBNAME
+>  }.admin SET ${query.toString()} WHERE employee_id=${req.params.employee_id};`;
 
-**Line Number: 202 - 206**<br/>
+**Line Number: 190 - 194**<br/>
+> const sql = `UPDATE ${
+>    process.env.DBNAME
+>  }.immunization SET ${query.toString()} WHERE immunization_id=${
+>    req.params.immunization_id
+>  };`;
 
-**Line Number: 223 - 227**<br/>
+**Line Number: 211 - 215**<br/>
+>  const sql = `UPDATE ${
+>    process.env.DBNAME
+>  }.medication SET ${query.toString()} WHERE medication_id=${
+>    req.params.medication_id
+>  };`;
 
-**Line Number: 238 - 239**<br/><br/>
-
+**Line Number: 232 - 236**<br/><br/>
+>  const sql = `UPDATE ${
+>    process.env.DBNAME
+>  }.qualification SET ${query.toString()} WHERE qualification_id=${
+>    req.params.qualification_id
+>  };`;
 
 
 **File Name:** patient.js<br/>
