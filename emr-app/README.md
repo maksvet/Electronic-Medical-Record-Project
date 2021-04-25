@@ -47,7 +47,7 @@ Line Number: 35 - 41**
 
   const sql4 = `INSERT INTO ${process.env.DBNAME}.admin (employee_id, isadmin) VALUES ( LAST_INSERT_ID(), ${isadmin} );`;```
   
-Line Number: 57 - 62  
+**Line Number: 57 - 62  **
    const sql = `SELECT e.employee_id, e.job_title, p.first_name, p.last_name, a.isadmin
   FROM ${process.env.DBNAME}.employee e 
       INNER JOIN ${process.env.DBNAME}.person p ON ( e.person_id = p.person_id)  
