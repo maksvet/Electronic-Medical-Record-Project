@@ -34,7 +34,7 @@ Note: When we do a push _.ENV_ file gets ignored.
 
 **SQL Statements**
 
-Note: these files are all in the folder emr-app > src > routes  
+Note: these files are all in the folder _emr-app > src > routes_  
 
 **File Name: careprovider.js  
 Line Number: 35 - 41**
@@ -53,6 +53,8 @@ Line Number: 35 - 41**
       INNER JOIN ${process.env.DBNAME}.person p ON ( e.person_id = p.person_id)  
       INNER JOIN ${process.env.DBNAME}.admin a ON ( e.employee_id = a.employee_id)
   WHERE e.isactive  = true;`;
+
+  
 
 
 **Related**
