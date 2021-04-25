@@ -35,7 +35,7 @@ Note: When we do a push _.ENV_ file gets ignored.
 
 
 **SQL Statements**<br/><br/>
-Note: these files are all in the folder _emr-app > src > routes_<br/><br/>
+Note: the following files are all in the folder _emr-app > src > routes_<br/><br/>
 **File Name:** auth.js<br/>
 **Line Number:** 64
 >router.post("/", async (req, res) => {
