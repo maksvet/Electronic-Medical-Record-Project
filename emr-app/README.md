@@ -32,18 +32,18 @@ Note: When we do a push _.ENV_ file gets ignored.
 
 7. The application will start on port _localhost:9001_.
 
-**SQL Statements**    
-Note: these files are all in the folder emr-app > src > routes    
-**File Name:** auth.js\\
-**Line Number:** 64**\\
-**SQL Statement:**\\
+**SQL Statements**<br/><br/>
+Note: these files are all in the folder emr-app > src > routes<br/><br/>
+**File Name:** auth.js<br/>
+**Line Number:** 64**<br/>
+**SQL Statement:**<br/>
 >router.post("/", async (req, res) => {
 >  const sql = `SELECT e.login_id, e.password, a.isadmin 
 >    FROM emrconn.employee e 
 >    INNER JOIN emrconn.admin a 
 >    ON ( e.employee_id = a.employee_id 
 >      AND e.employee_id = a.employee_id 
->      AND e.employee_id = a.employee_id )`; 
+>      AND e.employee_id = a.employee_id )`;  
   
 
 
