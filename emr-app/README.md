@@ -32,10 +32,10 @@ Note: When we do a push _.ENV_ file gets ignored.
 
 7. The application will start on port _localhost:9001_.
 
-**SQL Statements**  
-Note: these files are all in the folder emr-app > src > routes  
-**File Name: auth.js**  
-**Line Number:64**  
+**SQL Statements**    
+Note: these files are all in the folder emr-app > src > routes    
+**File Name:** auth.js  
+**Line Number:** 64**  
 **SQL Statement:**  
 >router.post("/", async (req, res) => {
 >  const sql = `SELECT e.login_id, e.password, a.isadmin 
