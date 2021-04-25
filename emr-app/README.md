@@ -1,18 +1,15 @@
-FS1030 Group Project
-Electronic Medical Record System
-fs1030-fall2020-grp-d
-----------------------------------------------------------------------------------------------------------------------
+##Electronic Medical Record System Group Project<br/>
+**fs1030-fall2020-grp-d**
+----
 
 **ReadMe**
 
-1. To install the _emr-app_ log into Git and navigate to the following repository: https://gitlab.com/DonKur/fs1030-fall2020-grp-d.git
+1. To run emr-app log into Git and navigate to the following repository: https://gitlab.com/DonKur/fs1030-fall2020-grp-d.git
 
 2. Clone the repository.
 
-3. In the root folder _emr.app_, create an _.ENV_ file and the following:
-Note: When we do a push _.ENV_ file gets ignored.
+3. Go to the root folder emr.app and create an .ENV file. Add the following information:
 
-```
 	PORT=9001
 	REACT_APP_SERVERPORT=9000
 	PRIVATEKEY="anykey"
@@ -20,17 +17,19 @@ Note: When we do a push _.ENV_ file gets ignored.
 	DBUSER= "nodeclient"
 	DBPASSWORD= "123456"
 	DBNAME= "emrconn"
-```
 
-4. Open _command line_.
+Note: When we do a push .ENV file gets ignored.
 
-5. Navigate to the _emr.app_ directory.
+4. Open command line.
+
+5. Navigate to the emr.app directory.
 .
-5. To to install dependencies run the following command: _npm i_.
+5. Run the following command: npm i to install dependencies
 
-6. To start the app run the following command: _npm start_.
+6. Run the following command: npm start.
 
-7. The application will start on port _localhost:9001_.
+7. The application will start on port localhost:9001.
+
 
 **SQL Statements**<br/><br/>
 Note: these files are all in the folder emr-app > src > routes<br/><br/>
@@ -42,15 +41,17 @@ Note: these files are all in the folder emr-app > src > routes<br/><br/>
 >    INNER JOIN emrconn.admin a 
 >    ON ( e.employee_id = a.employee_id 
 >      AND e.employee_id = a.employee_id 
->      AND e.employee_id = a.employee_id )`;<br/>
-Next
-  
+>      AND e.employee_id = a.employee_id )`;<br/><br/>
 
 
-**Related**
+**File Name:** careprovider.js<br/>
+**Line Number:**
 
-Trello Project Management files
+
+
+
+Link to Trello Project Management files
 https://trello.com/b/5AARbiGI/fs1030-fall2020-grp-d
 
-
-
+Link to GitLab respository for code
+https://gitlab.com/DonKur/fs1030-fall2020-grp-d.git
