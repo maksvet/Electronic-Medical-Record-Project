@@ -33,18 +33,18 @@ Note: When we do a push _.ENV_ file gets ignored.
 
 7. The application will start on port _localhost:9001._
 
-8. You can log in to the app as an admin using the following credentials:<br/><br/>
+8. You can log in to the app as an *admin* using the following credentials:<br/><br/>
 
 User ID:<br/>
 admin1@admin.com<br/><br/>
 
 Password:<br/>
-adminadmin<br/><br/>
+adminadmin<br/>
 
-9. You can log in to the app as a care provider using the following credentials:<br/>
+9. You can log in to the app as a *care provider* using the following credentials:<br/>
 
 User ID:<br/>
-care@care.com<br/><br/>
+care@care.com<br/>
 
 Password:<br/>
 12345678<br/><br/>
