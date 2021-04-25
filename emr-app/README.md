@@ -35,15 +35,15 @@ Note: When we do a push _.ENV_ file gets ignored.
 
 8. You can log in to the app as an *admin* using the following credentials:<br/><br/>
 
-**User ID:** admin1@admin.com<br/>
+>**User ID:** admin1@admin.com<br/>
 
-**Password:** adminadmin<br/>
+>**Password:** adminadmin<br/>
 
 9. You can log in to the app as a *care provider* using the following credentials:<br/>
 
-**User ID:** care@care.com<br/>
+>**User ID:** care@care.com<br/>
 
-**Password: 12345678<br/><br/>
+>**Password:** 12345678<br/><br/>
 
 **SQL Statements**<br/><br/>
 Note: the following files are all in the folder _emr-app > src > routes_<br/><br/>
