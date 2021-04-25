@@ -72,7 +72,11 @@ router.get("/", isAuth, async (req, res) => {
 });
 
 router.get(`/:${pkText}`, isAuth, async (req, res) => {
-  const sql = `SELECT p.language, p.emergency_contact_name, p.allergies, p.blood_type, p.emergency_contact_number, api.race, api.marital_status, api.size_of_family, api.occupation, api.income_level, api.nationality, api.religion, api.insurance_details, api.family_physician, p1.first_name, p1.last_name, p1.middle_name, p1.dob, p1.gender, ci.phone_number, ci.street_number, ci.street_name, ci.city_town, ci.province_state, ci.country, ci.postal_code, ci.email, ci.fax FROM ${process.env.DBNAME}.patient p INNER JOIN ${process.env.DBNAME}.additional_patient_info api ON ( p.health_card_number = api.health_card_number)  INNER JOIN ${process.env.DBNAME}.person p1 ON ( p.person_id = p1.person_id) INNER JOIN ${process.env.DBNAME}.contact_information ci ON ( p1.contact_id = ci.contact_id)  WHERE p.${pkText} ='${req.params[pkText]}' AND p.isative = true`;
+  // const sql = `SELECT p.language, p.emergency_contact_name, p.allergies, p.blood_type, p.emergency_contact_number, api.race, api.marital_status, api.size_of_family, api.occupation, api.income_level, api.nationality, api.religion, api.insurance_details, api.family_physician, p1.first_name, p1.last_name, p1.middle_name, p1.dob, p1.gender, ci.phone_number, ci.street_number, ci.street_name, ci.city_town, ci.province_state, ci.country, ci.postal_code, ci.email, ci.fax FROM ${process.env.DBNAME}.patient p INNER JOIN ${process.env.DBNAME}.additional_patient_info api ON ( p.health_card_number = api.health_card_number)  INNER JOIN ${process.env.DBNAME}.person p1 ON ( p.person_id = p1.person_id) INNER JOIN ${process.env.DBNAME}.contact_information ci ON ( p1.contact_id = ci.contact_id)  WHERE p.${pkText} ='${req.params[pkText]}' AND p.isative = true`;
+
+  const sql = `SELECT p.language, p.emergency_contact_name, p.allergies, p.blood_type, p.emergency_contact_number, p1.first_name, p1.last_name, p1.middle_name, p1.dob, p1.gender, ci.phone_number, ci.street_number, ci.street_name, ci.city_town, ci.province_state, ci.country, ci.postal_code, ci.email, ci.fax 
+  FROM emrconn.patient p INNER JOIN emrconn.person p1 ON ( p.person_id = p1.person_id) INNER JOIN emrconn.contact_information ci ON ( p1.contact_id = ci.contact_id)  WHERE p.${pkText} ='${req.params[pkText]}' AND p.isative = true;`;
+
   try {
     const results = await db.query(sql);
     res.status(200).send(results);
