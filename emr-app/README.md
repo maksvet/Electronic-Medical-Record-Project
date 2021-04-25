@@ -36,24 +36,16 @@ Note: When we do a push _.ENV_ file gets ignored.
 
 Note: these files are all in the folder _emr-app > src > routes_  
 
-**File Name: careprovider.js  
-Line Number: 35 - 41**
+**File Name: auth.js  
+Line Number: 62 - 68**
   
-  >const sql1 = `INSERT INTO ${process.env.DBNAME}.contact_information (phone_number, street_number, street_name, city_town, province_state, >country, postal_code, email, fax) VALUES ('${phone_number}', '${street_number}', '${street_name}', '${city_town}', '${province_state}', '$>{country}','${postal_code}', '${email}', ${fax});
-`;
-  >const sql2 = `INSERT INTO ${process.env.DBNAME}.person ( first_name, last_name, middle_name, dob, gender, contact_id) VALUES ('${first_name}>', '${last_name}', '${middle_name}', '${dob}', '${gender}', LAST_INSERT_ID());`;
-
-  >const sql3 = `INSERT INTO ${process.env.DBNAME}.employee (login_id, password, person_id, institution_id, job_title) VALUES ( '${login_id}', >'${password}', LAST_INSERT_ID(), '${institution_id}', '${job_title}');`;
-
-  >const sql4 = `INSERT INTO ${process.env.DBNAME}.admin (employee_id, isadmin) VALUES ( LAST_INSERT_ID(), ${isadmin} );`;```
-  
-**Line Number: 57 - 62**  
-   >const sql = `SELECT e.employee_id, e.job_title, p.first_name, p.last_name, a.isadmin
-  >FROM ${process.env.DBNAME}.employee e 
-   >   INNER JOIN ${process.env.DBNAME}.person p ON ( e.person_id = p.person_id)  
-    >  INNER JOIN ${process.env.DBNAME}.admin a ON ( e.employee_id = a.employee_id)
-  >WHERE e.isactive  = true;`;
-
+router.post("/", async (req, res) => {
+  >const sql = `SELECT e.login_id, e.password, a.isadmin 
+   > FROM emrconn.employee e 
+    >INNER JOIN emrconn.admin a 
+    >ON ( e.employee_id = a.employee_id 
+     > AND e.employee_id = a.employee_id 
+     > AND e.employee_id = a.employee_id )`;
   
 
 
