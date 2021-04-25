@@ -43,7 +43,8 @@ Note: these files are all in the folder emr-app > src > routes<br/><br/>
 >    INNER JOIN emrconn.admin a 
 >    ON ( e.employee_id = a.employee_id 
 >      AND e.employee_id = a.employee_id 
->      AND e.employee_id = a.employee_id )`;  
+>      AND e.employee_id = a.employee_id )`;
+Next
   
 
 
