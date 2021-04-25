@@ -39,7 +39,7 @@ const RegisteredPatients = (props) => {
     console.log(patients);
 
     fetch(`http://localhost:9000/patient/${health_card_number}`, {
-      method: "delete",
+      method: "DELETE",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -47,18 +47,15 @@ const RegisteredPatients = (props) => {
         "Access-Control-Allow-Credentials": true,
         Authorization: `Bearer ${token}`,
       },
-    }).then((response) => response.json());
+    }).then((response) => {
+      response.json();
+    });
     // history.push("/patients");
   }
 
   const handleEdit = (event, health_card_number) => {
     event.preventDefault();
-    // window.location.href = `/AdminUpdatePatientPage/${patient.healthCardNumber}`;
-    window.location.href = `/UpdatePatientPage/${health_card_number}`;
-    // console.log("D is here again");
-    // console.log(patient);
-    // setForm({ display: "block" });
-    // setPatient(patient);
+    window.location.href = `/CareProviderUpdatePatientPage1/${health_card_number}`;
   };
 
   return (

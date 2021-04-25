@@ -84,17 +84,19 @@ router.get(`/:${pkText}`, async (req, res) => {
   }
 });
 
-router.put(`/update/:contact_id/contact_info`, async (req, res) => {
+router.put(`/update/:${pkText}/contact_info`, async (req, res) => {
   let query = [];
   Object.entries(req.body).map((entry) => {
     query.push(`${entry[0]} = '${entry[1]}'`);
   });
 
-  const sql = `UPDATE ${
-    process.env.DBNAME
-  }.contact_information SET ${query.toString()} WHERE contact_id=${
-    req.params.contact_id
-  };`;
+  const sql = `UPDATE emrconn.contact_information c1, (SELECT ci.contact_id 
+    FROM emrconn.employee e 
+      INNER JOIN emrconn.person p ON ( e.person_id = p.person_id)  
+        INNER JOIN emrconn.contact_information ci ON ( p.contact_id = ci.contact_id)
+    WHERE  e.employee_id= ${req.params.employee_id}) e1
+    SET first_name = "Don"
+    WHERE c1.contact_id  = e1.contact_id;`;
 
   // Apply update
   try {
