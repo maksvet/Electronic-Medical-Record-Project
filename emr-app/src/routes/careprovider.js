@@ -70,13 +70,11 @@ router.get("/", async (req, res) => {
 });
 
 router.get(`/:${pkText}`, async (req, res) => {
-  const sql = `SELECT e.employee_id, e.login_id, e.job_title, eq.qualification, a.isadmin, p.person_id, p.first_name, p.last_name, p.middle_name, p.dob, p.gender, p.contact_id, ci.phone_number, ci.street_number, ci.street_name, ci.city_town, ci.province_State, ci.country, ci.postal_code, ci.email, ci.fax
-  FROM ${process.env.DBNAME}.employee e 
-      INNER JOIN ${process.env.DBNAME}.employee_qualification eq ON ( e.employee_id = eq.employee_id)  
-      INNER JOIN ${process.env.DBNAME}.admin a ON ( e.employee_id = a.employee_id)  
-      INNER JOIN ${process.env.DBNAME}.person p ON ( e.person_id = p.person_id)  
-          INNER JOIN ${process.env.DBNAME}.contact_information ci ON ( p.contact_id = ci.contact_id)  
-  WHERE (e.employee_id=${req.params[pkText]} && e.isactive=true) LIMIT 1;`;
+  const sql = `SELECT e.login_id, e.password, e.person_id, e.institution_id, e.job_title, e.isactive, p.first_name, p.last_name, p.middle_name, p.dob, p.gender, p.contact_id, ci.phone_number, ci.street_number, ci.street_name, ci.city_town, ci.province_state, ci.country, ci.postal_code, ci.email, ci.fax
+ FROM ${process.env.DBNAME}.employee e 
+   INNER JOIN ${process.env.DBNAME}.person p ON ( e.person_id = p.person_id)  
+     INNER JOIN ${process.env.DBNAME}.contact_information ci ON ( p.contact_id = ci.contact_id )  
+ WHERE e.${pkText}= ${req.params[pkText]} && e.isactive=true; `;
 
   try {
     const results = await db.query(sql);
@@ -119,7 +117,7 @@ router.put(`/update/:${pkText}/person_info`, async (req, res) => {
     FROM ${process.env.DBNAME}.person p INNER JOIN ${
     process.env.DBNAME
   }.patient p1 ON ( p.person_id = p1.person_id)
-    WHERE health_card_number="${req.params.health_card_number}") p2  
+    WHERE ${pkText}="${req.params[pkText]}") p2  
     SET ${query.toString()} 
     WHERE p1.person_id = p2.person_id ;`;
 
