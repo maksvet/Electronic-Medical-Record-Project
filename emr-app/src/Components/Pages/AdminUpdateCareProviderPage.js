@@ -77,7 +77,7 @@ const AdminUpdateCareProviderPage = (props) => {
     console.log(personalInfo);
 
     const response = await fetch(
-      `http://localhost:9000/careprovider/update/${employee_id}/personal_info`,
+      `http://localhost:9000/careprovider/update/${employee_id}/person`,
       {
         method: "PUT",
         headers: {
