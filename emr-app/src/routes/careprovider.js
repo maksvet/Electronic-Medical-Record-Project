@@ -71,7 +71,7 @@ router.get("/", async (req, res) => {
 
 router.get(`/:${pkText}`, async (req, res) => {
   const sql = `SELECT e.employee_id, e.login_id, e.job_title, eq.qualification, a.isadmin, p.person_id, p.first_name, p.last_name, p.middle_name, p.dob, p.gender, p.contact_id, ci.phone_number, ci.street_number, ci.street_name, ci.city_town, ci.province_State, ci.country, ci.postal_code, ci.email, ci.fax
-  FROM emrconn.employee e 
+  FROM ${process.env.DBNAME}.employee e 
       INNER JOIN ${process.env.DBNAME}.employee_qualification eq ON ( e.employee_id = eq.employee_id)  
       INNER JOIN ${process.env.DBNAME}.admin a ON ( e.employee_id = a.employee_id)  
       INNER JOIN ${process.env.DBNAME}.person p ON ( e.person_id = p.person_id)  
@@ -107,21 +107,27 @@ router.put(`/update/:contact_id/contact_info`, async (req, res) => {
   }
 });
 
-router.put(`/update/:person_id/person`, async (req, res) => {
+router.put(`/update/:health_card_number/person`, async (req, res) => {
   let query = [];
   Object.entries(req.body).map((entry) => {
-    query.push(`${entry[0]} = '${entry[1]}'`);
+    query.push(`p1.${entry[0]} = '${entry[1]}'`);
   });
 
-  const sql = `UPDATE ${
-    process.env.DBNAME
-  }.person SET ${query.toString()} WHERE person_id='${req.params.person_id}';`;
+  console.log(query.toString());
 
-  // Apply update
+  const sql = `UPDATE ${process.env.DBNAME}.person p1, (SELECT p.person_id
+    FROM ${process.env.DBNAME}.person p INNER JOIN ${
+    process.env.DBNAME
+  }.patient p1 ON ( p.person_id = p1.person_id)
+    WHERE health_card_number="${req.params.health_card_number}") p2  
+    SET ${query.toString()} 
+    WHERE p1.person_id = p2.person_id ;`;
+
   try {
     const results = await db.query(sql);
     dbStatus(res, results);
   } catch (error) {
+    console.log(error);
     return res.status(500).json(error);
   }
 });
