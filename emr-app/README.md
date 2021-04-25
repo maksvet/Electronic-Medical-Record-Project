@@ -35,18 +35,18 @@ Note: When we do a push _.ENV_ file gets ignored.
 
 8. You can log in to the app as an *admin* using the following credentials:<br/><br/>
 
-User ID:<br/>
+**User ID:**<br/>
 admin1@admin.com<br/><br/>
 
-Password:<br/>
+**Password:**<br/>
 adminadmin<br/>
 
 9. You can log in to the app as a *care provider* using the following credentials:<br/>
 
-User ID:<br/>
+**User ID:**<br/>
 care@care.com<br/>
 
-Password:<br/>
+**Password:**<br/>
 12345678<br/><br/>
 
 **SQL Statements**<br/><br/>
