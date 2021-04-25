@@ -26,23 +26,12 @@ const AdminUpdateCareProviderPage = (props) => {
           },
         }
       );
-      res.json().then((res) => setCareProvider(res));
+      res.json().then((res) => setCareProvider(...res));
     }
     fetchData();
   }, []);
 
   console.log(careProvider);
-
-  useEffect(() => {
-    async function fetchData() {
-      console.log("something");
-      const res = await fetch(
-        `https://run.mocky.io/v3/36919d01-9c59-4d91-a4bb-b565e5a24af4`
-      );
-      res.json().then((res) => setCareProvider(...res));
-    }
-    fetchData();
-  }, []);
 
   const [personalInfo, setPersonalInfo] = useState({
     first_name: careProvider.first_name,
@@ -56,8 +45,8 @@ const AdminUpdateCareProviderPage = (props) => {
     phone_number: careProvider.phone_number,
     street_number: careProvider.street_number,
     street_name: careProvider.street_name,
-    city_Town: careProvider.city,
-    province_State: careProvider.province,
+    city_town: careProvider.city_town,
+    province_state: careProvider.province_state,
     country: careProvider.country,
     postal_code: careProvider.postal_code,
     email: careProvider.email,
@@ -321,7 +310,7 @@ const AdminUpdateCareProviderPage = (props) => {
                   name="city_Town"
                   placeholder="City"
                   id="city_Town"
-                  defaultValue={careProvider.city_Town}
+                  defaultValue={careProvider.city_town}
                   onChange={handleChange3}
                 />
               </Form.Group>
@@ -331,7 +320,7 @@ const AdminUpdateCareProviderPage = (props) => {
                   as="select"
                   name="province_State"
                   id="province_State"
-                  defaultValue={careProvider.province_State}
+                  defaultValue={careProvider.province_state}
                   onChange={handleChange3}
                 >
                   <option>Choose Province</option>
