@@ -5,35 +5,35 @@ Electronic Medical Record System Group Project<br/>
 
 **ReadMe**
 
-1. To run emr-app log into Git and navigate to the following repository: https://gitlab.com/DonKur/fs1030-fall2020-grp-d.git
+1. To run emr-app log into Git and navigate to the following repository:<br/> https://gitlab.com/DonKur/fs1030-fall2020-grp-d.git
 
 2. Clone the repository.
 
-3. Go to the root folder emr.app and create an .ENV file. Add the following information:
+3. Go to the root folder emr.app and create an _.ENV_ file. Add the following information:<br/>
 
-	PORT=9001
-	REACT_APP_SERVERPORT=9000
-	PRIVATEKEY="anykey"
-	DBHOST= "localhost"
-	DBUSER= "nodeclient"
-	DBPASSWORD= "123456"
-	DBNAME= "emrconn"
+	>PORT=9001
+	>REACT_APP_SERVERPORT=9000
+	>PRIVATEKEY="anykey"
+	>DBHOST= "localhost"
+	>DBUSER= "nodeclient"
+	>DBPASSWORD= "123456"
+	>DBNAME= "emrconn"
 
-Note: When we do a push .ENV file gets ignored.
+Note: When we do a push _.ENV_ file gets ignored.
 
 4. Open command line.
 
-5. Navigate to the emr.app directory.
+5. Navigate to the _emr.app_ directory.
 .
-5. Run the following command: npm i to install dependencies
+5. Run the following command: >npm i to install dependencies
 
-6. Run the following command: npm start.
+6. Run the following command: >npm start.
 
 7. The application will start on port localhost:9001.
 
 
 **SQL Statements**<br/><br/>
-Note: these files are all in the folder emr-app > src > routes<br/><br/>
+Note: these files are all in the folder _emr-app > src > routes_<br/><br/>
 **File Name:** auth.js<br/>
 **Line Number:** 64
 >router.post("/", async (req, res) => {
