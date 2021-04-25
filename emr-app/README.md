@@ -143,20 +143,64 @@ Note: the following files are all in the folder _emr-app > src > routes_<br/><br
 
 **File Name:** patient.js<br/>
 **Line Number: 37 - 39**<br/>
+>  const sql1 = `INSERT INTO ${process.env.DBNAME}.contact_information
+>	(phone_number, street_number, street_name, city_town, province_state, country, postal_code, email, fax) VALUES ('${phone_number}', '${street_number}', '${street_name}', '${city_town}', '${province_state}', '${country}','${postal_code}', '${email}', '${fax}');
+>`;
 
 **Line Number: 41 - 42**<br/>
+>  const sql2 = `INSERT INTO ${process.env.DBNAME}.person
+>	( first_name, last_name, middle_name, dob, gender, contact_id) VALUES ('${first_name}', '${last_name}', '${middle_name}', '${dob}', '${gender}', LAST_INSERT_ID());`;
+
 **Line Number: 44 - 45**<br/>
+>  const sql3 = `INSERT INTO ${process.env.DBNAME}.patient
+>	( health_card_number, language, emergency_contact_name, allergies, blood_type, emergency_contact_number, person_id) VALUES ( '${health_card_number}', '${language}', '${emergency_contact_name}', '${allergies}','${blood_type}', '${emergency_contact_number}', LAST_INSERT_ID());`;
+	
 **Line Number: 60 - 64**<br/>
+> router.get("/", isAuth, async (req, res) => {
+ > const sql = `SELECT p.health_card_number, p1.first_name, p1.last_name, p1.dob, p1.gender
+ > FROM ${process.env.DBNAME}.patient p  
+ > INNER JOIN ${process.env.DBNAME}.person p1 ON ( p.person_id = p1.person_id)
+ > WHERE p.isative = true;`;
+
 **Line Number: 77 - 78**<br/>
+>  const sql = `SELECT p.language, p.emergency_contact_name, p.allergies, p.blood_type, p.emergency_contact_number, p1.first_name, p1.last_name, p1.middle_name, p1.dob, p1.gender, ci.phone_number, ci.street_number, ci.street_name, ci.city_town, ci.province_state, ci.country, ci.postal_code, ci.email, ci.fax 
+>  FROM emrconn.patient p INNER JOIN emrconn.person p1 ON ( p.person_id = p1.person_id) INNER JOIN emrconn.contact_information ci ON ( p1.contact_id = ci.contact_id)  WHERE p.${pkText} ='${req.params[pkText]}' AND p.isative = true;`;
+  
 **Line Number: 100 - 112**<br/>
+>  const sql = `UPDATE ${
+>    process.env.DBNAME
+>  }.contact_information c1, (SELECT ci.contact_id
+>    FROM ${process.env.DBNAME}.contact_information ci 
+>      INNER JOIN ${
+>        process.env.DBNAME
+>      }.person p ON ( ci.contact_id = p.contact_id)  
+>        INNER JOIN ${
+>          process.env.DBNAME
+>        }.patient p1 ON ( p.person_id = p1.person_id)
+>    WHERE p1.${pkText}='${req.params[pkText]}') c2
+>    SET ${query.toString()} 
+>    WHERE c1.contact_id = c2.contact_id;`;
 
 **Line Number: 137 - 143**<br/>
+>  const sql = `UPDATE ${process.env.DBNAME}.person p1, (SELECT p.person_id
+>    FROM ${process.env.DBNAME}.person p INNER JOIN ${
+>    process.env.DBNAME
+>  }.patient p1 ON ( p.person_id = p1.person_id)
+>    WHERE ${pkText}="${req.params.health_card_number}") p2  
+>    SET ${query.toString()} 
+>    WHERE p1.person_id = p2.person_id ;`;
+
 **Line Number: 159 - 163**<br/>
-**Line Number: 213 - 214**<br/>
+>  const sql = `UPDATE ${
+>    process.env.DBNAME
+>  }.contact_information SET ${query.toString()} WHERE contact_id=${
+>    req.params.contact_id
+>  };`;
 
-
-
-
+**Line Number: 180 - 182**<br/>
+>  const sql = `UPDATE ${
+>    process.env.DBNAME
+>  }.patient SET ${query.toString()} WHERE ${pkText}='${req.params[pkText]}'`;
 
 
 **Works in Progress**<br/>
@@ -168,7 +212,7 @@ Note: there are still some _console.logs_ and _alerts_ in the code for testing p
 * Medication
 * Immunization
 
-
+**Other Resouces**
 Link to Trello Project Management files
 https://trello.com/b/5AARbiGI/fs1030-fall2020-grp-d
 
