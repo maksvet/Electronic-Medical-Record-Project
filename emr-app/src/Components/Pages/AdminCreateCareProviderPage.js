@@ -15,8 +15,8 @@ const AdminCreateCareProviderPage = () => {
   const [phone_number, setPhoneNumber] = useState("");
   const [street_number, setStreetNumber] = useState("");
   const [street_name, setStreetName] = useState("");
-  const [city_Town, setCity] = useState("");
-  const [province_State, setProvince] = useState("");
+  const [city_town, setCity] = useState("");
+  const [province_state, setProvince] = useState("");
   const [country, setCountry] = useState("");
   const [postal_code, setPostalCode] = useState("");
   const [email, setEmail] = useState("");
@@ -26,6 +26,8 @@ const AdminCreateCareProviderPage = () => {
   const [password, setPassword] = useState("");
 
   const [job_title, setJobTitle] = useState("");
+
+  const [isadmin, setIsadmin] = useState("");
 
   // const [qualification, setQualification] = useState("");
 
@@ -38,8 +40,8 @@ const AdminCreateCareProviderPage = () => {
       phone_number,
       street_number,
       street_name,
-      city_Town,
-      province_State,
+      city_town,
+      province_state,
       country,
       postal_code,
       email,
@@ -52,11 +54,12 @@ const AdminCreateCareProviderPage = () => {
       login_id,
       password,
       job_title,
-      institution_id
+      institution_id,
+      isadmin
       // qualification
     );
     try {
-      var response = await fetch("http://localhost:9000/patient/", {
+      var response = await fetch("http://localhost:9000/careprovider/", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -69,8 +72,8 @@ const AdminCreateCareProviderPage = () => {
           phone_number,
           street_number,
           street_name,
-          city_Town,
-          province_State,
+          city_town,
+          province_state,
           country,
           postal_code,
           email,
@@ -85,6 +88,7 @@ const AdminCreateCareProviderPage = () => {
           job_title,
           // qualification,
           institution_id,
+          isadmin,
         }),
       });
 
@@ -96,6 +100,7 @@ const AdminCreateCareProviderPage = () => {
     }
 
     if (response.status >= 400) {
+      alert(Object.keys(response));
       alert(`Oops! Error ${response.status}:  ${payload}`);
     } else {
       alert(payload);
@@ -241,8 +246,8 @@ const AdminCreateCareProviderPage = () => {
               type="text"
               placeholder="City"
               required
-              id="city_Town"
-              value={city_Town}
+              id="city_town"
+              value={city_town}
               onChange={(e) => setCity(e.target.value)}
             />
           </Form.Group>
@@ -251,8 +256,8 @@ const AdminCreateCareProviderPage = () => {
             <Form.Control
               as="select"
               required
-              id="province_State"
-              value={province_State}
+              id="province_state"
+              value={province_state}
               onChange={(e) => setProvince(e.target.value)}
             >
               <option>Choose Province</option>
@@ -385,7 +390,12 @@ const AdminCreateCareProviderPage = () => {
           </Col>
         </Row>
         <Form.Group id="formGridCheckbox">
-          <Form.Check type="checkbox" label="Assign Admin Role" />
+          <Form.Check
+            type="checkbox"
+            label="Assign Admin Role"
+            value="false"
+            onChange={(e) => setIsadmin(e.target.checked)}
+          />
         </Form.Group>
 
         <Button variant="primary" type="submit">
