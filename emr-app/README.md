@@ -210,7 +210,7 @@ Note: there are still some _console.logs_ and _alerts_ in the code for testing p
 * Patient Notes
 * Additional Patient Info
 * Medication
-* Immunization
+* Immunization<br/><br/>
 
 **Other Resouces**
 Link to Trello Project Management files
