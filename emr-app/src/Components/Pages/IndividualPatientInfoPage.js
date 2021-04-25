@@ -29,7 +29,7 @@ const IndividualPatientInfoPage = (props) => {
       res.json().then((res) => setPatient([...res]));
     }
     fetchData();
-  }, [patient]);
+  }, []);
 
   console.log(patient);
 
