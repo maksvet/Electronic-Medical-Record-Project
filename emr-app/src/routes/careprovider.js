@@ -107,7 +107,7 @@ router.put(`/update/:${pkText}/contact_info/`, async (req, res) => {
   }
 });
 
-router.put(`/update/:${pkText}/person_info`, async (req, res) => {
+router.put(`/update/:${pkText}/person`, async (req, res) => {
   let query = [];
   Object.entries(req.body).map((entry) => {
     query.push(`p1.${entry[0]} = '${entry[1]}'`);
@@ -115,13 +115,22 @@ router.put(`/update/:${pkText}/person_info`, async (req, res) => {
 
   console.log(query.toString());
 
-  const sql = `UPDATE ${process.env.DBNAME}.person p1, (SELECT p.person_id
-    FROM ${process.env.DBNAME}.person p INNER JOIN ${
+  const sql = `UPDATE ${
     process.env.DBNAME
-  }.patient p1 ON ( p.person_id = p1.person_id)
-    WHERE ${pkText}="${req.params[pkText]}") p2  
-    SET ${query.toString()} 
-    WHERE p1.person_id = p2.person_id ;`;
+  }.person p1, (SELECT p.person_id FROM ${
+    process.env.DBNAME
+  }.person p INNER JOIN ${
+    process.env.DBNAME
+  }.employee e ON ( p.person_id = e.person_id)WHERE e.${pkText}='${
+    req.params[pkText]
+  }' ) p2 SET ${query.toString()} WHERE p1.person_id = p2.person_id;`;
+
+  // const sql = `UPDATE emrconn.person p1, (SELECT p.person_id
+  //   FROM emrconn.person p
+  //     INNER JOIN emrconn.employee e ON ( p.person_id = e.person_id)
+  //   WHERE e.employee_id="2") p2
+  //   SET p1.first_name = 'Hussain'
+  //   WHERE p1.person_id = p2.person_id`;
 
   try {
     const results = await db.query(sql);
