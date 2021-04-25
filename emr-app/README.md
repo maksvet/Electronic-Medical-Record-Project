@@ -36,7 +36,7 @@ Note: When we do a push _.ENV_ file gets ignored.
 Note: these files are all in the folder emr-app > src > routes<br/><br/>
 **File Name:** auth.js<br/>
 **Line Number:** 64**<br/>
-**SQL Statement:**<br/>
+**SQL Statement:**
 >router.post("/", async (req, res) => {
 >  const sql = `SELECT e.login_id, e.password, a.isadmin 
 >    FROM emrconn.employee e 
