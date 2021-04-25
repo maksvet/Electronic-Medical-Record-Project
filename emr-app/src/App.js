@@ -47,7 +47,7 @@ function App() {
           component={AdminCreateCareProviderPage}
         />
         <Route
-          path="/AdminUpdateCareProviderPage"
+          path="/AdminUpdateCareProviderPage/:employee_id"
           component={AdminUpdateCareProviderPage}
         />
         <Route path="/CareProviderHome" component={CareProviderHome} />
