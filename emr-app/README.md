@@ -5,11 +5,19 @@ Electronic Medical Record System Group Project<br/>
 
 **ReadMe**
 
-1. To run emr-app log into Git and navigate to the following repository:<br/> https://gitlab.com/DonKur/fs1030-fall2020-grp-d.git
+*Note - Project Submissions attached in Assets/Documents Folder on Git repo
+	> IFD and ERD diagrams
+	> .sql file include empty database and populated(emrconn.sql) database(dummy) 
+	> Progress documents
+
+1. To run emr-app log into GitLab and navigate to the following repository:<br/> https://gitlab.com/DonKur/fs1030-fall2020-grp-d.git
 
 2. Clone the repository.
 
-3. Go to the root folder emr.app and create an _.ENV_ file. Add the following information:<br/>
+3. Create mySQL Database using included .sql files - use emrconn.sql file in Assets/Documents (includes dummy data).
+	> Database connection setup details see below in .env.
+
+4. Go to the root folder emr.app and create an _.ENV_ file. Add the following information:<br/>
 
 	>PORT=9001<br/>
 	>REACT_APP_SERVERPORT=9000<br/>
@@ -21,25 +29,25 @@ Electronic Medical Record System Group Project<br/>
 
 Note: When we do a push _.ENV_ file gets ignored.
 
-4. Open command line.
+5. Open command line.
 
-5. Navigate to the _emr.app_ directory.
+6. Navigate to the _emr.app_ directory.
 .
-5. Run the following command to install dependencies:<br/>
+7. Run the following command to install dependencies:<br/>
  >npm i 
 
-6. Run the following command:<br/>
+8. Run the following command:<br/>
 >npm start.
 
-7. The application will start on port _localhost:9001._
+9. The application will start on port _localhost:9001._
 
-8. You can log in to the app as an *admin* using the following credentials:<br/><br/>
+10. You can log in to the app as an *admin* using the following credentials:<br/><br/>
 
 >**User ID:** admin1@admin.com<br/>
 
 >**Password:** adminadmin<br/>
 
-9. You can log in to the app as a *care provider* using the following credentials:<br/>
+11. You can log in to the app as a *care provider* using the following credentials:<br/>
 
 >**User ID:** care@care.com<br/>
 
@@ -209,11 +217,13 @@ Note: the following files are all in the folder _emr-app > src > routes_<br/><br
 **Works in Progress**<br/>
 Note: there are still some _console.logs_ and _alerts_ in the code for testing purposes.<br/><br/>
 * Lab results
-* Diagnotic Images
+* Diagnostic Images
 * Patient Notes
 * Additional Patient Info
 * Medication
+* Revision History
 * Immunization<br/><br/>
+
 
 **Other Resouces**
 Link to Trello Project Management files
