@@ -51,13 +51,12 @@ Note: the following files are all in the folder _emr-app > src > routes_<br/><br
 
 **File Name:** auth.js<br/>
 **Line Number:** 62  - 68
->router.post("/", async (req, res) => {
-> const sql = `SELECT e.login_id, e.password, a.isadmin 
->  FROM emrconn.employee e 
-> INNER JOIN emrconn.admin a 
-> ON ( e.employee_id = a.employee_id 
-     > AND e.employee_id = a.employee_id 
-      > AND e.employee_id = a.employee_id )`;<br/><br/>
+>  const sql = `SELECT e.login_id, e.password, a.isadmin 
+>   FROM emrconn.employee e 
+>    INNER JOIN emrconn.admin a 
+>    ON ( e.employee_id = a.employee_id 
+>      AND e.employee_id = a.employee_id 
+>      AND e.employee_id = a.employee_id )`;<br/><br/>
 
 
 **File Name:** careprovider.js<br/>
