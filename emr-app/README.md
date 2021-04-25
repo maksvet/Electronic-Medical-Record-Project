@@ -49,7 +49,7 @@ Note: When we do a push _.ENV_ file gets ignored.
 Note: the following files are all in the folder _emr-app > src > routes_<br/><br/>
 
 
-**File Name:** auth.js<br/>
+**File Name:** auth.js<br/><br/>
 **Line Number:** 62  - 68
 > router.post("/", async (req, res) => {
 >  const sql = `SELECT e.login_id, e.password, a.isadmin 
@@ -60,7 +60,7 @@ Note: the following files are all in the folder _emr-app > src > routes_<br/><br
 >      AND e.employee_id = a.employee_id )`;
 
 
-**File Name:** careprovider.js<br/>
+**File Name:** careprovider.js<br/><br/>
 **Line Number: 35 - 36**<br/>
 >  const sql1 = `INSERT INTO ${process.env.DBNAME}.contact_information (phone_number, street_number, street_name, city_town, province_state, country, postal_code, email, fax) VALUES ('${phone_number}', '${street_number}', '${street_name}', '${city_town}', '${province_state}', '${country}','${postal_code}', '${email}', ${fax});
 >`;
@@ -144,7 +144,7 @@ Note: the following files are all in the folder _emr-app > src > routes_<br/><br
 >  };`;
 
 
-**File Name:** patient.js<br/>
+**File Name:** patient.js<br/><br/>
 **Line Number: 37 - 39**<br/>
 >  const sql1 = `INSERT INTO ${process.env.DBNAME}.contact_information
 >	(phone_number, street_number, street_name, city_town, province_state, country, postal_code, email, fax) VALUES ('${phone_number}', '${street_number}', '${street_name}', '${city_town}', '${province_state}', '${country}','${postal_code}', '${email}', '${fax}');
