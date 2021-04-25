@@ -72,9 +72,22 @@ Note: the following files are all in the folder _emr-app > src > routes_<br/><br
 >  const sql4 = `INSERT INTO ${process.env.DBNAME}.admin (employee_id, isadmin) VALUES ( LAST_INSERT_ID(), ${isadmin} );`;
 
 
-**Line Number: 72 - 77**<br/>
+**Line Number: 57 - 62**<br/>
+> router.get("/", async (req, res) => {
+>  const sql = `SELECT e.employee_id, e.job_title, p.first_name, p.last_name, a.isadmin
+>  FROM ${process.env.DBNAME}.employee e 
+>      INNER JOIN ${process.env.DBNAME}.person p ON ( e.person_id = p.person_id)  
+>      INNER JOIN ${process.env.DBNAME}.admin a ON ( e.employee_id = a.employee_id)
+>  WHERE e.isactive  = true;`;<br/><br/>
 
-**Line Number: 93 - 99**<br/>
+**Line Number: 71 - 77**<br/>
+> router.get(`/:${pkText}`, async (req, res) => {
+>  const sql = `SELECT e.login_id, e.password, e.person_id, e.institution_id, e.job_title, e.isactive, p.first_name, p.last_name, p.middle_name, p.dob, p.gender, p.contact_id, ci.phone_number, ci.street_number, ci.street_name, ci.city_town, ci.province_state, ci.country, ci.postal_code, ci.email, ci.fax
+> FROM ${process.env.DBNAME}.employee e 
+>   INNER JOIN ${process.env.DBNAME}.person p ON ( e.person_id = p.person_id)  
+>     INNER JOIN ${process.env.DBNAME}.contact_information ci ON ( p.contact_id = ci.contact_id )  
+> WHERE e.${pkText}= ${req.params[pkText]} && e.isactive=true; `;
+
 **Line Number: 118 - 124**<br/>
 
 **Line Number: 141 - 145**<br/>
