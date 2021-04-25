@@ -47,8 +47,10 @@ Note: When we do a push _.ENV_ file gets ignored.
 
 **SQL Statements**<br/><br/>
 Note: the following files are all in the folder _emr-app > src > routes_<br/><br/>
+
+
 **File Name:** auth.js<br/>
-**Line Number:** 64
+**Line Number:** 62  - 68
 >router.post("/", async (req, res) => {
 >  const sql = `SELECT e.login_id, e.password, a.isadmin 
 >    FROM emrconn.employee e 
@@ -59,9 +61,53 @@ Note: the following files are all in the folder _emr-app > src > routes_<br/><br
 
 
 **File Name:** careprovider.js<br/>
-**Line Number:**
+**Line Number: 35 - 41**<br/>
+
+**Line Number: 72 - 77**<br/>
+
+**Line Number: 93 - 99**<br/>
+**Line Number: 118 - 124**<br/>
+
+**Line Number: 141 - 145**<br/>
+
+**Line Number: 162 - 164**<br/>
+
+**Line Number: 181 - 185**<br/>
+
+**Line Number: 202 - 206**<br/>
+
+**Line Number: 223 - 227**<br/>
+
+**Line Number: 238 - 239**<br/><br/>
 
 
+
+**File Name:** patient.js<br/>
+**Line Number: 37 - 39**<br/>
+
+**Line Number: 41 - 42**<br/>
+**Line Number: 44 - 45**<br/>
+**Line Number: 60 - 64**<br/>
+**Line Number: 77 - 78**<br/>
+**Line Number: 100 - 112**<br/>
+
+**Line Number: 137 - 143**<br/>
+**Line Number: 159 - 163**<br/>
+**Line Number: 213 - 214**<br/>
+
+
+
+
+
+
+**Works in Progress**<br/>
+Note: there are still some _console.logs_ and _alerts_ in the code for testing purposes.<br/><br/>
+* Lab results
+* Diagnotic Images
+* Patient Notes
+* Additional Patient Info
+* Medication
+* Immunization
 
 
 Link to Trello Project Management files
