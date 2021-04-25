@@ -72,10 +72,6 @@ const AdminUpdateCareProviderPage = (props) => {
     alert("Successful Submit!");
     event.preventDefault();
 
-    console.log(personalInfo);
-    alert("Successful Submit!");
-    event.preventDefault();
-
     const token = sessionStorage.getItem("token");
 
     console.log(personalInfo);

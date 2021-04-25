@@ -7,7 +7,6 @@ import Login from "../src/Components/Pages/Login";
 import AdminCreatePatientPage from "../src/Components/Pages/AdminCreatePatientPage";
 import AdminCreateCareProviderPage from "../src/Components/Pages/AdminCreateCareProviderPage";
 import AdminHome from "../src/Components/Pages/AdminHome";
-import UpdatePatientPage from "../src/Components/Pages/UpdatePatientPage";
 import CareProviderUpdatePatientPage1 from "../src/Components/Pages/CareProviderUpdatePatientPage1";
 import CareProviderUpdatePatientPage2 from "../src/Components/Pages/CareProviderUpdatePatientPage2";
 import IndividualPatientInfoPage from "../src/Components/Pages/IndividualPatientInfoPage";
@@ -24,7 +23,6 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Login} />
-        <Route path="/UpdatePatientPage" component={UpdatePatientPage} />
         <Route
           path="/CareProviderUpdatePatientPage1/:health_card_number"
           component={CareProviderUpdatePatientPage1}
@@ -58,9 +56,6 @@ function App() {
         <Route path="/RegisteredPatients" component={RegisteredPatients} />
         <PrivateRoute path="/..........">
           <AdminCreatePatientPage />
-        </PrivateRoute>
-        <PrivateRoute path="/..........">
-          <UpdatePatientPage />
         </PrivateRoute>
       </Switch>
     </BrowserRouter>
