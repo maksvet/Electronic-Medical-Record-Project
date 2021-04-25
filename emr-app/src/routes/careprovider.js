@@ -1,9 +1,9 @@
 import express from "express";
-const router = express.Router();
 import { isAuth } from "../middleware/isAuth.js";
 import { isAdmin } from "../middleware/isAdmin.js";
 import { db } from "../database/connection.js";
 import bcrypt from "bcrypt";
+const router = express.Router();
 
 // Declare primary(param) key
 var pkText = "employee_id";
@@ -107,7 +107,7 @@ router.put(`/update/:contact_id/contact_info`, async (req, res) => {
   }
 });
 
-router.put(`/update/:health_card_number/person`, async (req, res) => {
+router.put(`/update/:${pkText}/person_info`, async (req, res) => {
   let query = [];
   Object.entries(req.body).map((entry) => {
     query.push(`p1.${entry[0]} = '${entry[1]}'`);

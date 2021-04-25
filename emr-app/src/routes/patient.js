@@ -81,17 +81,39 @@ router.get(`/:${pkText}`, isAuth, async (req, res) => {
   }
 });
 
-router.put(`/update/:contact_id/contact_info`, isAuth, async (req, res) => {
+router.put(`/update/:${pkText}/contact_info`, isAuth, async (req, res) => {
   let query = [];
   Object.entries(req.body).map((entry) => {
-    query.push(`${entry[0]} = '${entry[1]}'`);
+    query.push(`c1.${entry[0]} = '${entry[1]}'`);
   });
+
+  // const sql = `UPDATE ${
+  //   process.env.DBNAME
+  // }.contact_information SET ${query.toString()} WHERE contact_id=${
+  //   req.params.contact_id
+  // };`;
 
   const sql = `UPDATE ${
     process.env.DBNAME
-  }.contact_information SET ${query.toString()} WHERE contact_id=${
-    req.params.contact_id
-  };`;
+  }.contact_information c1, (SELECT ci.contact_id
+    FROM ${process.env.DBNAME}.contact_information ci 
+      INNER JOIN ${
+        process.env.DBNAME
+      }.person p ON ( ci.contact_id = p.contact_id)  
+        INNER JOIN ${
+          process.env.DBNAME
+        }.patient p1 ON ( p.person_id = p1.person_id)
+    WHERE p1.${pkText}='${req.params[pkText]}') c2
+    SET ${query.toString()} 
+    WHERE c1.contact_id = c2.contact_id;`;
+
+  // const sql = `UPDATE ${process.env.DBNAME}.person p1, (SELECT p.person_id
+  //   FROM ${process.env.DBNAME}.person p INNER JOIN ${
+  //   process.env.DBNAME
+  // }.patient p1 ON ( p.person_id = p1.person_id)
+  //   WHERE ${pkText}="${req.params.health_card_number}") p2
+  //   SET ${query.toString()}
+  //   WHERE p1.person_id = p2.person_id ;`;
 
   // Apply update
   try {
@@ -102,17 +124,19 @@ router.put(`/update/:contact_id/contact_info`, isAuth, async (req, res) => {
   }
 });
 
-router.put(`/update/:${pkText}/add_info`, isAuth, async (req, res) => {
+router.put(`/update/:${pkText}/personal_info`, isAuth, async (req, res) => {
   let query = [];
   Object.entries(req.body).map((entry) => {
     query.push(`${entry[0]} = '${entry[1]}'`);
   });
 
-  const sql = `UPDATE ${
+  const sql = `UPDATE ${process.env.DBNAME}.person p1, (SELECT p.person_id
+    FROM ${process.env.DBNAME}.person p INNER JOIN ${
     process.env.DBNAME
-  }.additional_patient_info SET ${query.toString()} WHERE ${pkText}='${
-    req.params[pkText]
-  }'`;
+  }.patient p1 ON ( p.person_id = p1.person_id)
+    WHERE ${pkText}="${req.params.health_card_number}") p2  
+    SET ${query.toString()} 
+    WHERE p1.person_id = p2.person_id ;`;
 
   try {
     const results = await db.query(sql);

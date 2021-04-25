@@ -83,7 +83,7 @@ const RegisteredCareProviders = (props) => {
                 <td>{careProvider.job_title}</td>
                 <td>{careProvider.first_name}</td>
                 <td>{careProvider.last_name}</td>
-                <td>{careProvider.isadmin}</td>
+                <td>{careProvider.isadmin ? "Yes" : "No"}</td>
                 <td>
                   <Button
                     onClick={(event) => {

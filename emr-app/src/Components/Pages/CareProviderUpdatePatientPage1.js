@@ -44,8 +44,8 @@ const CareProviderUpdatePatientPage1 = (props) => {
     phone_number: patient.phone_number,
     street_number: patient.street_number,
     street_name: patient.street_name,
-    city_Town: patient.city,
-    province_State: patient.province,
+    city_town: patient.city_town,
+    province_state: patient.province_state,
     country: patient.country,
     postal_code: patient.postal_code,
     email: patient.email,
@@ -77,7 +77,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
   });
 
   const handleChange1 = (event) => {
-    setPersonalInfo((prevState) => ({
+    setContactInfo((prevState) => ({
       ...prevState,
       [event.target.name]: event.target.value,
     }));
@@ -87,32 +87,32 @@ const CareProviderUpdatePatientPage1 = (props) => {
     alert("Successful Submit!");
     event.preventDefault();
 
-    console.log(contactInfo);
-    // const response = await fetch("http://localhost:4000/", {
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     phone_number,
-    //     street_number,
-    //     street_name,
-    //     city_Town,
-    //     province_State,
-    //     country,
-    //     postal_code,
-    //     email,
-    //     fax,
-    //   }),
-    // });
+    const token = sessionStorage.getItem("token");
 
-    // const payload = await response.json();
-    // if (response.status >= 400) {
-    //   alert(`Oops! Error ${response.status}:  ${payload.message}`);
-    // } else {
-    //   alert(`Congratulations! Submission submitted with id: ${payload.id}`);
-    // }
+    console.log(contactInfo);
+
+    const response = await fetch(
+      `http://localhost:9000/patient/update/${health_card_number}/contact_info`,
+      {
+        method: "PUT",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(contactInfo),
+      }
+    );
+
+    alert(JSON.stringify(contactInfo));
+    const payload = await response.json();
+    if (response.status >= 400) {
+      alert(`Oops! Error ${response.status}:  ${payload.message}`);
+    } else {
+      alert(`Congratulations! Submission submitted with id: ${payload.id}`);
+    }
   };
 
   const handleChange2 = (event) => {
@@ -129,7 +129,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
 
     console.log(personalInfo);
     const response = await fetch(
-      `http://localhost:9000/careprovider/update/${health_card_number}/person`,
+      `http://localhost:9000/patient/update/${health_card_number}/personal_info`,
       {
         method: "PUT",
         headers: {
@@ -144,6 +144,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
     );
 
     alert(JSON.stringify(personalInfo));
+
     const payload = await response.json();
     if (response.status >= 400) {
       alert(`Oops! Error ${response.status}:  ${payload.message}`);
@@ -162,37 +163,32 @@ const CareProviderUpdatePatientPage1 = (props) => {
   const handleSubmit3 = async (event) => {
     alert("Successful Submit!");
     event.preventDefault();
+    const token = sessionStorage.getItem("token");
 
     console.log(patientDetailsInfo);
-    // const response = await fetch("http://localhost:4000/", {
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     language,
-    //     health_card_number,
-    //     emergency_contact_name,
-    //     emergency_contact_number,
-    //     allergies,
-    //     blood_type,
-    //     race,
-    //     marital_status,
-    //     family_size,
-    //     occupation,
-    //     income_level,
-    //     nationality,
-    //     religion,
-    //   }),
-    // });
+    const response = await fetch(
+      `http://localhost:9000/patient/update/${health_card_number}/patient_details`,
+      {
+        method: "PUT",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(patientDetailsInfo),
+      }
+    );
 
-    // const payload = await response.json();
-    // if (response.status >= 400) {
-    //   alert(`Oops! Error ${response.status}:  ${payload.message}`);
-    // } else {
-    //   alert(`Congratulations! Submission submitted with id: ${payload.id}`);
-    // }
+    alert(JSON.stringify(patientDetailsInfo));
+
+    const payload = await response.json();
+    if (response.status >= 400) {
+      alert(`Oops! Error ${response.status}:  ${payload.message}`);
+    } else {
+      alert(`Congratulations! Submission submitted with id: ${payload.id}`);
+    }
   };
 
   const handleChange4 = (event) => {
@@ -205,29 +201,32 @@ const CareProviderUpdatePatientPage1 = (props) => {
   const handleSubmit4 = async (event) => {
     alert("Successful Submit!");
     event.preventDefault();
+    const token = sessionStorage.getItem("token");
 
     console.log(patientMedicalInfo);
-    // const response = await fetch("http://localhost:4000/", {
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     insurance_details,
-    //     family_physician,
-    //     immunization_type,
-    //     immunization_date,
-    //     employee_id,
-    //   }),
-    // });
+    const response = await fetch(
+      `http://localhost:9000/patient/update/${health_card_number}/medical_info`,
+      {
+        method: "PUT",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(patientMedicalInfo),
+      }
+    );
 
-    // const payload = await response.json();
-    // if (response.status >= 400) {
-    //   alert(`Oops! Error ${response.status}:  ${payload.message}`);
-    // } else {
-    //   alert(`Congratulations! Submission submitted with id: ${payload.id}`);
-    // }
+    alert(JSON.stringify(personalInfo));
+
+    const payload = await response.json();
+    if (response.status >= 400) {
+      alert(`Oops! Error ${response.status}:  ${payload.message}`);
+    } else {
+      alert(`Congratulations! Submission submitted with id: ${payload.id}`);
+    }
   };
 
   return (
@@ -351,10 +350,10 @@ const CareProviderUpdatePatientPage1 = (props) => {
           <Form.Group as={Col}>
             <Form.Control
               type="text"
-              name="city_Town"
+              name="city_town"
               placeholder="City"
-              id="city_Town"
-              defaultValue={patient.city_Town}
+              id="city_town"
+              defaultValue={patient.city_town}
               onChange={handleChange1}
             />
           </Form.Group>
@@ -362,9 +361,9 @@ const CareProviderUpdatePatientPage1 = (props) => {
           <Form.Group as={Col}>
             <Form.Control
               as="select"
-              name="province_State"
-              id="province_State"
-              defaultValue={patient.province_State}
+              name="province_state"
+              id="province_state"
+              defaultValue={patient.province_state}
               onChange={handleChange1}
             >
               <option>Choose Province</option>

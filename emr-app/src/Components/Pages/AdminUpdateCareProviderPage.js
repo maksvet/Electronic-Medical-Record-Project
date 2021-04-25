@@ -5,31 +5,33 @@ import { Row, Col, Input } from "reactstrap";
 import Navigation from "../Shared/Navigation";
 import { Container } from "react-bootstrap";
 
+var token = sessionStorage.getItem("token");
+
 const AdminUpdateCareProviderPage = (props) => {
   const [careProvider, setCareProvider] = useState("");
+  var employee_id = props.match.params.employee_id;
 
-  //Fetching data from API
-  let id = props.match.params.employee_id;
-  // const [careProviders, setCareProviders] = useState([]);
-  // const history = useHistory();
+  useEffect(() => {
+    async function fetchData() {
+      const res = await fetch(
+        `http://localhost:9000/careprovider/${props.match.params.employee_id}`,
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Credentials": true,
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      res.json().then((res) => setCareProvider(res));
+    }
+    fetchData();
+  }, []);
 
-  // useEffect(
-  //   () => {
-  //     async function fetchData() {
-  //       console.log("something");
-  //       const res = await fetch(
-  //         `https://run.mocky.io/v3/36919d01-9c59-4d91-a4bb-b565e5a24af4`,
-  //         {
-  //           method: "GET",
-  //         }
-  //       );
-  //       res.json().then((res) => setCareProvider(...res));
-  //     }
-  //     fetchData();
-  //     // console.log(careProvider);
-  //   },
-  //   // [id]
-  // );
+  console.log(careProvider);
 
   useEffect(() => {
     async function fetchData() {
@@ -40,7 +42,7 @@ const AdminUpdateCareProviderPage = (props) => {
       res.json().then((res) => setCareProvider(...res));
     }
     fetchData();
-  }, [id]);
+  }, []);
 
   const [personalInfo, setPersonalInfo] = useState({
     first_name: careProvider.first_name,
@@ -82,27 +84,36 @@ const AdminUpdateCareProviderPage = (props) => {
     event.preventDefault();
 
     console.log(personalInfo);
-    // const response = await fetch("http://localhost:4000/", {
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     first_name, ,
-    //     middle_name,
-    //     last_name,
-    //     dob,
-    //     gender,
-    //   }),
-    // });
+    alert("Successful Submit!");
+    event.preventDefault();
 
-    // const payload = await response.json();
-    // if (response.status >= 400) {
-    //   alert(`Oops! Error ${response.status}:  ${payload.message}`);
-    // } else {
-    //   alert(`Congratulations! Submission submitted with id: ${payload.id}`);
-    // }
+    const token = sessionStorage.getItem("token");
+
+    console.log(personalInfo);
+
+    const response = await fetch(
+      `http://localhost:9000/careprovider/update/${employee_id}/personal_info`,
+      {
+        method: "PUT",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(personalInfo),
+      }
+    );
+
+    alert(JSON.stringify(personalInfo));
+
+    const payload = await response.json();
+    if (response.status >= 400) {
+      alert(`Oops! Error ${response.status}:  ${payload.message}`);
+    } else {
+      alert(`Congratulations! Submission submitted with id: ${payload.id}`);
+    }
   };
 
   const handleChange2 = (event) => {
@@ -115,28 +126,34 @@ const AdminUpdateCareProviderPage = (props) => {
   const handleSubmit2 = async (event) => {
     alert("Successful Submit!");
     event.preventDefault();
-    console.log(credentialsInfo);
-    // const response = await fetch("http://localhost:4000/", {
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     login_id,
-    //     password,
-    //     job_title,
-    //     qualification,
-    //     institution_name,
-    //   }),
-    // });
 
-    // const payload = await response.json();
-    // if (response.status >= 400) {
-    //   alert(`Oops! Error ${response.status}:  ${payload.message}`);
-    // } else {
-    //   alert(`Congratulations! Submission submitted with id: ${payload.id}`);
-    // }
+    const token = sessionStorage.getItem("token");
+
+    console.log(credentialsInfo);
+
+    const response = await fetch(
+      `http://localhost:9000/careprovider/update/${employee_id}/employee`,
+      {
+        method: "PUT",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(credentialsInfo),
+      }
+    );
+
+    alert(JSON.stringify(credentialsInfo));
+
+    const payload = await response.json();
+    if (response.status >= 400) {
+      alert(`Oops! Error ${response.status}:  ${payload.message}`);
+    } else {
+      alert(`Congratulations! Submission submitted with id: ${payload.id}`);
+    }
   };
 
   const handleChange3 = (event) => {
@@ -149,61 +166,35 @@ const AdminUpdateCareProviderPage = (props) => {
   const handleSubmit3 = async (event) => {
     alert("Successful Submit!");
     event.preventDefault();
-    // console.log(contactInfo);
+
+    const token = sessionStorage.getItem("token");
+
     console.log(contactInfo);
-    // const response = await fetch("http://localhost:4000/", {
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     phone_number,
-    //     street_number,
-    //     street_name,
-    //     city_Town,
-    //     province_State,
-    //     country,
-    //     postal_code,
-    //     email,
-    //     fax,
-    //   }),
-    // });
 
-    // const payload = await response.json();
-    // if (response.status >= 400) {
-    //   alert(`Oops! Error ${response.status}:  ${payload.message}`);
-    // } else {
-    //   alert(`Congratulations! Submission submitted with id: ${payload.id}`);
-    // }
+    const response = await fetch(
+      `http://localhost:9000/careprovider/update/${employee_id}/contact_info`,
+      {
+        method: "PUT",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(contactInfo),
+      }
+    );
+
+    alert(JSON.stringify(contactInfo));
+
+    const payload = await response.json();
+    if (response.status >= 400) {
+      alert(`Oops! Error ${response.status}:  ${payload.message}`);
+    } else {
+      alert(`Congratulations! Submission submitted with id: ${payload.id}`);
+    }
   };
-
-  // const handleDelete = (event, id) => {
-  //   event.preventDefault();
-  //   console.log("Donald was here");
-  //   console.log(id);
-
-  //   fetch(
-  //     `https://run.mocky.io/v3/f71d3adc-073f-4e66-916d-710503f3baeb/${id}`,
-  //     {
-  //       method: "delete",
-  //       headers: {
-  //         Accept: "application/json",
-  //         "Content-Type": "application/json",
-  //       },
-  //     }
-  //   ).then((response) => response.json());
-  //   history.push("/careProviders");
-  // };
-
-  // const handleEdit = (event, careProvider) => {
-  //   event.preventDefault();
-  //   console.log("D is here again");
-  //   console.log(careProvider);
-  //   setForm({ display: "block" });
-  //   setCareProvider(careProvider);
-  // };
-
   return (
     <div>
       <div>
