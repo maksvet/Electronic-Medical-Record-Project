@@ -193,6 +193,7 @@ const AdminUpdateCareProviderPage = (props) => {
           <Form onSubmit={handleSubmit1} className="pb-3">
             <Row className="py-2">
               <Col sm={4}>
+                <label>First Name</label>
                 <Input
                   type="text"
                   name="first_name"
@@ -204,6 +205,7 @@ const AdminUpdateCareProviderPage = (props) => {
               </Col>
 
               <Col sm={4}>
+                <label>Middle Name</label>
                 <Input
                   type="text"
                   name="middle_name"
@@ -215,6 +217,7 @@ const AdminUpdateCareProviderPage = (props) => {
               </Col>
 
               <Col sm={4}>
+                <label>Last Name</label>
                 <Input
                   type="text"
                   name="last_name"
@@ -227,8 +230,8 @@ const AdminUpdateCareProviderPage = (props) => {
             </Row>
 
             <Row className="py-2">
-              <label className="pl-3">Date of Birth</label>
               <Col sm={3}>
+                <label>Date of Birth</label>
                 <Input
                   type="date"
                   name="dob"
@@ -240,6 +243,7 @@ const AdminUpdateCareProviderPage = (props) => {
               </Col>
 
               <Col sm={2}>
+                <label>Gender</label>
                 <FormControl
                   as="select"
                   className="mr-sm-2"
@@ -250,10 +254,10 @@ const AdminUpdateCareProviderPage = (props) => {
                   onChange={handleChange1}
                   custom
                 >
-                  <option value="0">Select Gender</option>
-                  <option value="1">Male</option>
-                  <option value="2">Female</option>
-                  <option value="3">Non-Binary</option>
+                  <option>{careProvider.gender}</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>Non-Binary</option>
                 </FormControl>
               </Col>
             </Row>
@@ -266,6 +270,7 @@ const AdminUpdateCareProviderPage = (props) => {
           <Form onSubmit={handleSubmit3} className="pb-3">
             <Form.Row>
               <Form.Group as={Col}>
+                <label>Phone Number</label>
                 <Form.Control
                   type="tel"
                   name="phone_number"
@@ -277,6 +282,7 @@ const AdminUpdateCareProviderPage = (props) => {
               </Form.Group>
 
               <Form.Group as={Col}>
+                <label>Street Number</label>
                 <Form.Control
                   type="text"
                   name="street_number"
@@ -288,6 +294,7 @@ const AdminUpdateCareProviderPage = (props) => {
               </Form.Group>
 
               <Form.Group as={Col}>
+                <label>Street Name</label>
                 <Form.Control
                   type="text"
                   name="street_name"
@@ -301,6 +308,7 @@ const AdminUpdateCareProviderPage = (props) => {
 
             <Form.Row>
               <Form.Group as={Col}>
+              <label>City</label>
                 <Form.Control
                   type="text"
                   name="city_Town"
@@ -312,6 +320,7 @@ const AdminUpdateCareProviderPage = (props) => {
               </Form.Group>
 
               <Form.Group as={Col}>
+                <label>Province</label>
                 <Form.Control
                   as="select"
                   name="province_State"
@@ -319,7 +328,7 @@ const AdminUpdateCareProviderPage = (props) => {
                   defaultValue={careProvider.province_state}
                   onChange={handleChange3}
                 >
-                  <option>Choose Province</option>
+                  <option>{careProvider.province_state}</option>
                   <option>Alberta</option>
                   <option>British Columbia</option>
                   <option>Manitoba</option>
@@ -337,6 +346,7 @@ const AdminUpdateCareProviderPage = (props) => {
               </Form.Group>
 
               <Form.Group as={Col}>
+                <label>Country</label>
                 <Form.Control
                   as="select"
                   name="country"
@@ -344,7 +354,7 @@ const AdminUpdateCareProviderPage = (props) => {
                   defaultValue={careProvider.country}
                   onChange={handleChange3}
                 >
-                  <option>Choose Country</option>
+                  <option>{careProvider.country}</option>
                   <option>Canada</option>
                   <option>USA</option>
                 </Form.Control>
@@ -353,6 +363,7 @@ const AdminUpdateCareProviderPage = (props) => {
 
             <Form.Row>
               <Form.Group as={Col}>
+                <label>Postal Code</label>
                 <Form.Control
                   type="text"
                   name="postal_code"
@@ -364,6 +375,7 @@ const AdminUpdateCareProviderPage = (props) => {
               </Form.Group>
 
               <Form.Group as={Col}>
+                <label>Email</label>
                 <Form.Control
                   type="email"
                   name="email"
@@ -375,6 +387,7 @@ const AdminUpdateCareProviderPage = (props) => {
               </Form.Group>
 
               <Form.Group as={Col}>
+                <label>Fax</label>
                 <Form.Control
                   type="tel"
                   name="fax"
@@ -395,6 +408,7 @@ const AdminUpdateCareProviderPage = (props) => {
           <Form onSubmit={handleSubmit2} className="pb-3">
             <Row className="py-2">
               <Col sm={4}>
+                <label>Login ID</label>
                 <Input
                   type="text"
                   name="login_id"
@@ -405,6 +419,7 @@ const AdminUpdateCareProviderPage = (props) => {
                 />
               </Col>
               <Col sm={4}>
+                <label>Password</label>
                 <Input
                   type="password"
                   name="password"
@@ -417,6 +432,7 @@ const AdminUpdateCareProviderPage = (props) => {
             </Row>
             <Row className="py-2">
               <Col sm={4}>
+                <label>Job Title</label>
                 <Input
                   type="text"
                   name="job_title"
@@ -428,6 +444,7 @@ const AdminUpdateCareProviderPage = (props) => {
               </Col>
 
               <Col sm={4}>
+                <label>Qualification</label>
                 <Input
                   type="text"
                   name="qualification"
@@ -439,6 +456,7 @@ const AdminUpdateCareProviderPage = (props) => {
               </Col>
 
               <Col sm={4}>
+                <label>Institution Name</label>
                 <Input
                   type="text"
                   name="institution_name"

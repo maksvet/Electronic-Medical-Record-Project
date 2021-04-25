@@ -235,12 +235,13 @@ const CareProviderUpdatePatientPage1 = (props) => {
 
       <h1>
         Care Provider Update Patient:{" "}
-        <span className="userName">{patient.name}</span>
+        <span className="userName">{patient.first_name}</span>
       </h1>
       <h2>Personal Details</h2>
       <Form onSubmit={handleSubmit2}>
         <Row className="py-2">
           <Col sm={4}>
+            <label>First Name</label>
             <Input
               type="text"
               name="first_name"
@@ -252,6 +253,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
           </Col>
 
           <Col sm={4}>
+            <label>Middle Name</label>
             <Input
               type="text"
               name="middle_name"
@@ -263,6 +265,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
           </Col>
 
           <Col sm={4}>
+            <label>Last Name</label>
             <Input
               type="text"
               name="last_name"
@@ -275,8 +278,8 @@ const CareProviderUpdatePatientPage1 = (props) => {
         </Row>
 
         <Row className="py-2">
-          <label>Date of Birth</label>
           <Col sm={2}>
+            <label>Date Of Birth</label>
             <Input
               type="date"
               name="dob"
@@ -288,6 +291,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
           </Col>
 
           <Col sm={2}>
+            <label>Gender</label>
             <FormControl
               as="select"
               className="mr-sm-2"
@@ -297,10 +301,10 @@ const CareProviderUpdatePatientPage1 = (props) => {
               onChange={handleChange2}
               custom
             >
-              <option value="0">Select Gender</option>
-              <option value="1">Male</option>
-              <option value="2">Female</option>
-              <option value="3">Non-Binary</option>
+              <option>{patient.gender}</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Non-Binary</option>
             </FormControl>
           </Col>
         </Row>
@@ -313,6 +317,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
       <Form onSubmit={handleSubmit1}>
         <Form.Row>
           <Form.Group as={Col}>
+            <label>Phone Number</label>
             <Form.Control
               type="tel"
               name="phone_number"
@@ -324,6 +329,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
           </Form.Group>
 
           <Form.Group as={Col}>
+            <label>Street Number</label>
             <Form.Control
               type="text"
               name="street_number"
@@ -335,6 +341,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
           </Form.Group>
 
           <Form.Group as={Col}>
+            <label>Street Name</label>
             <Form.Control
               type="text"
               name="street_name"
@@ -348,6 +355,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
 
         <Form.Row>
           <Form.Group as={Col}>
+            <label>City</label>
             <Form.Control
               type="text"
               name="city_town"
@@ -359,6 +367,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
           </Form.Group>
 
           <Form.Group as={Col}>
+            <label>Province</label>
             <Form.Control
               as="select"
               name="province_state"
@@ -366,7 +375,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
               defaultValue={patient.province_state}
               onChange={handleChange1}
             >
-              <option>Choose Province</option>
+              <option>{patient.province_state}</option>
               <option>Alberta</option>
               <option>British Columbia</option>
               <option>Manitoba</option>
@@ -384,6 +393,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
           </Form.Group>
 
           <Form.Group as={Col}>
+            <label>Country</label>
             <Form.Control
               as="select"
               name="country"
@@ -391,7 +401,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
               defaultValue={patient.country}
               onChange={handleChange1}
             >
-              <option>Choose Country</option>
+              <option>{patient.country}</option>
               <option>Canada</option>
               <option>USA</option>
             </Form.Control>
@@ -400,6 +410,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
 
         <Form.Row>
           <Form.Group as={Col}>
+            <label>Postal Code</label>
             <Form.Control
               type="text"
               name="postal_code"
@@ -411,6 +422,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
           </Form.Group>
 
           <Form.Group as={Col}>
+            <label>Email</label>
             <Form.Control
               // type="email"
               name="email"
@@ -422,6 +434,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
           </Form.Group>
 
           <Form.Group as={Col}>
+            <label>Fax</label>
             <Form.Control
               type="tel"
               name="fax"
@@ -441,6 +454,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
       <Form onSubmit={handleSubmit3}>
         <Form.Row>
           <Form.Group as={Col} sm={4}>
+            <label>Health Card Number</label>
             <Form.Control
               type="text"
               name="health_card_number"
@@ -453,6 +467,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
           </Form.Group>
 
           <Form.Group as={Col} sm={3}>
+            <label>Marital Status</label>
             <Form.Control
               as="select"
               name="marital_status"
@@ -460,7 +475,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
               defaultValue={patient.marital_status}
               onChange={handleChange3}
             >
-              <option>Choose Marital status</option>
+              <option>{patient.marital_status}</option>
               <option>Common Law</option>
               <option>Divorced</option>
               <option>Married</option>
@@ -473,6 +488,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
 
         <Form.Row>
           <Form.Group as={Col} sm={2}>
+            <label>Language</label>
             <Form.Control
               as="select"
               name="language"
@@ -480,7 +496,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
               defaultValue={patient.language}
               onChange={handleChange3}
             >
-              <option>Choose Language</option>
+              <option>{patient.language}</option>
               <option>English</option>
               <option>French</option>
               <option>Spanish</option>
@@ -489,6 +505,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
           </Form.Group>
 
           <Form.Group as={Col} sm={2}>
+            <label>Nationality</label>
             <Form.Control
               as="select"
               name="nationality"
@@ -496,7 +513,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
               defaultValue={patient.nationality}
               onChange={handleChange3}
             >
-              <option>Choose nationality</option>
+              <option>{patient.nationality}</option>
               <option>Canadian</option>
               <option>American</option>
               <option>English</option>
@@ -510,6 +527,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
           </Form.Group>
 
           <Form.Group as={Col} sm={2}>
+            <label>Religion</label>
             <Form.Control
               as="select"
               name="religion"
@@ -517,7 +535,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
               defaultValue={patient.religion}
               onChange={handleChange3}
             >
-              <option>Choose Religion</option>
+              <option>{patient.religion}</option>
               <option>Roman Catholicism</option>
               <option>Protestantism</option>
               <option>Islam</option>
@@ -528,6 +546,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
           </Form.Group>
 
           <Form.Group as={Col} sm={2}>
+            <label>Race</label>
             <Form.Control
               as="select"
               name="race"
@@ -535,7 +554,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
               defaultValue={patient.race}
               onChange={handleChange3}
             >
-              <option>Choose Race</option>
+              <option>{patient.race}</option>
               <option>Aboriginal</option>
               <option>Arab/West Asian</option>
               <option>Black</option>
@@ -554,6 +573,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
 
         <Form.Row>
           <Form.Group as={Col} sm={3}>
+            <label>Emergency Contact Number</label>
             <Form.Control
               type="text"
               name="emergency_contact_number"
@@ -565,6 +585,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
           </Form.Group>
 
           <Form.Group as={Col} sm={8}>
+            <label>Emergency Name</label>
             <Form.Control
               type="text"
               name="emergency_contact_name"
@@ -578,6 +599,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
 
         <Form.Row>
           <Form.Group as={Col}>
+            <label>Occupation</label>
             <Form.Control
               type="text"
               name="occupation"
@@ -589,6 +611,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
           </Form.Group>
 
           <Form.Group as={Col} sm={3}>
+            <label>Income</label>
             <Form.Control
               as="select"
               name="income_level"
@@ -596,7 +619,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
               defaultValue={patient.income_level}
               onChange={handleChange3}
             >
-              <option>Choose Income Level</option>
+              <option>{patient.income_level}</option>
               <option> below 20000</option>
               <option>20000-30000</option>
               <option>30000-50000</option>
@@ -606,6 +629,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
           </Form.Group>
 
           <Form.Group as={Col} sm={2}>
+            <label>Family Size</label>
             <Form.Control
               type="number"
               name="family_size"
@@ -626,6 +650,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
       <Form onSubmit={handleSubmit4}>
         <Row>
           <Form.Group as={Col}>
+            <label>Allergies</label>
             <Form.Control
               type="text"
               name="allergies"
@@ -637,6 +662,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
           </Form.Group>
 
           <Form.Group as={Col} sm={2}>
+            <label>Blood Type</label>
             <Form.Control
               as="select"
               name="blood_type"
@@ -644,7 +670,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
               defaultValue={patient.blood_type}
               onChange={handleChange4}
             >
-              <option>Blood Type</option>
+              <option>{patient.blood_type}</option>
               <option>A</option>
               <option>B</option>
               <option>AB</option>
@@ -655,6 +681,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
         </Row>
         <Row>
           <Form.Group as={Col}>
+            <label>Insurance Details</label>
             <Form.Control
               type="text"
               name="insurance_details"
@@ -666,6 +693,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
           </Form.Group>
 
           <Form.Group as={Col} sm={4}>
+            <label>Family Physician</label>
             <Form.Control
               type="text"
               name="family_physician"
@@ -679,6 +707,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
 
         <Form.Row>
           <Form.Group as={Col} sm={6}>
+            <label>Immunization Type</label>
             <Form.Control
               type="text"
               name="immunization_type"
@@ -690,6 +719,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
           </Form.Group>
 
           <Form.Group as={Col} sm={2}>
+            <label>Immunization Date</label>
             <Form.Control
               type="date"
               name="immunization_date"
@@ -701,6 +731,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
           </Form.Group>
 
           <Form.Group as={Col} sm={2}>
+            <label>Employee ID</label>
             <Form.Control
               type="number"
               name="employee_id"

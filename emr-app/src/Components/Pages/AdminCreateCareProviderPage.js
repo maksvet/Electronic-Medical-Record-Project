@@ -196,10 +196,10 @@ const AdminCreateCareProviderPage = () => {
               onChange={(e) => setGender(e.target.value)}
               custom
             >
-              <option value="0">Select Gender</option>
-              <option value="1">Male</option>
-              <option value="2">Female</option>
-              <option value="3">Non-Binary</option>
+              <option>Select Gender</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Non-Binary</option>
             </FormControl>
           </Col>
         </Row>

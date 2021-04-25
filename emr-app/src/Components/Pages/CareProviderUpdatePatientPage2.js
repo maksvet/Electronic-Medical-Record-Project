@@ -186,11 +186,12 @@ const CareProviderUpdatePatientPage2 = (props) => {
 
       <h1 className="ml-3">
         (Add Notes) Patient Name:{" "}
-        <span className="userName">{patient.name}</span>
+        <span className="userName">{patient.health_card_number}</span>
       </h1>
       <h2 className="ml-3">Patient Notes</h2>
       <Form onSubmit={handleSubmit5}>
         <Form.Group as={Col} sm={2}>
+          <label>Employee ID</label>
           <Form.Control
             type="text"
             name="employee_id"
@@ -200,6 +201,7 @@ const CareProviderUpdatePatientPage2 = (props) => {
           />
         </Form.Group>
         <Form.Group as={Col}>
+          <label>Patient Note</label>
           <Form.Control
             type="textarea"
             name="patient_note"
@@ -209,6 +211,7 @@ const CareProviderUpdatePatientPage2 = (props) => {
           />
         </Form.Group>
         <Form.Group as={Col} sm={3}>
+          <label>Date</label>
           <Form.Control
             type="date"
             name="date_stamp"
@@ -225,6 +228,7 @@ const CareProviderUpdatePatientPage2 = (props) => {
       <h2 className="ml-3">Diagnostic Images</h2>
       <Form onSubmit={handleSubmit6}>
         <Form.Group as={Col} sm={2}>
+          <label>Employee ID</label>
           <Form.Control
             type="text"
             name="employee_id"
@@ -234,6 +238,7 @@ const CareProviderUpdatePatientPage2 = (props) => {
           />
         </Form.Group>
         <Form.Group as={Col}>
+          <label>Diagnostic Image</label>
           <Form.Control
             type="file"
             name="diagnostic_image"
@@ -242,6 +247,7 @@ const CareProviderUpdatePatientPage2 = (props) => {
           />
         </Form.Group>
         <Form.Group as={Col} sm={3}>
+          <label>Date</label>
           <Form.Control
             type="date"
             name="date_stamp"
@@ -259,6 +265,7 @@ const CareProviderUpdatePatientPage2 = (props) => {
       <h2 className="ml-3">Lab Results</h2>
       <Form onSubmit={handleSubmit7}>
         <Form.Group as={Col}>
+          <label>Lab Result</label>
           <Form.Control
             type="file"
             name="lab_result"
@@ -268,6 +275,7 @@ const CareProviderUpdatePatientPage2 = (props) => {
           />
         </Form.Group>
         <Form.Group as={Col} sm={3}>
+          <label>Date</label>
           <Form.Control
             type="date"
             name="date_stamp"
@@ -285,6 +293,7 @@ const CareProviderUpdatePatientPage2 = (props) => {
       <h2 className="ml-3">Medication</h2>
       <Form onSubmit={handleSubmit8}>
         <Form.Group as={Col}>
+          <label>Medication</label>
           <Form.Control
             type="textarea"
             name="medication"
@@ -294,6 +303,7 @@ const CareProviderUpdatePatientPage2 = (props) => {
           />
         </Form.Group>
         <Form.Group as={Col} sm={3}>
+          <label>Date</label>
           <Form.Control
             type="date"
             name="date_stamp"
@@ -304,6 +314,7 @@ const CareProviderUpdatePatientPage2 = (props) => {
         </Form.Group>
         <Row>
           <Form.Group as={Col} className="ml-3">
+            <label>Prescription</label>
             <Form.Control
               type="text"
               name="prescription"
@@ -313,6 +324,7 @@ const CareProviderUpdatePatientPage2 = (props) => {
             />
           </Form.Group>
           <Form.Group as={Col} sm={3}>
+            <label>Date</label>
             <Form.Control
               type="date"
               name="last_filled_date"

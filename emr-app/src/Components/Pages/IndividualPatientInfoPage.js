@@ -66,7 +66,7 @@ const IndividualPatientInfoPage = (props) => {
       {patient.map((patient) => (
         <div key={patient.health_card_number}>
           <h1>
-            Patient name: <span className="userName">{patient.name}</span>
+            Patient name: <span className="userName">{patient.first_name}</span>
           </h1>
 
           <h2>Personal Details</h2>
