@@ -25,9 +25,10 @@ Note: When we do a push _.ENV_ file gets ignored.
 
 5. Navigate to the _emr.app_ directory.
 .
-5. Run the following command: >npm i to install dependencies
+5. Run the following command:<br/>
+ >npm i to install dependencies
 
-6. Run the following command:<be/>
+6. Run the following command:<br/>
 >npm start.
 
 7. The application will start on port _localhost:9001._
