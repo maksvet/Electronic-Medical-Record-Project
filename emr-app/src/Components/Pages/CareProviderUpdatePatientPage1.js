@@ -8,6 +8,7 @@ var token = sessionStorage.getItem("token");
 
 const CareProviderUpdatePatientPage1 = (props) => {
   const [patient, setPatient] = useState("");
+  var health_card_number = props.match.params.health_card_number;
 
   useEffect(() => {
     async function fetchData() {
@@ -76,7 +77,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
   });
 
   const handleChange1 = (event) => {
-    setContactInfo((prevState) => ({
+    setPersonalInfo((prevState) => ({
       ...prevState,
       [event.target.name]: event.target.value,
     }));
@@ -124,29 +125,31 @@ const CareProviderUpdatePatientPage1 = (props) => {
   const handleSubmit2 = async (event) => {
     alert("Successful Submit!");
     event.preventDefault();
+    const token = sessionStorage.getItem("token");
 
     console.log(personalInfo);
-    // const response = await fetch("http://localhost:4000/", {
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     first_name,
-    //     middle_name,
-    //     last_name,
-    //     dob,
-    //     gender,
-    //   }),
-    // });
+    const response = await fetch(
+      `http://localhost:9000/careprovider/update/${health_card_number}/person`,
+      {
+        method: "PUT",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(personalInfo),
+      }
+    );
 
-    // const payload = await response.json();
-    // if (response.status >= 400) {
-    //   alert(`Oops! Error ${response.status}:  ${payload.message}`);
-    // } else {
-    //   alert(`Congratulations! Submission submitted with id: ${payload.id}`);
-    // }
+    alert(JSON.stringify(personalInfo));
+    const payload = await response.json();
+    if (response.status >= 400) {
+      alert(`Oops! Error ${response.status}:  ${payload.message}`);
+    } else {
+      alert(`Congratulations! Submission submitted with id: ${payload.id}`);
+    }
   };
 
   const handleChange3 = (event) => {
@@ -235,6 +238,78 @@ const CareProviderUpdatePatientPage1 = (props) => {
         Care Provider Update Patient:{" "}
         <span className="userName">{patient.name}</span>
       </h1>
+      <h2>Personal Details</h2>
+      <Form onSubmit={handleSubmit2}>
+        <Row className="py-2">
+          <Col sm={4}>
+            <Input
+              type="text"
+              name="first_name"
+              id="first_name"
+              placeholder="Enter First Name"
+              defaultValue={patient.first_name}
+              onChange={handleChange2}
+            />
+          </Col>
+
+          <Col sm={4}>
+            <Input
+              type="text"
+              name="middle_name"
+              id="middle_name"
+              placeholder="Enter Middle Name"
+              defaultValue={patient.middle_name}
+              onChange={handleChange2}
+            />
+          </Col>
+
+          <Col sm={4}>
+            <Input
+              type="text"
+              name="last_name"
+              id="last_name"
+              placeholder="Enter Last Name"
+              defaultValue={patient.last_name}
+              onChange={handleChange2}
+            />
+          </Col>
+        </Row>
+
+        <Row className="py-2">
+          <label>Date of Birth</label>
+          <Col sm={2}>
+            <Input
+              type="date"
+              name="dob"
+              id="dob"
+              placeholder="Enter Date Of Birth"
+              defaultValue={patient.dob}
+              onChange={handleChange2}
+            />
+          </Col>
+
+          <Col sm={2}>
+            <FormControl
+              as="select"
+              className="mr-sm-2"
+              name="gender"
+              id="gender"
+              defaultValue={patient.gender}
+              onChange={handleChange2}
+              custom
+            >
+              <option value="0">Select Gender</option>
+              <option value="1">Male</option>
+              <option value="2">Female</option>
+              <option value="3">Non-Binary</option>
+            </FormControl>
+          </Col>
+        </Row>
+        <Button variant="primary" type="submit">
+          Update
+        </Button>
+      </Form>
+
       <h2>Contact Info</h2>
       <Form onSubmit={handleSubmit1}>
         <Form.Row>
@@ -338,7 +413,7 @@ const CareProviderUpdatePatientPage1 = (props) => {
 
           <Form.Group as={Col}>
             <Form.Control
-              type="email"
+              // type="email"
               name="email"
               placeholder="Enter email"
               id="email"
@@ -358,78 +433,6 @@ const CareProviderUpdatePatientPage1 = (props) => {
             />
           </Form.Group>
         </Form.Row>
-        <Button variant="primary" type="submit">
-          Update
-        </Button>
-      </Form>
-
-      <h2>Personal Details</h2>
-      <Form onSubmit={handleSubmit2}>
-        <Row className="py-2">
-          <Col sm={4}>
-            <Input
-              type="text"
-              name="first_name"
-              id="first_name"
-              placeholder="Enter First Name"
-              defaultValue={patient.first_name}
-              onChange={handleChange2}
-            />
-          </Col>
-
-          <Col sm={4}>
-            <Input
-              type="text"
-              name="middle_name"
-              id="middle_name"
-              placeholder="Enter Middle Name"
-              defaultValue={patient.middle_name}
-              onChange={handleChange2}
-            />
-          </Col>
-
-          <Col sm={4}>
-            <Input
-              type="text"
-              name="last_name"
-              id="last_name"
-              placeholder="Enter Last Name"
-              defaultValue={patient.last_name}
-              onChange={handleChange2}
-            />
-          </Col>
-        </Row>
-
-        <Row className="py-2">
-          <label>Date of Birth</label>
-          <Col sm={2}>
-            <Input
-              type="date"
-              name="dob"
-              id="dob"
-              placeholder="Enter Date Of Birth"
-              defaultValue={patient.dob}
-              onChange={handleChange2}
-            />
-          </Col>
-
-          <Col sm={2}>
-            <FormControl
-              as="select"
-              className="mr-sm-2"
-              name="gender"
-              id="gender"
-              defaultValue={patient.gender}
-              onChange={handleChange2}
-              custom
-            >
-              <option value="0">Select Gender</option>
-              <option value="1">Male</option>
-              <option value="2">Female</option>
-              <option value="3">Non-Binary</option>
-            </FormControl>
-          </Col>
-        </Row>
         <Button variant="primary" type="submit">
           Update
         </Button>
