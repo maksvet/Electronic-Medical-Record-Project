@@ -39,7 +39,7 @@ Note: these files are all in the folder emr-app > src > routes
 File Name: careprovider.js  
 Line Number: 35 - 41  
 
-  ```const sql1 = `INSERT INTO ${process.env.DBNAME}.contact_information (phone_number, street_number, street_name, city_town, province_state, country, postal_code, email, fax) VALUES ('${phone_number}', '${street_number}', '${street_name}', '${city_town}', '${province_state}', '${country}','${postal_code}', '${email}', ${fax});
+  const sql1 = `INSERT INTO ${process.env.DBNAME}.contact_information (phone_number, street_number, street_name, city_town, province_state, country, postal_code, email, fax) VALUES ('${phone_number}', '${street_number}', '${street_name}', '${city_town}', '${province_state}', '${country}','${postal_code}', '${email}', ${fax});
 `;
   const sql2 = `INSERT INTO ${process.env.DBNAME}.person ( first_name, last_name, middle_name, dob, gender, contact_id) VALUES ('${first_name}', '${last_name}', '${middle_name}', '${dob}', '${gender}', LAST_INSERT_ID());`;
 
@@ -52,7 +52,7 @@ Line Number: 57 - 62
   FROM ${process.env.DBNAME}.employee e 
       INNER JOIN ${process.env.DBNAME}.person p ON ( e.person_id = p.person_id)  
       INNER JOIN ${process.env.DBNAME}.admin a ON ( e.employee_id = a.employee_id)
-  WHERE e.isactive  = true;`;```
+  WHERE e.isactive  = true;`;
 
 
 **Related**
