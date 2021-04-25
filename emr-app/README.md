@@ -11,13 +11,13 @@ Electronic Medical Record System Group Project<br/>
 
 3. Go to the root folder emr.app and create an _.ENV_ file. Add the following information:<br/>
 
-	>PORT=9001
-	>REACT_APP_SERVERPORT=9000
-	>PRIVATEKEY="anykey"
-	>DBHOST= "localhost"
-	>DBUSER= "nodeclient"
-	>DBPASSWORD= "123456"
-	>DBNAME= "emrconn"
+	>PORT=9001<br/>
+	>REACT_APP_SERVERPORT=9000<br/>
+	>PRIVATEKEY="anykey"<br/>
+	>DBHOST= "localhost"<br/>
+	>DBUSER= "nodeclient"<br/>
+	>DBPASSWORD= "123456"<br/>
+	>DBNAME= "emrconn"<br/>
 
 Note: When we do a push _.ENV_ file gets ignored.
 
