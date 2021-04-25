@@ -27,9 +27,10 @@ Note: When we do a push _.ENV_ file gets ignored.
 .
 5. Run the following command: >npm i to install dependencies
 
-6. Run the following command: >npm start.
+6. Run the following command:<be/>
+>npm start.
 
-7. The application will start on port localhost:9001.
+7. The application will start on port _localhost:9001._
 
 
 **SQL Statements**<br/><br/>
