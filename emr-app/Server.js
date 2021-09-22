@@ -24,7 +24,7 @@ app.get("*", (req, res) => {
   return res.status(404).send(err.message);
 });
 
-const port = process.env.REACT_APP_SERVERPORT;
+const port = 9000;
 
 app.listen(port, () =>
   console.log(`Server started! listening on port ${port}...`)
